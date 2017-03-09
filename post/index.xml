@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Posts on My New Hugo Site </title>
+    <link>https://bytedaring.github.io/post/index.xml</link>
+    <language>en-us</language>
+    <author>Alexander Ivanov</author>
+    <updated>2017-03-09 21:53:22 &#43;0800 CST</updated>
+    
+    <item>
+      <title>希望的博客</title>
+      <link>https://bytedaring.github.io/post/first/</link>
+      <pubDate>Thu, 09 Mar 2017 21:53:22 CST</pubDate>
+      <author>Alexander Ivanov</author>
+      <guid>https://bytedaring.github.io/post/first/</guid>
+      <description>
+
+&lt;h3 id=&#34;我的博客&#34;&gt;我的博客&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;生命不止，折腾不息；&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;还是按捺不住爱折腾的心，搭建自己的博客。总感觉在博客园或者CSDN里写博客，少些什么似乎的，总觉得缺点什么。&lt;/p&gt;
+
+&lt;p&gt;寻寻觅觅，有许多可选的方案（Hexo，WordPress，Jekyll&amp;hellip;)，因为喜欢Golang的缘故，所以对Hugo有种特殊的感觉，也没有太多深入的比较，就选择Hugo了。&lt;/p&gt;
+
+&lt;p&gt;这就当我的第一篇博客了，不知道未来会有什么奇迹变化，但这是一个很好的开端。以后的博客都从这里开始了！要比
+&lt;a href=&#34;https://www.cnblogs.com/xiwang/&#34;&gt;博客园-墨梅&lt;/a&gt;
+更加勤奋才是！&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
