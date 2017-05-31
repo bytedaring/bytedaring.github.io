@@ -75,44 +75,6 @@
 <section class="post">
   <header class="post-header">
     <p class="post-infos">
-      <time datetime="2017-03-26T14:13:43&#43;08:00">26 Mar 2017, 14:13</time>
-      
-  
-  in: <a href="categories/react">react</a> 
-  
-
-  
-
-  
-
-
-    </p>
-    <h2><a href="/posts/schedule/">React.js 使用小结(开篇) </a></h2>
-  </header>
-  <div class="post-description">
-  
-     React.js 使用小结&mdash;-序
- 生命不止，奋斗不息
- 最近三个月，参与了一个企业后台管理系统的小项目，采用前后端分离架构。前端实现技术选型时，选择了React.js。因为之前由大量使用WPF，也接触函数式编程(F#)的经历，所以第一次接触到React.js时就感觉非常的亲切。至少相对于AnglarJS而言，让我感觉更加的舒服。由于这个项目之前，没有项目中实际应用React.js的经验（其他队友也没有这方面的经验），工期也比较紧，选择React.js还是由比较大的风险，所以也促使在具体技术方案的选择上，更加务实了。
-技术栈的选择  UI: Antd UI ， Ant Design 的 React 实现，开发和服务于企业级后台产品。 前端框架: dva ，一个基于 redux、redux-saga 和 react-router@2.x 的轻量级前端框架。  并且使用Antd Admin ，一个基于react，ant-design，dva，Mock 企业级后台管理系统最佳实践，基于Mock可以实现脱离后端独立开发，基于dva动态加载Model和路由按需加载，浅度响应式设计。
-这些技术可以很好的满足这个项目的需求，直达痛点。前后端同时开发、按需加载、响应式设计、前端UI，这些无疑都是我这个项目急需的特性。
-实现过程的反思 后端开发，选定Spring Boot框架，来简化Spring应用的初始搭建以及开发过程；使用Maven进行包管理，来提供Restful API供前端使用。
-由于是同时开发，原先预先定义的开发规则是: 后端的开发人员，先设计API接口，并使用Markdown编写API文档。前端根据API文档，使用Mock数据进行同步开发。通过这种方式来加快开发进度。
-理想很丰满，现实真的很骨感。开发过程中，问题不断。由于开发流程上缺乏有力的管理和约束，导致出现较大偏差。
-首先、后端开发，没有严格先设计API，而是先进行编码实现后，再来编写API文档。其次、部分队友抵触Markdown写文档，导致没有按照预先的格式编写，导致API文档即使写了，也很难阅读。最终的结果是，配合不顺，开发进度也没有预想的快。前端无法有效的沟通，后端开发人员浪费时间写了不可用和不及时的文档。前后端开发进度不一致，前端只能预设API来Mock数据，在最后联调时，出现大量接口不一致需要返工情形。此外，后端开发人员，开发出一个API接口后，没有做必要的测试工作，导致联调时，一个接口要反复几次，后端才能提供一个无误的接口。Bug的蔓延，导致影响不断扩大。
-现在开来，还是对一般程序员先设计再编码的开发方式太乐观了，也许Swagger API 是目前现状的一个不错的解决办法。
-此外，前后端，都没有引用测试用例，更别谈测试驱动开发（DDD）。大概上面的人，会认为项目太小没有必要，或是耽误开发进度的缘故。虽然测试驱动开发不是银弹，但也的确能解决一部分问题，重要的还是开发觉悟，即使不完全使用测试驱动开发，测试用例还是大有益处的，这个还是得加强影响。
-使用的技术小结 对这个项目中使用的技术，接下来计划做一个完整的梳理和总结，以每周3篇的速度进行。
- React组件的三种实现方式 Fetch 替代Ajax dva 框架 dva-loading redux-saga react-redux React stateless component 使用 this.refs HTML5 上传文件 React 一维码(react-barcode, JsBarcode ) HTML5 打印 Chrome调试JS技巧  
-    
-  
-  </div>
-</section>
-
-  
-<section class="post">
-  <header class="post-header">
-    <p class="post-infos">
       <time datetime="2017-03-09T21:53:22&#43;08:00">09 Mar 2017, 21:53</time>
       
 
