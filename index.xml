@@ -1,245 +1,61 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>My New Hugo Site on My New Hugo Site </title>
-    <link>https://bytedaring.github.io/index.xml</link>
+    <title>xiaoxiwang&#39;s blog</title>
+    <link>https://bytedaring.github.io/</link>
+    <description>Recent content on xiaoxiwang&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <author>Alexander Ivanov</author>
-    <updated>2017-03-31 13:42:17 &#43;0800 CST</updated>
+    <managingEditor>daring@outlook.com (xiaoxiwang)</managingEditor>
+    <webMaster>daring@outlook.com (xiaoxiwang)</webMaster>
+    <lastBuildDate>Fri, 31 Mar 2017 13:42:17 +0800</lastBuildDate>
+    
+	<atom:link href="https://bytedaring.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>[转] Go Slice 秘籍</title>
-      <link>https://bytedaring.github.io/post/go-slice/</link>
-      <pubDate>Fri, 31 Mar 2017 13:42:17 CST</pubDate>
-      <author>Alexander Ivanov</author>
-      <guid>https://bytedaring.github.io/post/go-slice/</guid>
-      <description>
-
-&lt;p&gt;Golang官方总结： &lt;a href=&#34;https://github.com/golang/go/wiki/SliceTricks&#34;&gt;Slice Tricks&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;由于引入了内建的&lt;code&gt;append&lt;/code&gt;的方法， 包&lt;code&gt;container/vector&lt;/code&gt;的很多方法都被移除，可以被内建的&lt;code&gt;append&lt;/code&gt;和&lt;code&gt;copy&lt;/code&gt;方法代替。&lt;/p&gt;
-
-&lt;p&gt;下面是栈vector的操作方法的实现，使用slice实现相关的操作。&lt;/p&gt;
-
-&lt;h2 id=&#34;1-append-vector&#34;&gt;1.  Append Vector&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a = append(a, b...)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;2-copy&#34;&gt;2.  Copy&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;b = make([]T, len(a))
-copy(b, a)
-//如果a不为空， 等效实现
-b = append([]T(nil), a...)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;3-cut&#34;&gt;3.  Cut&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a = append(a[:i], a[j:]...)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;4-delete&#34;&gt;4. Delete&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a = append(a[:i], a[i + 1]...)
-// 或者
-a = a[:i + copy(a[i:], a[i + 1])]	
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;5-delete-而不保持原有顺序&#34;&gt;5. Delete,而不保持原有顺序&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a[i] = a[len(a) - 1]
-a = a[:len(a) - 1]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：如果需要被GC回收的元素是一个指针，或者struct含有指针字段，上面的cut，delete实现可能就导致内存泄漏：一些元素的值会被a一直引用而不会被回收。下面的实现可以解决这个问题:&lt;/p&gt;
-
-&lt;h4 id=&#34;cut&#34;&gt;Cut&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;copy(a[i:], a[j:])
-for k,n := len(a)-j+i, len(a); k&amp;lt;n; k++ {
-  a[k] = nil
-}
-a = a[:len(a)-j+i]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;delete&#34;&gt;Delete&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;copy(a[i:], a[i+1:])
-a[len(a)-1] = nil
-a = a[:len(a)-1]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;delete-而不保持原来的顺序&#34;&gt;Delete 而不保持原来的顺序&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a[i] =a[len(a)-1]
-a[len(a)-1]=nil
-a = a[:len(a)-1]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;6-expand&#34;&gt;6.Expand&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a = append(a[:i], append(make([]T, j), a[i:]...)...)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;7-extend&#34;&gt;7.Extend&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a = append(a, make([]T, j)...)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;8-insert&#34;&gt;8.Insert&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a = append(a[:i], append([]T{x}, a[i:]...)...)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt; ： 第二个append使用自己的底层存储创建一个新的slice，然后复制a[:i]中的元素到这个slice中，然后再把这些元素复制回a。新slice的创建和第二次的复制通过另外一种方式避免：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;s = append(s, 0)
-copy(s[i+1:], s[i:])
-s[i] = x
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;9-insert-vector&#34;&gt;9. Insert Vector&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a = append(a[:i], append(b, a[i:]...)...)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;10-pop&#34;&gt;10. Pop&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;x, a  = a[len(a)-1], a[:len(a)-1]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;11-push&#34;&gt;11.  Push&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a = append(a, x)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;12-shift&#34;&gt;12. Shift&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;x, a := a[0], a[1:]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;13-unshift&#34;&gt;13. Unshift&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a = append([]T{x}, a...)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;14-其他技巧&#34;&gt;14.其他技巧&lt;/h3&gt;
-
-&lt;h4 id=&#34;无新内存分配的过滤&#34;&gt;无新内存分配的过滤&lt;/h4&gt;
-
-&lt;p&gt;这个技巧利用是： slice共享底层的array和存储容量。所以，在过滤slice时，会重用底层的存储。与此同时，底层存储的数据必然会被修改。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;b := a[:0]
-for _, x := range a {
-  if f(x) {
-    b = append(b, x)
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;反转&#34;&gt;反转&lt;/h4&gt;
-
-&lt;p&gt;使用相同的元素（不分配新的对象）替换slice中内容，并将其反序。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;for i:= len(a)/2 - 1; i &amp;gt;= 0; i--{
-    opp := len(a)-1-i
-    a[i], a[opp] = a[opp], a[i]
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;下面的代码实现同样的效果，只不过使用了两个索引变量&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;for left, right := 0, len(a)-1; left &amp;lt; right; left, right = left + 1, right -1 {
-    a[left] , r[right] = a[right], a[left]
-}
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <link>https://bytedaring.github.io/posts/go-slice/</link>
+      <pubDate>Fri, 31 Mar 2017 13:42:17 +0800</pubDate>
+      <author>daring@outlook.com (xiaoxiwang)</author>
+      <guid>https://bytedaring.github.io/posts/go-slice/</guid>
+      <description>Golang官方总结： Slice Tricks
+由于引入了内建的append的方法， 包container/vector的很多方法都被移除，可以被内建的append和copy方法代替。
+下面是栈vector的操作方法的实现，使用slice实现相关的操作。
+1. Append Vector a = append(a, b...)  2. Copy b = make([]T, len(a)) copy(b, a) //如果a不为空， 等效实现 b = append([]T(nil), a...)  3. Cut a = append(a[:i], a[j:]...)  4. Delete a = append(a[:i], a[i + 1]...) // 或者 a = a[:i + copy(a[i:], a[i + 1])]	 5. Delete,而不保持原有顺序 a[i] = a[len(a) - 1] a = a[:len(a) - 1]  注意：如果需要被GC回收的元素是一个指针，或者struct含有指针字段，上面的cut，delete实现可能就导致内存泄漏：一些元素的值会被a一直引用而不会被回收。下面的实现可以解决这个问题:</description>
     </item>
     
     <item>
       <title>React.js 使用小结(开篇)</title>
-      <link>https://bytedaring.github.io/post/schedule/</link>
-      <pubDate>Sun, 26 Mar 2017 14:13:43 CST</pubDate>
-      <author>Alexander Ivanov</author>
-      <guid>https://bytedaring.github.io/post/schedule/</guid>
-      <description>
-
-&lt;p&gt;React.js 使用小结&amp;mdash;-序&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;生命不止，奋斗不息&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;最近一两个月，参与了一个企业后台管理系统的小项目，采用前后端分离架构。前端实现技术选型时，在忐忑和兴奋中还是选择了React.js。因为之前由大量使用WPF，也接触函数式编程(F#)的经历，所以第一次接触到React.js时就感觉非常的亲切。至少相对于AnglarJS而言，让我感觉更加的舒服。由于这个项目之前，没有项目中实际应用React.js的经验（其他队友也没有这方面的经验），工期也比较紧，选择React.js还是由比较大的风险，所以也促使在具体技术方案的选择上，更加务实了。&lt;/p&gt;
-
-&lt;h3 id=&#34;技术栈的选择&#34;&gt;技术栈的选择&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;UI: &lt;a href=&#34;https://ant.design/index-cn&#34;&gt;Antd UI&lt;/a&gt; ， Ant Design 的 React 实现，开发和服务于企业级后台产品。&lt;/li&gt;
-&lt;li&gt;前端框架: &lt;a href=&#34;https://github.com/dvajs/dva&#34;&gt;dva&lt;/a&gt; ，一个基于 &lt;a href=&#34;https://github.com/reactjs/redux&#34;&gt;redux&lt;/a&gt;、&lt;a href=&#34;https://github.com/yelouafi/redux-saga&#34;&gt;redux-saga&lt;/a&gt; 和 &lt;a href=&#34;https://github.com/ReactTraining/react-router/tree/v2.8.1&#34;&gt;react-router@2.x&lt;/a&gt; 的轻量级前端框架。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;并且使用&lt;a href=&#34;https://github.com/zuiidea/antd-admin&#34;&gt;Antd Admin&lt;/a&gt; ，一个基于&lt;a href=&#34;https://github.com/facebook/react&#34;&gt;react&lt;/a&gt;，&lt;a href=&#34;https://github.com/ant-design/ant-design&#34;&gt;ant-design&lt;/a&gt;，&lt;a href=&#34;https://github.com/dvajs/dva&#34;&gt;dva&lt;/a&gt;，&lt;a href=&#34;https://github.com/nuysoft/Mock&#34;&gt;Mock&lt;/a&gt; 企业级后台管理系统最佳实践，基于Mock可以实现脱离后端独立开发，基于dva动态加载Model和路由按需加载，浅度响应式设计。&lt;/p&gt;
-
-&lt;p&gt;这些技术可以很好的满足这个项目的需求，直达痛点。前后端同时开发、按需加载、响应式设计、前端UI，这些无疑都是我这个项目急需的特性。&lt;/p&gt;
-
-&lt;h3 id=&#34;实现过程的反思&#34;&gt;实现过程的反思&lt;/h3&gt;
-
-&lt;p&gt;后端开发，选定Spring Boot框架，来简化Spring应用的初始搭建以及开发过程；使用Maven进行包管理，来提供Restful API供前端使用。&lt;/p&gt;
-
-&lt;p&gt;由于是同时开发，原先预先定义的开发规则是: 后端的开发人员，先设计API接口，并使用Markdown编写API文档。前端根据API文档，使用Mock数据进行同步开发。通过这种方式来加快开发进度。&lt;/p&gt;
-
-&lt;p&gt;理想很丰满，现实真的很骨感。开发过程中，问题不断。由于开发流程上缺乏有力的管理和约束，导致出现较大偏差。&lt;/p&gt;
-
-&lt;p&gt;首先、后端开发，没有严格先设计API，而是先进行编码实现后，再来编写API文档。其次、部分队友抵触Markdown写文档，导致没有按照预先的格式编写，导致API文档即使写了，也很难阅读。最终的结果是，配合不顺，开发进度也没有预想的快。前端无法有效的沟通，后端开发人员浪费时间写了不可用和不及时的文档。前后端开发进度不一致，前端只能预设API来Mock数据，在最后联调时，出现大量接口不一致需要返工情形。此外，后端开发人员，开发出一个API接口后，没有做必要的测试工作，导致联调时，一个接口要反复几次，后端才能提供一个无误的接口。Bug的蔓延，导致影响不断扩大。&lt;/p&gt;
-
-&lt;p&gt;现在开来，还是对一般程序员先设计再编码的开发方式太乐观了，也许&lt;a href=&#34;https://github.com/swagger-api/swagger-core&#34;&gt;Swagger API&lt;/a&gt; 是目前现状的一个不错的解决办法。&lt;/p&gt;
-
-&lt;p&gt;此外，前后端，都没有引用测试用例，更别谈测试驱动开发（DDD）。大概上面的人，会认为项目太小没有必要，或是耽误开发进度的缘故。虽然测试驱动开发不是银弹，但也的确能解决一部分问题，重要的还是开发觉悟，即使不完全使用测试驱动开发，测试用例还是大有益处的，这个还是得加强影响。&lt;/p&gt;
-
-&lt;h3 id=&#34;使用的技术小结&#34;&gt;使用的技术小结&lt;/h3&gt;
-
-&lt;p&gt;对这个项目中使用的技术，接下来计划做一个完整的梳理和总结，以每周3篇的速度进行。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;React组件的三种实现方式&lt;/li&gt;
-&lt;li&gt;Fetch 替代Ajax&lt;/li&gt;
-&lt;li&gt;dva 框架&lt;/li&gt;
-&lt;li&gt;dva-loading&lt;/li&gt;
-&lt;li&gt;redux-saga&lt;/li&gt;
-&lt;li&gt;react-redux&lt;/li&gt;
-&lt;li&gt;React stateless component 使用 this.refs&lt;/li&gt;
-&lt;li&gt;HTML5 上传文件&lt;/li&gt;
-&lt;li&gt;React 一维码(react-barcode, JsBarcode )&lt;/li&gt;
-&lt;li&gt;HTML5 打印&lt;/li&gt;
-&lt;li&gt;Chrome调试JS技巧&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <link>https://bytedaring.github.io/posts/schedule/</link>
+      <pubDate>Sun, 26 Mar 2017 14:13:43 +0800</pubDate>
+      <author>daring@outlook.com (xiaoxiwang)</author>
+      <guid>https://bytedaring.github.io/posts/schedule/</guid>
+      <description> React.js 使用小结&amp;mdash;-序
+ 生命不止，奋斗不息
+ 最近一两个月，参与了一个企业后台管理系统的小项目，采用前后端分离架构。前端实现技术选型时，在忐忑和兴奋中还是选择了React.js。因为之前由大量使用WPF，也接触函数式编程(F#)的经历，所以第一次接触到React.js时就感觉非常的亲切。至少相对于AnglarJS而言，让我感觉更加的舒服。由于这个项目之前，没有项目中实际应用React.js的经验（其他队友也没有这方面的经验），工期也比较紧，选择React.js还是由比较大的风险，所以也促使在具体技术方案的选择上，更加务实了。
+技术栈的选择  UI: Antd UI ， Ant Design 的 React 实现，开发和服务于企业级后台产品。 前端框架: dva ，一个基于 redux、redux-saga 和 react-router@2.x 的轻量级前端框架。  并且使用Antd Admin ，一个基于react，ant-design，dva，Mock 企业级后台管理系统最佳实践，基于Mock可以实现脱离后端独立开发，基于dva动态加载Model和路由按需加载，浅度响应式设计。
+这些技术可以很好的满足这个项目的需求，直达痛点。前后端同时开发、按需加载、响应式设计、前端UI，这些无疑都是我这个项目急需的特性。
+实现过程的反思 后端开发，选定Spring Boot框架，来简化Spring应用的初始搭建以及开发过程；使用Maven进行包管理，来提供Restful API供前端使用。
+由于是同时开发，原先预先定义的开发规则是: 后端的开发人员，先设计API接口，并使用Markdown编写API文档。前端根据API文档，使用Mock数据进行同步开发。通过这种方式来加快开发进度。
+理想很丰满，现实真的很骨感。开发过程中，问题不断。由于开发流程上缺乏有力的管理和约束，导致出现较大偏差。
+首先、后端开发，没有严格先设计API，而是先进行编码实现后，再来编写API文档。其次、部分队友抵触Markdown写文档，导致没有按照预先的格式编写，导致API文档即使写了，也很难阅读。最终的结果是，配合不顺，开发进度也没有预想的快。前端无法有效的沟通，后端开发人员浪费时间写了不可用和不及时的文档。前后端开发进度不一致，前端只能预设API来Mock数据，在最后联调时，出现大量接口不一致需要返工情形。此外，后端开发人员，开发出一个API接口后，没有做必要的测试工作，导致联调时，一个接口要反复几次，后端才能提供一个无误的接口。Bug的蔓延，导致影响不断扩大。
+现在开来，还是对一般程序员先设计再编码的开发方式太乐观了，也许Swagger API 是目前现状的一个不错的解决办法。
+此外，前后端，都没有引用测试用例，更别谈测试驱动开发（DDD）。大概上面的人，会认为项目太小没有必要，或是耽误开发进度的缘故。虽然测试驱动开发不是银弹，但也的确能解决一部分问题，重要的还是开发觉悟，即使不完全使用测试驱动开发，测试用例还是大有益处的，这个还是得加强影响。
+使用的技术小结 对这个项目中使用的技术，接下来计划做一个完整的梳理和总结，以每周3篇的速度进行。
+ React组件的三种实现方式 Fetch 替代Ajax dva 框架 dva-loading redux-saga react-redux React stateless component 使用 this.refs HTML5 上传文件 React 一维码(react-barcode, JsBarcode ) HTML5 打印 Chrome调试JS技巧  </description>
     </item>
     
     <item>
       <title>希望的博客</title>
-      <link>https://bytedaring.github.io/post/first/</link>
-      <pubDate>Thu, 09 Mar 2017 21:53:22 CST</pubDate>
-      <author>Alexander Ivanov</author>
-      <guid>https://bytedaring.github.io/post/first/</guid>
-      <description>
-
-&lt;h3 id=&#34;我的博客&#34;&gt;我的博客&lt;/h3&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;生命不止，折腾不息；&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;还是按捺不住爱折腾的心，搭建自己的博客。总感觉在博客园或者CSDN里写博客，少些什么似乎的，总觉得缺点什么。&lt;/p&gt;
-
-&lt;p&gt;寻寻觅觅，有许多可选的方案（Hexo，WordPress，Jekyll&amp;hellip;)，因为喜欢Golang的缘故，所以对Hugo有种特殊的感觉，也没有太多深入的比较，就选择Hugo了。&lt;/p&gt;
-
-&lt;p&gt;这就当我的第一篇博客了，不知道未来会有什么奇迹变化，但这是一个很好的开端。以后的博客都从这里开始了！要比
-&lt;a href=&#34;https://www.cnblogs.com/xiwang/&#34;&gt;博客园-墨梅&lt;/a&gt;
-更加勤奋才是！&lt;/p&gt;
-</description>
+      <link>https://bytedaring.github.io/posts/first/</link>
+      <pubDate>Thu, 09 Mar 2017 21:53:22 +0800</pubDate>
+      <author>daring@outlook.com (xiaoxiwang)</author>
+      <guid>https://bytedaring.github.io/posts/first/</guid>
+      <description>我的博客  生命不止，折腾不息；
+ 还是按捺不住爱折腾的心，搭建自己的博客。总感觉在博客园或者CSDN里写博客，少些什么似乎的，总觉得缺点什么。
+寻寻觅觅，有许多可选的方案（Hexo，WordPress，Jekyll&amp;hellip;)，因为喜欢Golang的缘故，所以对Hugo有种特殊的感觉，也没有太多深入的比较，就选择Hugo了。
+这就当我的第一篇博客了，不知道未来会有什么奇迹变化，但这是一个很好的开端。以后的博客都从这里开始了！要比 博客园-墨梅 更加勤奋才是！</description>
     </item>
     
   </channel>
