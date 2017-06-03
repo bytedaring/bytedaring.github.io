@@ -3,41 +3,70 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://bytedaring.github.io/posts/go-slice/</loc>
+    <loc>http://bytedaring.github.io/2017/03/31/%E8%BD%AC-Go-Slice-%E7%A7%98%E7%B1%8D/</loc>
     <lastmod>2017-03-31T13:42:17+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/posts/first/</loc>
+    <loc>http://bytedaring.github.io/2017/03/09/%E5%B8%8C%E6%9C%9B%E7%9A%84%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2017-03-09T21:53:22+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/categories/</loc>
+    <loc>http://bytedaring.github.io/about/</loc>
+    <lastmod>2017-01-01T12:04:27+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://bytedaring.github.io/about/</loc>
+    <lastmod>2017-01-01T12:04:27+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/tags/go/</loc>
+    <loc>http://bytedaring.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://bytedaring.github.io/tags/go/</loc>
     <lastmod>2017-03-31T13:42:17+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/posts/</loc>
+    <loc>http://bytedaring.github.io/posts/</loc>
     <lastmod>2017-03-31T13:42:17+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/tags/</loc>
+    <loc>http://bytedaring.github.io/tags/</loc>
     <lastmod>2017-03-31T13:42:17+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/</loc>
+    <loc>http://bytedaring.github.io/</loc>
     <lastmod>2017-03-31T13:42:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://bytedaring.github.io/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/</loc>
+    <lastmod>2017-01-01T12:04:27+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/</loc>
+    <lastmod>2017-03-31T13:42:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://bytedaring.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2017-03-09T21:53:22+08:00</lastmod>
     <priority>0</priority>
   </url>
   

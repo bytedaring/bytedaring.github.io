@@ -12,40 +12,38 @@
         }
     }
   </script>
-  <title>404 Page not found - bytedaring blog</title>
+  <title>[转] Go Slice 秘籍 - bytedaring blog</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<meta name="description" content="404 Page not found">
+<meta name="description" content="Golang官方总结： Slice Tricks 由于引入了内建的append的方法， 包container/vector的很多方法都被移除，可以被内建的append">
 <meta name="author" content="coderzh">
 <meta name="publisher" content="coderzh">
 <meta name="generator" content="http://gohugo.io/"/>
 
-<meta itemprop="name" content="404 Page not found - bytedaring blog">
-<meta itemprop="description" content="404 Page not found">
+<meta itemprop="name" content="[转] Go Slice 秘籍 - bytedaring blog">
+<meta itemprop="description" content="Golang官方总结： Slice Tricks 由于引入了内建的append的方法， 包container/vector的很多方法都被移除，可以被内建的append">
 <meta itemprop="image" content="http://bytedaring.github.io/public/xiwang-home.jpeg">
 
-<meta property="og:title" content="404 Page not found - bytedaring blog" />
+<meta property="og:title" content="[转] Go Slice 秘籍 - bytedaring blog" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="" />
+<meta property="og:url" content="http://bytedaring.github.io/2017/03/31/%E8%BD%AC-Go-Slice-%E7%A7%98%E7%B1%8D/" />
 <meta property="og:image" content="http://bytedaring.github.io/public/xiwang-home.jpeg" />
-<meta property="og:description" content="404 Page not found">
+<meta property="og:description" content="Golang官方总结： Slice Tricks 由于引入了内建的append的方法， 包container/vector的很多方法都被移除，可以被内建的append">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@coderzh">
-<meta name="twitter:title" content="404 Page not found - bytedaring blog">
-<meta name="twitter:description" content="404 Page not found">
+<meta name="twitter:title" content="[转] Go Slice 秘籍 - bytedaring blog">
+<meta name="twitter:description" content="Golang官方总结： Slice Tricks 由于引入了内建的append的方法， 包container/vector的很多方法都被移除，可以被内建的append">
 <meta name="twitter:creator" content="@coderzh">
 <meta name="twitter:image" content="http://bytedaring.github.io/public/xiwang-home.jpeg">
 
   <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
-  <link rel="canonical" href="">
-  <link rel='shortlink' href=""/>
+  <link rel="canonical" href="http://bytedaring.github.io/2017/03/31/%E8%BD%AC-Go-Slice-%E7%A7%98%E7%B1%8D/">
+  <link rel='shortlink' href="http://bytedaring.github.io/2017/03/31/%E8%BD%AC-Go-Slice-%E7%A7%98%E7%B1%8D/"/>
   <link rel="shortcut icon" href="http://bytedaring.github.io/public/favicon.ico"/>
   
- <link href="http://bytedaring.github.io/feed.xml" rel="alternate" type="application/rss+xml" title="bytedaring blog" />
-
 <link rel="stylesheet" id="human-style-css" href="http://bytedaring.github.io/wp-content/themes/hueman/style.css" type="text/css" media="all"/>
 <link rel="stylesheet" id="human-style-css2" href="http://bytedaring.github.io/wp-content/themes/hueman-child/style.css" type="text/css" media="all"/>
 <link rel="stylesheet" id="responsive-css" href="http://bytedaring.github.io/wp-content/themes/hueman/responsive.css" type="text/css" media="all"/>
@@ -65,8 +63,7 @@
 
 </head>
 
-<body class="archive category col-3cm full-width topbar-enabled chrome">
-
+<body class="single single-post single-format-standard col-3cm full-width topbar-enabled chrome">
 <div id="wrapper">
   <header id="header">
 
@@ -162,10 +159,206 @@
       <div class="main">
         <div class="main-inner group">
           <section class="content">
-            <div class="pad group" style="width:560px; margin:0 auto;">
-                <h1>Post or Page not found - Error 404 :-(</h1>
+            <div class="page-title pad group">
+              <ul class="meta-single group">
+                
+                <li class="category">
+                  <a href="http://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/" rel="category tag">技术文章</a>
+                </li>
+                
+              </ul>
             </div>
 
+            <div class="pad group">
+
+              <article
+                  class="post type-post status-publish format-standard has-post-thumbnail hentry category-australien tag-bondi-beach tag-city2surf tag-sydney">
+                <div class="post-inner group">
+
+                  <h1 class="post-title">[转] Go Slice 秘籍</h1>
+
+                  <p class="post-byline">
+                    by  · 2017年03月31日 · 691 Words ·
+                    ~2min reading time |
+                    <a href="https://github.com/coderzh/coderzh-hugo-blog/blob/master/content/posts/go-slice.md"
+                       target="_blank">Improve on <i class="fa fa-github"></i></a>
+                  </p>
+
+                  <div class="clear"></div>
+
+                  <div class="entry">
+                    <div class="entry-inner">
+                      
+                      
+
+<p>Golang官方总结： <a href="https://github.com/golang/go/wiki/SliceTricks">Slice Tricks</a></p>
+
+<p>由于引入了内建的<code>append</code>的方法， 包<code>container/vector</code>的很多方法都被移除，可以被内建的<code>append</code>和<code>copy</code>方法代替。</p>
+
+<p>下面是栈vector的操作方法的实现，使用slice实现相关的操作。</p>
+
+<h2 id="1-append-vector">1.  Append Vector</h2>
+
+<pre><code class="language-go">a = append(a, b...)
+</code></pre>
+
+<h3 id="2-copy">2.  Copy</h3>
+
+<pre><code class="language-go">b = make([]T, len(a))
+copy(b, a)
+//如果a不为空， 等效实现
+b = append([]T(nil), a...)
+</code></pre>
+
+<h3 id="3-cut">3.  Cut</h3>
+
+<pre><code class="language-go">a = append(a[:i], a[j:]...)
+</code></pre>
+
+<h3 id="4-delete">4. Delete</h3>
+
+<pre><code class="language-go">a = append(a[:i], a[i + 1]...)
+// 或者
+a = a[:i + copy(a[i:], a[i + 1])]	
+</code></pre>
+
+<h3 id="5-delete-而不保持原有顺序">5. Delete,而不保持原有顺序</h3>
+
+<pre><code class="language-go">a[i] = a[len(a) - 1]
+a = a[:len(a) - 1]
+</code></pre>
+
+<p><strong>注意</strong>：如果需要被GC回收的元素是一个指针，或者struct含有指针字段，上面的cut，delete实现可能就导致内存泄漏：一些元素的值会被a一直引用而不会被回收。下面的实现可以解决这个问题:</p>
+
+<h4 id="cut">Cut</h4>
+
+<pre><code class="language-go">copy(a[i:], a[j:])
+for k,n := len(a)-j+i, len(a); k&lt;n; k++ {
+  a[k] = nil
+}
+a = a[:len(a)-j+i]
+</code></pre>
+
+<h4 id="delete">Delete</h4>
+
+<pre><code class="language-go">copy(a[i:], a[i+1:])
+a[len(a)-1] = nil
+a = a[:len(a)-1]
+</code></pre>
+
+<h4 id="delete-而不保持原来的顺序">Delete 而不保持原来的顺序</h4>
+
+<pre><code class="language-go">a[i] =a[len(a)-1]
+a[len(a)-1]=nil
+a = a[:len(a)-1]
+</code></pre>
+
+<h3 id="6-expand">6.Expand</h3>
+
+<pre><code class="language-go">a = append(a[:i], append(make([]T, j), a[i:]...)...)
+</code></pre>
+
+<h3 id="7-extend">7.Extend</h3>
+
+<pre><code class="language-go">a = append(a, make([]T, j)...)
+</code></pre>
+
+<h3 id="8-insert">8.Insert</h3>
+
+<pre><code class="language-go">a = append(a[:i], append([]T{x}, a[i:]...)...)
+</code></pre>
+
+<p><strong>注意</strong> ： 第二个append使用自己的底层存储创建一个新的slice，然后复制a[:i]中的元素到这个slice中，然后再把这些元素复制回a。新slice的创建和第二次的复制通过另外一种方式避免：</p>
+
+<pre><code class="language-go">s = append(s, 0)
+copy(s[i+1:], s[i:])
+s[i] = x
+</code></pre>
+
+<h3 id="9-insert-vector">9. Insert Vector</h3>
+
+<pre><code class="language-go">a = append(a[:i], append(b, a[i:]...)...)
+</code></pre>
+
+<h3 id="10-pop">10. Pop</h3>
+
+<pre><code class="language-go">x, a  = a[len(a)-1], a[:len(a)-1]
+</code></pre>
+
+<h3 id="11-push">11.  Push</h3>
+
+<pre><code class="language-go">a = append(a, x)
+</code></pre>
+
+<h3 id="12-shift">12. Shift</h3>
+
+<pre><code class="language-go">x, a := a[0], a[1:]
+</code></pre>
+
+<h3 id="13-unshift">13. Unshift</h3>
+
+<pre><code class="language-go">a = append([]T{x}, a...)
+</code></pre>
+
+<h3 id="14-其他技巧">14.其他技巧</h3>
+
+<h4 id="无新内存分配的过滤">无新内存分配的过滤</h4>
+
+<p>这个技巧利用是： slice共享底层的array和存储容量。所以，在过滤slice时，会重用底层的存储。与此同时，底层存储的数据必然会被修改。</p>
+
+<pre><code class="language-go">b := a[:0]
+for _, x := range a {
+  if f(x) {
+    b = append(b, x)
+  }
+}
+</code></pre>
+
+<h4 id="反转">反转</h4>
+
+<p>使用相同的元素（不分配新的对象）替换slice中内容，并将其反序。</p>
+
+<pre><code class="language-go">for i:= len(a)/2 - 1; i &gt;= 0; i--{
+    opp := len(a)-1-i
+    a[i], a[opp] = a[opp], a[i]
+}
+</code></pre>
+
+<p>下面的代码实现同样的效果，只不过使用了两个索引变量</p>
+
+<pre><code class="language-go">for left, right := 0, len(a)-1; left &lt; right; left, right = left + 1, right -1 {
+    a[left] , r[right] = a[right], a[left]
+}
+</code></pre>
+
+                      
+                    </div>
+                    <div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+                        <div style="float:left;margin-top:0px;">
+                        <img src="http://bytedaring.github.io/public/qrcode.png" width="129px" height="129px"/>
+                        <div style="text-align:center;">扫一扫</div>
+                        </div>
+                        <div>
+                            <p style="margin-top:0px;">作者：<a target="_blank" href="http://blog.coderzh.com/">bytedaring</a>
+                            
+                            <br />本文出处：<a target="_blank" href="http://bytedaring.github.io/2017/03/31/%E8%BD%AC-Go-Slice-%E7%A7%98%E7%B1%8D/">http://bytedaring.github.io/2017/03/31/%E8%BD%AC-Go-Slice-%E7%A7%98%E7%B1%8D/</a>
+                            <br />
+                            原创文章版权归本人所有，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文连接，否则保留追究法律责任的权利。 </p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+                  
+
+                </div>
+                
+              </article>
+              
+              <div class="clear"></div>
+              
+              
+              
+            </div>
           </section>
           <div class="sidebar s1">
   <a class="sidebar-toggle" title="Expand Sidebar"><i class="fa icon-sidebar-toggle"></i></a>
@@ -189,6 +382,20 @@
     <p> 扫一扫：<br>github: bytedaring <br /></p>
 </div>
 
+    <ul class="post-nav group">
+      <li class="next">
+        
+        <a href="http://bytedaring.github.io/2017/03/09/%E5%B8%8C%E6%9C%9B%E7%9A%84%E5%8D%9A%E5%AE%A2/" rel="next">
+          <i class="fa fa-chevron-right"></i>
+          <strong>Next post</strong>
+          <span>希望的博客</span>
+        </a>
+        
+      </li>
+      <li class="previous">
+        
+      </li>
+    </ul>
     <div id="search-2" class="widget widget_search"><h3>Search</h3>
       <form method="get" class="searchform themeform" action="https://www.google.com/search">
         <div>
@@ -197,6 +404,7 @@
       </form>
     </div>
   </div>
+  
 </div>
 
           <div class="sidebar s2">

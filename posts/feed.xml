@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on bytedaring blog</title>
+    <link>http://bytedaring.github.io/posts/</link>
+    <description>Recent content in Posts on bytedaring blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright (c) 2015. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 31 Mar 2017 13:42:17 +0800</lastBuildDate>
+    
+	<atom:link href="http://bytedaring.github.io/posts/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[转] Go Slice 秘籍</title>
+      <link>http://bytedaring.github.io/2017/03/31/%E8%BD%AC-Go-Slice-%E7%A7%98%E7%B1%8D/</link>
+      <pubDate>Fri, 31 Mar 2017 13:42:17 +0800</pubDate>
+      
+      <guid>http://bytedaring.github.io/2017/03/31/%E8%BD%AC-Go-Slice-%E7%A7%98%E7%B1%8D/</guid>
+      <description>Golang官方总结： Slice Tricks 由于引入了内建的append的方法， 包container/vector的很多方法都被移除，可以被内建的append</description>
+    </item>
+    
+    <item>
+      <title>希望的博客</title>
+      <link>http://bytedaring.github.io/2017/03/09/%E5%B8%8C%E6%9C%9B%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Thu, 09 Mar 2017 21:53:22 +0800</pubDate>
+      
+      <guid>http://bytedaring.github.io/2017/03/09/%E5%B8%8C%E6%9C%9B%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
+      <description>我的博客 生命不止，折腾不息； 还是按捺不住爱折腾的心，搭建自己的博客。总感觉在博客园或者CSDN里写博客，少些什么似乎的，总觉得缺点什么。 寻寻</description>
+    </item>
+    
+  </channel>
+</rss>
