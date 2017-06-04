@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <base href="https://bytedaring.github.io/">
+  <script>
+    document._writeOriginal = document.write;
+    document.write = function(str) {
+        if (str.indexOf('livereload.js') > -1) {
+            document._writeOriginal(str);
+        } else {
+            document._writeOriginal('<!-- Be Hijack!! -->');
+        }
+    }
+  </script>
+  <title>使用React写一个简单的Chrome插件 - bytedaring blog</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="keywords" content="xxx,">
+<meta name="description" content="当你手中只有一把锤子的时候，你就会把所有的问题都看成钉子。 Google Chrome,Google公司开发的一款设计简单、高效的Web浏览器。Chrom">
+<meta name="author" content="coderzh">
+<meta name="publisher" content="coderzh">
+<meta name="generator" content="http://gohugo.io/"/>
+
+<meta itemprop="name" content="使用React写一个简单的Chrome插件 - bytedaring blog">
+<meta itemprop="description" content="当你手中只有一把锤子的时候，你就会把所有的问题都看成钉子。 Google Chrome,Google公司开发的一款设计简单、高效的Web浏览器。Chrom">
+<meta itemprop="image" content="https://bytedaring.github.io/public/xiwang-home.jpeg">
+
+<meta property="og:title" content="使用React写一个简单的Chrome插件 - bytedaring blog" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bytedaring.github.io/post/create-qrcode-by-react/" />
+<meta property="og:image" content="https://bytedaring.github.io/public/xiwang-home.jpeg" />
+<meta property="og:description" content="当你手中只有一把锤子的时候，你就会把所有的问题都看成钉子。 Google Chrome,Google公司开发的一款设计简单、高效的Web浏览器。Chrom">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@coderzh">
+<meta name="twitter:title" content="使用React写一个简单的Chrome插件 - bytedaring blog">
+<meta name="twitter:description" content="当你手中只有一把锤子的时候，你就会把所有的问题都看成钉子。 Google Chrome,Google公司开发的一款设计简单、高效的Web浏览器。Chrom">
+<meta name="twitter:creator" content="@coderzh">
+<meta name="twitter:image" content="https://bytedaring.github.io/public/xiwang-home.jpeg">
+
+  <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
+  <link rel="canonical" href="https://bytedaring.github.io/post/create-qrcode-by-react/">
+  <link rel='shortlink' href="https://bytedaring.github.io/post/create-qrcode-by-react/"/>
+  <link rel="shortcut icon" href="https://bytedaring.github.io/public/favicon.ico"/>
+  
+<link rel="stylesheet" id="human-style-css" href="https://bytedaring.github.io/wp-content/themes/hueman/style.css" type="text/css" media="all"/>
+<link rel="stylesheet" id="human-style-css2" href="https://bytedaring.github.io/wp-content/themes/hueman-child/style.css" type="text/css" media="all"/>
+<link rel="stylesheet" id="responsive-css" href="https://bytedaring.github.io/wp-content/themes/hueman/responsive.css" type="text/css" media="all"/>
+<link rel="stylesheet" id="font-awesome-css" href="https://bytedaring.github.io/wp-content/themes/hueman/fonts/font-awesome.min.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="https://bytedaring.github.io/public/highlight/styles/github.css">
+<script src="https://bytedaring.github.io/public/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link rel="stylesheet" id="human-style-css3" href="https://bytedaring.github.io/wp-content/themes/hueman-child/user.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="public/font/hack/css/hack.min.css">
+
+<script type="text/javascript" src="assets/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="wp-content/themes/hueman/js/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="wp-content/themes/hueman/js/scripts.js"></script>
+<script type="text/javascript" src="assets/picturefill/picturefill.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.matchHeight-min.js"></script>
+<script type="text/javascript" async defer src="assets/js/myblog.js"></script>
+
+</head>
+
+<body class="single single-post single-format-standard col-3cm full-width topbar-enabled chrome">
+<div id="wrapper">
+  <header id="header">
+
+  <nav class="nav-container group" id="nav-topbar">
+    <div class="nav-toggle"><i class="fa fa-bars"></i></div>
+    <div class="nav-text"></div>
+    <div class="nav-wrap container">
+      <a rel="nofollow" href="https://bytedaring.github.io/" class="nav-cs-icon">
+        <img src="https://bytedaring.github.io/public/xiwang-home.jpeg" alt="coderzh" title="Home">
+      </a>
+      <ul id="menu-default-menu" class="nav container-inner group">
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/">首页</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/">思考感悟</a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/post/">归档</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/about/">关于我</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/feed.xml" type="application/rss+xml" target="_blank">订阅</a>
+        </li>
+        <li class="menu-item menu-item-type-post_type menu-item-text">
+        程序员的心路历程
+        </li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <div class="container-inner">
+        <div class="toggle-search"><i class="fa fa-search"></i></div>
+        <div class="search-expand">
+          <div class="search-expand-inner">
+            <form method="get" class="searchform themeform" action="https://www.google.com/search">
+              <div>
+                <input type="text" class="search" name="q" placeholder="Press enter to start searching">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+
+  </nav>
+  
+
+  <div class="container group">
+    <div class="container-inner">
+
+      <div class="group pad">
+
+        <div class="group pad">
+          <h1 class="site-title">
+            <a rel="nofollow" href="https://bytedaring.github.io/" rel="home">
+              <img style="border-radius: 20%;width: 54px;height: 72px;margin:0 auto;" alt="coderzh" src="https://bytedaring.github.io/public/xiwang-home.jpeg"></img>
+              bytedaring blog
+            </a>
+          </h1>
+          <p class="site-description"> 勿忘初心，知行合一！ </p>
+        </div>
+
+      </div>
+    </div>
+    
+  </div>
+  
+
+</header>
+
+
+
+  <div class="container" id="page">
+    <div class="container-inner">
+      <div class="main">
+        <div class="main-inner group">
+          <section class="content">
+            <div class="page-title pad group">
+              <ul class="meta-single group">
+                
+                <li class="category">
+                  <a href="https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/" rel="category tag">技术文章</a>
+                </li>
+                
+              </ul>
+            </div>
+
+            <div class="pad group">
+
+              <article
+                  class="post type-post status-publish format-standard has-post-thumbnail hentry category-australien tag-bondi-beach tag-city2surf tag-sydney">
+                <div class="post-inner group">
+
+                  <h1 class="post-title">使用React写一个简单的Chrome插件</h1>
+
+                  <p class="post-byline">
+                    by  · 2017年06月04日 · 1811 Words ·
+                    ~4min reading time |
+                    <a href="https://github.com/coderzh/coderzh-hugo-blog/blob/master/content/post/create-qrcode-by-react.md"
+                       target="_blank">Improve on <i class="fa fa-github"></i></a>
+                  </p>
+
+                  <div class="clear"></div>
+
+                  <div class="entry">
+                    <div class="entry-inner">
+                      
+                      
+
+<blockquote>
+<p>当你手中只有一把锤子的时候，你就会把所有的问题都看成钉子。</p>
+</blockquote>
+
+<p>Google Chrome,Google公司开发的一款设计简单、高效的Web浏览器。Chrome不仅页面渲染速度快，Javascript执行速度快，而且更重要的是支持开发者为其编写各种各样的扩展来扩充其功能。</p>
+
+<p>这里将要描述的就是为Chrome编写一个插件：使用当前网页地址生成二维码。</p>
+
+<p>给chrome编写插件还是非常容易的事情，这里会使用到react.js（使用react，仅仅是因为，我最近对它很感兴趣）。</p>
+
+<h2 id="一-新建一个基本react-app">一、新建一个基本React APP</h2>
+
+<p>使用<a href="https://github.com/facebookincubator/create-react-app">create-react-app</a>来新建React应用是一个非常不错的选择。</p>
+
+<pre><code>$ create-ract-app react-qr
+
+Creating a new React app in /Users/xiaoxiwang/Documents/demo/react-qr.
+
+Installing packages. This might take a couple minutes.
+Installing react, react-dom, and react-scripts...
+
+yarn add v0.24.5
+info No lockfile found.
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 📃  Building fresh packages...
+success Saved lockfile.
+success Saved 878 new dependencies.
+...
+
+</code></pre>
+
+<p>新建完成后生成的文件目录如下：</p>
+
+<pre><code>➜  react-qr tree -L 1
+.
+├── README.md
+├── node_modules
+├── package.json
+├── public
+├── src
+└── yarn.lock
+</code></pre>
+
+<p>此时，运行命令：</p>
+
+<pre><code>$ cd react-qr 
+$ yarn start
+</code></pre>
+
+<p>如果顺利将可以在浏览器中，看到一个最简单的Create APP。</p>
+
+<p>清除react-react-app生成的默认样式和内容，为下一步做准备。</p>
+
+<h2 id="二-新建插件">二、新建插件</h2>
+
+<blockquote>
+<p>Chrome扩展是用于扩充Chrome浏览器功能的程序，是一系列文件的集合，这些文件包括HTML文件、CSS样式文件、JavaScript脚本文件、图片等静态文件以及manifest.json。扩展被安装后，Chrome就会读取扩展中的manifest.json文件。这个文件的文件名固定为manifest.json，内容是按照一定格式描述的扩展相关信息，如扩展名称、版本、更新地址、请求的权限、扩展的UI界面入口等等</p>
+</blockquote>
+
+<h3 id="添加插件配置">添加插件配置</h3>
+
+<p>在public文件夹下新建一个名为manifest.json的文件， 如下：</p>
+
+<pre><code>{
+    &quot;manifest_version&quot;: 2,
+    &quot;name&quot;: &quot;QR Code&quot;,
+    &quot;description&quot;: &quot;Generate QR Code&quot;,
+    &quot;version&quot;: &quot;0.1&quot;,
+    &quot;icons&quot;: {
+        &quot;16&quot;: &quot;./favicon.png&quot;,
+        &quot;48&quot;: &quot;./favicon.png&quot;,
+        &quot;128&quot;: &quot;./favicon.png&quot;
+    },
+    &quot;browser_action&quot;: {
+        &quot;default_icon&quot;: {
+            &quot;19&quot;: &quot;./favicon.png&quot;,
+            &quot;38&quot;: &quot;./favicon.png&quot;
+        },
+        &quot;default_popup&quot;: &quot;index.html&quot;,
+        &quot;default_title&quot;: &quot;Generate QRCode&quot;
+    },
+    &quot;permissions&quot;: [
+        &quot;activeTab&quot;
+    ]
+}
+</code></pre>
+
+<p>上面的配置中，name定义的扩展名称，version定义扩展版本，description定义扩展的描述，icons则定义的扩展使用的图标及其位置。borowser_action指定了扩展在工具栏中的行为，工具栏中的图标(default_icon)、鼠标悬停插件时的标题(default_title)以及用户点击扩展时显示的页面所在位置(deafult_popup)。</p>
+
+<h3 id="添加二维码">添加二维码</h3>
+
+<p><a href="https://github.com/zpao/qrcode.react">qrcode.react</a>是一个生成二维码的React组件。
+添加依赖</p>
+
+<pre><code>$ yarn add qrcode.react
+</code></pre>
+
+<p>现在编辑App.js, 添加二维码。</p>
+
+<pre><code class="language-javascript">import React, { Component } from 'react';
+import './App.css';
+import QRCode from 'qrcode.react'
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { url: '' }
+  }
+
+  renderStatus(url) {
+    this.setState({ url })
+  }
+
+  render() {
+    const { url } = this.state
+    return (
+      &lt;div&gt;
+        &lt;div&gt;QRCode&lt;/div&gt;
+        &lt;div className=&quot;url&quot;&gt;
+          {url}
+        &lt;/div&gt;
+        &lt;QRCode value={url} size={270} /&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+export default App;
+
+</code></pre>
+
+<p>二维码的初始值是为空, 大小为270px。文本显示的URL地址，这里使用了一个样式‘url’，定义在APP.css文件中：</p>
+
+<pre><code class="language-css">.url{
+  width: 270px;
+  text-overflow: ellipsis;
+  white-space: pre;
+  overflow: hidden;
+  font-size: 14px;
+  color: #888
+}
+</code></pre>
+
+<p>url宽度设置为270px，超出部分自动使用‘&hellip;’替代。</p>
+
+<p>现在生成的二维码是一个空字符串，可以在插件页面渲染成功后，获取当前页面的URL地址。这里会是使用到React的componentDidMount方法，该方法会在页面渲染完成时调用一次，此时的DOM结构都已经渲染完成。为了获取到当前页面的URL，可以使用chrome.tabs.query(object queryIfon, function callback)接口。</p>
+
+<pre><code>chrome.tabs.query(object queryInfo, function callback)
+Gets all tabs that have the specified properties, or all tabs if no properties are specified.
+</code></pre>
+
+<p>通过查询当前窗口中激活状态的tab，并选取第一个tab，即获取到了当前页面所在chrome tab。</p>
+
+<pre><code class="language-javascript">var queryInfo = {
+      active: true,
+      currentWindow: true
+    }
+    
+    chrome.tabs.query(queryInfo, (tabs) =&gt; {
+      const tab = tabs[0]
+      const url = tab.url
+      this.setState({ url })
+    })
+</code></pre>
+
+<p>获取到当前页面的url后，使用setState更新状态。</p>
+
+<h3 id="打包">打包</h3>
+
+<p>运行yarn buid命令，将打包react app，在build文件夹下生成相应输出文件。</p>
+
+<pre><code>$ yarn build
+</code></pre>
+
+<p>此时build，会出现chrome is not defined的错误。</p>
+
+<pre><code>➜  react-qr yarn build
+yarn build v0.24.5
+$ react-scripts build
+Creating an optimized production build...
+Failed to compile.
+
+./src/App.js
+  Line 34:  'chrome' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+
+error Command failed with exit code 1.
+</code></pre>
+
+<p>因为ESLint无法识别chrome， 可以在App.js文件的第一行添加&rdquo;/<em>global chrome</em>/&ldquo;,来告知ESLint将chrome识别为一个全局变量。</p>
+
+<pre><code class="language-javascript">/*global chrome*/
+import React, { Component } from 'react';
+import './App.css';
+import QRCode from 'qrcode.react'
+</code></pre>
+
+<h2 id="三-部署">三、部署</h2>
+
+<p>在地址栏中输入&rdquo;//chrome:extensions&rdquo;进入chrome插件管理UI， 勾选开发者模式， 并点击“Load upacked extension&hellip;&ldquo;按钮，选择插件的编译输出build目录， 此时就可以在工具栏中，看到一个新增的插件图标，点击这个图标即可生成当前页面地址的二维码。</p>
+
+<h2 id="参考">参考</h2>
+
+<ul>
+<li><a href="http://www.ituring.com.cn/book/1421">Chrome扩展及应用开发</a></li>
+<li><a href="http://eslint.org/docs/rules/no-undef">Disallow Undeclared Variables (no-undef)</a></li>
+</ul>
+
+                      
+                    </div>
+                    <div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+                        <div style="float:left;margin-top:0px;">
+                        <img src="https://bytedaring.github.io/public/qrcode.png" width="129px" height="129px"/>
+                        <div style="text-align:center;">扫一扫</div>
+                        </div>
+                        <div>
+                            <p style="margin-top:0px;">作者：<a target="_blank" href="http://blog.coderzh.com/">bytedaring</a>
+                            
+                            <br />本文出处：<a target="_blank" href="https://bytedaring.github.io/post/create-qrcode-by-react/">https://bytedaring.github.io/post/create-qrcode-by-react/</a>
+                            <br />
+                            原创文章版权归本人所有，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文连接，否则保留追究法律责任的权利。 </p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+                  
+
+                </div>
+                
+              </article>
+              
+              <div class="clear"></div>
+              
+              
+              
+            </div>
+          </section>
+          <div class="sidebar s1">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="fa icon-sidebar-toggle"></i></a>
+  <div class="sidebar-content">
+    <div class="sidebar-top group">
+      <p>Follow:</p>
+      <ul class="social-links">
+    <li>
+    
+    <li>
+    <a class="social-tooltip" title="On GitHub"
+        href="https://github.com/bytedaring" target="_blank">
+        <i class="fa fa-github"></i>
+    </a>
+    </li>
+</ul>
+
+    </div>
+    <div class="widget qrcode">
+    <img src="https://bytedaring.github.io/public/qrcode.png" alt="qrcode" width="172px" height="172px"/>
+    <p> 扫一扫：<br>github: bytedaring <br /></p>
+</div>
+
+    <ul class="post-nav group">
+      <li class="next">
+        
+        <a href="https://bytedaring.github.io/post/go-slice/" rel="next">
+          <i class="fa fa-chevron-right"></i>
+          <strong>Next post</strong>
+          <span>[转] Go Slice 秘籍</span>
+        </a>
+        
+      </li>
+      <li class="previous">
+        
+      </li>
+    </ul>
+    <div id="search-2" class="widget widget_search"><h3>Search</h3>
+      <form method="get" class="searchform themeform" action="https://www.google.com/search">
+        <div>
+          <input type="text" class="search" name="q" placeholder="Press enter to start searching">
+        </div>
+      </form>
+    </div>
+  </div>
+  
+</div>
+
+          <div class="sidebar s2">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="fa icon-sidebar-toggle"></i></a>
+  <div class="sidebar-content">
+    <div class="sidebar-top group">
+      <p>More</p>
+    </div>
+    <div id="categories-2" class="widget widget_categories"><h3>Categories</h3>
+      <ul>
+        
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="https://bytedaring.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+          </li>
+        
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a>
+          </li>
+        
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="https://bytedaring.github.io/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/">思考感悟</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer id="footer">
+  <section class="container" id="footer-bottom">
+    <div class="container-inner">
+      <a id="back-to-top" href="#"><i class="fa fa-angle-up"></i></a>
+      <div class="pad group">
+        <div class="grid one-half">
+          <div id="copyright">
+            <p>Copyright © 2016. All Rights Reserved. <br>Powered by
+              <a rel="nofollow" href="http://gohugo.io/" target="_blank">Hugo - the static site generator</a>.
+              <a rel="nofollow" href="http://golang.org" target="_blank">#golang</a>.
+            </p>
+          </div>
+          
+        </div>
+        
+        <div class="grid one-half last">
+          <ul class="social-links">
+    <li>
+    
+    <li>
+    <a class="social-tooltip" title="On GitHub"
+        href="https://github.com/bytedaring" target="_blank">
+        <i class="fa fa-github"></i>
+    </a>
+    </li>
+</ul>
+
+        </div>
+      </div>
+
+    </div>
+    
+  </section>
+  
+</footer>
+
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10147768-2', 'auto');
+  ga('send', 'pageview');
+
+  $('#messagesbsb').remove();
+
+</script>
+</body>
+</html>
+

@@ -7,17 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright (c) 2015. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 31 Mar 2017 13:42:17 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 04 Jun 2017 15:55:39 +0800</lastBuildDate>
     
 	<atom:link href="https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>使用React写一个简单的Chrome插件</title>
+      <link>https://bytedaring.github.io/post/create-qrcode-by-react/</link>
+      <pubDate>Sun, 04 Jun 2017 15:55:39 +0800</pubDate>
+      
+      <guid>https://bytedaring.github.io/post/create-qrcode-by-react/</guid>
+      <description>当你手中只有一把锤子的时候，你就会把所有的问题都看成钉子。 Google Chrome,Google公司开发的一款设计简单、高效的Web浏览器。Chrom</description>
+    </item>
+    
+    <item>
       <title>[转] Go Slice 秘籍</title>
-      <link>https://bytedaring.github.io/2017/03/31/%E8%BD%AC-Go-Slice-%E7%A7%98%E7%B1%8D/</link>
+      <link>https://bytedaring.github.io/post/go-slice/</link>
       <pubDate>Fri, 31 Mar 2017 13:42:17 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/2017/03/31/%E8%BD%AC-Go-Slice-%E7%A7%98%E7%B1%8D/</guid>
+      <guid>https://bytedaring.github.io/post/go-slice/</guid>
       <description>Golang官方总结： Slice Tricks 由于引入了内建的append的方法， 包container/vector的很多方法都被移除，可以被内建的append</description>
     </item>
     
