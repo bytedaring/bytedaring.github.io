@@ -12,29 +12,29 @@
         }
     }
   </script>
-  <title>About Me - bytedaring blog</title>
+  <title>Mysql JOIN - bytedaring blog</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="keywords" content="生活,">
-<meta name="description" content="我，程序员，有点宅。 我的经历 2008-2012 长江大学计算机科学与技术系 2012-2013 .net工程师（深圳震有科技） 2013-2016 .net/java工程师（武汉辰安） 2016.10">
+<meta name="keywords" content="sql,join,">
+<meta name="description" content="SQL中的连接（JOIN）语句用于将数据库中的两个表或者多个表组合起来。有“连接”生成的集合，可以被保存为表，或者当成表来使用，JOIN语句">
 <meta name="author" content="bytedaring">
 <meta name="publisher" content="bytedaring">
 <meta name="generator" content="http://gohugo.io/"/>
 
-<meta itemprop="name" content="About Me - bytedaring blog">
-<meta itemprop="description" content="我，程序员，有点宅。 我的经历 2008-2012 长江大学计算机科学与技术系 2012-2013 .net工程师（深圳震有科技） 2013-2016 .net/java工程师（武汉辰安） 2016.10">
+<meta itemprop="name" content="Mysql JOIN - bytedaring blog">
+<meta itemprop="description" content="SQL中的连接（JOIN）语句用于将数据库中的两个表或者多个表组合起来。有“连接”生成的集合，可以被保存为表，或者当成表来使用，JOIN语句">
 <meta itemprop="image" content="https://bytedaring.github.io/public/xiwang-home.jpeg">
 
-<meta property="og:title" content="About Me - bytedaring blog" />
+<meta property="og:title" content="Mysql JOIN - bytedaring blog" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://bytedaring.github.io/about/" />
+<meta property="og:url" content="https://bytedaring.github.io/post/sql-join/" />
 <meta property="og:image" content="https://bytedaring.github.io/public/xiwang-home.jpeg" />
-<meta property="og:description" content="我，程序员，有点宅。 我的经历 2008-2012 长江大学计算机科学与技术系 2012-2013 .net工程师（深圳震有科技） 2013-2016 .net/java工程师（武汉辰安） 2016.10">
+<meta property="og:description" content="SQL中的连接（JOIN）语句用于将数据库中的两个表或者多个表组合起来。有“连接”生成的集合，可以被保存为表，或者当成表来使用，JOIN语句">
 
   <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
-  <link rel="canonical" href="https://bytedaring.github.io/about/">
-  <link rel='shortlink' href="https://bytedaring.github.io/about/"/>
+  <link rel="canonical" href="https://bytedaring.github.io/post/sql-join/">
+  <link rel='shortlink' href="https://bytedaring.github.io/post/sql-join/"/>
   <link rel="shortcut icon" href="https://bytedaring.github.io/public/favicon.ico"/>
   
 <link rel="stylesheet" id="human-style-css" href="https://bytedaring.github.io/wp-content/themes/hueman/style.css" type="text/css" media="all"/>
@@ -156,7 +156,7 @@
               <ul class="meta-single group">
                 
                 <li class="category">
-                  <a href="https://bytedaring.github.io/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/" rel="category tag">思考感悟</a>
+                  <a href="https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/" rel="category tag">技术文章</a>
                 </li>
                 
               </ul>
@@ -168,12 +168,12 @@
                   class="post type-post status-publish format-standard has-post-thumbnail hentry category-australien tag-bondi-beach tag-city2surf tag-sydney">
                 <div class="post-inner group">
 
-                  <h1 class="post-title">About Me</h1>
+                  <h1 class="post-title">Mysql JOIN</h1>
 
                   <p class="post-byline">
-                    by  · 2017年01月01日 · 275 Words ·
-                    ~1min reading time |
-                    <a href="http://github.com/bytedaring/blog-hugo/blob/master/content/about/index.md"
+                    by  · 2017年06月05日 · 1512 Words ·
+                    ~4min reading time |
+                    <a href="http://github.com/bytedaring/blog-hugo/blob/master/content/post/sql-join.md"
                        target="_blank">Improve on <i class="fa fa-github"></i></a>
                   </p>
 
@@ -184,42 +184,225 @@
                       
                       
 
-<blockquote>
-<p>我，程序员，有点宅。</p>
-</blockquote>
-
-<h2 id="我的经历">我的经历</h2>
+<p>SQL中的连接（JOIN）语句用于将数据库中的两个表或者多个表组合起来。有“连接”生成的集合，可以被保存为表，或者当成表来使用，JOIN语句的含义是把两张表的属性通过它们的值组合在一起。基于ANSI标准的SQL列出五种JOIN方式：</p>
 
 <ul>
-<li>2008-2012 长江大学计算机科学与技术系</li>
-<li>2012-2013 .net工程师（深圳震有科技）</li>
-<li>2013-2016 .net/java工程师（武汉辰安）</li>
-<li>2016.10-至今 java工程师，倒腾golang，努力成长（不管是生活还是技术）</li>
+<li>内连接（INNER）</li>
+<li>全外连接（FULL OUTER）</li>
+<li>左外连接（LEFT OUTER）</li>
+<li>右外连接（RIGHT OUTER）</li>
+<li>交叉连接（CROSS）</li>
 </ul>
 
-<h2 id="我的技能">我的技能</h2>
+<p>在特定的情况下，一张表（基本表，视图或连接表）可以和自身进行连接，成为自连接（self-join）。
+其中， MYSQL<strong>不支持全外连接（FULL OUTER）</strong>。这里只关注Mysql的剩下的四种连接（JOIN）。</p>
+
+<h2 id="一-示例表">一、示例表</h2>
+
+<p>下面有两张表雇员表（Employee）和部门表（Department），ID是主键。
+雇员表（Employee）</p>
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>DeptID</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1</td>
+<td>张三</td>
+<td>2</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>李四</td>
+<td>3</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>王五</td>
+<td>3</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>老李</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+
+<p>部门表（Department）</p>
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>2</td>
+<td>研发部</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>测试部</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>运维部</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="二-内连接-inner-join">二、内连接（INNER JOIN）</h2>
+
+<p>MySQL中，内连接，即等值连接。</p>
+
+<pre><code class="language-SQL">select * from employee, department 
+where employee.deptID = department.id;
+</code></pre>
+
+<p>等效于</p>
+
+<pre><code class="language-SQL">select * from 
+employee inner join department
+on employee.deptID = department.id;
+</code></pre>
+
+<p>查询结果是：</p>
+
+<pre><code>+----+--------+--------+----+-----------+
+| id | name   | deptID | id | name      |
++----+--------+--------+----+-----------+
+|  1 | 张三   |      2 |  2 | 测试部    |
+|  2 | 李四   |      3 |  3 | 运维部    |
+|  3 | 王五   |      3 |  3 | 运维部    |
++----+--------+--------+----+-----------+
+3 rows in set (0.00 sec)
+</code></pre>
+
+<h2 id="三-左外连接-left-join">三、左外连接（LEFT JOIN）</h2>
+
+<p>Mysql中， left outer join 等效于 left join。左外连接结果中将会保留“左表”中的所有记录，即使右表中没有匹配连接条件，右表中没有匹配条件的列值为NULL。</p>
+
+<pre><code class="language-SQL">select * from employee left join department on employee.deptId = department.id;
+</code></pre>
+
+<p>或者</p>
+
+<pre><code class="language-SQL">select * from employee left outer join department on employee.deptId = department.id;
+</code></pre>
+
+<p>查询结果：</p>
+
+<pre><code>+----+--------+--------+------+-----------+
+| id | name   | deptID | id   | name      |
++----+--------+--------+------+-----------+
+|  1 | 张三   |      2 |    2 | 测试部    |
+|  2 | 李四   |      3 |    3 | 运维部    |
+|  3 | 王五   |      3 |    3 | 运维部    |
+|  4 | 老李   |      5 | NULL | NULL      |
++----+--------+--------+------+-----------+
+4 rows in set (0.00 sec)
+</code></pre>
+
+<h2 id="四-右外连接-right-join">四、右外连接（RIGHT JOIN）</h2>
+
+<p>右外连接，它和左外连接完全类似，如果 A 表右连接 B 表, 那么&rdquo;右表&rdquo; B 中的每一行在连接表中至少会出现一次. 如果 B 表的记录在&rdquo;左表&rdquo; A 中未找到匹配行, 连接表中来源于 A 的列的值设为 NULL。right outer join 等效 right join 。</p>
+
+<pre><code>select * from employee right join department on employee.deptId = department.id;
+</code></pre>
+
+<p>或者</p>
+
+<pre><code>select * from employee right outer join department on employee.deptId = department.id;
+</code></pre>
+
+<p>查询结果：</p>
+
+<pre><code>+------+--------+--------+----+-----------+
+| id   | name   | deptID | id | name      |
++------+--------+--------+----+-----------+
+|    1 | 张三   |      2 |  2 | 测试部    |
+|    2 | 李四   |      3 |  3 | 运维部    |
+|    3 | 王五   |      3 |  3 | 运维部    |
+| NULL | NULL   |   NULL |  1 | 研发部    |
++------+--------+--------+----+-----------+
+4 rows in set (0.00 sec)
+
+</code></pre>
+
+<h2 id="五-交叉连接-cross-join">五、交叉连接（CROSS JOIN）</h2>
+
+<p>交叉连接(cross join)，又称笛卡尔连接(cartesian join)或叉乘(Product)，它是所有类型的内连接的基础。把表视为行记录的集合，交叉连接即返回这两个集合的笛卡尔积。这其实等价于内连接的链接条件为&rdquo;永真&rdquo;，或连接条件不存在.
+如果 A 和 B 是两个集合，它们的交叉连接就记为: A × B。</p>
+
+<pre><code class="language-SQL">select * from employee cross join department;
+</code></pre>
+
+<p>查询结果：</p>
+
+<pre><code>+----+--------+--------+----+-----------+
+| id | name   | deptID | id | name      |
++----+--------+--------+----+-----------+
+|  1 | 张三   |      2 |  1 | 研发部    |
+|  1 | 张三   |      2 |  2 | 测试部    |
+|  1 | 张三   |      2 |  3 | 运维部    |
+|  2 | 李四   |      3 |  1 | 研发部    |
+|  2 | 李四   |      3 |  2 | 测试部    |
+|  2 | 李四   |      3 |  3 | 运维部    |
+|  3 | 王五   |      3 |  1 | 研发部    |
+|  3 | 王五   |      3 |  2 | 测试部    |
+|  3 | 王五   |      3 |  3 | 运维部    |
+|  4 | 老李   |      5 |  1 | 研发部    |
+|  4 | 老李   |      5 |  2 | 测试部    |
+|  4 | 老李   |      5 |  3 | 运维部    |
++----+--------+--------+----+-----------+
+12 rows in set (0.00 sec)
+</code></pre>
+
+<h2 id="六-全连接">六、全连接</h2>
+
+<p>MYSQL<strong>不支持全连接</strong>，但可以模拟。全连接是左右外连接的并集，连接表包含左右连接表的所有记录，如果缺少匹配的记录，就以NULL填充。</p>
+
+<p>下面使用left join 和 right join 实现 full join：</p>
+
+<pre><code class="language-SQL">select * from employee e left join department d on e.deptId = d.id
+union 
+select * from  employee e right join department d on e.deptid= d.id
+</code></pre>
+
+<p>查询结果：</p>
+
+<pre><code>+------+--------+--------+------+-----------+
+| id   | name   | deptID | id   | name      |
++------+--------+--------+------+-----------+
+|    1 | 张三   |      2 |    2 | 测试部    |
+|    2 | 李四   |      3 |    3 | 运维部    |
+|    3 | 王五   |      3 |    3 | 运维部    |
+|    4 | 老李   |      5 | NULL | NULL      |
+| NULL | NULL   |   NULL |    1 | 研发部    |
++------+--------+--------+------+-----------+
+5 rows in set (0.00 sec)
+</code></pre>
+
+<h2 id="参考">参考</h2>
 
 <ul>
-<li>编程语言：C#、Java。偏爱GO，也涉猎F#、Python&hellip;</li>
-<li>半个前端：捣腾css+js，喜欢React.js，熟悉dva，ant-d</li>
-<li>熟悉WPF桌面开发。</li>
-<li>熟悉后台开发，REST API, SOA, 正则表达式</li>
-</ul>
-
-<h2 id="生活">生活</h2>
-
-<ul>
-<li>乒乓球比较菜，偶尔打羽毛球</li>
-<li>有点宅，常买书，没事看看书</li>
-<li>被《王者荣耀》伤了，偶尔玩玩</li>
-<li>喜欢技术，尝试新的事物</li>
-</ul>
-
-<h2 id="最近主要关注">最近主要关注</h2>
-
-<ul>
-<li>自我管理、GO、React</li>
-<li>GRPC</li>
+<li><a href="https://zh.wikipedia.org/wiki/%E8%BF%9E%E6%8E%A5_(SQL)">连接(SQL)</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/5.7/en/join.html">MySQL JOIN Synatx</a></li>
 </ul>
 
                       
@@ -231,7 +414,7 @@
                         </div>
                         <div>
                             <p style="margin-top:0px;">作者：<a target="_blank" href="https://bytedaring.github.io/">bytedaring</a>
-                            <br />本文出处：<a target="_blank" href="https://bytedaring.github.io/about/">https://bytedaring.github.io/about/</a>
+                            <br />本文出处：<a target="_blank" href="https://bytedaring.github.io/post/sql-join/">https://bytedaring.github.io/post/sql-join/</a>
                             <br />
                             原创文章版权归本人所有，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文连接，否则保留追究法律责任的权利。 </p>
                         </div>
@@ -275,14 +458,14 @@
     <ul class="post-nav group">
       <li class="next">
         
+        <a href="https://bytedaring.github.io/post/create-qrcode-by-react/" rel="next">
+          <i class="fa fa-chevron-right"></i>
+          <strong>Next post</strong>
+          <span>使用React写一个简单的Chrome插件</span>
+        </a>
+        
       </li>
       <li class="previous">
-        
-        <a href="https://bytedaring.github.io/post/first/" rel="prev">
-          <i class="fa fa-chevron-left"></i>
-          <strong>Previous Post</strong>
-          <span>希望的博客</span>
-        </a>
         
       </li>
     </ul>

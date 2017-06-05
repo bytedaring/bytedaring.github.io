@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright (c) 2015. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 04 Jun 2017 15:55:39 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 05 Jun 2017 22:21:52 +0800</lastBuildDate>
     
 	<atom:link href="https://bytedaring.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mysql JOIN</title>
+      <link>https://bytedaring.github.io/post/sql-join/</link>
+      <pubDate>Mon, 05 Jun 2017 22:21:52 +0800</pubDate>
+      
+      <guid>https://bytedaring.github.io/post/sql-join/</guid>
+      <description>SQL中的连接（JOIN）语句用于将数据库中的两个表或者多个表组合起来。有“连接”生成的集合，可以被保存为表，或者当成表来使用，JOIN语句</description>
+    </item>
     
     <item>
       <title>使用React写一个简单的Chrome插件</title>
