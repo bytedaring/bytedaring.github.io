@@ -12,33 +12,31 @@
         }
     }
   </script>
-  <title>Sql - bytedaring blog</title>
+  <title>React方法绑定的几种实现方式 - bytedaring blog</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-<meta name="description" content="Sql">
+<meta name="keywords" content="react,js,">
+<meta name="description" content="Binding to methods of React class(ES7 included">
 <meta name="author" content="bytedaring">
 <meta name="publisher" content="bytedaring">
 <meta name="generator" content="http://gohugo.io/"/>
 
-<meta itemprop="name" content="Sql - bytedaring blog">
-<meta itemprop="description" content="Sql">
+<meta itemprop="name" content="React方法绑定的几种实现方式 - bytedaring blog">
+<meta itemprop="description" content="Binding to methods of React class(ES7 included">
 <meta itemprop="image" content="https://bytedaring.github.io/public/xiwang-home.jpeg">
 
-<meta property="og:title" content="Sql - bytedaring blog" />
+<meta property="og:title" content="React方法绑定的几种实现方式 - bytedaring blog" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://bytedaring.github.io/tags/sql/" />
+<meta property="og:url" content="https://bytedaring.github.io/post/react-bind-method/" />
 <meta property="og:image" content="https://bytedaring.github.io/public/xiwang-home.jpeg" />
-<meta property="og:description" content="Sql">
+<meta property="og:description" content="Binding to methods of React class(ES7 included">
 
   <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
-  <link rel="canonical" href="https://bytedaring.github.io/tags/sql/">
-  <link rel='shortlink' href="https://bytedaring.github.io/tags/sql/"/>
+  <link rel="canonical" href="https://bytedaring.github.io/post/react-bind-method/">
+  <link rel='shortlink' href="https://bytedaring.github.io/post/react-bind-method/"/>
   <link rel="shortcut icon" href="https://bytedaring.github.io/public/favicon.ico"/>
   
- <link href="https://bytedaring.github.io/feed.xml" rel="alternate" type="application/rss+xml" title="bytedaring blog" />
-
 <link rel="stylesheet" id="human-style-css" href="https://bytedaring.github.io/wp-content/themes/hueman/style.css" type="text/css" media="all"/>
 <link rel="stylesheet" id="human-style-css2" href="https://bytedaring.github.io/wp-content/themes/hueman-child/style.css" type="text/css" media="all"/>
 <link rel="stylesheet" id="responsive-css" href="https://bytedaring.github.io/wp-content/themes/hueman/responsive.css" type="text/css" media="all"/>
@@ -58,8 +56,7 @@
 
 </head>
 
-<body class="archive category col-3cm full-width topbar-enabled chrome">
-
+<body class="single single-post single-format-standard col-3cm full-width topbar-enabled chrome">
 <div id="wrapper">
   <header id="header">
 
@@ -156,29 +153,180 @@
         <div class="main-inner group">
           <section class="content">
             <div class="page-title pad group">
-              <h1><i class="fa fa-folder-open"></i>Posts with the tag: <span>Sql</span></h1>
+              <ul class="meta-single group">
+                
+                <li class="category">
+                  <a href="https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/" rel="category tag">技术文章</a>
+                </li>
+                
+              </ul>
             </div>
+
             <div class="pad group">
 
-              <div class="post-list group">
-  
-  <div class="post-row">
-    <article class="post-row type-post status-publish format-standard has-post-thumbnail hentry group">
-  <div class="post-inner post-hover">
-    <div class="post-meta group">
-  <p class="post-date">2017年06月05日</p>
-  <p class="post-title-small"><a href="https://bytedaring.github.io/post/sql-join/" rel="bookmark" title="MySql JOIN">MySql JOIN</a></p>
-</div>
+              <article
+                  class="post type-post status-publish format-standard has-post-thumbnail hentry category-australien tag-bondi-beach tag-city2surf tag-sydney">
+                <div class="post-inner group">
 
-  </div>
-  
-</article>
+                  <h1 class="post-title">React方法绑定的几种实现方式</h1>
 
+                  <p class="post-byline">
+                    by  · 2017年06月07日 · 787 Words ·
+                    ~2min reading time |
+                    <a href="http://github.com/bytedaring/blog-hugo/blob/master/content/post/react-bind-method.md"
+                       target="_blank">Improve on <i class="fa fa-github"></i></a>
+                  </p>
 
-  </div>
-  
-</div>
+                  <div class="clear"></div>
 
+                  <div class="entry">
+                    <div class="entry-inner">
+                      
+                      
+
+<p>翻译参考自：<a href="http://egorsmirnov.me/2015/08/16/react-and-es6-part3.html">React and ES6 - Part 3, Binding to methods of React class (ES7 included)</a></p>
+
+<p>在React进行事件方法绑定的时，如下面的代码：</p>
+
+<pre><code>import React , {Component} from 'react'
+
+class user extends Component{
+    render(){
+       return &lt;button onClick={this.sayhello} &gt;open hello&lt;/button&gt;
+    }
+
+    sayhello(){
+        console.log('hello world')
+        console.log(this.props)
+    }
+}
+
+export default user
+</code></pre>
+
+<p>我们将会得到“TypeError: Cannot read property &lsquo;props&rsquo; of null“的错误，如下图所示：
+<img src="http://or5up5p3j.bkt.clouddn.com/blog/image/2017/react-bind/props-of-null.png" alt="error" /></p>
+
+<p>这是因为当我们调用以这种方式绑定到<strong>this</strong>的方法时，没有将函数上下文绑定到组件的实例上。这是Javascript的默认行为而且是可以明确预期到的。</p>
+
+<p>React团队在实现支持ES6时不支持自动绑定，你在<a href="https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#autobinding">这篇博客</a>中找到更多关于这样做的原因。</p>
+
+<p>下面将介绍几种不同的方式实现，在JSX中使用ES6语法调用class method。</p>
+
+<h2 id="方法一-使用function-prototype-bind">方法一、 使用Function.prototype.bind()</h2>
+
+<p>如下面的代码：</p>
+
+<pre><code>// 使用bind()
+class user extends Component{
+    render(){
+       return &lt;button onClick={this.sayHello.bind(this)} &gt;open hello&lt;/button&gt;
+    }
+
+    sayHello(){
+        console.log(this.props)
+    }
+}
+</code></pre>
+
+<p>任何ES6类的方法都是纯JavaScript函数，并从Function prototype继承了bind()方法，所以当我们调用sayHello方法时，this将会指向我们的组件实例。在<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">MDN article</a>可以找到更多的相关信息。</p>
+
+<h2 id="方法二-使用在constructor中定义的方法">方法二、 使用在constructor中定义的方法</h2>
+
+<pre><code>// 使用构造函数定义的方法
+class user1 extends Component{
+    constructor(props){
+        super(props)
+        this._sayHello = ()=&gt; this.sayHello();
+    }
+
+    sayHello(){
+        console.log(this.props)
+    }
+
+    render(){
+        return (&lt;button onClick={this.sayHello}&gt;open hello 1&lt;/button&gt;)
+    }
+}
+</code></pre>
+
+<p>这种方式中，不再需要在JSX中使用bind(),但会使构造函数更加膨胀。</p>
+
+<h2 id="方法三-使用箭头操函数和构造函数">方法三、使用箭头操函数和构造函数</h2>
+
+<p><a href="https://babeljs.io/docs/learn-es2015/#arrows">ES6箭头函数</a>会保留定义时的this上下文，即当调用箭头函数时，函数体内的this对象，就是定义时所在的对象，而不是调用时所在的对象。所以可以利用这个特性，并在构造函数中重新定义sayHello方法。</p>
+
+<pre><code>// 箭头函数 + 构造函数
+class user extends Component{
+    constructor(props){
+        super(props)
+        this._sayHello = ()=&gt; this._sayHello()
+    }
+
+    sayHello(){
+        console.log(this.props)
+    }
+
+    render(){
+       return &lt;button onClick={this._sayHello.bind(this)} &gt;open hello3&lt;/button&gt;
+    }
+}
+</code></pre>
+
+<h2 id="方法四-使用箭头函数和es6类属性">方法四、使用箭头函数和ES6类属性</h2>
+
+<p>可以通过使用箭头函数和ES6类属性语法：</p>
+
+<pre><code>// 箭头函数 + ES属性语法
+class user extends Component{
+    sayHello = ()=&gt;{
+        console.log(this.props)
+    }
+
+    render(){
+       return &lt;button onClick={this.sayHello} &gt;open hello4&lt;/button&gt;
+    }
+}
+</code></pre>
+
+<h2 id="源码下载">源码下载</h2>
+
+<p>上面出现的代码下在地址： <a href="https://github.com/bytedaring/react-bind-method">github</a></p>
+
+<h2 id="参考">参考</h2>
+
+<ul>
+<li><p><a href="http://egorsmirnov.me/2015/08/16/react-and-es6-part3.html">React and ES6 - Part 3, Binding to methods of React class (ES7 included)</a></p></li>
+
+<li><p><a href="https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#autobinding">React</a></p></li>
+</ul>
+
+                      
+                    </div>
+                    <div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+                        <div style="float:left;margin-top:0px;">
+                        <img src="https://bytedaring.github.io/public/qrcode.png" width="129px" height="129px"/>
+                        <div style="text-align:center;">扫一扫</div>
+                        </div>
+                        <div>
+                            <p style="margin-top:0px;">作者：<a target="_blank" href="https://bytedaring.github.io/">bytedaring</a>
+                            <br />本文出处：<a target="_blank" href="https://bytedaring.github.io/post/react-bind-method/">https://bytedaring.github.io/post/react-bind-method/</a>
+                            <br />
+                            原创文章版权归本人所有，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文连接，否则保留追究法律责任的权利。 </p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+                  
+
+                </div>
+                
+              </article>
+              
+              <div class="clear"></div>
+              
+              
+              
             </div>
           </section>
           <div class="sidebar s1">
@@ -203,14 +351,23 @@
     <p> 扫一扫：<br>github: bytedaring <br /></p>
 </div>
 
-    <div id="search-2" class="widget widget_search"><h3>Search</h3>
-      <form method="get" class="searchform themeform" action="https://www.google.com/search">
-        <div>
-          <input type="text" class="search" name="q" placeholder="Press enter to start searching">
-        </div>
-      </form>
-    </div>
+    <ul class="post-nav group">
+      <li class="next">
+        
+        <a href="https://bytedaring.github.io/post/sql-join/" rel="next">
+          <i class="fa fa-chevron-right"></i>
+          <strong>Next post</strong>
+          <span>MySql JOIN</span>
+        </a>
+        
+      </li>
+      <li class="previous">
+        
+      </li>
+    </ul>
+    
   </div>
+  
 </div>
 
           <div class="sidebar s2">

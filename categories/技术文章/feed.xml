@@ -7,13 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright (c) 2015. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 05 Jun 2017 22:21:52 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 07 Jun 2017 12:43:09 +0800</lastBuildDate>
     
 	<atom:link href="https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Mysql JOIN</title>
+      <title>React方法绑定的几种实现方式</title>
+      <link>https://bytedaring.github.io/post/react-bind-method/</link>
+      <pubDate>Wed, 07 Jun 2017 12:43:09 +0800</pubDate>
+      
+      <guid>https://bytedaring.github.io/post/react-bind-method/</guid>
+      <description>翻译参考自：React and ES6 - Part 3, Binding to methods of React class (ES7 included) 在React进行事件方法绑定的时，如下面的代码： import React , {Component} from &#39;react&#39; class user extends Component{ render(){ return &amp;lt;button onClick={this.sayhello} &amp;gt;open hello&amp;lt;/button&amp;gt; } sayhello(){ console.log(&#39;hello world&#39;) console.log(this.props) }</description>
+    </item>
+    
+    <item>
+      <title>MySql JOIN</title>
       <link>https://bytedaring.github.io/post/sql-join/</link>
       <pubDate>Mon, 05 Jun 2017 22:21:52 +0800</pubDate>
       
