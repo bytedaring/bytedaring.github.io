@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://bytedaring.github.io/post/git-commit-flow/</loc>
+    <lastmod>2017-06-12T22:02:46+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://bytedaring.github.io/post/react-bind-method/</loc>
     <lastmod>2017-06-07T12:43:09+08:00</lastmod>
   </url>
@@ -51,7 +56,7 @@
   
   <url>
     <loc>https://bytedaring.github.io/post/</loc>
-    <lastmod>2017-06-07T12:43:09+08:00</lastmod>
+    <lastmod>2017-06-12T22:02:46+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -69,7 +74,7 @@
   
   <url>
     <loc>https://bytedaring.github.io/</loc>
-    <lastmod>2017-06-07T12:43:09+08:00</lastmod>
+    <lastmod>2017-06-12T22:02:46+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -87,7 +92,7 @@
   
   <url>
     <loc>https://bytedaring.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2017-03-09T21:53:22+08:00</lastmod>
+    <lastmod>2017-06-12T22:02:46+08:00</lastmod>
     <priority>0</priority>
   </url>
   

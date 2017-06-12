@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright (c) 2015. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 07 Jun 2017 12:43:09 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 12 Jun 2017 22:02:46 +0800</lastBuildDate>
     
 	<atom:link href="https://bytedaring.github.io/post/feed.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Git基本使用</title>
+      <link>https://bytedaring.github.io/post/git-commit-flow/</link>
+      <pubDate>Mon, 12 Jun 2017 22:02:46 +0800</pubDate>
+      
+      <guid>https://bytedaring.github.io/post/git-commit-flow/</guid>
+      <description>团队开发中，遵循一个合理、清晰的Git使用流程，是非常重要的。 否则，每个人都提交一堆杂乱无章的commit，项目很快就会变得难以协调和维护。</description>
+    </item>
     
     <item>
       <title>React方法绑定的几种实现方式</title>
