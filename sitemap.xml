@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://bytedaring.github.io/post/build-restful-service-with-MongoDB-in-Golang/</loc>
+    <lastmod>2017-06-17T15:30:56+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://bytedaring.github.io/post/git-commit-flow/</loc>
     <lastmod>2017-06-12T22:02:46+08:00</lastmod>
   </url>
@@ -56,7 +61,7 @@
   
   <url>
     <loc>https://bytedaring.github.io/post/</loc>
-    <lastmod>2017-06-12T22:02:46+08:00</lastmod>
+    <lastmod>2017-06-17T15:30:56+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -74,7 +79,7 @@
   
   <url>
     <loc>https://bytedaring.github.io/</loc>
-    <lastmod>2017-06-12T22:02:46+08:00</lastmod>
+    <lastmod>2017-06-17T15:30:56+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -86,7 +91,7 @@
   
   <url>
     <loc>https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/</loc>
-    <lastmod>2017-06-07T12:43:09+08:00</lastmod>
+    <lastmod>2017-06-17T15:30:56+08:00</lastmod>
     <priority>0</priority>
   </url>
   

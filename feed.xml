@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright (c) 2015. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 12 Jun 2017 22:02:46 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 17 Jun 2017 15:30:56 +0800</lastBuildDate>
     
 	<atom:link href="https://bytedaring.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>使用Golang基于MongoDB构建Restful服务</title>
+      <link>https://bytedaring.github.io/post/build-restful-service-with-MongoDB-in-Golang/</link>
+      <pubDate>Sat, 17 Jun 2017 15:30:56 +0800</pubDate>
+      
+      <guid>https://bytedaring.github.io/post/build-restful-service-with-MongoDB-in-Golang/</guid>
+      <description>近来使用Golang来构建Restful服务变得越发流行。我发现有些时候使用MongoDB作为持久存储，这篇文档中， 我会使用Golang和M</description>
+    </item>
     
     <item>
       <title>Git基本使用</title>
