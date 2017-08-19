@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <base href="https://bytedaring.github.io/">
+  <script>
+    document._writeOriginal = document.write;
+    document.write = function(str) {
+        if (str.indexOf('livereload.js') > -1) {
+            document._writeOriginal(str);
+        } else {
+            document._writeOriginal('<!-- Be Hijack!! -->');
+        }
+    }
+  </script>
+  <title>使用Golang基于MongoDB构建Restful服务 - bytedaring blog</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="keywords" content="golang, mongodb, RESTFul,">
+<meta name="description" content="使用Golang基于MongoDB构建Restful服务">
+<meta name="author" content="bytedaring">
+<meta name="publisher" content="bytedaring">
+<meta name="generator" content="http://gohugo.io/"/>
+
+<meta itemprop="name" content="使用Golang基于MongoDB构建Restful服务 - bytedaring blog">
+<meta itemprop="description" content="使用Golang基于MongoDB构建Restful服务">
+<meta itemprop="image" content="https://bytedaring.github.io/public/xiwang-home.jpeg">
+
+<meta property="og:title" content="使用Golang基于MongoDB构建Restful服务 - bytedaring blog" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bytedaring.github.io/post/build-restful-service-with-MongoDB-in-Golang/" />
+<meta property="og:image" content="https://bytedaring.github.io/public/xiwang-home.jpeg" />
+<meta property="og:description" content="使用Golang基于MongoDB构建Restful服务">
+
+  <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
+  <link rel="canonical" href="https://bytedaring.github.io/post/build-restful-service-with-MongoDB-in-Golang/">
+  <link rel='shortlink' href="https://bytedaring.github.io/post/build-restful-service-with-MongoDB-in-Golang/"/>
+  <link rel="shortcut icon" href="https://bytedaring.github.io/public/favicon.ico"/>
+  
+<link rel="stylesheet" id="human-style-css" href="https://bytedaring.github.io/wp-content/themes/hueman/style.css" type="text/css" media="all"/>
+<link rel="stylesheet" id="human-style-css2" href="https://bytedaring.github.io/wp-content/themes/hueman-child/style.css" type="text/css" media="all"/>
+<link rel="stylesheet" id="responsive-css" href="https://bytedaring.github.io/wp-content/themes/hueman/responsive.css" type="text/css" media="all"/>
+<link rel="stylesheet" id="font-awesome-css" href="https://bytedaring.github.io/wp-content/themes/hueman/fonts/font-awesome.min.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="https://bytedaring.github.io/public/highlight/styles/github.css">
+<script src="https://bytedaring.github.io/public/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link rel="stylesheet" id="human-style-css3" href="https://bytedaring.github.io/wp-content/themes/hueman-child/user.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="public/font/hack/css/hack.min.css">
+
+<script type="text/javascript" src="assets/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="wp-content/themes/hueman/js/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="wp-content/themes/hueman/js/scripts.js"></script>
+<script type="text/javascript" src="assets/picturefill/picturefill.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.matchHeight-min.js"></script>
+<script type="text/javascript" async defer src="assets/js/myblog.js"></script>
+
+</head>
+
+<body class="single single-post single-format-standard col-3cm full-width topbar-enabled chrome">
+<div id="wrapper">
+  <header id="header">
+
+  <nav class="nav-container group" id="nav-topbar">
+    <div class="nav-toggle"><i class="fa fa-bars"></i></div>
+    <div class="nav-text"></div>
+    <div class="nav-wrap container">
+      <a rel="nofollow" href="https://bytedaring.github.io/" class="nav-cs-icon">
+        <img src="https://bytedaring.github.io/public/xiwang-home.jpeg" alt="bytedaring" title="Home">
+      </a>
+      <ul id="menu-default-menu" class="nav container-inner group">
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/">首页</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/">思考感悟</a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/post/">归档</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/about">关于我</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/feed.xml" type="application/rss+xml" target="_blank">订阅</a>
+        </li>
+        <li class="menu-item menu-item-type-post_type menu-item-text">
+        程序员的心路历程
+        </li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <div class="container-inner">
+        <div class="toggle-search"><i class="fa fa-search"></i></div>
+        <div class="search-expand">
+          <div class="search-expand-inner">
+            <form method="get" class="searchform themeform" action="https://www.google.com/search">
+              <div>
+                <input type="text" class="search" name="q" placeholder="Press enter to start searching">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+
+  </nav>
+  
+
+  <div class="container group">
+    <div class="container-inner">
+
+      <div class="group pad">
+
+        <div class="group pad">
+          <h1 class="site-title">
+            <a rel="nofollow" href="https://bytedaring.github.io/" rel="home">
+              <img style="border-radius: 20%;width: 54px;height: 72px;margin:0 auto;" alt="bytedaring" src="https://bytedaring.github.io/public/xiwang-home.jpeg"></img>
+              bytedaring blog
+            </a>
+          </h1>
+          <p class="site-description"> 勿忘初心，知行合一！ </p>
+        </div>
+
+      </div>
+    </div>
+    
+  </div>
+  
+
+</header>
+
+
+
+  <div class="container" id="page">
+    <div class="container-inner">
+      <div class="main">
+        <div class="main-inner group">
+          <section class="content">
+            <div class="page-title pad group">
+              <ul class="meta-single group">
+                
+                <li class="category">
+                  <a href="https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/" rel="category tag">技术文章</a>
+                </li>
+                
+              </ul>
+            </div>
+
+            <div class="pad group">
+
+              <article
+                  class="post type-post status-publish format-standard has-post-thumbnail hentry category-australien tag-bondi-beach tag-city2surf tag-sydney">
+                <div class="post-inner group">
+
+                  <h1 class="post-title">使用Golang基于MongoDB构建Restful服务</h1>
+
+                  <p class="post-byline">
+                    by  · 2017年06月17日 · 2184 Words ·
+                    ~5min reading time |
+                    <a href="http://github.com/bytedaring/blog-hugo/blob/master/content/post/build-restful-service-with-MongoDB-in-Golang.md"
+                       target="_blank">Improve on <i class="fa fa-github"></i></a>
+                  </p>
+
+                  <div class="clear"></div>
+
+                  <div class="entry">
+                    <div class="entry-inner">
+                      
+                      
+
+<p>近来使用Golang来构建Restful服务变得越发流行。我发现有些时候使用MongoDB作为持久存储，这篇文档中， 我会使用Golang和MongoDB来构建一个简单的用户管理为服务。</p>
+
+<h1 id="mongodb">MongoDB</h1>
+
+<p>MongoDB因为极简、灵活、高可用以及面向文档的特性得到越来越多市场上的青睐。根据MongoDB之父的解释，它被用来设计组合键值对存储和关系数据库存储的最佳特性。MongoDB在两者之间做妥协，具备了二者的某些有用的功能。</p>
+
+<p>MongoDB的应用场景：Web应用、分析应用的首要数据库，以及弱数据类型的数据，也就是无schema数据。</p>
+
+<h2 id="什么是文档-document">什么是文档(document)</h2>
+
+<p>文档就是键值对集合。文档中的键用字符串表示，文档中的值可以是基础的数据类型（字符串、数字、日期等）、数组，也可以是另一个文档。在MongDB内部以二进制JSON格式存储文档数据，也就做BSON。BSON有相似的结构，但专为文档存储而设计。</p>
+
+<p>下面是一个文档数据示例：</p>
+
+<pre><code class="language-json">{
+    name: '张三',
+    age: '11',
+    address: '湖北省武汉市光谷一路'
+}
+</code></pre>
+
+<h2 id="集合-collection">集合(Collection)</h2>
+
+<p>集合是结构或者概念上相似文档的容器。例如，我们会把用户（user）文档存储到（users）集合（collection）中。这里集合的概念就非常类似于关系数据库（RDMS）中表（table）的概念。两者的不同是，集合中的数据是无schema的，是不强制数据结构的，可以是任意的。</p>
+
+<h2 id="查询-query">查询(Query)</h2>
+
+<p>MongoDB不是用SQL，而是使用自己的JSON查询语言。</p>
+
+<p>例如：使用SQL语句查询名叫“张三”的用户</p>
+
+<pre><code class="language-sql">SELECT * from users
+WHERE name = '张三'
+</code></pre>
+
+<p>而在MongoDB中，查询的是：</p>
+
+<pre><code class="language-json">db.users.find({name: 'hello'})
+</code></pre>
+
+<h1 id="mongodb-golang驱动">MongoDB Golang驱动</h1>
+
+<p><a href="https://labix.org/mgo">mgo</a>(发音：mango)是一个Go语言实现的MongoDB驱动程序，这个驱动提供了一个非常简洁易于使用、并经过充分测试API。接下来，在介绍如何通过mgo来实现CRUD（create、react、update、delete）操作之前，将简单介绍下会话管理（session  manager）。</p>
+
+<h3 id="session-management">session management</h3>
+
+<p>获取会话</p>
+
+<pre><code class="language-go">session, err := mgo.Dial(&quot;localhsot&quot;)
+</code></pre>
+
+<p>单个的会话不允许进行并发处理，所以通常需要使用多个会话。新建一个会话的最快方式是从现有的session中复制一个新的会话：</p>
+
+<pre><code class="language-go">newSession := session.Copy()
+defer newSession.Close()
+</code></pre>
+
+<p>新生成的这个会话会使用相同的集群信息和连接池(connection pool)。每一个新建的session必须在生命周期结束时调用Close方法，该会话的资源会视情况而定，是被放回连接池，还是被回收。</p>
+
+<h3 id="查询文档">查询文档</h3>
+
+<p>mgo需要和<a href="https://godoc.org/gopkg.in/mgo.v2/bson">bson</a>一同使用，bson使编写查询更加简单。</p>
+
+<ul>
+<li>获取集合中所有的文档</li>
+</ul>
+
+<pre><code class="language-go">c := session.DB(&quot;store&quot;).C(&quot;users&quot;)
+
+var users []User
+err := c.Find(bson.M{}).All(&amp;books)
+</code></pre>
+
+<ul>
+<li>查询单个文档</li>
+</ul>
+
+<pre><code class="language-go">c := session.DB(&quot;store&quot;).C(&quot;users&quot;)
+var user User
+err := c.Find(bson.M{&quot;name&quot;: &quot;张三&quot;}).One(&amp;user)
+</code></pre>
+
+<ul>
+<li>新建文档</li>
+</ul>
+
+<pre><code class="language-go">c := session.DB(&quot;store&quot;).C(&quot;users&quot;)
+err = c.Insert(&amp;User{&quot;Ale&quot;})
+</code></pre>
+
+<ul>
+<li>更新文档</li>
+</ul>
+
+<pre><code class="language-go">c := session.DB(&quot;store&quot;).C(&quot;users&quot;)
+err = c.Update(bson.M{&quot;name&quot;: &quot;张三&quot;}, &amp;book)
+</code></pre>
+
+<ul>
+<li>删除文档</li>
+</ul>
+
+<pre><code class="language-go">c := session.DB(&quot;store&quot;).C(&quot;users&quot;)
+err = c.Remove(bson.M{&quot;name&quot;: &quot;张三&quot;})
+</code></pre>
+
+<h1 id="restful服务-golang">RESTful服务(Golang)</h1>
+
+<h1 id="echo">Echo</h1>
+
+<p><a href="https://github.com/labstack/echo">Echo</a>是一个高性能、极简的Go语言Web框架。</p>
+
+<h3 id="功能概览">功能概览：</h3>
+
+<ul>
+<li>优化的 HTTP 路由。</li>
+<li>创建可靠并可伸缩的RESTful API。</li>
+<li>基于标准的HTTP服务器。</li>
+<li>组 APIs.</li>
+<li>可扩展的middleware框架。</li>
+<li>Define middleware at root, group or route level.</li>
+<li>为JSON, XML进行数据绑定，产生负荷。</li>
+<li>提供便捷的方法来发送各种HTTP相应。</li>
+<li>对HTTP错误进行集中处理。</li>
+<li>Template rendering with any template engine.</li>
+<li>定义属于你的日志格式。</li>
+<li>高度个性化。</li>
+<li>Automatic TLS via Let’s Encrypt</li>
+<li>支持HTTP/2</li>
+</ul>
+
+<h3 id="性能对比">性能对比</h3>
+
+<p><img src="https://camo.githubusercontent.com/41662d8d2bccaeefa7f990459adda2545ad4b10b/68747470733a2f2f692e696d6775722e636f6d2f4632563754664f2e706e67" alt="performance.png" /></p>
+
+<h1 id="服务实现">服务实现</h1>
+
+<p>具体实现中基于Echo框架来开发，代码在<a href="https://github.com/bytedaring/build-RESTful-service-with-mongodb-in-golang/tree/master">github.com</a>。</p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;log&quot;
+	&quot;net/http&quot;
+
+	&quot;fmt&quot;
+
+	&quot;github.com/labstack/echo&quot;
+	&quot;github.com/labstack/echo/middleware&quot;
+	mgo &quot;gopkg.in/mgo.v2&quot;
+	&quot;gopkg.in/mgo.v2/bson&quot;
+)
+
+type User struct {
+	ID    string `json:&quot;id&quot; bson:&quot;_id,omitempty&quot;`
+	Name  string `json:&quot;name,omitempty&quot;`
+	Phone string `json:&quot;phone,omitempty&quot;`
+	Age   int    `json:&quot;age,omitempty&quot;`
+}
+
+var session *mgo.Session
+
+func init() {
+	s, err := mgo.Dial(&quot;localhost&quot;)
+	if err != nil {
+		log.Fatal(err)
+	}
+	session = s
+}
+
+func main() {
+	defer session.Close()
+	ensureIndex(session)
+
+	session.SetMode(mgo.Monotonic, true)
+
+	e := echo.New()
+	e.Use(middleware.Logger())
+
+	e.GET(&quot;/users&quot;, allUsers)
+	e.GET(&quot;/user/:id&quot;, getUser)
+	e.PUT(&quot;/user&quot;, updateUser)
+	e.DELETE(&quot;/user/:id&quot;, deleteUser)
+	e.POST(&quot;/user&quot;, saveUser)
+
+	e.Logger.Fatal(e.Start(&quot;:1424&quot;))
+}
+
+func ensureIndex(s *mgo.Session) {
+	session := s.Copy()
+	defer session.Close()
+
+	c := session.DB(&quot;store&quot;).C(&quot;users&quot;)
+
+	index := mgo.Index{
+		Key:        []string{&quot;id&quot;},
+		Unique:     true,
+		DropDups:   true,
+		Background: true,
+		Sparse:     true,
+	}
+	err := c.EnsureIndex(index)
+	if err != nil {
+		panic(err)
+	}
+}
+
+func saveUser(e echo.Context) error {
+	u := new(User)
+	if err := e.Bind(u); err != nil {
+		return e.JSON(http.StatusBadRequest, err)
+	}
+
+	s := session.Copy()
+	defer s.Close()
+
+	c := s.DB(&quot;store&quot;).C(&quot;users&quot;)
+	err := c.Insert(u)
+	if err != nil {
+		log.Println(&quot;Failed insert user&quot;, u)
+		if mgo.IsDup(err) {
+			return e.JSON(http.StatusBadRequest, &quot;User with this id alread exists.&quot;)
+		}
+
+		return e.JSON(http.StatusInternalServerError, &quot;Database error&quot;)
+	}
+
+	return e.JSON(http.StatusCreated, &quot;SUCCESS&quot;)
+}
+
+func getUser(e echo.Context) error {
+	s := session.Copy()
+	defer s.Clone()
+
+	c := s.DB(&quot;store&quot;).C(&quot;users&quot;)
+	var u User
+	id := e.Param(&quot;id&quot;)
+	fmt.Println(&quot;userid&quot;, id)
+	err := c.Find(bson.M{&quot;_id&quot;: id}).One(&amp;u)
+	if err != nil {
+		log.Println(&quot;Failed get user&quot;, err)
+		return e.JSON(http.StatusNotFound, &quot;Database error&quot;)
+	}
+
+	return e.JSON(http.StatusOK, u)
+}
+
+func updateUser(e echo.Context) error {
+	u := new(User)
+	if err := e.Bind(u); err != nil {
+		return e.JSON(http.StatusBadRequest, err)
+	}
+
+	s := session.Copy()
+	defer s.Close()
+
+	c := s.DB(&quot;store&quot;).C(&quot;users&quot;)
+	err := c.Update(bson.M{&quot;_id&quot;: u.ID}, &amp;u)
+	if err != nil {
+		switch err {
+		default:
+			log.Fatalln(&quot;Failed update user: &quot;, err)
+			return e.JSON(http.StatusInternalServerError, &quot;Database error&quot;)
+		case mgo.ErrNotFound:
+			return e.JSON(http.StatusNotFound, &quot;Not found&quot;)
+		}
+	}
+	return e.JSON(http.StatusOK, u)
+}
+
+func deleteUser(e echo.Context) error {
+	s := session.Copy()
+	defer s.Close()
+
+	id := e.Param(&quot;id&quot;)
+
+	c := s.DB(&quot;store&quot;).C(&quot;users&quot;)
+	err := c.Remove(bson.M{&quot;_id&quot;: id})
+	if err != nil {
+		switch err {
+		default:
+			e.JSON(http.StatusInternalServerError, &quot;Database error&quot;)
+			log.Fatalln(&quot;Failed delete user: &quot;, err)
+			return err
+		case mgo.ErrNotFound:
+			e.JSON(http.StatusInternalServerError, &quot;User not found&quot;)
+			return err
+		}
+	}
+
+	return e.JSON(http.StatusOK, &quot;Sucess&quot;)
+}
+
+func allUsers(e echo.Context) error {
+	s := session.Copy()
+	defer s.Close()
+
+	c := s.DB(&quot;store&quot;).C(&quot;users&quot;)
+
+	var users []User
+	err := c.Find(bson.M{}).All(&amp;users)
+	if err != nil {
+		e.JSON(http.StatusInternalServerError, &quot;Database Error&quot;)
+		return err
+	}
+
+	return e.JSON(http.StatusOK, users)
+}
+</code></pre>
+
+<h1 id="使用curl测试服务">使用Curl测试服务</h1>
+
+<p><a href="https://curl.haxx.se/">curl</a>对于构建和测试RESTful服务来说是一个非常好用的工具，在其他RESTful 服务API的文档中，常常可以看到curl的身影，这里也不例外。</p>
+
+<h3 id="新增用户">新增用户</h3>
+
+<ul>
+<li>请求</li>
+</ul>
+
+<pre><code class="language-shell">curl -X POST -H 'Content-Type: application/json' -d @body.json http://localhsot:1424/user
+
+body.json
+{
+  &quot;id&quot;: &quot;5&quot;,
+  &quot;name&quot;: &quot;李四&quot;,
+  &quot;age&quot;: 11
+}
+</code></pre>
+
+<ul>
+<li>响应</li>
+</ul>
+
+<pre><code class="language-shell">SUCCESS
+</code></pre>
+
+<h3 id="编辑用户">编辑用户</h3>
+
+<ul>
+<li>请求</li>
+</ul>
+
+<pre><code class="language-shell">curl -X PUT -H 'Content-Type: application/json' -d @body.json http://localhost:1424/user
+
+body.json
+{
+  &quot;id&quot;: &quot;1&quot;,
+  &quot;title&quot;: &quot;天一&quot;,
+  &quot;age&quot;: &quot;-1&quot;
+}
+</code></pre>
+
+<ul>
+<li>响应</li>
+</ul>
+
+<pre><code class="language-shell">{&quot;id&quot;:&quot;1&quot;,&quot;name&quot;:&quot;天一&quot;,&quot;age&quot;:-1}
+</code></pre>
+
+<h3 id="查询所有用户">查询所有用户</h3>
+
+<ul>
+<li>请求</li>
+</ul>
+
+<p>使用python -m json.tool将服务返回的json，进行格式化处理。</p>
+
+<pre><code class="language-shell">curl http://localhost:1424/users | python -m json.tool
+</code></pre>
+
+<ul>
+<li>响应</li>
+</ul>
+
+<pre><code class="language-shell">[
+    {
+        &quot;id&quot;: &quot;YE/\ufffd\ufffdDj\ufffd\ufffd\u0004\ufffd-&quot;,
+        &quot;name&quot;: &quot;xiwang&quot;
+    },
+    {
+        &quot;id&quot;: &quot;2&quot;,
+        &quot;name&quot;: &quot;1&quot;
+    },
+    {
+        &quot;age&quot;: -1,
+        &quot;id&quot;: &quot;1&quot;,
+        &quot;name&quot;: &quot;\u5929\u4e00&quot;
+    },
+    {
+        &quot;id&quot;: &quot;YE7\u001d\ufffdDj\ufffd\ufffd\u0004\ufffd.&quot;,
+        &quot;name&quot;: &quot;bug&quot;
+    }
+]
+</code></pre>
+
+<h3 id="查询指定用户">查询指定用户</h3>
+
+<ul>
+<li>请求</li>
+</ul>
+
+<pre><code class="language-shell">curl http://localhost:1424/user/1
+</code></pre>
+
+<ul>
+<li>响应</li>
+</ul>
+
+<pre><code class="language-json">{&quot;id&quot;:&quot;1&quot;,&quot;name&quot;:&quot;天一&quot;,&quot;age&quot;:-1}
+</code></pre>
+
+<h3 id="删除用户">删除用户</h3>
+
+<ul>
+<li>请求</li>
+</ul>
+
+<pre><code class="language-shell">curl -X DELETE http://localhost:1424/user/1 
+</code></pre>
+
+<ul>
+<li>响应</li>
+</ul>
+
+<pre><code class="language-shell">SUCCESS
+</code></pre>
+
+                      
+                    </div>
+                    <div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+                        <div style="float:left;margin-top:0px;">
+                        <img src="https://bytedaring.github.io/public/qrcode.png" width="129px" height="129px"/>
+                        <div style="text-align:center;">扫一扫</div>
+                        </div>
+                        <div>
+                            <p style="margin-top:0px;">作者：<a target="_blank" href="https://bytedaring.github.io/">bytedaring</a>
+                            <br />本文出处：<a target="_blank" href="https://bytedaring.github.io/post/build-restful-service-with-MongoDB-in-Golang/">https://bytedaring.github.io/post/build-restful-service-with-MongoDB-in-Golang/</a>
+                            <br />
+                            原创文章版权归本人所有，欢迎转载! </p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+                  
+
+                </div>
+                
+              </article>
+              
+              <div class="clear"></div>
+              
+              
+              
+            </div>
+          </section>
+          <div class="sidebar s1">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="fa icon-sidebar-toggle"></i></a>
+  <div class="sidebar-content">
+    <div class="sidebar-top group">
+      <p>Follow:</p>
+      <ul class="social-links">
+    <li>
+    
+    <li>
+    <a class="social-tooltip" title="On GitHub"
+        href="https://github.com/bytedaring" target="_blank">
+        <i class="fa fa-github"></i>
+    </a>
+    </li>
+</ul>
+
+    </div>
+    <div class="widget qrcode">
+    <img src="https://bytedaring.github.io/public/qrcode.png" alt="qrcode" width="172px" height="172px"/>
+    <p> 扫一扫：<br>github: bytedaring <br /></p>
+</div>
+
+    <ul class="post-nav group">
+      <li class="next">
+        
+        <a href="https://bytedaring.github.io/post/git-commit-flow/" rel="next">
+          <i class="fa fa-chevron-right"></i>
+          <strong>Next post</strong>
+          <span>Git基本使用</span>
+        </a>
+        
+      </li>
+      <li class="previous">
+        
+        <a href="https://bytedaring.github.io/post/antd-start/" rel="prev">
+          <i class="fa fa-chevron-left"></i>
+          <strong>Previous Post</strong>
+          <span>【Antd的使用小结系列】</span>
+        </a>
+        
+      </li>
+    </ul>
+    
+  </div>
+  
+</div>
+
+          <div class="sidebar s2">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="fa icon-sidebar-toggle"></i></a>
+  <div class="sidebar-content">
+    <div class="sidebar-top group">
+      <p>More</p>
+    </div>
+    <div id="categories-2" class="widget widget_categories"><h3>Categories</h3>
+      <ul>
+        
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="https://bytedaring.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+          </li>
+        
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a>
+          </li>
+        
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="https://bytedaring.github.io/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/">思考感悟</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer id="footer">
+  <section class="container" id="footer-bottom">
+    <div class="container-inner">
+      <a id="back-to-top" href="#"><i class="fa fa-angle-up"></i></a>
+      <div class="pad group">
+        <div class="grid one-half">
+          <div id="copyright">
+            <p>Copyright © 2016. All Rights Reserved. <br>Powered by
+              <a rel="nofollow" href="http://gohugo.io/" target="_blank">Hugo - the static site generator</a>.
+              <a rel="nofollow" href="http://golang.org" target="_blank">#golang</a>.
+            </p>
+          </div>
+          
+        </div>
+        
+        <div class="grid one-half last">
+          <ul class="social-links">
+    <li>
+    
+    <li>
+    <a class="social-tooltip" title="On GitHub"
+        href="https://github.com/bytedaring" target="_blank">
+        <i class="fa fa-github"></i>
+    </a>
+    </li>
+</ul>
+
+        </div>
+      </div>
+
+    </div>
+    
+  </section>
+  
+</footer>
+
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10147768-2', 'auto');
+  ga('send', 'pageview');
+
+  $('#messagesbsb').remove();
+
+</script>
+</body>
+</html>
+

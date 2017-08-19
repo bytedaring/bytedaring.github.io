@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>思考感悟 on bytedaring blog</title>
+    <link>https://bytedaring.github.io/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/</link>
+    <description>Recent content in 思考感悟 on bytedaring blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright (c) 2015. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 12:04:27 +0800</lastBuildDate>
+    
+	<atom:link href="https://bytedaring.github.io/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About Me</title>
+      <link>https://bytedaring.github.io/about/</link>
+      <pubDate>Sun, 01 Jan 2017 12:04:27 +0800</pubDate>
+      
+      <guid>https://bytedaring.github.io/about/</guid>
+      <description>我，程序员，有点宅。 我的经历 2008-2012 长江大学计算机科学与技术系 2012-2013 .net工程师（深圳震有科技） 2013-2016 .net/java工程师（武汉辰安） 2016.10</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技术文章 on bytedaring blog</title>
+    <link>https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/</link>
+    <description>Recent content in 技术文章 on bytedaring blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright (c) 2015. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 19 Aug 2017 16:22:16 +0800</lastBuildDate>
+    
+	<atom:link href="https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【Antd的使用小结系列】</title>
+      <link>https://bytedaring.github.io/post/antd-start/</link>
+      <pubDate>Sat, 19 Aug 2017 16:22:16 +0800</pubDate>
+      
+      <guid>https://bytedaring.github.io/post/antd-start/</guid>
+      <description>Ant Design是蚂蚁金服开源出来的前端UI设计，是一个致力于提升『用户』和『设计者』使用体验的中台设计语言。它模糊了产品经理、交互设计师、视</description>
+    </item>
+    
+    <item>
+      <title>使用Golang基于MongoDB构建Restful服务</title>
+      <link>https://bytedaring.github.io/post/build-restful-service-with-MongoDB-in-Golang/</link>
+      <pubDate>Sat, 17 Jun 2017 15:30:56 +0800</pubDate>
+      
+      <guid>https://bytedaring.github.io/post/build-restful-service-with-MongoDB-in-Golang/</guid>
+      <description>近来使用Golang来构建Restful服务变得越发流行。我发现有些时候使用MongoDB作为持久存储，这篇文档中， 我会使用Golang和M</description>
+    </item>
+    
+    <item>
+      <title>React方法绑定的几种实现方式</title>
+      <link>https://bytedaring.github.io/post/react-bind-method/</link>
+      <pubDate>Wed, 07 Jun 2017 12:43:09 +0800</pubDate>
+      
+      <guid>https://bytedaring.github.io/post/react-bind-method/</guid>
+      <description>翻译参考自：React and ES6 - Part 3, Binding to methods of React class (ES7 included) 在React进行事件方法绑定的时，如下面的代码： import React , {Component} from &#39;react&#39; class user extends Component{ render(){ return &amp;lt;button onClick={this.sayhello} &amp;gt;open hello&amp;lt;/button&amp;gt; } sayhello(){ console.log(&#39;hello world&#39;) console.log(this.props) }</description>
+    </item>
+    
+    <item>
+      <title>MySql JOIN</title>
+      <link>https://bytedaring.github.io/post/sql-join/</link>
+      <pubDate>Mon, 05 Jun 2017 22:21:52 +0800</pubDate>
+      
+      <guid>https://bytedaring.github.io/post/sql-join/</guid>
+      <description>SQL中的连接（JOIN）语句用于将数据库中的两个表或者多个表组合起来。有“连接”生成的集合，可以被保存为表，或者当成表来使用，JOIN语句</description>
+    </item>
+    
+    <item>
+      <title>使用React写一个简单的Chrome插件</title>
+      <link>https://bytedaring.github.io/post/create-qrcode-by-react/</link>
+      <pubDate>Sun, 04 Jun 2017 15:55:39 +0800</pubDate>
+      
+      <guid>https://bytedaring.github.io/post/create-qrcode-by-react/</guid>
+      <description>当你手中只有一把锤子的时候，你就会把所有的问题都看成钉子。 Google Chrome,Google公司开发的一款设计简单、高效的Web浏览器。Chrom</description>
+    </item>
+    
+    <item>
+      <title>[转] Go Slice 秘籍</title>
+      <link>https://bytedaring.github.io/post/go-slice/</link>
+      <pubDate>Fri, 31 Mar 2017 13:42:17 +0800</pubDate>
+      
+      <guid>https://bytedaring.github.io/post/go-slice/</guid>
+      <description>Golang官方总结： Slice Tricks 由于引入了内建的append的方法， 包container/vector的很多方法都被移除，可以被内建的append</description>
+    </item>
+    
+  </channel>
+</rss>

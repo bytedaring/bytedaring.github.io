@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <base href="https://bytedaring.github.io/">
+  <script>
+    document._writeOriginal = document.write;
+    document.write = function(str) {
+        if (str.indexOf('livereload.js') > -1) {
+            document._writeOriginal(str);
+        } else {
+            document._writeOriginal('<!-- Be Hijack!! -->');
+        }
+    }
+  </script>
+  <title>Git基本使用 - bytedaring blog</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="keywords" content="git,">
+<meta name="description" content="团队开发中，遵循一个合理、清晰的Git使用流程，是非常重要的。 否则，每个人都提交一堆杂乱无章的commit，项目很快就会变得难以协调和维护。">
+<meta name="author" content="bytedaring">
+<meta name="publisher" content="bytedaring">
+<meta name="generator" content="http://gohugo.io/"/>
+
+<meta itemprop="name" content="Git基本使用 - bytedaring blog">
+<meta itemprop="description" content="团队开发中，遵循一个合理、清晰的Git使用流程，是非常重要的。 否则，每个人都提交一堆杂乱无章的commit，项目很快就会变得难以协调和维护。">
+<meta itemprop="image" content="https://bytedaring.github.io/public/xiwang-home.jpeg">
+
+<meta property="og:title" content="Git基本使用 - bytedaring blog" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bytedaring.github.io/post/git-commit-flow/" />
+<meta property="og:image" content="https://bytedaring.github.io/public/xiwang-home.jpeg" />
+<meta property="og:description" content="团队开发中，遵循一个合理、清晰的Git使用流程，是非常重要的。 否则，每个人都提交一堆杂乱无章的commit，项目很快就会变得难以协调和维护。">
+
+  <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
+  <link rel="canonical" href="https://bytedaring.github.io/post/git-commit-flow/">
+  <link rel='shortlink' href="https://bytedaring.github.io/post/git-commit-flow/"/>
+  <link rel="shortcut icon" href="https://bytedaring.github.io/public/favicon.ico"/>
+  
+<link rel="stylesheet" id="human-style-css" href="https://bytedaring.github.io/wp-content/themes/hueman/style.css" type="text/css" media="all"/>
+<link rel="stylesheet" id="human-style-css2" href="https://bytedaring.github.io/wp-content/themes/hueman-child/style.css" type="text/css" media="all"/>
+<link rel="stylesheet" id="responsive-css" href="https://bytedaring.github.io/wp-content/themes/hueman/responsive.css" type="text/css" media="all"/>
+<link rel="stylesheet" id="font-awesome-css" href="https://bytedaring.github.io/wp-content/themes/hueman/fonts/font-awesome.min.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="https://bytedaring.github.io/public/highlight/styles/github.css">
+<script src="https://bytedaring.github.io/public/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link rel="stylesheet" id="human-style-css3" href="https://bytedaring.github.io/wp-content/themes/hueman-child/user.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="public/font/hack/css/hack.min.css">
+
+<script type="text/javascript" src="assets/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="wp-content/themes/hueman/js/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="wp-content/themes/hueman/js/scripts.js"></script>
+<script type="text/javascript" src="assets/picturefill/picturefill.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.matchHeight-min.js"></script>
+<script type="text/javascript" async defer src="assets/js/myblog.js"></script>
+
+</head>
+
+<body class="single single-post single-format-standard col-3cm full-width topbar-enabled chrome">
+<div id="wrapper">
+  <header id="header">
+
+  <nav class="nav-container group" id="nav-topbar">
+    <div class="nav-toggle"><i class="fa fa-bars"></i></div>
+    <div class="nav-text"></div>
+    <div class="nav-wrap container">
+      <a rel="nofollow" href="https://bytedaring.github.io/" class="nav-cs-icon">
+        <img src="https://bytedaring.github.io/public/xiwang-home.jpeg" alt="bytedaring" title="Home">
+      </a>
+      <ul id="menu-default-menu" class="nav container-inner group">
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/">首页</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/">思考感悟</a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/post/">归档</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/about">关于我</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/feed.xml" type="application/rss+xml" target="_blank">订阅</a>
+        </li>
+        <li class="menu-item menu-item-type-post_type menu-item-text">
+        程序员的心路历程
+        </li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <div class="container-inner">
+        <div class="toggle-search"><i class="fa fa-search"></i></div>
+        <div class="search-expand">
+          <div class="search-expand-inner">
+            <form method="get" class="searchform themeform" action="https://www.google.com/search">
+              <div>
+                <input type="text" class="search" name="q" placeholder="Press enter to start searching">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+
+  </nav>
+  
+
+  <div class="container group">
+    <div class="container-inner">
+
+      <div class="group pad">
+
+        <div class="group pad">
+          <h1 class="site-title">
+            <a rel="nofollow" href="https://bytedaring.github.io/" rel="home">
+              <img style="border-radius: 20%;width: 54px;height: 72px;margin:0 auto;" alt="bytedaring" src="https://bytedaring.github.io/public/xiwang-home.jpeg"></img>
+              bytedaring blog
+            </a>
+          </h1>
+          <p class="site-description"> 勿忘初心，知行合一！ </p>
+        </div>
+
+      </div>
+    </div>
+    
+  </div>
+  
+
+</header>
+
+
+
+  <div class="container" id="page">
+    <div class="container-inner">
+      <div class="main">
+        <div class="main-inner group">
+          <section class="content">
+            <div class="page-title pad group">
+              <ul class="meta-single group">
+                
+                <li class="category">
+                  <a href="https://bytedaring.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="category tag">读书笔记</a>
+                </li>
+                
+              </ul>
+            </div>
+
+            <div class="pad group">
+
+              <article
+                  class="post type-post status-publish format-standard has-post-thumbnail hentry category-australien tag-bondi-beach tag-city2surf tag-sydney">
+                <div class="post-inner group">
+
+                  <h1 class="post-title">Git基本使用</h1>
+
+                  <p class="post-byline">
+                    by  · 2017年06月12日 · 1795 Words ·
+                    ~4min reading time |
+                    <a href="http://github.com/bytedaring/blog-hugo/blob/master/content/post/git-commit-flow.md"
+                       target="_blank">Improve on <i class="fa fa-github"></i></a>
+                  </p>
+
+                  <div class="clear"></div>
+
+                  <div class="entry">
+                    <div class="entry-inner">
+                      
+                      
+
+<p>团队开发中，遵循一个合理、清晰的Git使用流程，是非常重要的。<br />
+否则，每个人都提交一堆杂乱无章的commit，项目很快就会变得难以协调和维护。<br />
+<img src="http://or5up5p3j.bkt.clouddn.com/blog/image/2017/06/09/git-commit.png" alt="image" /></p>
+
+<h2 id="第一步-新建分支">第一步：新建分支</h2>
+
+<p>首先，每次开发新功能，都应该新建一个单独的分支（这方面可以参考《Git分支管理策略》）。</p>
+
+<pre><code># 获取主干最新代码
+$ git checkout master
+$ git pull
+
+# 新建一个开发分支myfeature
+$ git checkout -b myfeature
+</code></pre>
+
+<h2 id="第二步-提交分支commit">第二步：提交分支commit</h2>
+
+<p>分支修改后，就可以提交commit了。</p>
+
+<pre><code>$ git add --all
+$ git status
+$ git commit --verbose
+</code></pre>
+
+<p>git add 命令的all参数，表示保存所有变化（包括新建、修改和删除）。从Git 2.0开始，all是 git add 的默认参数，所以也可以用 git add . 代替。<br />
+git status 命令，用来查看发生变动的文件。<br />
+git commit 命令的verbose参数，会列出 diff 的结果。</p>
+
+<h2 id="第三步-撰写提交信息">第三步：撰写提交信息</h2>
+
+<p>提交commit时，必须给出完整扼要的提交信息，下面是一个范本。</p>
+
+<pre><code>Present-tense summary under 50 characters
+
+* More information about commit (under 72 characters).
+* More information about commit (under 72 characters).
+
+http://project.management-system.com/ticket/123
+</code></pre>
+
+<p>第一行是不超过50个字的提要，然后空一行，罗列出改动原因、主要变动、以及需要注意的问题。最后，提供对应的网址（比如Bug ticket）。</p>
+
+<h2 id="第四步-与主干同步">第四步：与主干同步</h2>
+
+<p>分支的开发过程中，要经常与主干保持同步。</p>
+
+<pre><code>$ git fetch origin
+$ git rebase origin/master
+</code></pre>
+
+<h2 id="第五步-合并commit">第五步：合并commit</h2>
+
+<p>分支开发完成后，很可能有一堆commit，但是合并到主干的时候，往往希望只有一个（或最多两三个）commit，这样不仅清晰，也容易管理。<br />
+那么，怎样才能将多个commit合并呢？这就要用到 git rebase 命令。</p>
+
+<pre><code>$ git rebase -i origin/master
+</code></pre>
+
+<p>git rebase命令的i参数表示互动（interactive），这时git会打开一个互动界面，进行下一步操作。<br />
+下面采用<a href="https://robots.thoughtbot.com/git-interactive-rebase-squash-amend-rewriting-history">Tute Costa</a>的例子，来解释怎么合并commit。</p>
+
+<pre><code>pick 07c5abd Introduce OpenPGP and teach basic usage
+pick de9b1eb Fix PostChecker::Post#urls
+pick 3e7ee36 Hey kids, stop all the highlighting
+pick fa20af3 git interactive rebase, squash, amend
+
+# Rebase 8db7e8b..fa20af3 onto 8db7e8b
+#
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like &quot;squash&quot;, but discard this commit's log message
+#  x, exec = run command (the rest of the line) using shell
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+# Note that empty commits are commented out
+</code></pre>
+
+<p>上面的互动界面，先列出当前分支最新的4个commit（越下面越新）。每个commit前面有一个操作命令，默认是pick，表示该行commit被选中，要进行rebase操作。<br />
+4个commit的下面是一大堆注释，列出可以使用的命令。</p>
+
+<pre><code>pick：正常选中
+reword：选中，并且修改提交信息；
+edit：选中，rebase时会暂停，允许你修改这个commit（参考这里）
+squash：选中，会将当前commit与上一个commit合并
+fixup：与squash相同，但不会保存当前commit的提交信息
+exec：执行其他shell命令
+</code></pre>
+
+<p>上面这6个命令当中，squash和fixup可以用来合并commit。先把需要合并的commit前面的动词，改成squash（或者s）。</p>
+
+<pre><code>pick 07c5abd Introduce OpenPGP and teach basic usage
+s de9b1eb Fix PostChecker::Post#urls
+s 3e7ee36 Hey kids, stop all the highlighting
+pick fa20af3 git interactive rebase, squash, amend
+</code></pre>
+
+<p>这样一改，执行后，当前分支只会剩下两个commit。第二行和第三行的commit，都会合并到第一行的commit。提交信息会同时包含，这三个commit的提交信息。</p>
+
+<pre><code># This is a combination of 3 commits.
+# The first commit's message is:
+Introduce OpenPGP and teach basic usage
+
+# This is the 2nd commit message:
+Fix PostChecker::Post#urls
+
+# This is the 3rd commit message:
+Hey kids, stop all the highlighting
+</code></pre>
+
+<p>如果将第三行的squash命令改成fixup命令。</p>
+
+<pre><code>pick 07c5abd Introduce OpenPGP and teach basic usage
+s de9b1eb Fix PostChecker::Post#urls
+f 3e7ee36 Hey kids, stop all the highlighting
+pick fa20af3 git interactive rebase, squash, amend
+</code></pre>
+
+<p>运行结果相同，还是会生成两个commit，第二行和第三行的commit，都合并到第一行的commit。但是，新的提交信息里面，第三行commit的提交信息，会被注释掉。</p>
+
+<pre><code># This is a combination of 3 commits.
+# The first commit's message is:
+Introduce OpenPGP and teach basic usage
+
+# This is the 2nd commit message:
+Fix PostChecker::Post#urls
+
+# This is the 3rd commit message:
+# Hey kids, stop all the highlighting
+</code></pre>
+
+<p><a href="http://ponyfoo.com/articles/git-github-hacks">Pony Foo</a>提出另外一种合并commit的简便方法，就是先撤销过去5个commit，然后再建一个新的。</p>
+
+<pre><code>$ git reset HEAD~5
+$ git add .
+$ git commit -am &quot;Here's the bug fix that closes #28&quot;
+$ git push --force
+</code></pre>
+
+<p>squash和fixup命令，还可以当作命令行参数使用，自动合并commit。</p>
+
+<pre><code>$ git commit --fixup  
+$ git rebase -i --autosquash
+</code></pre>
+
+<p>这个用法请参考<a href="http://fle.github.io/git-tip-keep-your-branch-clean-with-fixup-and-autosquash.html">这篇文章</a>，这里就不解释了。</p>
+
+<h2 id="第六步-推送到远程仓库">第六步：推送到远程仓库</h2>
+
+<p>合并commit后，就可以推送当前分支到远程仓库了。</p>
+
+<pre><code>$ git push --force origin myfeature
+</code></pre>
+
+<p>git push命令要加上force参数，因为rebase以后，分支历史改变了，跟远程分支不一定兼容，有可能要强行推送。</p>
+
+<h2 id="第七步-发出pull-request">第七步：发出Pull Request</h2>
+
+<p>提交到远程仓库以后，就可以发出 Pull Request 到master分支，然后请求别人进行代码review，确认可以合并到master。</p>
+
+                      
+                    </div>
+                    <div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+                        <div style="float:left;margin-top:0px;">
+                        <img src="https://bytedaring.github.io/public/qrcode.png" width="129px" height="129px"/>
+                        <div style="text-align:center;">扫一扫</div>
+                        </div>
+                        <div>
+                            <p style="margin-top:0px;">作者：<a target="_blank" href="https://bytedaring.github.io/">bytedaring</a>
+                            <br />本文出处：<a target="_blank" href="https://bytedaring.github.io/post/git-commit-flow/">https://bytedaring.github.io/post/git-commit-flow/</a>
+                            <br />
+                            原创文章版权归本人所有，欢迎转载! </p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+                  
+
+                </div>
+                
+              </article>
+              
+              <div class="clear"></div>
+              
+              
+              
+            </div>
+          </section>
+          <div class="sidebar s1">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="fa icon-sidebar-toggle"></i></a>
+  <div class="sidebar-content">
+    <div class="sidebar-top group">
+      <p>Follow:</p>
+      <ul class="social-links">
+    <li>
+    
+    <li>
+    <a class="social-tooltip" title="On GitHub"
+        href="https://github.com/bytedaring" target="_blank">
+        <i class="fa fa-github"></i>
+    </a>
+    </li>
+</ul>
+
+    </div>
+    <div class="widget qrcode">
+    <img src="https://bytedaring.github.io/public/qrcode.png" alt="qrcode" width="172px" height="172px"/>
+    <p> 扫一扫：<br>github: bytedaring <br /></p>
+</div>
+
+    <ul class="post-nav group">
+      <li class="next">
+        
+        <a href="https://bytedaring.github.io/post/react-bind-method/" rel="next">
+          <i class="fa fa-chevron-right"></i>
+          <strong>Next post</strong>
+          <span>React方法绑定的几种实现方式</span>
+        </a>
+        
+      </li>
+      <li class="previous">
+        
+        <a href="https://bytedaring.github.io/post/build-restful-service-with-MongoDB-in-Golang/" rel="prev">
+          <i class="fa fa-chevron-left"></i>
+          <strong>Previous Post</strong>
+          <span>使用Golang基于MongoDB构建Restful服务</span>
+        </a>
+        
+      </li>
+    </ul>
+    
+  </div>
+  
+</div>
+
+          <div class="sidebar s2">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="fa icon-sidebar-toggle"></i></a>
+  <div class="sidebar-content">
+    <div class="sidebar-top group">
+      <p>More</p>
+    </div>
+    <div id="categories-2" class="widget widget_categories"><h3>Categories</h3>
+      <ul>
+        
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="https://bytedaring.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+          </li>
+        
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a>
+          </li>
+        
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="https://bytedaring.github.io/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/">思考感悟</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer id="footer">
+  <section class="container" id="footer-bottom">
+    <div class="container-inner">
+      <a id="back-to-top" href="#"><i class="fa fa-angle-up"></i></a>
+      <div class="pad group">
+        <div class="grid one-half">
+          <div id="copyright">
+            <p>Copyright © 2016. All Rights Reserved. <br>Powered by
+              <a rel="nofollow" href="http://gohugo.io/" target="_blank">Hugo - the static site generator</a>.
+              <a rel="nofollow" href="http://golang.org" target="_blank">#golang</a>.
+            </p>
+          </div>
+          
+        </div>
+        
+        <div class="grid one-half last">
+          <ul class="social-links">
+    <li>
+    
+    <li>
+    <a class="social-tooltip" title="On GitHub"
+        href="https://github.com/bytedaring" target="_blank">
+        <i class="fa fa-github"></i>
+    </a>
+    </li>
+</ul>
+
+        </div>
+      </div>
+
+    </div>
+    
+  </section>
+  
+</footer>
+
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10147768-2', 'auto');
+  ga('send', 'pageview');
+
+  $('#messagesbsb').remove();
+
+</script>
+</body>
+</html>
+

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <base href="https://bytedaring.github.io/">
+  <script>
+    document._writeOriginal = document.write;
+    document.write = function(str) {
+        if (str.indexOf('livereload.js') > -1) {
+            document._writeOriginal(str);
+        } else {
+            document._writeOriginal('<!-- Be Hijack!! -->');
+        }
+    }
+  </script>
+  <title>MySql JOIN - bytedaring blog</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="keywords" content="sql,join,">
+<meta name="description" content="SQL中的连接（JOIN）语句用于将数据库中的两个表或者多个表组合起来。有“连接”生成的集合，可以被保存为表，或者当成表来使用，JOIN语句">
+<meta name="author" content="bytedaring">
+<meta name="publisher" content="bytedaring">
+<meta name="generator" content="http://gohugo.io/"/>
+
+<meta itemprop="name" content="MySql JOIN - bytedaring blog">
+<meta itemprop="description" content="SQL中的连接（JOIN）语句用于将数据库中的两个表或者多个表组合起来。有“连接”生成的集合，可以被保存为表，或者当成表来使用，JOIN语句">
+<meta itemprop="image" content="https://bytedaring.github.io/public/xiwang-home.jpeg">
+
+<meta property="og:title" content="MySql JOIN - bytedaring blog" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bytedaring.github.io/post/sql-join/" />
+<meta property="og:image" content="https://bytedaring.github.io/public/xiwang-home.jpeg" />
+<meta property="og:description" content="SQL中的连接（JOIN）语句用于将数据库中的两个表或者多个表组合起来。有“连接”生成的集合，可以被保存为表，或者当成表来使用，JOIN语句">
+
+  <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
+  <link rel="canonical" href="https://bytedaring.github.io/post/sql-join/">
+  <link rel='shortlink' href="https://bytedaring.github.io/post/sql-join/"/>
+  <link rel="shortcut icon" href="https://bytedaring.github.io/public/favicon.ico"/>
+  
+<link rel="stylesheet" id="human-style-css" href="https://bytedaring.github.io/wp-content/themes/hueman/style.css" type="text/css" media="all"/>
+<link rel="stylesheet" id="human-style-css2" href="https://bytedaring.github.io/wp-content/themes/hueman-child/style.css" type="text/css" media="all"/>
+<link rel="stylesheet" id="responsive-css" href="https://bytedaring.github.io/wp-content/themes/hueman/responsive.css" type="text/css" media="all"/>
+<link rel="stylesheet" id="font-awesome-css" href="https://bytedaring.github.io/wp-content/themes/hueman/fonts/font-awesome.min.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="https://bytedaring.github.io/public/highlight/styles/github.css">
+<script src="https://bytedaring.github.io/public/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link rel="stylesheet" id="human-style-css3" href="https://bytedaring.github.io/wp-content/themes/hueman-child/user.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="public/font/hack/css/hack.min.css">
+
+<script type="text/javascript" src="assets/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="wp-content/themes/hueman/js/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="wp-content/themes/hueman/js/scripts.js"></script>
+<script type="text/javascript" src="assets/picturefill/picturefill.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.matchHeight-min.js"></script>
+<script type="text/javascript" async defer src="assets/js/myblog.js"></script>
+
+</head>
+
+<body class="single single-post single-format-standard col-3cm full-width topbar-enabled chrome">
+<div id="wrapper">
+  <header id="header">
+
+  <nav class="nav-container group" id="nav-topbar">
+    <div class="nav-toggle"><i class="fa fa-bars"></i></div>
+    <div class="nav-text"></div>
+    <div class="nav-wrap container">
+      <a rel="nofollow" href="https://bytedaring.github.io/" class="nav-cs-icon">
+        <img src="https://bytedaring.github.io/public/xiwang-home.jpeg" alt="bytedaring" title="Home">
+      </a>
+      <ul id="menu-default-menu" class="nav container-inner group">
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/">首页</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/">思考感悟</a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/post/">归档</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/about">关于我</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="https://bytedaring.github.io/feed.xml" type="application/rss+xml" target="_blank">订阅</a>
+        </li>
+        <li class="menu-item menu-item-type-post_type menu-item-text">
+        程序员的心路历程
+        </li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <div class="container-inner">
+        <div class="toggle-search"><i class="fa fa-search"></i></div>
+        <div class="search-expand">
+          <div class="search-expand-inner">
+            <form method="get" class="searchform themeform" action="https://www.google.com/search">
+              <div>
+                <input type="text" class="search" name="q" placeholder="Press enter to start searching">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+
+  </nav>
+  
+
+  <div class="container group">
+    <div class="container-inner">
+
+      <div class="group pad">
+
+        <div class="group pad">
+          <h1 class="site-title">
+            <a rel="nofollow" href="https://bytedaring.github.io/" rel="home">
+              <img style="border-radius: 20%;width: 54px;height: 72px;margin:0 auto;" alt="bytedaring" src="https://bytedaring.github.io/public/xiwang-home.jpeg"></img>
+              bytedaring blog
+            </a>
+          </h1>
+          <p class="site-description"> 勿忘初心，知行合一！ </p>
+        </div>
+
+      </div>
+    </div>
+    
+  </div>
+  
+
+</header>
+
+
+
+  <div class="container" id="page">
+    <div class="container-inner">
+      <div class="main">
+        <div class="main-inner group">
+          <section class="content">
+            <div class="page-title pad group">
+              <ul class="meta-single group">
+                
+                <li class="category">
+                  <a href="https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/" rel="category tag">技术文章</a>
+                </li>
+                
+              </ul>
+            </div>
+
+            <div class="pad group">
+
+              <article
+                  class="post type-post status-publish format-standard has-post-thumbnail hentry category-australien tag-bondi-beach tag-city2surf tag-sydney">
+                <div class="post-inner group">
+
+                  <h1 class="post-title">MySql JOIN</h1>
+
+                  <p class="post-byline">
+                    by  · 2017年06月05日 · 1512 Words ·
+                    ~4min reading time |
+                    <a href="http://github.com/bytedaring/blog-hugo/blob/master/content/post/sql-join.md"
+                       target="_blank">Improve on <i class="fa fa-github"></i></a>
+                  </p>
+
+                  <div class="clear"></div>
+
+                  <div class="entry">
+                    <div class="entry-inner">
+                      
+                      
+
+<p>SQL中的连接（JOIN）语句用于将数据库中的两个表或者多个表组合起来。有“连接”生成的集合，可以被保存为表，或者当成表来使用，JOIN语句的含义是把两张表的属性通过它们的值组合在一起。基于ANSI标准的SQL列出五种JOIN方式：</p>
+
+<ul>
+<li>内连接（INNER）</li>
+<li>全外连接（FULL OUTER）</li>
+<li>左外连接（LEFT OUTER）</li>
+<li>右外连接（RIGHT OUTER）</li>
+<li>交叉连接（CROSS）</li>
+</ul>
+
+<p>在特定的情况下，一张表（基本表，视图或连接表）可以和自身进行连接，成为自连接（self-join）。
+其中， MYSQL<strong>不支持全外连接（FULL OUTER）</strong>。这里只关注Mysql的剩下的四种连接（JOIN）。</p>
+
+<h2 id="一-示例表">一、示例表</h2>
+
+<p>下面有两张表雇员表（Employee）和部门表（Department），ID是主键。</p>
+
+<p>雇员表（Employee）</p>
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>DeptID</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1</td>
+<td>张三</td>
+<td>2</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>李四</td>
+<td>3</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>王五</td>
+<td>3</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>老李</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+
+<p>部门表（Department）</p>
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>2</td>
+<td>研发部</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>测试部</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>运维部</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="二-内连接-inner-join">二、内连接（INNER JOIN）</h2>
+
+<p>MySQL中，内连接，即等值连接。</p>
+
+<pre><code class="language-SQL">select * from employee, department 
+where employee.deptID = department.id;
+</code></pre>
+
+<p>等效于</p>
+
+<pre><code class="language-SQL">select * from 
+employee inner join department
+on employee.deptID = department.id;
+</code></pre>
+
+<p>查询结果是：</p>
+
+<pre><code>+----+--------+--------+----+-----------+
+| id | name   | deptID | id | name      |
++----+--------+--------+----+-----------+
+|  1 | 张三   |      2 |  2 | 测试部    |
+|  2 | 李四   |      3 |  3 | 运维部    |
+|  3 | 王五   |      3 |  3 | 运维部    |
++----+--------+--------+----+-----------+
+3 rows in set (0.00 sec)
+</code></pre>
+
+<h2 id="三-左外连接-left-join">三、左外连接（LEFT JOIN）</h2>
+
+<p>Mysql中， left outer join 等效于 left join。左外连接结果中将会保留“左表”中的所有记录，即使右表中没有匹配连接条件，右表中没有匹配条件的列值为NULL。</p>
+
+<pre><code class="language-SQL">select * from employee left join department on employee.deptId = department.id;
+</code></pre>
+
+<p>或者</p>
+
+<pre><code class="language-SQL">select * from employee left outer join department on employee.deptId = department.id;
+</code></pre>
+
+<p>查询结果：</p>
+
+<pre><code>+----+--------+--------+------+-----------+
+| id | name   | deptID | id   | name      |
++----+--------+--------+------+-----------+
+|  1 | 张三   |      2 |    2 | 测试部    |
+|  2 | 李四   |      3 |    3 | 运维部    |
+|  3 | 王五   |      3 |    3 | 运维部    |
+|  4 | 老李   |      5 | NULL | NULL      |
++----+--------+--------+------+-----------+
+4 rows in set (0.00 sec)
+</code></pre>
+
+<h2 id="四-右外连接-right-join">四、右外连接（RIGHT JOIN）</h2>
+
+<p>右外连接，它和左外连接完全类似，如果 A 表右连接 B 表, 那么&rdquo;右表&rdquo; B 中的每一行在连接表中至少会出现一次. 如果 B 表的记录在&rdquo;左表&rdquo; A 中未找到匹配行, 连接表中来源于 A 的列的值设为 NULL。right outer join 等效 right join 。</p>
+
+<pre><code>select * from employee right join department on employee.deptId = department.id;
+</code></pre>
+
+<p>或者</p>
+
+<pre><code>select * from employee right outer join department on employee.deptId = department.id;
+</code></pre>
+
+<p>查询结果：</p>
+
+<pre><code>+------+--------+--------+----+-----------+
+| id   | name   | deptID | id | name      |
++------+--------+--------+----+-----------+
+|    1 | 张三   |      2 |  2 | 测试部    |
+|    2 | 李四   |      3 |  3 | 运维部    |
+|    3 | 王五   |      3 |  3 | 运维部    |
+| NULL | NULL   |   NULL |  1 | 研发部    |
++------+--------+--------+----+-----------+
+4 rows in set (0.00 sec)
+
+</code></pre>
+
+<h2 id="五-交叉连接-cross-join">五、交叉连接（CROSS JOIN）</h2>
+
+<p>交叉连接(cross join)，又称笛卡尔连接(cartesian join)或叉乘(Product)，它是所有类型的内连接的基础。把表视为行记录的集合，交叉连接即返回这两个集合的笛卡尔积。这其实等价于内连接的链接条件为&rdquo;永真&rdquo;，或连接条件不存在.
+如果 A 和 B 是两个集合，它们的交叉连接就记为: A × B。</p>
+
+<pre><code class="language-SQL">select * from employee cross join department;
+</code></pre>
+
+<p>查询结果：</p>
+
+<pre><code>+----+--------+--------+----+-----------+
+| id | name   | deptID | id | name      |
++----+--------+--------+----+-----------+
+|  1 | 张三   |      2 |  1 | 研发部    |
+|  1 | 张三   |      2 |  2 | 测试部    |
+|  1 | 张三   |      2 |  3 | 运维部    |
+|  2 | 李四   |      3 |  1 | 研发部    |
+|  2 | 李四   |      3 |  2 | 测试部    |
+|  2 | 李四   |      3 |  3 | 运维部    |
+|  3 | 王五   |      3 |  1 | 研发部    |
+|  3 | 王五   |      3 |  2 | 测试部    |
+|  3 | 王五   |      3 |  3 | 运维部    |
+|  4 | 老李   |      5 |  1 | 研发部    |
+|  4 | 老李   |      5 |  2 | 测试部    |
+|  4 | 老李   |      5 |  3 | 运维部    |
++----+--------+--------+----+-----------+
+12 rows in set (0.00 sec)
+</code></pre>
+
+<h2 id="六-全连接">六、全连接</h2>
+
+<p>MYSQL<strong>不支持全连接</strong>，但可以模拟。全连接是左右外连接的并集，连接表包含左右连接表的所有记录，如果缺少匹配的记录，就以NULL填充。</p>
+
+<p>下面使用left join 和 right join 实现 full join：</p>
+
+<pre><code class="language-SQL">select * from employee e left join department d on e.deptId = d.id
+union 
+select * from  employee e right join department d on e.deptid= d.id
+</code></pre>
+
+<p>查询结果：</p>
+
+<pre><code>+------+--------+--------+------+-----------+
+| id   | name   | deptID | id   | name      |
++------+--------+--------+------+-----------+
+|    1 | 张三   |      2 |    2 | 测试部    |
+|    2 | 李四   |      3 |    3 | 运维部    |
+|    3 | 王五   |      3 |    3 | 运维部    |
+|    4 | 老李   |      5 | NULL | NULL      |
+| NULL | NULL   |   NULL |    1 | 研发部    |
++------+--------+--------+------+-----------+
+5 rows in set (0.00 sec)
+</code></pre>
+
+<h2 id="参考">参考</h2>
+
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E8%BF%9E%E6%8E%A5_(SQL)">连接(SQL)</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/5.7/en/join.html">MySQL JOIN Synatx</a></li>
+</ul>
+
+                      
+                    </div>
+                    <div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+                        <div style="float:left;margin-top:0px;">
+                        <img src="https://bytedaring.github.io/public/qrcode.png" width="129px" height="129px"/>
+                        <div style="text-align:center;">扫一扫</div>
+                        </div>
+                        <div>
+                            <p style="margin-top:0px;">作者：<a target="_blank" href="https://bytedaring.github.io/">bytedaring</a>
+                            <br />本文出处：<a target="_blank" href="https://bytedaring.github.io/post/sql-join/">https://bytedaring.github.io/post/sql-join/</a>
+                            <br />
+                            原创文章版权归本人所有，欢迎转载! </p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+                  
+
+                </div>
+                
+              </article>
+              
+              <div class="clear"></div>
+              
+              
+              
+            </div>
+          </section>
+          <div class="sidebar s1">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="fa icon-sidebar-toggle"></i></a>
+  <div class="sidebar-content">
+    <div class="sidebar-top group">
+      <p>Follow:</p>
+      <ul class="social-links">
+    <li>
+    
+    <li>
+    <a class="social-tooltip" title="On GitHub"
+        href="https://github.com/bytedaring" target="_blank">
+        <i class="fa fa-github"></i>
+    </a>
+    </li>
+</ul>
+
+    </div>
+    <div class="widget qrcode">
+    <img src="https://bytedaring.github.io/public/qrcode.png" alt="qrcode" width="172px" height="172px"/>
+    <p> 扫一扫：<br>github: bytedaring <br /></p>
+</div>
+
+    <ul class="post-nav group">
+      <li class="next">
+        
+        <a href="https://bytedaring.github.io/post/create-qrcode-by-react/" rel="next">
+          <i class="fa fa-chevron-right"></i>
+          <strong>Next post</strong>
+          <span>使用React写一个简单的Chrome插件</span>
+        </a>
+        
+      </li>
+      <li class="previous">
+        
+        <a href="https://bytedaring.github.io/post/react-bind-method/" rel="prev">
+          <i class="fa fa-chevron-left"></i>
+          <strong>Previous Post</strong>
+          <span>React方法绑定的几种实现方式</span>
+        </a>
+        
+      </li>
+    </ul>
+    
+  </div>
+  
+</div>
+
+          <div class="sidebar s2">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="fa icon-sidebar-toggle"></i></a>
+  <div class="sidebar-content">
+    <div class="sidebar-top group">
+      <p>More</p>
+    </div>
+    <div id="categories-2" class="widget widget_categories"><h3>Categories</h3>
+      <ul>
+        
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="https://bytedaring.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+          </li>
+        
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a>
+          </li>
+        
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="https://bytedaring.github.io/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/">思考感悟</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer id="footer">
+  <section class="container" id="footer-bottom">
+    <div class="container-inner">
+      <a id="back-to-top" href="#"><i class="fa fa-angle-up"></i></a>
+      <div class="pad group">
+        <div class="grid one-half">
+          <div id="copyright">
+            <p>Copyright © 2016. All Rights Reserved. <br>Powered by
+              <a rel="nofollow" href="http://gohugo.io/" target="_blank">Hugo - the static site generator</a>.
+              <a rel="nofollow" href="http://golang.org" target="_blank">#golang</a>.
+            </p>
+          </div>
+          
+        </div>
+        
+        <div class="grid one-half last">
+          <ul class="social-links">
+    <li>
+    
+    <li>
+    <a class="social-tooltip" title="On GitHub"
+        href="https://github.com/bytedaring" target="_blank">
+        <i class="fa fa-github"></i>
+    </a>
+    </li>
+</ul>
+
+        </div>
+      </div>
+
+    </div>
+    
+  </section>
+  
+</footer>
+
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10147768-2', 'auto');
+  ga('send', 'pageview');
+
+  $('#messagesbsb').remove();
+
+</script>
+</body>
+</html>
+
