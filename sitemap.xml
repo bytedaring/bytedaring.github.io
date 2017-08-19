@@ -3,14 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-<<<<<<< HEAD
     <loc>https://bytedaring.github.io/post/antd-start/</loc>
     <lastmod>2017-08-19T16:22:16+08:00</lastmod>
   </url>
   
   <url>
-=======
->>>>>>> 57638ad0f7a67c85389cb84b361c706b444ff7ef
     <loc>https://bytedaring.github.io/post/build-restful-service-with-MongoDB-in-Golang/</loc>
     <lastmod>2017-06-17T15:30:56+08:00</lastmod>
   </url>
@@ -69,11 +66,7 @@
   
   <url>
     <loc>https://bytedaring.github.io/post/</loc>
-<<<<<<< HEAD
     <lastmod>2017-08-19T16:22:16+08:00</lastmod>
-=======
-    <lastmod>2017-06-17T15:30:56+08:00</lastmod>
->>>>>>> 57638ad0f7a67c85389cb84b361c706b444ff7ef
     <priority>0</priority>
   </url>
   
@@ -91,11 +84,7 @@
   
   <url>
     <loc>https://bytedaring.github.io/</loc>
-<<<<<<< HEAD
     <lastmod>2017-08-19T16:22:16+08:00</lastmod>
-=======
-    <lastmod>2017-06-17T15:30:56+08:00</lastmod>
->>>>>>> 57638ad0f7a67c85389cb84b361c706b444ff7ef
     <priority>0</priority>
   </url>
   
@@ -107,11 +96,7 @@
   
   <url>
     <loc>https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/</loc>
-<<<<<<< HEAD
     <lastmod>2017-08-19T16:22:16+08:00</lastmod>
-=======
-    <lastmod>2017-06-17T15:30:56+08:00</lastmod>
->>>>>>> 57638ad0f7a67c85389cb84b361c706b444ff7ef
     <priority>0</priority>
   </url>
   
