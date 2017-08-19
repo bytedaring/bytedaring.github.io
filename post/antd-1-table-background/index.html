@@ -1,4 +1,4 @@
-EMPTYTYPE html>
+<!DOCTYPE html>
 <html class="no-js">
 <head>
   <base href="https://bytedaring.github.io/">
@@ -12,29 +12,29 @@ EMPTYTYPE html>
         }
     }
   </script>
-  <title>About Me - bytedaring blog</title>
+  <title>【Antd使用小结】--Table设置行背景色 - bytedaring blog</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="keywords" content="生活,">
-<meta name="description" content="我，程序员，有点宅。 我的经历 2008-2012 长江大学计算机科学与技术系 2012-2013 .net工程师（深圳震有科技） 2013-2016 .net/java工程师（武汉辰安） 2016.10">
+<meta name="keywords" content="antd,react,">
+<meta name="description" content="Table 用于展示行列数据。 基本使用 指定表格的数据源 dataSource 为一个数据组， 并指定表格列的配置描述columns即可。 const dataSource = [{id:1, name: &#39;one&#39;, color: &#39;#fff&#39;}, {id:2, name: &#39;two&#39;, color: &#39;#eee&#39;}, {id:3, name: &#39;three&#39;, color: &#39;#ddd&#39;}]; const">
 <meta name="author" content="bytedaring">
 <meta name="publisher" content="bytedaring">
 <meta name="generator" content="http://gohugo.io/"/>
 
-<meta itemprop="name" content="About Me - bytedaring blog">
-<meta itemprop="description" content="我，程序员，有点宅。 我的经历 2008-2012 长江大学计算机科学与技术系 2012-2013 .net工程师（深圳震有科技） 2013-2016 .net/java工程师（武汉辰安） 2016.10">
+<meta itemprop="name" content="【Antd使用小结】--Table设置行背景色 - bytedaring blog">
+<meta itemprop="description" content="Table 用于展示行列数据。 基本使用 指定表格的数据源 dataSource 为一个数据组， 并指定表格列的配置描述columns即可。 const dataSource = [{id:1, name: &#39;one&#39;, color: &#39;#fff&#39;}, {id:2, name: &#39;two&#39;, color: &#39;#eee&#39;}, {id:3, name: &#39;three&#39;, color: &#39;#ddd&#39;}]; const">
 <meta itemprop="image" content="https://bytedaring.github.io/public/xiwang-home.jpeg">
 
-<meta property="og:title" content="About Me - bytedaring blog" />
+<meta property="og:title" content="【Antd使用小结】--Table设置行背景色 - bytedaring blog" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://bytedaring.github.io/about/" />
+<meta property="og:url" content="https://bytedaring.github.io/post/antd-1-table-background/" />
 <meta property="og:image" content="https://bytedaring.github.io/public/xiwang-home.jpeg" />
-<meta property="og:description" content="我，程序员，有点宅。 我的经历 2008-2012 长江大学计算机科学与技术系 2012-2013 .net工程师（深圳震有科技） 2013-2016 .net/java工程师（武汉辰安） 2016.10">
+<meta property="og:description" content="Table 用于展示行列数据。 基本使用 指定表格的数据源 dataSource 为一个数据组， 并指定表格列的配置描述columns即可。 const dataSource = [{id:1, name: &#39;one&#39;, color: &#39;#fff&#39;}, {id:2, name: &#39;two&#39;, color: &#39;#eee&#39;}, {id:3, name: &#39;three&#39;, color: &#39;#ddd&#39;}]; const">
 
   <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
-  <link rel="canonical" href="https://bytedaring.github.io/about/">
-  <link rel='shortlink' href="https://bytedaring.github.io/about/"/>
+  <link rel="canonical" href="https://bytedaring.github.io/post/antd-1-table-background/">
+  <link rel='shortlink' href="https://bytedaring.github.io/post/antd-1-table-background/"/>
   <link rel="shortcut icon" href="https://bytedaring.github.io/public/favicon.ico"/>
   
 <link rel="stylesheet" id="human-style-css" href="https://bytedaring.github.io/wp-content/themes/hueman/style.css" type="text/css" media="all"/>
@@ -156,7 +156,7 @@ EMPTYTYPE html>
               <ul class="meta-single group">
                 
                 <li class="category">
-                  <a href="https://bytedaring.github.io/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/" rel="category tag">思考感悟</a>
+                  <a href="https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/" rel="category tag">技术文章</a>
                 </li>
                 
               </ul>
@@ -168,12 +168,12 @@ EMPTYTYPE html>
                   class="post type-post status-publish format-standard has-post-thumbnail hentry category-australien tag-bondi-beach tag-city2surf tag-sydney">
                 <div class="post-inner group">
 
-                  <h1 class="post-title">About Me</h1>
+                  <h1 class="post-title">【Antd使用小结】--Table设置行背景色</h1>
 
                   <p class="post-byline">
-                    by  · 2017年01月01日 · 275 Words ·
+                    by  · 2017年08月19日 · 406 Words ·
                     ~1min reading time |
-                    <a href="http://github.com/bytedaring/blog-hugo/blob/master/content/about/index.md"
+                    <a href="http://github.com/bytedaring/blog-hugo/blob/master/content/post/antd-1-table-background.md"
                        target="_blank">Improve on <i class="fa fa-github"></i></a>
                   </p>
 
@@ -184,43 +184,66 @@ EMPTYTYPE html>
                       
                       
 
-<blockquote>
-<p>我，程序员，有点宅。</p>
-</blockquote>
+<p><a href="https://ant.design/components/table-cn/">Table</a> 用于展示行列数据。</p>
 
-<h2 id="我的经历">我的经历</h2>
+<h2 id="基本使用">基本使用</h2>
 
-<ul>
-<li>2008-2012 长江大学计算机科学与技术系</li>
-<li>2012-2013 .net工程师（深圳震有科技）</li>
-<li>2013-2016 .net/java工程师（武汉辰安）</li>
-<li>2016.10-至今 java工程师，倒腾golang，努力成长（不管是生活还是技术）</li>
-</ul>
+<p>指定表格的数据源 dataSource 为一个数据组， 并指定表格列的配置描述columns即可。</p>
 
-<h2 id="我的技能">我的技能</h2>
+<pre><code class="language-react">const dataSource = [{id:1, name: 'one', color: '#fff'},
+        {id:2, name: 'two', color: '#eee'},
+        {id:3, name: 'three', color: '#ddd'}];
 
-<ul>
-<li>编程语言：C#、Java。偏爱GO，也涉猎F#、Python&hellip;</li>
-<li>半个前端：捣腾css+js，喜欢React.js，熟悉dva，ant-d</li>
-<li>熟悉WPF桌面开发。</li>
-<li>熟悉后台开发，REST API, SOA, 正则表达式</li>
-</ul>
+const columns = [{
+   	title: 'ID',
+   	dataIndex: 'id',
+   }, {
+   	title: 'Name',
+   	dataIndex: 'name',
+}];
 
-<h2 id="生活">生活</h2>
+&lt;Table dataSource={dataSource} columns={columns} /&gt;
+</code></pre>
 
-<ul>
-<li>乒乓球比较菜，偶尔打羽毛球</li>
-<li>有点宅，常买书，没事看看书</li>
-<li>被《王者荣耀》伤了，偶尔玩玩</li>
-<li>喜欢技术，尝试新的事物</li>
-</ul>
+<p>运行结果：</p>
 
-<h2 id="最近主要关注">最近主要关注</h2>
+<p><img src="http://or5up5p3j.bkt.clouddn.com/blog/image/2017/08/19/antd-background-table-row.png" alt="result" /></p>
 
-<ul>
-<li>自我管理、GO、React</li>
-<li>GRPC</li>
-</ul>
+<h2 id="行背景">行背景</h2>
+
+<p>默些时候， 需要根据行数据，来指定每行拥有不同的背景色。此时，可以使用Table.rowClassName来指定。rowClassName指定表格行的类名，类型是：Function(record, index):string， 其中record参数就是每行的具体绑定的数据。</p>
+
+<pre><code class="language-react">&lt;Table
+    columns={columns}
+    dataSource={this.state.data}
+    rowClassName={(record) =&gt; record.color.replace('#', '')}
+    rowKey={record =&gt; record.id}/&gt;
+</code></pre>
+
+<p>rowClassName函数替换每行数据中color的值，将#替换为‘’， 剩下部分作为该行的class名返回。此时，需要制定相应的CSS样式：</p>
+
+<pre><code class="language-css">.fff {
+  background: #fff;
+}
+
+.eee {
+  background: #eee;
+}
+
+.ddd {
+  background: #ddd;
+}
+</code></pre>
+
+<p>运行效果：</p>
+
+<p><img src="http://or5up5p3j.bkt.clouddn.com/blog/image/2017/06/09/antd-row-bl.png" alt="black" /></p>
+
+<h2 id="参考">参考</h2>
+
+<p>1、<a href="https://jsfiddle.net/2b2376a4/">https://jsfiddle.net/2b2376a4/</a></p>
+
+<p>2、<a href="https://ant.design/components/table-cn/">https://ant.design/components/table-cn/</a></p>
 
                       
                     </div>
@@ -231,7 +254,7 @@ EMPTYTYPE html>
                         </div>
                         <div>
                             <p style="margin-top:0px;">作者：<a target="_blank" href="https://bytedaring.github.io/">bytedaring</a>
-                            <br />本文出处：<a target="_blank" href="https://bytedaring.github.io/about/">https://bytedaring.github.io/about/</a>
+                            <br />本文出处：<a target="_blank" href="https://bytedaring.github.io/post/antd-1-table-background/">https://bytedaring.github.io/post/antd-1-table-background/</a>
                             <br />
                             原创文章版权归本人所有，欢迎转载! </p>
                         </div>
@@ -275,14 +298,14 @@ EMPTYTYPE html>
     <ul class="post-nav group">
       <li class="next">
         
+        <a href="https://bytedaring.github.io/post/antd-start/" rel="next">
+          <i class="fa fa-chevron-right"></i>
+          <strong>Next post</strong>
+          <span>【Antd使用小结系列】</span>
+        </a>
+        
       </li>
       <li class="previous">
-        
-        <a href="https://bytedaring.github.io/post/first/" rel="prev">
-          <i class="fa fa-chevron-left"></i>
-          <strong>Previous Post</strong>
-          <span>希望的博客</span>
-        </a>
         
       </li>
     </ul>

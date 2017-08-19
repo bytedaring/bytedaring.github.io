@@ -7,13 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright (c) 2015. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 19 Aug 2017 16:22:16 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 19 Aug 2017 21:36:46 +0800</lastBuildDate>
     
 	<atom:link href="https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>【Antd的使用小结系列】</title>
+      <title>【Antd使用小结】--Table设置行背景色</title>
+      <link>https://bytedaring.github.io/post/antd-1-table-background/</link>
+      <pubDate>Sat, 19 Aug 2017 21:36:46 +0800</pubDate>
+      
+      <guid>https://bytedaring.github.io/post/antd-1-table-background/</guid>
+      <description>Table 用于展示行列数据。 基本使用 指定表格的数据源 dataSource 为一个数据组， 并指定表格列的配置描述columns即可。 const dataSource = [{id:1, name: &#39;one&#39;, color: &#39;#fff&#39;}, {id:2, name: &#39;two&#39;, color: &#39;#eee&#39;}, {id:3, name: &#39;three&#39;, color: &#39;#ddd&#39;}]; const</description>
+    </item>
+    
+    <item>
+      <title>【Antd使用小结系列】</title>
       <link>https://bytedaring.github.io/post/antd-start/</link>
       <pubDate>Sat, 19 Aug 2017 16:22:16 +0800</pubDate>
       
