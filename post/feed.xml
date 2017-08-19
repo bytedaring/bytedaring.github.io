@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright (c) 2015. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 19 Aug 2017 21:36:46 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 19 Aug 2017 22:16:01 +0800</lastBuildDate>
     
 	<atom:link href="https://bytedaring.github.io/post/feed.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>秋来了</title>
+      <link>https://bytedaring.github.io/post/autumn_on_its_way/</link>
+      <pubDate>Sat, 19 Aug 2017 22:16:01 +0800</pubDate>
+      
+      <guid>https://bytedaring.github.io/post/autumn_on_its_way/</guid>
+      <description>前几天的几场雨下来，似乎把武汉的火炉浇灭了，晚上明显感觉到阵阵的凉意，秋天真的来了。 手上的项目，进入比较关键的时刻，开始仓储部分的设计工作。</description>
+    </item>
     
     <item>
       <title>【Antd使用小结】--Table设置行背景色</title>
