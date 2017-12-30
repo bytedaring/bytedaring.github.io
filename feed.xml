@@ -108,7 +108,16 @@
       <pubDate>Sun, 01 Jan 2017 12:04:27 +0800</pubDate>
       
       <guid>https://bytedaring.github.io/about/</guid>
-      <description>我，程序员，有点宅。 我的经历 2008-2012 长江大学计算机科学与技术系 2012-2013 .net工程师（深圳震有科技） 2013-2016 .net/java工程师（武汉辰安） 2016.10</description>
+      <description>我，程序员，有点宅。 我的经历 2016.10-至今 java工程师作为React主力工作着，倒腾golang，努力成长（不管是生活还是技术） 2013-2016 .</description>
+    </item>
+    
+    <item>
+      <title>(Mac)PIP使用国内镜像</title>
+      <link>https://bytedaring.github.io/post/2017-10-22/python-env-pip-source/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bytedaring.github.io/post/2017-10-22/python-env-pip-source/</guid>
+      <description>(Mac)PIP使用国内镜像 PIP使用国外源安装软件包，下载速度非常慢，将PIP安装源头替换为国内镜像，可以大幅提高下载速度，提高安装成功率</description>
     </item>
     
   </channel>
