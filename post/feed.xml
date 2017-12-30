@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright (c) 2015. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 19 Aug 2017 22:16:01 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 22 Oct 2017 16:22:16 +0800</lastBuildDate>
     
 	<atom:link href="https://bytedaring.github.io/post/feed.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>(Mac)PIP使用国内镜像</title>
+      <link>https://bytedaring.github.io/post/2017-10-22/python-env-pip-source/</link>
+      <pubDate>Sun, 22 Oct 2017 16:22:16 +0800</pubDate>
+      
+      <guid>https://bytedaring.github.io/post/2017-10-22/python-env-pip-source/</guid>
+      <description>PIP使用国外源安装软件包，下载速度非常慢，将PIP安装源头替换为国内镜像，可以大幅提高下载速度，提高安装成功率。 1、国内源 清华：https</description>
+    </item>
     
     <item>
       <title>秋来了</title>
@@ -100,15 +109,6 @@
       
       <guid>https://bytedaring.github.io/post/first/</guid>
       <description>我的博客 生命不止，折腾不息； 还是按捺不住爱折腾的心，搭建自己的博客。总感觉在博客园或者CSDN里写博客，少些什么似乎的，总觉得缺点什么。 寻寻</description>
-    </item>
-    
-    <item>
-      <title>(Mac)PIP使用国内镜像</title>
-      <link>https://bytedaring.github.io/post/2017-10-22/python-env-pip-source/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://bytedaring.github.io/post/2017-10-22/python-env-pip-source/</guid>
-      <description>(Mac)PIP使用国内镜像 PIP使用国外源安装软件包，下载速度非常慢，将PIP安装源头替换为国内镜像，可以大幅提高下载速度，提高安装成功率</description>
     </item>
     
   </channel>
