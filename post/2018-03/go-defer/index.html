@@ -12,33 +12,31 @@
         }
     }
   </script>
-  <title>Posts - bytedaring blog</title>
+  <title>[Go]Deferred函数案例 - bytedaring blog</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-<meta name="description" content="Posts">
+<meta name="keywords" content="go,golang,deferred,">
+<meta name="description" content="package main func main() { println(DeferFunc1(1)) println(DeferFunc2(1)) println(DeferFunc3(1)) } func DeferFunc1(i int) (t int) { t = i defer func() { t &#43;= 3 }() return t } func DeferFunc2(i int) int { t := i defer func() { t &#43;= 3 }() return t } func DeferFunc3(i int) (t int) { defer func() { t &#43;= i }() return 2 } 运行结果： 4 1 3">
 <meta name="author" content="bytedaring">
 <meta name="publisher" content="bytedaring">
 <meta name="generator" content="http://gohugo.io/"/>
 
-<meta itemprop="name" content="Posts - bytedaring blog">
-<meta itemprop="description" content="Posts">
+<meta itemprop="name" content="[Go]Deferred函数案例 - bytedaring blog">
+<meta itemprop="description" content="package main func main() { println(DeferFunc1(1)) println(DeferFunc2(1)) println(DeferFunc3(1)) } func DeferFunc1(i int) (t int) { t = i defer func() { t &#43;= 3 }() return t } func DeferFunc2(i int) int { t := i defer func() { t &#43;= 3 }() return t } func DeferFunc3(i int) (t int) { defer func() { t &#43;= i }() return 2 } 运行结果： 4 1 3">
 <meta itemprop="image" content="https://bytedaring.github.io/public/xiwang-home.jpeg">
 
-<meta property="og:title" content="Posts - bytedaring blog" />
+<meta property="og:title" content="[Go]Deferred函数案例 - bytedaring blog" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://bytedaring.github.io/post/" />
+<meta property="og:url" content="https://bytedaring.github.io/post/2018-03/go-defer/" />
 <meta property="og:image" content="https://bytedaring.github.io/public/xiwang-home.jpeg" />
-<meta property="og:description" content="Posts">
+<meta property="og:description" content="package main func main() { println(DeferFunc1(1)) println(DeferFunc2(1)) println(DeferFunc3(1)) } func DeferFunc1(i int) (t int) { t = i defer func() { t &#43;= 3 }() return t } func DeferFunc2(i int) int { t := i defer func() { t &#43;= 3 }() return t } func DeferFunc3(i int) (t int) { defer func() { t &#43;= i }() return 2 } 运行结果： 4 1 3">
 
   <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
-  <link rel="canonical" href="https://bytedaring.github.io/post/">
-  <link rel='shortlink' href="https://bytedaring.github.io/post/"/>
+  <link rel="canonical" href="https://bytedaring.github.io/post/2018-03/go-defer/">
+  <link rel='shortlink' href="https://bytedaring.github.io/post/2018-03/go-defer/"/>
   <link rel="shortcut icon" href="https://bytedaring.github.io/public/favicon.ico"/>
   
- <link href="https://bytedaring.github.io/feed.xml" rel="alternate" type="application/rss+xml" title="bytedaring blog" />
-
 <link rel="stylesheet" id="human-style-css" href="https://bytedaring.github.io/wp-content/themes/hueman/style.css" type="text/css" media="all"/>
 <link rel="stylesheet" id="human-style-css2" href="https://bytedaring.github.io/wp-content/themes/hueman-child/style.css" type="text/css" media="all"/>
 <link rel="stylesheet" id="responsive-css" href="https://bytedaring.github.io/wp-content/themes/hueman/responsive.css" type="text/css" media="all"/>
@@ -58,8 +56,7 @@
 
 </head>
 
-<body class="archive category col-3cm full-width topbar-enabled chrome">
-
+<body class="single single-post single-format-standard col-3cm full-width topbar-enabled chrome">
 <div id="wrapper">
   <header id="header">
 
@@ -156,238 +153,104 @@
         <div class="main-inner group">
           <section class="content">
             <div class="page-title pad group">
-              <h1><i class="fa fa-folder-open"></i>Category: <span>Posts</span></h1>
+              <ul class="meta-single group">
+                
+                <li class="category">
+                  <a href="https://bytedaring.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="category tag">读书笔记</a>
+                </li>
+                
+              </ul>
             </div>
+
             <div class="pad group">
-              <div class="post-list group">
-  
-  <div class="post-row">
-    <article class="post-row type-post status-publish format-standard has-post-thumbnail hentry group">
-  <div class="post-inner post-hover">
-    <div class="post-meta group">
-  <p class="post-date">2018年03月11日</p>
-  <p class="post-title-small"><a href="https://bytedaring.github.io/post/2018-03/go-defer/" rel="bookmark" title="[Go]Deferred函数案例">[Go]Deferred函数案例</a></p>
-</div>
 
-  </div>
-  
-</article>
+              <article
+                  class="post type-post status-publish format-standard has-post-thumbnail hentry category-australien tag-bondi-beach tag-city2surf tag-sydney">
+                <div class="post-inner group">
 
+                  <h1 class="post-title">[Go]Deferred函数案例</h1>
 
-  </div>
-  
-  <div class="post-row">
-    <article class="post-row type-post status-publish format-standard has-post-thumbnail hentry group">
-  <div class="post-inner post-hover">
-    <div class="post-meta group">
-  <p class="post-date">2018年03月06日</p>
-  <p class="post-title-small"><a href="https://bytedaring.github.io/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/" rel="bookmark" title="Linux统计文件数量">Linux统计文件数量</a></p>
-</div>
+                  <p class="post-byline">
+                    by  · 2018年03月11日 · 251 Words ·
+                    ~1min reading time |
+                    <a href="http://github.com/bytedaring/blog-hugo/blob/master/content/post/2018-03/go-defer.md"
+                       target="_blank">Improve on <i class="fa fa-github"></i></a>
+                  </p>
 
-  </div>
-  
-</article>
+                  <div class="clear"></div>
 
+                  <div class="entry">
+                    <div class="entry-inner">
+                      
+                      <pre><code class="language-go">package main
 
-  </div>
-  
-  <div class="post-row">
-    <article class="post-row type-post status-publish format-standard has-post-thumbnail hentry group">
-  <div class="post-inner post-hover">
-    <div class="post-meta group">
-  <p class="post-date">2018年02月02日</p>
-  <p class="post-title-small"><a href="https://bytedaring.github.io/post/2018-01-30/webdriver/" rel="bookmark" title="Mac配置Selenium &#43; Python3">Mac配置Selenium &#43; Python3</a></p>
-</div>
+func main() {
+	println(DeferFunc1(1))
+	println(DeferFunc2(1))
+	println(DeferFunc3(1))
+}
 
-  </div>
-  
-</article>
+func DeferFunc1(i int) (t int) {
+	t = i
+	defer func() {
+		t += 3
+	}()
+	return t
+}
 
+func DeferFunc2(i int) int {
+	t := i
+	defer func() {
+		t += 3
+	}()
+	return t
+}
 
-  </div>
-  
-  <div class="post-row">
-    <article class="post-row type-post status-publish format-standard has-post-thumbnail hentry group">
-  <div class="post-inner post-hover">
-    <div class="post-meta group">
-  <p class="post-date">2018年01月10日</p>
-  <p class="post-title-small"><a href="https://bytedaring.github.io/post/2018-01-09/homebrew_install_golang_environment/" rel="bookmark" title="使用Homebrew安装Golang">使用Homebrew安装Golang</a></p>
-</div>
+func DeferFunc3(i int) (t int) {
+	defer func() {
+		t += i
+	}()
+	return 2
+}
+</code></pre>
 
-  </div>
-  
-</article>
+<p>运行结果：</p>
 
+<pre><code>4
+1
+3
+</code></pre>
 
-  </div>
-  
-  <div class="post-row">
-    <article class="post-row type-post status-publish format-standard has-post-thumbnail hentry group">
-  <div class="post-inner post-hover">
-    <div class="post-meta group">
-  <p class="post-date">2017年10月22日</p>
-  <p class="post-title-small"><a href="https://bytedaring.github.io/post/2017-10-22/python-env-pip-source/" rel="bookmark" title="(Mac)PIP使用国内镜像">(Mac)PIP使用国内镜像</a></p>
-</div>
+<p>解析：</p>
 
-  </div>
-  
-</article>
+<p>首先，只有在函数执行完毕后，这些被延迟的函数才会执行；其次，defer语句中的函数会在return语句更新返回值变量后再执行，而且函数中定义的匿名函数可以访问该函数包括返回值变量在内的所有变量。所以，DeferFunc1， DeferFunc3，分别返回4，3。DeferFunc2中因为defer中的匿名函数更新的是函数中变量t，不会影响返回值所以返回1。</p>
 
+                      
+                    </div>
+                    <div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+                        <div style="float:left;margin-top:0px;">
+                        <img src="https://bytedaring.github.io/public/qrcode.png" width="129px" height="129px"/>
+                        <div style="text-align:center;">扫一扫</div>
+                        </div>
+                        <div>
+                            <p style="margin-top:0px;">作者：<a target="_blank" href="https://bytedaring.github.io/">bytedaring</a>
+                            <br />本文出处：<a target="_blank" href="https://bytedaring.github.io/post/2018-03/go-defer/">https://bytedaring.github.io/post/2018-03/go-defer/</a>
+                            <br />
+                            原创文章版权归本人所有，欢迎转载! </p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+                  
 
-  </div>
-  
-  <div class="post-row">
-    <article class="post-row type-post status-publish format-standard has-post-thumbnail hentry group">
-  <div class="post-inner post-hover">
-    <div class="post-meta group">
-  <p class="post-date">2017年08月19日</p>
-  <p class="post-title-small"><a href="https://bytedaring.github.io/post/autumn_on_its_way/" rel="bookmark" title="秋来了">秋来了</a></p>
-</div>
-
-  </div>
-  
-</article>
-
-
-  </div>
-  
-  <div class="post-row">
-    <article class="post-row type-post status-publish format-standard has-post-thumbnail hentry group">
-  <div class="post-inner post-hover">
-    <div class="post-meta group">
-  <p class="post-date">2017年08月19日</p>
-  <p class="post-title-small"><a href="https://bytedaring.github.io/post/antd-1-table-background/" rel="bookmark" title="【Antd使用小结】--Table设置行背景色">【Antd使用小结】--Table设置行背景色</a></p>
-</div>
-
-  </div>
-  
-</article>
-
-
-  </div>
-  
-  <div class="post-row">
-    <article class="post-row type-post status-publish format-standard has-post-thumbnail hentry group">
-  <div class="post-inner post-hover">
-    <div class="post-meta group">
-  <p class="post-date">2017年08月19日</p>
-  <p class="post-title-small"><a href="https://bytedaring.github.io/post/antd-start/" rel="bookmark" title="【Antd使用小结系列】">【Antd使用小结系列】</a></p>
-</div>
-
-  </div>
-  
-</article>
-
-
-  </div>
-  
-  <div class="post-row">
-    <article class="post-row type-post status-publish format-standard has-post-thumbnail hentry group">
-  <div class="post-inner post-hover">
-    <div class="post-meta group">
-  <p class="post-date">2017年06月17日</p>
-  <p class="post-title-small"><a href="https://bytedaring.github.io/post/build-restful-service-with-MongoDB-in-Golang/" rel="bookmark" title="使用Golang基于MongoDB构建Restful服务">使用Golang基于MongoDB构建Restful服务</a></p>
-</div>
-
-  </div>
-  
-</article>
-
-
-  </div>
-  
-  <div class="post-row">
-    <article class="post-row type-post status-publish format-standard has-post-thumbnail hentry group">
-  <div class="post-inner post-hover">
-    <div class="post-meta group">
-  <p class="post-date">2017年06月12日</p>
-  <p class="post-title-small"><a href="https://bytedaring.github.io/post/git-commit-flow/" rel="bookmark" title="Git基本使用">Git基本使用</a></p>
-</div>
-
-  </div>
-  
-</article>
-
-
-  </div>
-  
-  <div class="post-row">
-    <article class="post-row type-post status-publish format-standard has-post-thumbnail hentry group">
-  <div class="post-inner post-hover">
-    <div class="post-meta group">
-  <p class="post-date">2017年06月07日</p>
-  <p class="post-title-small"><a href="https://bytedaring.github.io/post/react-bind-method/" rel="bookmark" title="React方法绑定的几种实现方式">React方法绑定的几种实现方式</a></p>
-</div>
-
-  </div>
-  
-</article>
-
-
-  </div>
-  
-  <div class="post-row">
-    <article class="post-row type-post status-publish format-standard has-post-thumbnail hentry group">
-  <div class="post-inner post-hover">
-    <div class="post-meta group">
-  <p class="post-date">2017年06月05日</p>
-  <p class="post-title-small"><a href="https://bytedaring.github.io/post/sql-join/" rel="bookmark" title="MySql JOIN">MySql JOIN</a></p>
-</div>
-
-  </div>
-  
-</article>
-
-
-  </div>
-  
-  <div class="post-row">
-    <article class="post-row type-post status-publish format-standard has-post-thumbnail hentry group">
-  <div class="post-inner post-hover">
-    <div class="post-meta group">
-  <p class="post-date">2017年06月04日</p>
-  <p class="post-title-small"><a href="https://bytedaring.github.io/post/create-qrcode-by-react/" rel="bookmark" title="使用React写一个简单的Chrome插件">使用React写一个简单的Chrome插件</a></p>
-</div>
-
-  </div>
-  
-</article>
-
-
-  </div>
-  
-  <div class="post-row">
-    <article class="post-row type-post status-publish format-standard has-post-thumbnail hentry group">
-  <div class="post-inner post-hover">
-    <div class="post-meta group">
-  <p class="post-date">2017年03月31日</p>
-  <p class="post-title-small"><a href="https://bytedaring.github.io/post/go-slice/" rel="bookmark" title="[转] Go Slice 秘籍">[转] Go Slice 秘籍</a></p>
-</div>
-
-  </div>
-  
-</article>
-
-
-  </div>
-  
-  <div class="post-row">
-    <article class="post-row type-post status-publish format-standard has-post-thumbnail hentry group">
-  <div class="post-inner post-hover">
-    <div class="post-meta group">
-  <p class="post-date">2017年03月09日</p>
-  <p class="post-title-small"><a href="https://bytedaring.github.io/post/first/" rel="bookmark" title="希望的博客">希望的博客</a></p>
-</div>
-
-  </div>
-  
-</article>
-
-
-  </div>
-  
-</div>
-
+                </div>
+                
+              </article>
+              
+              <div class="clear"></div>
+              
+              
+              
             </div>
           </section>
           <div class="sidebar s1">
@@ -412,14 +275,23 @@
     <p> 扫一扫：<br>github: bytedaring <br /></p>
 </div>
 
-    <div id="search-2" class="widget widget_search"><h3>Search</h3>
-      <form method="get" class="searchform themeform" action="https://www.google.com/search">
-        <div>
-          <input type="text" class="search" name="q" placeholder="Press enter to start searching">
-        </div>
-      </form>
-    </div>
+    <ul class="post-nav group">
+      <li class="next">
+        
+        <a href="https://bytedaring.github.io/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/" rel="next">
+          <i class="fa fa-chevron-right"></i>
+          <strong>Next post</strong>
+          <span>Linux统计文件数量</span>
+        </a>
+        
+      </li>
+      <li class="previous">
+        
+      </li>
+    </ul>
+    
   </div>
+  
 </div>
 
           <div class="sidebar s2">
