@@ -12,29 +12,29 @@
         }
     }
   </script>
-  <title>秋来了 - bytedaring blog</title>
+  <title>conda管理Python环境 - bytedaring blog</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="keywords" content="秋天,">
-<meta name="description" content="前几天的几场雨下来，似乎把武汉的火炉浇灭了，晚上明显感觉到阵阵的凉意，秋天真的来了。 手上的项目，进入比较关键的时刻，开始仓储部分的设计工作。">
+<meta name="keywords" content="conda,python,">
+<meta name="description" content="condan配置管理Python环境">
 <meta name="author" content="bytedaring">
 <meta name="publisher" content="bytedaring">
 <meta name="generator" content="http://gohugo.io/"/>
 
-<meta itemprop="name" content="秋来了 - bytedaring blog">
-<meta itemprop="description" content="前几天的几场雨下来，似乎把武汉的火炉浇灭了，晚上明显感觉到阵阵的凉意，秋天真的来了。 手上的项目，进入比较关键的时刻，开始仓储部分的设计工作。">
+<meta itemprop="name" content="conda管理Python环境 - bytedaring blog">
+<meta itemprop="description" content="condan配置管理Python环境">
 <meta itemprop="image" content="https://bytedaring.wang/public/xiwang-home.jpeg">
 
-<meta property="og:title" content="秋来了 - bytedaring blog" />
+<meta property="og:title" content="conda管理Python环境 - bytedaring blog" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://bytedaring.wang/post/autumn_on_its_way/" />
+<meta property="og:url" content="https://bytedaring.wang/post/2018-03-15/conda/" />
 <meta property="og:image" content="https://bytedaring.wang/public/xiwang-home.jpeg" />
-<meta property="og:description" content="前几天的几场雨下来，似乎把武汉的火炉浇灭了，晚上明显感觉到阵阵的凉意，秋天真的来了。 手上的项目，进入比较关键的时刻，开始仓储部分的设计工作。">
+<meta property="og:description" content="condan配置管理Python环境">
 
   <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
-  <link rel="canonical" href="https://bytedaring.wang/post/autumn_on_its_way/">
-  <link rel='shortlink' href="https://bytedaring.wang/post/autumn_on_its_way/"/>
+  <link rel="canonical" href="https://bytedaring.wang/post/2018-03-15/conda/">
+  <link rel='shortlink' href="https://bytedaring.wang/post/2018-03-15/conda/"/>
   <link rel="shortcut icon" href="https://bytedaring.wang/public/favicon.ico"/>
   
 <link rel="stylesheet" id="human-style-css" href="https://bytedaring.wang/wp-content/themes/hueman/style.css" type="text/css" media="all"/>
@@ -156,7 +156,7 @@
               <ul class="meta-single group">
                 
                 <li class="category">
-                  <a href="https://bytedaring.wang/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/" rel="category tag">思考感悟</a>
+                  <a href="https://bytedaring.wang/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="category tag">读书笔记</a>
                 </li>
                 
               </ul>
@@ -168,12 +168,12 @@
                   class="post type-post status-publish format-standard has-post-thumbnail hentry category-australien tag-bondi-beach tag-city2surf tag-sydney">
                 <div class="post-inner group">
 
-                  <h1 class="post-title">秋来了</h1>
+                  <h1 class="post-title">conda管理Python环境</h1>
 
                   <p class="post-byline">
-                    by  · 2017年08月19日 · 85 Words ·
-                    ~1min reading time |
-                    <a href="http://github.com/bytedaring/blog-hugo/blob/master/content/post/autumn_on_its_way.md"
+                    by  · 2018年03月15日 · 1277 Words ·
+                    ~3min reading time |
+                    <a href="http://github.com/bytedaring/blog-hugo/blob/master/content/post/2018-03-15/conda.md"
                        target="_blank">Improve on <i class="fa fa-github"></i></a>
                   </p>
 
@@ -182,11 +182,110 @@
                   <div class="entry">
                     <div class="entry-inner">
                       
-                      <p>前几天的几场雨下来，似乎把武汉的火炉浇灭了，晚上明显感觉到阵阵的凉意，秋天真的来了。</p>
+                      
 
-<p>手上的项目，进入比较关键的时刻，开始仓储部分的设计工作。阿门，需求不要再变啦！！！</p>
+<h2 id="序">序</h2>
 
-<p>明天周日，早起干嘛去呢？跑步？</p>
+<p>近期做一个项目的调研，需要使用到OpenCV、Python，这里记录anaconda进行Python环境配置管理过程。</p>
+
+<h2 id="python常用环境管理工具">Python常用环境管理工具</h2>
+
+<ul>
+<li><a href="https://virtualenv.pypa.io/en/stable/">virtualenv</a>，用于在一台机器上创建多个独立的Python虚拟运行环境，多个Python环境相互独立，互不影响</li>
+<li><a href="https://github.com/pyenv/pyenv">pyenv</a>, Python版本管理工具，可以方便的在多个Python版本之间进行切换</li>
+<li><a href="https://link.jianshu.com/?t=https://www.continuum.io/why-anaconda">Anaconda</a>，Anaconda是一个用于科学计算的Python发行版，支持 Linux, Mac, Windows系统，提供了包管理与环境管理的功能，可以很方便地解决多版本python并存、切换以及各种第三方包安装问题。Anaconda利用工具/命令conda来进行package和environment的管理，并且已经包含了Python和相关的配套工具。</li>
+</ul>
+
+<h2 id="anaconda-vs-conda">Anaconda VS conda</h2>
+
+<p>conda可以理解为一个工具，也是一个可执行命令，其核心功能是包管理与环境管理。包管理与pip的使用类似，环境管理则允许用户方便地安装不同版本的python并可以快速切换。Anaconda则是一个打包的集合，里面预装好了conda、某个版本的python、众多packages、科学计算工具等等，所以也称为Python的一种发行版</p>
+
+<h2 id="anaconda下载安装">Anaconda下载安装</h2>
+
+<p>Anaconda下载安装参见<a href="https://www.anaconda.com/download/">官网下载</a>，支持Windows，macOS，Linux平台。</p>
+
+<h2 id="conda环境管理">Conda环境管理</h2>
+
+<p>Conda环境管理功能允许同时安装多个不同版本的Python，并可以自由切换。</p>
+
+<pre><code># 查看已经安装的环境
+conda info -e
+
+# 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本） 
+conda create --name python34 python=3.4
+
+# 安装好后，使用activate激活某个环境 
+activate python34 # for Windows source activate python34 # for Linux &amp; Mac
+
+# 激活后，会发现terminal输入的地方多了python34的字样，实际上，此时系统做的事情就是把默认2.7环境从PATH中去除，再把3.4对应的命令加入PATH
+
+ 
+python --version 
+# 可以得到`Python 3.4.5 :: Anaconda 4.1.1 (64-bit)`，即系统已经切换到了3.4的环境 
+
+# 如果想返回默认的python 2.7环境，运行 
+deactivate python34 # for Windows source deactivate python34 # for Linux &amp; Mac
+
+# 删除一个已有的环境 
+conda remove --name python34 --all
+
+</code></pre>
+
+<h2 id="conda包管理-常用命令">Conda包管理常用命令</h2>
+
+<pre><code># 查看当前环境下已安装的包 
+conda list
+
+# 查看某个指定环境的已安装包 
+conda list -n python34
+
+# 查找package信息 
+conda search numpy
+
+# 安装package 
+conda install -n python34 numpy
+
+# 如果不用-n指定环境名称，则被安装在当前活跃环境 
+# 也可以通过-c指定通过某个channel安装
+
+# 更新package 
+conda update -n python34 numpy
+
+# 删除package 
+conda remove -n python34 numpy
+
+</code></pre>
+
+<h2 id="设置国内镜像">设置国内镜像</h2>
+
+<p>由于默认的安装源在国外，conda下载速度十分缓慢。可以使用<a href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">清华大学TUNA镜像</a>。
+TUNA 还提供了 Anaconda 仓库的镜像，运行以下命令:</p>
+
+<pre><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --set show_channel_urls yes
+</code></pre>
+
+<p>即可添加 Anaconda Python 免费仓库。</p>
+
+<p>该配置保存在.condarc文件，也可以直接进行配置，Windows为C://Users/username/.condarc，Linux/Mac为~/.condarc。</p>
+
+<pre><code>channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+  - defaults
+ssl_verify: true
+show_channel_urls: true
+</code></pre>
+
+<h2 id="参考资料">参考资料</h2>
+
+<ul>
+<li><a href="http://flask123.sinaapp.com/article/39/">Virtualenv入门基础教程</a></li>
+<li><a href="https://github.com/pyenv/pyenv">pyenv</a></li>
+<li><a href="https://www.anaconda.com">Anaconda</a></li>
+<li><a href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">清华大学TUNA镜像</a></li>
+</ul>
 
                       
                     </div>
@@ -197,7 +296,7 @@
                         </div>
                         <div>
                             <p style="margin-top:0px;">作者：<a target="_blank" href="https://bytedaring.github.io/">bytedaring</a>
-                            <br />本文出处：<a target="_blank" href="https://bytedaring.wang/post/autumn_on_its_way/">https://bytedaring.wang/post/autumn_on_its_way/</a>
+                            <br />本文出处：<a target="_blank" href="https://bytedaring.wang/post/2018-03-15/conda/">https://bytedaring.wang/post/2018-03-15/conda/</a>
                             <br />
                             原创文章版权归本人所有，欢迎转载! </p>
                         </div>
@@ -241,20 +340,14 @@
     <ul class="post-nav group">
       <li class="next">
         
-        <a href="https://bytedaring.wang/post/antd-1-table-background/" rel="next">
+        <a href="https://bytedaring.wang/post/2018-03/go-defer/" rel="next">
           <i class="fa fa-chevron-right"></i>
           <strong>Next post</strong>
-          <span>【Antd使用小结】--Table设置行背景色</span>
+          <span>[Go]Deferred函数案例</span>
         </a>
         
       </li>
       <li class="previous">
-        
-        <a href="https://bytedaring.wang/post/2017-10-22/python-env-pip-source/" rel="prev">
-          <i class="fa fa-chevron-left"></i>
-          <strong>Previous Post</strong>
-          <span>(Mac)PIP使用国内镜像</span>
-        </a>
         
       </li>
     </ul>

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Abouts on bytedaring blog</title>
-    <link>https://bytedaring.github.io/about/</link>
+    <link>https://bytedaring.wang/about/</link>
     <description>Recent content in Abouts on bytedaring blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright (c) 2015. All rights reserved.</copyright>
     <lastBuildDate>Sun, 01 Jan 2017 12:04:27 +0800</lastBuildDate>
     
-	<atom:link href="https://bytedaring.github.io/about/feed.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://bytedaring.wang/about/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About Me</title>
-      <link>https://bytedaring.github.io/about/</link>
+      <link>https://bytedaring.wang/about/</link>
       <pubDate>Sun, 01 Jan 2017 12:04:27 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/about/</guid>
+      <guid>https://bytedaring.wang/about/</guid>
       <description>我，程序员，有点宅。 我的经历 2016.10-至今 java工程师作为React主力工作着，倒腾golang，努力成长（不管是生活还是技术） 2013-2016 .</description>
     </item>
     

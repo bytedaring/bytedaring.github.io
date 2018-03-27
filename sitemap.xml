@@ -3,141 +3,146 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://bytedaring.github.io/post/2018-03/go-defer/</loc>
+    <loc>https://bytedaring.wang/post/2018-03-15/conda/</loc>
+    <lastmod>2018-03-15T13:12:11+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bytedaring.wang/post/2018-03/go-defer/</loc>
     <lastmod>2018-03-11T19:30:16+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/</loc>
+    <loc>https://bytedaring.wang/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/</loc>
     <lastmod>2018-03-06T19:12:18+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/post/2018-01-30/webdriver/</loc>
+    <loc>https://bytedaring.wang/post/2018-01-30/webdriver/</loc>
     <lastmod>2018-02-02T18:22:19+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/post/2018-01-09/homebrew_install_golang_environment/</loc>
+    <loc>https://bytedaring.wang/post/2018-01-09/homebrew_install_golang_environment/</loc>
     <lastmod>2018-01-10T11:26:36+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/post/2017-10-22/python-env-pip-source/</loc>
+    <loc>https://bytedaring.wang/post/2017-10-22/python-env-pip-source/</loc>
     <lastmod>2017-10-22T16:22:16+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/post/autumn_on_its_way/</loc>
+    <loc>https://bytedaring.wang/post/autumn_on_its_way/</loc>
     <lastmod>2017-08-19T22:16:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/post/antd-1-table-background/</loc>
+    <loc>https://bytedaring.wang/post/antd-1-table-background/</loc>
     <lastmod>2017-08-19T21:36:46+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/post/antd-start/</loc>
+    <loc>https://bytedaring.wang/post/antd-start/</loc>
     <lastmod>2017-08-19T16:22:16+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/post/build-restful-service-with-MongoDB-in-Golang/</loc>
+    <loc>https://bytedaring.wang/post/build-restful-service-with-MongoDB-in-Golang/</loc>
     <lastmod>2017-06-17T15:30:56+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/post/git-commit-flow/</loc>
+    <loc>https://bytedaring.wang/post/git-commit-flow/</loc>
     <lastmod>2017-06-12T22:02:46+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/post/react-bind-method/</loc>
+    <loc>https://bytedaring.wang/post/react-bind-method/</loc>
     <lastmod>2017-06-07T12:43:09+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/post/sql-join/</loc>
+    <loc>https://bytedaring.wang/post/sql-join/</loc>
     <lastmod>2017-06-05T22:21:52+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/post/create-qrcode-by-react/</loc>
+    <loc>https://bytedaring.wang/post/create-qrcode-by-react/</loc>
     <lastmod>2017-06-04T15:55:39+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/post/go-slice/</loc>
+    <loc>https://bytedaring.wang/post/go-slice/</loc>
     <lastmod>2017-03-31T13:42:17+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/post/first/</loc>
+    <loc>https://bytedaring.wang/post/first/</loc>
     <lastmod>2017-03-09T21:53:22+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/about/</loc>
+    <loc>https://bytedaring.wang/about/</loc>
     <lastmod>2017-01-01T12:04:27+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/about/</loc>
+    <loc>https://bytedaring.wang/about/</loc>
     <lastmod>2017-01-01T12:04:27+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/categories/</loc>
+    <loc>https://bytedaring.wang/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/tags/go/</loc>
+    <loc>https://bytedaring.wang/tags/go/</loc>
     <lastmod>2017-03-31T13:42:17+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/post/</loc>
-    <lastmod>2018-03-11T19:30:16+08:00</lastmod>
+    <loc>https://bytedaring.wang/post/</loc>
+    <lastmod>2018-03-15T13:12:11+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/tags/sql/</loc>
+    <loc>https://bytedaring.wang/tags/sql/</loc>
     <lastmod>2017-06-05T22:21:52+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/tags/</loc>
+    <loc>https://bytedaring.wang/tags/</loc>
     <lastmod>2017-03-31T13:42:17+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/</loc>
-    <lastmod>2018-03-11T19:30:16+08:00</lastmod>
+    <loc>https://bytedaring.wang/</loc>
+    <lastmod>2018-03-15T13:12:11+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/</loc>
+    <loc>https://bytedaring.wang/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/</loc>
     <lastmod>2017-08-19T22:16:01+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/</loc>
+    <loc>https://bytedaring.wang/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/</loc>
     <lastmod>2017-08-19T21:36:46+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2018-03-11T19:30:16+08:00</lastmod>
+    <loc>https://bytedaring.wang/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-03-15T13:12:11+08:00</lastmod>
     <priority>0</priority>
   </url>
   

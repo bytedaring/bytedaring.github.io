@@ -2,148 +2,157 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on bytedaring blog</title>
-    <link>https://bytedaring.github.io/post/</link>
+    <link>https://bytedaring.wang/post/</link>
     <description>Recent content in Posts on bytedaring blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright (c) 2015. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 11 Mar 2018 19:30:16 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 15 Mar 2018 13:12:11 +0800</lastBuildDate>
     
-	<atom:link href="https://bytedaring.github.io/post/feed.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://bytedaring.wang/post/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>conda管理Python环境</title>
+      <link>https://bytedaring.wang/post/2018-03-15/conda/</link>
+      <pubDate>Thu, 15 Mar 2018 13:12:11 +0800</pubDate>
+      
+      <guid>https://bytedaring.wang/post/2018-03-15/conda/</guid>
+      <description>序 近期做一个项目的调研，需要使用到OpenCV、Python，这里记录anaconda进行Python环境配置管理过程。 Python常用环</description>
+    </item>
+    
+    <item>
       <title>[Go]Deferred函数案例</title>
-      <link>https://bytedaring.github.io/post/2018-03/go-defer/</link>
+      <link>https://bytedaring.wang/post/2018-03/go-defer/</link>
       <pubDate>Sun, 11 Mar 2018 19:30:16 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/2018-03/go-defer/</guid>
+      <guid>https://bytedaring.wang/post/2018-03/go-defer/</guid>
       <description>package main func main() { println(DeferFunc1(1)) println(DeferFunc2(1)) println(DeferFunc3(1)) } func DeferFunc1(i int) (t int) { t = i defer func() { t += 3 }() return t } func DeferFunc2(i int) int { t := i defer func() { t += 3 }() return t } func DeferFunc3(i int) (t int) { defer func() { t += i }() return 2 } 运行结果： 4 1 3</description>
     </item>
     
     <item>
       <title>Linux统计文件数量</title>
-      <link>https://bytedaring.github.io/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/</link>
+      <link>https://bytedaring.wang/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/</link>
       <pubDate>Tue, 06 Mar 2018 19:12:18 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/</guid>
+      <guid>https://bytedaring.wang/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/</guid>
       <description>统计当前文件夹下文件的个数，包括子文件夹里的 ls -lR | grep &#39;^-&#39; | wc -l 统计当前文件夹下文件夹的个数，包括子文件夹下的 ls -lR | grep &#39;^d&#39; | wc -l 统计当前文件夹下的</description>
     </item>
     
     <item>
       <title>Mac配置Selenium &#43; Python3</title>
-      <link>https://bytedaring.github.io/post/2018-01-30/webdriver/</link>
+      <link>https://bytedaring.wang/post/2018-01-30/webdriver/</link>
       <pubDate>Fri, 02 Feb 2018 18:22:19 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/2018-01-30/webdriver/</guid>
+      <guid>https://bytedaring.wang/post/2018-01-30/webdriver/</guid>
       <description>Selenium也是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。支持的浏览器包括IE</description>
     </item>
     
     <item>
       <title>使用Homebrew安装Golang</title>
-      <link>https://bytedaring.github.io/post/2018-01-09/homebrew_install_golang_environment/</link>
+      <link>https://bytedaring.wang/post/2018-01-09/homebrew_install_golang_environment/</link>
       <pubDate>Wed, 10 Jan 2018 11:26:36 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/2018-01-09/homebrew_install_golang_environment/</guid>
+      <guid>https://bytedaring.wang/post/2018-01-09/homebrew_install_golang_environment/</guid>
       <description>1、安装Homebrew 安装步骤，参考Homebew 2、安装Golang $ brew install go 2.1、查看Golang安装信息 $ brew info go go: stable 1.9.2 (bottled), devel 1.10beta1, HEAD Open source programming</description>
     </item>
     
     <item>
       <title>(Mac)PIP使用国内镜像</title>
-      <link>https://bytedaring.github.io/post/2017-10-22/python-env-pip-source/</link>
+      <link>https://bytedaring.wang/post/2017-10-22/python-env-pip-source/</link>
       <pubDate>Sun, 22 Oct 2017 16:22:16 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/2017-10-22/python-env-pip-source/</guid>
+      <guid>https://bytedaring.wang/post/2017-10-22/python-env-pip-source/</guid>
       <description>PIP使用国外源安装软件包，下载速度非常慢，将PIP安装源头替换为国内镜像，可以大幅提高下载速度，提高安装成功率。 1、国内源 清华：https</description>
     </item>
     
     <item>
       <title>秋来了</title>
-      <link>https://bytedaring.github.io/post/autumn_on_its_way/</link>
+      <link>https://bytedaring.wang/post/autumn_on_its_way/</link>
       <pubDate>Sat, 19 Aug 2017 22:16:01 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/autumn_on_its_way/</guid>
+      <guid>https://bytedaring.wang/post/autumn_on_its_way/</guid>
       <description>前几天的几场雨下来，似乎把武汉的火炉浇灭了，晚上明显感觉到阵阵的凉意，秋天真的来了。 手上的项目，进入比较关键的时刻，开始仓储部分的设计工作。</description>
     </item>
     
     <item>
       <title>【Antd使用小结】--Table设置行背景色</title>
-      <link>https://bytedaring.github.io/post/antd-1-table-background/</link>
+      <link>https://bytedaring.wang/post/antd-1-table-background/</link>
       <pubDate>Sat, 19 Aug 2017 21:36:46 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/antd-1-table-background/</guid>
+      <guid>https://bytedaring.wang/post/antd-1-table-background/</guid>
       <description>Table 用于展示行列数据。 基本使用 指定表格的数据源 dataSource 为一个数据组， 并指定表格列的配置描述columns即可。 const dataSource = [{id:1, name: &#39;one&#39;, color: &#39;#fff&#39;}, {id:2, name: &#39;two&#39;, color: &#39;#eee&#39;}, {id:3, name: &#39;three&#39;, color: &#39;#ddd&#39;}]; const</description>
     </item>
     
     <item>
       <title>【Antd使用小结系列】</title>
-      <link>https://bytedaring.github.io/post/antd-start/</link>
+      <link>https://bytedaring.wang/post/antd-start/</link>
       <pubDate>Sat, 19 Aug 2017 16:22:16 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/antd-start/</guid>
+      <guid>https://bytedaring.wang/post/antd-start/</guid>
       <description>Ant Design是蚂蚁金服开源出来的前端UI设计，是一个致力于提升『用户』和『设计者』使用体验的中台设计语言。它模糊了产品经理、交互设计师、视</description>
     </item>
     
     <item>
       <title>使用Golang基于MongoDB构建Restful服务</title>
-      <link>https://bytedaring.github.io/post/build-restful-service-with-MongoDB-in-Golang/</link>
+      <link>https://bytedaring.wang/post/build-restful-service-with-MongoDB-in-Golang/</link>
       <pubDate>Sat, 17 Jun 2017 15:30:56 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/build-restful-service-with-MongoDB-in-Golang/</guid>
+      <guid>https://bytedaring.wang/post/build-restful-service-with-MongoDB-in-Golang/</guid>
       <description>近来使用Golang来构建Restful服务变得越发流行。我发现有些时候使用MongoDB作为持久存储，这篇文档中， 我会使用Golang和M</description>
     </item>
     
     <item>
       <title>Git基本使用</title>
-      <link>https://bytedaring.github.io/post/git-commit-flow/</link>
+      <link>https://bytedaring.wang/post/git-commit-flow/</link>
       <pubDate>Mon, 12 Jun 2017 22:02:46 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/git-commit-flow/</guid>
+      <guid>https://bytedaring.wang/post/git-commit-flow/</guid>
       <description>团队开发中，遵循一个合理、清晰的Git使用流程，是非常重要的。 否则，每个人都提交一堆杂乱无章的commit，项目很快就会变得难以协调和维护。</description>
     </item>
     
     <item>
       <title>React方法绑定的几种实现方式</title>
-      <link>https://bytedaring.github.io/post/react-bind-method/</link>
+      <link>https://bytedaring.wang/post/react-bind-method/</link>
       <pubDate>Wed, 07 Jun 2017 12:43:09 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/react-bind-method/</guid>
+      <guid>https://bytedaring.wang/post/react-bind-method/</guid>
       <description>翻译参考自：React and ES6 - Part 3, Binding to methods of React class (ES7 included) 在React进行事件方法绑定的时，如下面的代码： import React , {Component} from &#39;react&#39; class user extends Component{ render(){ return &amp;lt;button onClick={this.sayhello} &amp;gt;open hello&amp;lt;/button&amp;gt; } sayhello(){ console.log(&#39;hello world&#39;) console.log(this.props) }</description>
     </item>
     
     <item>
       <title>MySql JOIN</title>
-      <link>https://bytedaring.github.io/post/sql-join/</link>
+      <link>https://bytedaring.wang/post/sql-join/</link>
       <pubDate>Mon, 05 Jun 2017 22:21:52 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/sql-join/</guid>
+      <guid>https://bytedaring.wang/post/sql-join/</guid>
       <description>SQL中的连接（JOIN）语句用于将数据库中的两个表或者多个表组合起来。有“连接”生成的集合，可以被保存为表，或者当成表来使用，JOIN语句</description>
     </item>
     
     <item>
       <title>使用React写一个简单的Chrome插件</title>
-      <link>https://bytedaring.github.io/post/create-qrcode-by-react/</link>
+      <link>https://bytedaring.wang/post/create-qrcode-by-react/</link>
       <pubDate>Sun, 04 Jun 2017 15:55:39 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/create-qrcode-by-react/</guid>
+      <guid>https://bytedaring.wang/post/create-qrcode-by-react/</guid>
       <description>当你手中只有一把锤子的时候，你就会把所有的问题都看成钉子。 Google Chrome,Google公司开发的一款设计简单、高效的Web浏览器。Chrom</description>
     </item>
     
     <item>
       <title>[转] Go Slice 秘籍</title>
-      <link>https://bytedaring.github.io/post/go-slice/</link>
+      <link>https://bytedaring.wang/post/go-slice/</link>
       <pubDate>Fri, 31 Mar 2017 13:42:17 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/go-slice/</guid>
+      <guid>https://bytedaring.wang/post/go-slice/</guid>
       <description>Golang官方总结： Slice Tricks 由于引入了内建的append的方法， 包container/vector的很多方法都被移除，可以被内建的append</description>
     </item>
     
     <item>
       <title>希望的博客</title>
-      <link>https://bytedaring.github.io/post/first/</link>
+      <link>https://bytedaring.wang/post/first/</link>
       <pubDate>Thu, 09 Mar 2017 21:53:22 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/first/</guid>
+      <guid>https://bytedaring.wang/post/first/</guid>
       <description>我的博客 生命不止，折腾不息； 还是按捺不住爱折腾的心，搭建自己的博客。总感觉在博客园或者CSDN里写博客，少些什么似乎的，总觉得缺点什么。 寻寻</description>
     </item>
     

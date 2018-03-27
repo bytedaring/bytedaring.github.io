@@ -2,76 +2,85 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>读书笔记 on bytedaring blog</title>
-    <link>https://bytedaring.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+    <link>https://bytedaring.wang/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
     <description>Recent content in 读书笔记 on bytedaring blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>Copyright (c) 2015. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 11 Mar 2018 19:30:16 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 15 Mar 2018 13:12:11 +0800</lastBuildDate>
     
-	<atom:link href="https://bytedaring.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/feed.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://bytedaring.wang/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>conda管理Python环境</title>
+      <link>https://bytedaring.wang/post/2018-03-15/conda/</link>
+      <pubDate>Thu, 15 Mar 2018 13:12:11 +0800</pubDate>
+      
+      <guid>https://bytedaring.wang/post/2018-03-15/conda/</guid>
+      <description>序 近期做一个项目的调研，需要使用到OpenCV、Python，这里记录anaconda进行Python环境配置管理过程。 Python常用环</description>
+    </item>
+    
+    <item>
       <title>[Go]Deferred函数案例</title>
-      <link>https://bytedaring.github.io/post/2018-03/go-defer/</link>
+      <link>https://bytedaring.wang/post/2018-03/go-defer/</link>
       <pubDate>Sun, 11 Mar 2018 19:30:16 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/2018-03/go-defer/</guid>
+      <guid>https://bytedaring.wang/post/2018-03/go-defer/</guid>
       <description>package main func main() { println(DeferFunc1(1)) println(DeferFunc2(1)) println(DeferFunc3(1)) } func DeferFunc1(i int) (t int) { t = i defer func() { t += 3 }() return t } func DeferFunc2(i int) int { t := i defer func() { t += 3 }() return t } func DeferFunc3(i int) (t int) { defer func() { t += i }() return 2 } 运行结果： 4 1 3</description>
     </item>
     
     <item>
       <title>Linux统计文件数量</title>
-      <link>https://bytedaring.github.io/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/</link>
+      <link>https://bytedaring.wang/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/</link>
       <pubDate>Tue, 06 Mar 2018 19:12:18 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/</guid>
+      <guid>https://bytedaring.wang/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/</guid>
       <description>统计当前文件夹下文件的个数，包括子文件夹里的 ls -lR | grep &#39;^-&#39; | wc -l 统计当前文件夹下文件夹的个数，包括子文件夹下的 ls -lR | grep &#39;^d&#39; | wc -l 统计当前文件夹下的</description>
     </item>
     
     <item>
       <title>Mac配置Selenium &#43; Python3</title>
-      <link>https://bytedaring.github.io/post/2018-01-30/webdriver/</link>
+      <link>https://bytedaring.wang/post/2018-01-30/webdriver/</link>
       <pubDate>Fri, 02 Feb 2018 18:22:19 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/2018-01-30/webdriver/</guid>
+      <guid>https://bytedaring.wang/post/2018-01-30/webdriver/</guid>
       <description>Selenium也是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。支持的浏览器包括IE</description>
     </item>
     
     <item>
       <title>使用Homebrew安装Golang</title>
-      <link>https://bytedaring.github.io/post/2018-01-09/homebrew_install_golang_environment/</link>
+      <link>https://bytedaring.wang/post/2018-01-09/homebrew_install_golang_environment/</link>
       <pubDate>Wed, 10 Jan 2018 11:26:36 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/2018-01-09/homebrew_install_golang_environment/</guid>
+      <guid>https://bytedaring.wang/post/2018-01-09/homebrew_install_golang_environment/</guid>
       <description>1、安装Homebrew 安装步骤，参考Homebew 2、安装Golang $ brew install go 2.1、查看Golang安装信息 $ brew info go go: stable 1.9.2 (bottled), devel 1.10beta1, HEAD Open source programming</description>
     </item>
     
     <item>
       <title>(Mac)PIP使用国内镜像</title>
-      <link>https://bytedaring.github.io/post/2017-10-22/python-env-pip-source/</link>
+      <link>https://bytedaring.wang/post/2017-10-22/python-env-pip-source/</link>
       <pubDate>Sun, 22 Oct 2017 16:22:16 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/2017-10-22/python-env-pip-source/</guid>
+      <guid>https://bytedaring.wang/post/2017-10-22/python-env-pip-source/</guid>
       <description>PIP使用国外源安装软件包，下载速度非常慢，将PIP安装源头替换为国内镜像，可以大幅提高下载速度，提高安装成功率。 1、国内源 清华：https</description>
     </item>
     
     <item>
       <title>Git基本使用</title>
-      <link>https://bytedaring.github.io/post/git-commit-flow/</link>
+      <link>https://bytedaring.wang/post/git-commit-flow/</link>
       <pubDate>Mon, 12 Jun 2017 22:02:46 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/git-commit-flow/</guid>
+      <guid>https://bytedaring.wang/post/git-commit-flow/</guid>
       <description>团队开发中，遵循一个合理、清晰的Git使用流程，是非常重要的。 否则，每个人都提交一堆杂乱无章的commit，项目很快就会变得难以协调和维护。</description>
     </item>
     
     <item>
       <title>希望的博客</title>
-      <link>https://bytedaring.github.io/post/first/</link>
+      <link>https://bytedaring.wang/post/first/</link>
       <pubDate>Thu, 09 Mar 2017 21:53:22 +0800</pubDate>
       
-      <guid>https://bytedaring.github.io/post/first/</guid>
+      <guid>https://bytedaring.wang/post/first/</guid>
       <description>我的博客 生命不止，折腾不息； 还是按捺不住爱折腾的心，搭建自己的博客。总感觉在博客园或者CSDN里写博客，少些什么似乎的，总觉得缺点什么。 寻寻</description>
     </item>
     
