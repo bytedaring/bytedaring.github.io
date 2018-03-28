@@ -1,148 +1,311 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<?xml-stylesheet type="text/xsl" href="http://localhost:1313/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://bytedaring.wang/post/2018-03-15/conda/</loc>
-    <lastmod>2018-03-15T13:12:11+08:00</lastmod>
+    <loc>http://localhost:1313/about/</loc>
+    <lastmod>2017-01-01T12:04:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.wang/post/2018-03/go-defer/</loc>
+    <loc>http://localhost:1313/post/2018-03-22/%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB/</loc>
+    <lastmod>2018-03-22T13:01:02+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/2018-03-15/conda/</loc>
+    <lastmod>2018-03-15T13:12:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/2018-03/go-defer/</loc>
     <lastmod>2018-03-11T19:30:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.wang/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/</loc>
+    <loc>http://localhost:1313/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/</loc>
     <lastmod>2018-03-06T19:12:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.wang/post/2018-01-30/webdriver/</loc>
+    <loc>http://localhost:1313/post/2018-01-30/webdriver/</loc>
     <lastmod>2018-02-02T18:22:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.wang/post/2018-01-09/homebrew_install_golang_environment/</loc>
+    <loc>http://localhost:1313/post/2018-01-09/homebrew_install_golang_environment/</loc>
     <lastmod>2018-01-10T11:26:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.wang/post/2017-10-22/python-env-pip-source/</loc>
+    <loc>http://localhost:1313/post/2017-10-22/python-env-pip-source/</loc>
     <lastmod>2017-10-22T16:22:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.wang/post/autumn_on_its_way/</loc>
+    <loc>http://localhost:1313/post/autumn_on_its_way/</loc>
     <lastmod>2017-08-19T22:16:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.wang/post/antd-1-table-background/</loc>
+    <loc>http://localhost:1313/post/antd-1-table-background/</loc>
     <lastmod>2017-08-19T21:36:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.wang/post/antd-start/</loc>
+    <loc>http://localhost:1313/post/antd-start/</loc>
     <lastmod>2017-08-19T16:22:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.wang/post/build-restful-service-with-MongoDB-in-Golang/</loc>
+    <loc>http://localhost:1313/post/build-restful-service-with-mongodb-in-golang/</loc>
     <lastmod>2017-06-17T15:30:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.wang/post/git-commit-flow/</loc>
+    <loc>http://localhost:1313/post/git-commit-flow/</loc>
     <lastmod>2017-06-12T22:02:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.wang/post/react-bind-method/</loc>
+    <loc>http://localhost:1313/post/react-bind-method/</loc>
     <lastmod>2017-06-07T12:43:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.wang/post/sql-join/</loc>
+    <loc>http://localhost:1313/post/sql-join/</loc>
     <lastmod>2017-06-05T22:21:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.wang/post/create-qrcode-by-react/</loc>
+    <loc>http://localhost:1313/post/create-qrcode-by-react/</loc>
     <lastmod>2017-06-04T15:55:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.wang/post/go-slice/</loc>
+    <loc>http://localhost:1313/post/go-slice/</loc>
     <lastmod>2017-03-31T13:42:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.wang/post/first/</loc>
+    <loc>http://localhost:1313/post/first/</loc>
     <lastmod>2017-03-09T21:53:22+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.wang/about/</loc>
-    <lastmod>2017-01-01T12:04:27+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bytedaring.wang/about/</loc>
-    <lastmod>2017-01-01T12:04:27+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://bytedaring.wang/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://bytedaring.wang/tags/go/</loc>
-    <lastmod>2017-03-31T13:42:17+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://bytedaring.wang/post/</loc>
-    <lastmod>2018-03-15T13:12:11+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://bytedaring.wang/tags/sql/</loc>
-    <lastmod>2017-06-05T22:21:52+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://bytedaring.wang/tags/</loc>
-    <lastmod>2017-03-31T13:42:17+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://bytedaring.wang/</loc>
-    <lastmod>2018-03-15T13:12:11+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://bytedaring.wang/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/</loc>
-    <lastmod>2017-08-19T22:16:01+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://bytedaring.wang/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/</loc>
+    <loc>http://localhost:1313/tags/antd/</loc>
     <lastmod>2017-08-19T21:36:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://bytedaring.wang/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
+    <loc>http://localhost:1313/tags/brew/</loc>
+    <lastmod>2018-01-10T11:26:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/categories/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/chrome%E6%8F%92%E4%BB%B6/</loc>
+    <lastmod>2017-06-04T15:55:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/conda/</loc>
     <lastmod>2018-03-15T13:12:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/deferred/</loc>
+    <lastmod>2018-03-11T19:30:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/go/</loc>
+    <lastmod>2018-03-11T19:30:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/golang/</loc>
+    <lastmod>2018-03-11T19:30:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/grep/</loc>
+    <lastmod>2018-03-06T19:12:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/js/</loc>
+    <lastmod>2017-06-07T12:43:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/linux/</loc>
+    <lastmod>2018-03-06T19:12:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/mongodb/</loc>
+    <lastmod>2017-06-17T15:30:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/pip/</loc>
+    <lastmod>2017-10-22T16:22:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/</loc>
+    <lastmod>2018-03-22T13:01:02+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/python/</loc>
+    <lastmod>2018-03-15T13:12:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/react/</loc>
+    <lastmod>2017-08-19T21:36:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/restful/</loc>
+    <lastmod>2017-06-17T15:30:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/selenium/</loc>
+    <lastmod>2018-02-02T18:22:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/sql/</loc>
+    <lastmod>2017-06-05T22:21:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2017-08-19T21:36:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/wc/</loc>
+    <lastmod>2018-03-06T19:12:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2017-01-01T12:04:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/</loc>
+    <lastmod>2017-08-19T22:16:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/</loc>
+    <lastmod>2017-08-19T21:36:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB/</loc>
+    <lastmod>2018-03-22T13:01:02+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-03-22T13:01:02+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   

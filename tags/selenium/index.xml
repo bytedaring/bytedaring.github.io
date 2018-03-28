@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Selenium on xiwang</title>
+    <link>http://localhost:1313/tags/selenium/</link>
+    <description>Recent content in Selenium on xiwang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 02 Feb 2018 18:22:19 +0800</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/selenium/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mac配置Selenium &#43; Python3</title>
+      <link>http://localhost:1313/post/2018-01-30/webdriver/</link>
+      <pubDate>Fri, 02 Feb 2018 18:22:19 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/2018-01-30/webdriver/</guid>
+      <description>Selenium也是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。支持的浏览器包括IE</description>
+    </item>
+    
+  </channel>
+</rss>

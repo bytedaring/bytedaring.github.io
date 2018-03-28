@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Conda on xiwang</title>
+    <link>http://localhost:1313/tags/conda/</link>
+    <description>Recent content in Conda on xiwang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 15 Mar 2018 13:12:11 +0800</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/conda/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>conda管理Python环境</title>
+      <link>http://localhost:1313/post/2018-03-15/conda/</link>
+      <pubDate>Thu, 15 Mar 2018 13:12:11 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/2018-03-15/conda/</guid>
+      <description>序 近期做一个项目的调研，需要使用到OpenCV、Python，这里记录anaconda进行Python环境配置管理过程。 Python常用环</description>
+    </item>
+    
+  </channel>
+</rss>

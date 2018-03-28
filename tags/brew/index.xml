@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Brew on xiwang</title>
+    <link>http://localhost:1313/tags/brew/</link>
+    <description>Recent content in Brew on xiwang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 10 Jan 2018 11:26:36 +0800</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/brew/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用Homebrew安装Golang</title>
+      <link>http://localhost:1313/post/2018-01-09/homebrew_install_golang_environment/</link>
+      <pubDate>Wed, 10 Jan 2018 11:26:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/2018-01-09/homebrew_install_golang_environment/</guid>
+      <description>1、安装Homebrew 安装步骤，参考Homebew 2、安装Golang $ brew install go 2.1、查看Golang安装信息 $ brew info go go: stable 1.9.2 (bottled), devel 1.10beta1, HEAD Open source programming</description>
+    </item>
+    
+  </channel>
+</rss>

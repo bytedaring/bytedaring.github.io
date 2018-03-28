@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Restful on xiwang</title>
+    <link>http://localhost:1313/tags/restful/</link>
+    <description>Recent content in Restful on xiwang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 17 Jun 2017 15:30:56 +0800</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/restful/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用Golang基于MongoDB构建Restful服务</title>
+      <link>http://localhost:1313/post/build-restful-service-with-mongodb-in-golang/</link>
+      <pubDate>Sat, 17 Jun 2017 15:30:56 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/build-restful-service-with-mongodb-in-golang/</guid>
+      <description>近来使用Golang来构建Restful服务变得越发流行。我发现有些时候使用MongoDB作为持久存储，这篇文档中， 我会使用Golang和M</description>
+    </item>
+    
+  </channel>
+</rss>

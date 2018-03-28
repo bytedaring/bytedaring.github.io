@@ -1,188 +1,198 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html lang="zh-cn">
 <head>
-  <base href="https://bytedaring.wang/">
-  <script>
-    document._writeOriginal = document.write;
-    document.write = function(str) {
-        if (str.indexOf('livereload.js') > -1) {
-            document._writeOriginal(str);
-        } else {
-            document._writeOriginal('<!-- Be Hijack!! -->');
-        }
-    }
-  </script>
-  <title>使用Homebrew安装Golang - bytedaring blog</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>使用Homebrew安装Golang - xiwang</title>
+  <link rel="alternate" hreflang="zh-cn" href="http://localhost:1313/" />
 
-<meta name="description" content="1、安装Homebrew 安装步骤，参考Homebew 2、安装Golang $ brew install go 2.1、查看Golang安装信息 $ brew info go go: stable 1.9.2 (bottled), devel 1.10beta1, HEAD Open source programming">
-<meta name="author" content="bytedaring">
-<meta name="publisher" content="bytedaring">
-<meta name="generator" content="http://gohugo.io/"/>
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-<meta itemprop="name" content="使用Homebrew安装Golang - bytedaring blog">
-<meta itemprop="description" content="1、安装Homebrew 安装步骤，参考Homebew 2、安装Golang $ brew install go 2.1、查看Golang安装信息 $ brew info go go: stable 1.9.2 (bottled), devel 1.10beta1, HEAD Open source programming">
-<meta itemprop="image" content="https://bytedaring.wang/public/xiwang-home.jpeg">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-<meta property="og:title" content="使用Homebrew安装Golang - bytedaring blog" />
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="xiaoxiwang" />
+  <meta name="description" content="1、安装Homebrew 安装步骤，参考Homebew 2、安装Golang $ brew install go 2.1、查看Golang安装信息 $ brew info go go: stable 1.9.2 (bottled), devel 1.10beta1, HEAD Open source programming" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.37.1" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/2018-01-09/homebrew_install_golang_environment/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<link href="/dist/jane.min.css?v=2.7.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="使用Homebrew安装Golang" />
+<meta property="og:description" content="1、安装Homebrew 安装步骤，参考Homebew 2、安装Golang $ brew install go 2.1、查看Golang安装信息 $ brew info go go: stable 1.9.2 (bottled), devel 1.10beta1, HEAD Open source programming" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://bytedaring.wang/post/2018-01-09/homebrew_install_golang_environment/" />
-<meta property="og:image" content="https://bytedaring.wang/public/xiwang-home.jpeg" />
-<meta property="og:description" content="1、安装Homebrew 安装步骤，参考Homebew 2、安装Golang $ brew install go 2.1、查看Golang安装信息 $ brew info go go: stable 1.9.2 (bottled), devel 1.10beta1, HEAD Open source programming">
+<meta property="og:url" content="http://localhost:1313/post/2018-01-09/homebrew_install_golang_environment/" />
 
-  <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
-  <link rel="canonical" href="https://bytedaring.wang/post/2018-01-09/homebrew_install_golang_environment/">
-  <link rel='shortlink' href="https://bytedaring.wang/post/2018-01-09/homebrew_install_golang_environment/"/>
-  <link rel="shortcut icon" href="https://bytedaring.wang/public/favicon.ico"/>
-  
-<link rel="stylesheet" id="human-style-css" href="https://bytedaring.wang/wp-content/themes/hueman/style.css" type="text/css" media="all"/>
-<link rel="stylesheet" id="human-style-css2" href="https://bytedaring.wang/wp-content/themes/hueman-child/style.css" type="text/css" media="all"/>
-<link rel="stylesheet" id="responsive-css" href="https://bytedaring.wang/wp-content/themes/hueman/responsive.css" type="text/css" media="all"/>
-<link rel="stylesheet" id="font-awesome-css" href="https://bytedaring.wang/wp-content/themes/hueman/fonts/font-awesome.min.css" type="text/css" media="all"/>
-<link rel="stylesheet" href="https://bytedaring.wang/public/highlight/styles/github.css">
-<script src="https://bytedaring.wang/public/highlight/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<link rel="stylesheet" id="human-style-css3" href="https://bytedaring.wang/wp-content/themes/hueman-child/user.css" type="text/css" media="all"/>
-<link rel="stylesheet" href="public/font/hack/css/hack.min.css">
 
-<script type="text/javascript" src="assets/js/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="wp-content/themes/hueman/js/jquery.jplayer.min.js"></script>
-<script type="text/javascript" src="wp-content/themes/hueman/js/scripts.js"></script>
-<script type="text/javascript" src="assets/picturefill/picturefill.min.js"></script>
-<script type="text/javascript" src="assets/js/jquery.matchHeight-min.js"></script>
-<script type="text/javascript" async defer src="assets/js/myblog.js"></script>
+
+<meta property="article:published_time" content="2018-01-10T11:26:36&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-01-10T11:26:36&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="使用Homebrew安装Golang">
+<meta itemprop="description" content="1、安装Homebrew 安装步骤，参考Homebew 2、安装Golang $ brew install go 2.1、查看Golang安装信息 $ brew info go go: stable 1.9.2 (bottled), devel 1.10beta1, HEAD Open source programming">
+
+
+<meta itemprop="datePublished" content="2018-01-10T11:26:36&#43;08:00" />
+<meta itemprop="dateModified" content="2018-01-10T11:26:36&#43;08:00" />
+<meta itemprop="wordCount" content="299">
+
+
+
+<meta itemprop="keywords" content="brew," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用Homebrew安装Golang"/>
+<meta name="twitter:description" content="1、安装Homebrew 安装步骤，参考Homebew 2、安装Golang $ brew install go 2.1、查看Golang安装信息 $ brew info go go: stable 1.9.2 (bottled), devel 1.10beta1, HEAD Open source programming"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
 
 </head>
-
-<body class="single single-post single-format-standard col-3cm full-width topbar-enabled chrome">
-<div id="wrapper">
-  <header id="header">
-
-  <nav class="nav-container group" id="nav-topbar">
-    <div class="nav-toggle"><i class="fa fa-bars"></i></div>
-    <div class="nav-text"></div>
-    <div class="nav-wrap container">
-      <a rel="nofollow" href="https://bytedaring.wang/" class="nav-cs-icon">
-        <img src="https://bytedaring.wang/public/xiwang-home.jpeg" alt="bytedaring" title="Home">
-      </a>
-      <ul id="menu-default-menu" class="nav container-inner group">
-        <li class="menu-item menu-item-type-post_type menu-item-object-page">
-          <a rel="nofollow" href="https://bytedaring.wang/">首页</a>
-        </li>
-        
-        <li class="menu-item menu-item-type-post_type menu-item-object-page">
-          <a rel="nofollow" href="https://bytedaring.wang/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
-        </li>
-        
-        <li class="menu-item menu-item-type-post_type menu-item-object-page">
-          <a rel="nofollow" href="https://bytedaring.wang/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a>
-        </li>
-        
-        <li class="menu-item menu-item-type-post_type menu-item-object-page">
-          <a rel="nofollow" href="https://bytedaring.wang/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/">思考感悟</a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-type-post_type menu-item-object-page">
-          <a rel="nofollow" href="https://bytedaring.wang/post/">归档</a>
-        </li>
-        
-        <li class="menu-item menu-item-type-post_type menu-item-object-page">
-          <a rel="nofollow" href="https://bytedaring.wang/about">关于我</a>
-        </li>
-        
-        <li class="menu-item menu-item-type-post_type menu-item-object-page">
-          <a rel="nofollow" href="https://bytedaring.wang/feed.xml" type="application/rss+xml" target="_blank">订阅</a>
-        </li>
-        <li class="menu-item menu-item-type-post_type menu-item-text">
-        程序员的心路历程
-        </li>
-      </ul>
-    </div>
-
-    <div class="container">
-      <div class="container-inner">
-        <div class="toggle-search"><i class="fa fa-search"></i></div>
-        <div class="search-expand">
-          <div class="search-expand-inner">
-            <form method="get" class="searchform themeform" action="https://www.google.com/search">
-              <div>
-                <input type="text" class="search" name="q" placeholder="Press enter to start searching">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-    
-
-  </nav>
-  
-
-  <div class="container group">
-    <div class="container-inner">
-
-      <div class="group pad">
-
-        <div class="group pad">
-          <h1 class="site-title">
-            <a rel="nofollow" href="https://bytedaring.wang/" rel="home">
-              <img style="border-radius: 20%;width: 54px;height: 72px;margin:0 auto;" alt="bytedaring" src="https://bytedaring.wang/public/xiwang-home.jpeg"></img>
-              bytedaring blog
-            </a>
-          </h1>
-          <p class="site-description"> 勿忘初心，知行合一！ </p>
-        </div>
-
-      </div>
-    </div>
-    
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">天苍苍,野茫茫,风吹草低...</a>
   </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">天苍苍,野茫茫,风吹草低...</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">使用Homebrew安装Golang</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-01-10 </span>
+        <div class="post-category">
+            
+              <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> 读书笔记 </a>
+            
+          </div>
+        <span class="more-meta"> 约 299 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
   
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#1-安装homebrew">1、安装Homebrew</a></li>
+<li><a href="#2-安装golang">2、安装Golang</a>
+<ul>
+<li><a href="#2-1-查看golang安装信息">2.1、查看Golang安装信息</a></li>
+<li><a href="#2-3-设置goroot-gopath">2.3、设置GOROOT、GOPATH</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
 
-</header>
-
-
-
-  <div class="container" id="page">
-    <div class="container-inner">
-      <div class="main">
-        <div class="main-inner group">
-          <section class="content">
-            <div class="page-title pad group">
-              <ul class="meta-single group">
-                
-                <li class="category">
-                  <a href="https://bytedaring.wang/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="category tag">读书笔记</a>
-                </li>
-                
-              </ul>
-            </div>
-
-            <div class="pad group">
-
-              <article
-                  class="post type-post status-publish format-standard has-post-thumbnail hentry category-australien tag-bondi-beach tag-city2surf tag-sydney">
-                <div class="post-inner group">
-
-                  <h1 class="post-title">使用Homebrew安装Golang</h1>
-
-                  <p class="post-byline">
-                    by  · 2018年01月10日 · 299 Words ·
-                    ~1min reading time |
-                    <a href="http://github.com/bytedaring/blog-hugo/blob/master/content/post/2018-01-09/homebrew_install_golang_environment.md"
-                       target="_blank">Improve on <i class="fa fa-github"></i></a>
-                  </p>
-
-                  <div class="clear"></div>
-
-                  <div class="entry">
-                    <div class="entry-inner">
-                      
-                      
+    
+    <div class="post-content">
+      
 
 <h2 id="1-安装homebrew">1、安装Homebrew</h2>
 
@@ -273,160 +283,107 @@ CGO_LDFLAGS=&quot;-g -O2&quot;
 PKG_CONFIG=&quot;pkg-config&quot;
 </code></pre>
 
-                      
-                    </div>
-                    <div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
-                        <div style="float:left;margin-top:0px;">
-                        <img src="https://bytedaring.wang/public/qrcode.png" width="129px" height="129px"/>
-                        <div style="text-align:center;">扫一扫</div>
-                        </div>
-                        <div>
-                            <p style="margin-top:0px;">作者：<a target="_blank" href="https://bytedaring.github.io/">bytedaring</a>
-                            <br />本文出处：<a target="_blank" href="https://bytedaring.wang/post/2018-01-09/homebrew_install_golang_environment/">https://bytedaring.wang/post/2018-01-09/homebrew_install_golang_environment/</a>
-                            <br />
-                            原创文章版权归本人所有，欢迎转载! </p>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                  </div>
-                  
-
-                </div>
-                
-              </article>
-              
-              <div class="clear"></div>
-              
-              
-              
-            </div>
-          </section>
-          <div class="sidebar s1">
-  <a class="sidebar-toggle" title="Expand Sidebar"><i class="fa icon-sidebar-toggle"></i></a>
-  <div class="sidebar-content">
-    <div class="sidebar-top group">
-      <p>Follow:</p>
-      <ul class="social-links">
-    <li>
-    
-    <li>
-    <a class="social-tooltip" title="On GitHub"
-        href="https://github.com/bytedaring" target="_blank">
-        <i class="fa fa-github"></i>
-    </a>
-    </li>
-</ul>
-
     </div>
-    <div class="widget qrcode">
-    <img src="https://bytedaring.wang/public/qrcode.png" alt="qrcode" width="172px" height="172px"/>
-    <p> 扫一扫：<br>github: bytedaring <br /></p>
-</div>
 
-    <ul class="post-nav group">
-      <li class="next">
-        
-        <a href="https://bytedaring.wang/post/2017-10-22/python-env-pip-source/" rel="next">
-          <i class="fa fa-chevron-right"></i>
-          <strong>Next post</strong>
-          <span>(Mac)PIP使用国内镜像</span>
-        </a>
-        
-      </li>
-      <li class="previous">
-        
-        <a href="https://bytedaring.wang/post/2018-01-30/webdriver/" rel="prev">
-          <i class="fa fa-chevron-left"></i>
-          <strong>Previous Post</strong>
-          <span>Mac配置Selenium &#43; Python3</span>
-        </a>
-        
-      </li>
-    </ul>
     
-  </div>
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">xiaoxiwang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-01-10</span>
+  </p>
   
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
 </div>
 
-          <div class="sidebar s2">
-  <a class="sidebar-toggle" title="Expand Sidebar"><i class="fa icon-sidebar-toggle"></i></a>
-  <div class="sidebar-content">
-    <div class="sidebar-top group">
-      <p>More</p>
-    </div>
-    <div id="categories-2" class="widget widget_categories"><h3>Categories</h3>
-      <ul>
-        
-          <li class="cat-item cat-item-1">
-            <a rel="nofollow" href="https://bytedaring.wang/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
-          </li>
-        
-          <li class="cat-item cat-item-1">
-            <a rel="nofollow" href="https://bytedaring.wang/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a>
-          </li>
-        
-          <li class="cat-item cat-item-1">
-            <a rel="nofollow" href="https://bytedaring.wang/categories/%E6%80%9D%E8%80%83%E6%84%9F%E6%82%9F/">思考感悟</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</div>
+    
+    
 
-        </div>
-      </div>
-    </div>
-  </div>
-  <footer id="footer">
-  <section class="container" id="footer-bottom">
-    <div class="container-inner">
-      <a id="back-to-top" href="#"><i class="fa fa-angle-up"></i></a>
-      <div class="pad group">
-        <div class="grid one-half">
-          <div id="copyright">
-            <p>Copyright © 2016. All Rights Reserved. <br>Powered by
-              <a rel="nofollow" href="http://gohugo.io/" target="_blank">Hugo - the static site generator</a>.
-              <a rel="nofollow" href="http://golang.org" target="_blank">#golang</a>.
-            </p>
-          </div>
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/brew/">brew</a>
           
         </div>
-        
-        <div class="grid one-half last">
-          <ul class="social-links">
-    <li>
-    
-    <li>
-    <a class="social-tooltip" title="On GitHub"
-        href="https://github.com/bytedaring" target="_blank">
-        <i class="fa fa-github"></i>
-    </a>
-    </li>
-</ul>
 
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/2018-01-30/webdriver/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Mac配置Selenium &#43; Python3</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/2017-10-22/python-env-pip-source/">
+            <span class="next-text nav-default">(Mac)PIP使用国内镜像</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+    
+
+  
+
+  
+
+  
+  </article>
         </div>
       </div>
+    </main>
 
-    </div>
-    
-  </section>
-  
-</footer>
-
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:daring@outlook.com" rel="me" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/bytedarin" rel="me" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-10147768-2', 'auto');
-  ga('send', 'pageview');
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
 
-  $('#messagesbsb').remove();
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">xiaoxiwang</span>
+  </span>
+</div>
+    </footer>
 
-</script>
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/jane.min.js?v=2.7.0"></script>
+
+
+
+
+
 </body>
 </html>
-

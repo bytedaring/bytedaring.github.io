@@ -1,0 +1,2243 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>xiwang</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on xiwang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 01 Jan 2017 12:04:27 +0800</lastBuildDate>
+    
+        <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>关于</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Sun, 01 Jan 2017 12:04:27 +0800</pubDate>
+      
+      <guid>http://localhost:1313/about/</guid>
+      
+        <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;我，程序员，有点宅。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;我的经历&#34;&gt;我的经历&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;2016.10-至今 java工程师作为React主力工作着，倒腾golang，努力成长（不管是生活还是技术）&lt;/li&gt;
+&lt;li&gt;2013-2016 .net/java工程师（武汉辰安）&lt;/li&gt;
+&lt;li&gt;2012-2013 .net工程师（深圳震有科技）&lt;/li&gt;
+&lt;li&gt;2008-2012 长江大学计算机科学与技术系&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;我的技能&#34;&gt;我的技能&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;编程语言：C#、Java。偏爱GO，也涉猎F#、Python&amp;hellip;&lt;/li&gt;
+&lt;li&gt;半个前端：捣腾css+js，喜欢React.js，熟悉dva，ant-d&lt;/li&gt;
+&lt;li&gt;熟悉WPF桌面开发。&lt;/li&gt;
+&lt;li&gt;熟悉后台开发，REST API, SOA, 正则表达式&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;生活&#34;&gt;生活&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;有点宅，常买书，没事看看书&lt;/li&gt;
+&lt;li&gt;喜欢技术，尝试新的事物&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;最近主要关注&#34;&gt;最近主要关注&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GO、React&lt;/li&gt;
+&lt;li&gt;GRPC&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;我还在这里&#34;&gt;我还在这里&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/bytedaring&#34;&gt;Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/xiwang&#34;&gt;博客园&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>相机坐标系</title>
+      <link>http://localhost:1313/post/2018-03-22/%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB/</link>
+      <pubDate>Thu, 22 Mar 2018 13:01:02 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2018-03-22/%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB/</guid>
+      
+        <description>
+
+&lt;h3 id=&#34;1-相机坐标系&#34;&gt;1、相机坐标系&lt;/h3&gt;
+
+&lt;p&gt;图像处理、立体视觉等等方向常常涉及到四个坐标系：世界坐标系、相机（摄像机）坐标系、图像坐标系、像素坐标系：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://or5up5p3j.bkt.clouddn.com/blog/image/2018/03/22/camera_coordiante.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;通过如下图的转换，可以将世界坐标中点的坐标（Xw, Yw, Zw）,同二维图像中的像素坐标(u,v)对应起来。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://or5up5p3j.bkt.clouddn.com/blog/image/2018/03/22/camera_trans.png&#34; alt=&#34;转换&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;像素坐标系&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;摄像机采集的数字图像在计算机内可以存储为数组，数组中的每一个元素(象素，pixel)的值即是图像点的亮度(灰度)。在图像上定义直角坐标系u-v，每一象素的坐标(u,v)分别是该象素在数组中的列数和行数。故(u,v)是以象素为单位的图像坐标系坐标。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://or5up5p3j.bkt.clouddn.com/blog/image/2018/03/22/pixel_coor.jpg&#34; alt=&#34;pixel_coor&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;图像坐标系&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;由于(u,v)只代表像素的列数与行数，而像素在图像中的位置并没有用物理单位表示出来，所以，我们还要建立以物理单位（如毫米）表示的图像坐标系x-y。用(x,y)表示以物理单位度量的成像平面坐标系的坐标。在x-y坐标系中，原点定义在摄像机光轴和图像平面的交点处，称为图像的主点(principal point)，该点一般位于图像中心处。&lt;/p&gt;
+
+&lt;p&gt;假设(u0,v0)代表O1在u-v坐标系下的坐标，dx与dy分别表示每个像素在横轴x和纵轴y上的物理尺寸，则图像中的每个像素在u-v坐标系中的坐标和在x-y坐标系中的坐标之间都存在如下的关系：&lt;/p&gt;
+
+&lt;p&gt;$$
+\begin{cases} u = \dfrac{x}{d_x} + u_0 \\ v = \dfrac{y}{d{y}} + v_0 \end{cases}\tag{1}
+$$&lt;/p&gt;
+
+&lt;p&gt;用齐次坐标与矩阵形式表示为：
+$$
+\begin{bmatrix} u \\ v \\ 1 \end{bmatrix} = \begin{bmatrix} \dfrac{1}{d_x} &amp;amp; 0 &amp;amp; {u_0} \\ 0 &amp;amp; \dfrac{1}{d_y} &amp;amp; {v_0} \\ 0 &amp;amp; 0 &amp;amp; 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}\tag{2}
+$$&lt;/p&gt;
+
+&lt;p&gt;这样，就建立了图像中，像素坐标和物理尺寸坐标之间的对应关系。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;相机坐标系&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;相机坐标系 (Xc,Yc,Zc)中，原点 为相机透镜的中心，坐标轴 Xc 轴与 x 轴平行，Yc 轴与 y 轴平行，Zc 轴与相机光轴重合。从相机坐标系到图像坐标系，属于透视投影关系，从3D转换到2D。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://or5up5p3j.bkt.clouddn.com/blog/image/2018/03/22/camera_image.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;设相机的焦距为 f，则根据小孔成像模型，可知相机坐标系下空间点 (Xc,Yc,Zc)，与物理尺寸坐标 (x,y) 的关系如下：
+$$
+\begin{cases} \dfrac{x}{f} = \dfrac{X_c}{Z_c} \\ \dfrac{y}{f} = \dfrac{Y_c}{Z_c} \end{cases}\tag{3}
+$$&lt;/p&gt;
+
+&lt;p&gt;$$
+\begin{cases} Z_c \cdot x = f \cdot {X_c} \\ Z_c \cdot y = f \cdot {Y_c} \end{cases}\tag{4}
+$$&lt;/p&gt;
+
+&lt;p&gt;$$
+Z_c \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} = \begin{bmatrix} f &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\ 0 &amp;amp; f &amp;amp; 0 &amp;amp; 0 \\ 0 &amp;amp; 0 &amp;amp; 1 &amp;amp; 0 \end{bmatrix} \begin{bmatrix} X_c \\ Y_c \\ Z_c \\ 1 \end{bmatrix}\tag{5}
+$$
+由（2）和（5），可以得到像素坐标 (u,v) 与相机坐标点 (Xc,Yc,Zc) 的关系为：
+$$
+Z_c \begin{bmatrix} u \\ v \\ 1 \end{bmatrix} = \begin{bmatrix} \dfrac{1}{d_x} &amp;amp; 0 &amp;amp; u_0 \\ 0 &amp;amp; \dfrac{1}{d_y} &amp;amp; v_0 \\ 0 &amp;amp; 0 &amp;amp; 1 \end{bmatrix} \begin{bmatrix} f &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\ 0 &amp;amp; f &amp;amp; 0 &amp;amp; 0 \\ 0 &amp;amp; 0 &amp;amp; 1 &amp;amp; 0 \end{bmatrix} \begin{bmatrix} X_c \\ Y_c \\ Z_c \\ 1 \end{bmatrix} = \begin{bmatrix} \dfrac{f}{d_x} &amp;amp; 0 &amp;amp; u_0 &amp;amp; 0 \\ 0 &amp;amp; \dfrac{f}{d_y} &amp;amp; v_0 &amp;amp; 0 \\ 0 &amp;amp; 0 &amp;amp; 1 &amp;amp; 0 \end{bmatrix}  \begin{bmatrix} X_c \\ Y_c \\ Z_c \\ 1 \end{bmatrix}\tag{6}
+$$&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;世界坐标系&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在环境中还选择一个参考坐标系来描述摄像机和物体的位置，该坐标系称为世界坐标系。摄像机坐标系和世界坐标系之间的关系可用旋转矩阵R与平移向量t来描述。由此，空间中一点P在世界坐标系和摄像机坐标系下的齐次坐标分别为和且存在如下关系：
+$$
+\begin{bmatrix} X_c \\  Y_c \\ Z_c  \\ 1\end{bmatrix} = \begin{bmatrix} R &amp;amp; T \\ 0^{T} &amp;amp; 1 \end{bmatrix}  \begin{bmatrix} X_w \\  Y_w \\ Z_w \\ 1 \end{bmatrix}\tag{7}
+$$
+其中，R是3×3的正交单位矩阵（也成为旋转矩阵），T是三维的平移向量&lt;/p&gt;
+
+&lt;p&gt;所以，由（6）和（7）可以得到像素点（u,v）到世界坐标点的转换关系：
+$$
+Z_c \begin{bmatrix} u \\ v \\ 1 \end{bmatrix} = \begin{bmatrix} \dfrac{f}{d_x} &amp;amp; 0 &amp;amp; u_0 &amp;amp; 0 \\ 0 &amp;amp; \dfrac{f}{d_y} &amp;amp; v_0 &amp;amp; 0 \\ 0 &amp;amp; 0 &amp;amp; 1 &amp;amp; 0 \end{bmatrix}  \begin{bmatrix} R &amp;amp; T \\ 0^{T} &amp;amp; 1 \end{bmatrix}  \begin{bmatrix} X_w \\  Y_w \\ Z_w \\ 1 \end{bmatrix}\tag{8}
+$$
+其中：
+$$
+\begin{bmatrix} \dfrac{f}{d_x} &amp;amp; 0 &amp;amp; u_0 &amp;amp; 0 \\ 0 &amp;amp; \dfrac{f}{d_y} &amp;amp; v_0 &amp;amp; 0 \\ 0 &amp;amp; 0 &amp;amp; 1 &amp;amp; 0 \end{bmatrix} 是相机的内参
+$$&lt;/p&gt;
+
+&lt;p&gt;$$
+\begin{bmatrix} R &amp;amp; T \\ 0^{T} &amp;amp; 1 \end{bmatrix} 是相机的外参
+$$&lt;/p&gt;
+
+&lt;p&gt;相机的内参和外参数可以通过&lt;a href=&#34;https://www.microsoft.com/en-us/research/project/a-flexible-new-technique-for-camera-calibration-2/&#34;&gt;张正友标定&lt;/a&gt;获得，&lt;a href=&#34;http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_calib3d/py_calibration/py_calibration.html&#34;&gt;OpenCV摄像相投标定教程&lt;/a&gt;。如果已知一个点的世界坐标，可以在图像中找到与其对应的像素点，但反之，则不能通过图像中的一个点找到它在世界坐标中对应的点，因为（8）中Zc未知。&lt;/p&gt;
+
+&lt;h3 id=&#34;2-相机内参数&#34;&gt;2、相机内参数&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://or5up5p3j.bkt.clouddn.com/blog/image/2018/03/22/0322_camera.gif&#34; alt=&#34;内参数&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;相机内参数，由相机本身决定，只和相机本身有关。摄像头由于光学透镜的特性使得成像存在着径向畸变，可由三个参数k1,k2,k3确定。由于装配方面的误差，传感器与光学镜头之间并非完全平行，因此成像存在切向畸变，可由两个参数p1,p2确定。&lt;/p&gt;
+
+&lt;p&gt;单个摄像头的定标主要是计算出摄像头的内参（焦距f和成像原点cx,cy、五个畸变参数（一般只需要计算出k1,k2,p1,p2，对于鱼眼镜头等径向畸变特别大的才需要计算k3））以及外参（标定物的世界坐标）。&lt;/p&gt;
+
+&lt;h3 id=&#34;3-相机外参数&#34;&gt;3、相机外参数&lt;/h3&gt;
+
+&lt;p&gt;相机外参数，相机在世界坐标系中的位姿，由相机与世界坐标系的相对位姿关系决定。其参数有：旋转向量R（大小为1x3的矢量或旋转矩阵3x3）和平移向量T(Tx,Ty,Tz)。&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>conda管理Python环境</title>
+      <link>http://localhost:1313/post/2018-03-15/conda/</link>
+      <pubDate>Thu, 15 Mar 2018 13:12:11 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/2018-03-15/conda/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;序&#34;&gt;序&lt;/h2&gt;
+
+&lt;p&gt;近期做一个项目的调研，需要使用到OpenCV、Python，这里记录anaconda进行Python环境配置管理过程。&lt;/p&gt;
+
+&lt;h2 id=&#34;python常用环境管理工具&#34;&gt;Python常用环境管理工具&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://virtualenv.pypa.io/en/stable/&#34;&gt;virtualenv&lt;/a&gt;，用于在一台机器上创建多个独立的Python虚拟运行环境，多个Python环境相互独立，互不影响&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/pyenv/pyenv&#34;&gt;pyenv&lt;/a&gt;, Python版本管理工具，可以方便的在多个Python版本之间进行切换&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://link.jianshu.com/?t=https://www.continuum.io/why-anaconda&#34;&gt;Anaconda&lt;/a&gt;，Anaconda是一个用于科学计算的Python发行版，支持 Linux, Mac, Windows系统，提供了包管理与环境管理的功能，可以很方便地解决多版本python并存、切换以及各种第三方包安装问题。Anaconda利用工具/命令conda来进行package和environment的管理，并且已经包含了Python和相关的配套工具。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;anaconda-vs-conda&#34;&gt;Anaconda VS conda&lt;/h2&gt;
+
+&lt;p&gt;conda可以理解为一个工具，也是一个可执行命令，其核心功能是包管理与环境管理。包管理与pip的使用类似，环境管理则允许用户方便地安装不同版本的python并可以快速切换。Anaconda则是一个打包的集合，里面预装好了conda、某个版本的python、众多packages、科学计算工具等等，所以也称为Python的一种发行版&lt;/p&gt;
+
+&lt;h2 id=&#34;anaconda下载安装&#34;&gt;Anaconda下载安装&lt;/h2&gt;
+
+&lt;p&gt;Anaconda下载安装参见&lt;a href=&#34;https://www.anaconda.com/download/&#34;&gt;官网下载&lt;/a&gt;，支持Windows，macOS，Linux平台。&lt;/p&gt;
+
+&lt;h2 id=&#34;conda环境管理&#34;&gt;Conda环境管理&lt;/h2&gt;
+
+&lt;p&gt;Conda环境管理功能允许同时安装多个不同版本的Python，并可以自由切换。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# 查看已经安装的环境
+conda info -e
+
+# 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本） 
+conda create --name python34 python=3.4
+
+# 安装好后，使用activate激活某个环境 
+activate python34 # for Windows source activate python34 # for Linux &amp;amp; Mac
+
+# 激活后，会发现terminal输入的地方多了python34的字样，实际上，此时系统做的事情就是把默认2.7环境从PATH中去除，再把3.4对应的命令加入PATH
+
+ 
+python --version 
+# 可以得到`Python 3.4.5 :: Anaconda 4.1.1 (64-bit)`，即系统已经切换到了3.4的环境 
+
+# 如果想返回默认的python 2.7环境，运行 
+deactivate python34 # for Windows source deactivate python34 # for Linux &amp;amp; Mac
+
+# 删除一个已有的环境 
+conda remove --name python34 --all
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;conda包管理-常用命令&#34;&gt;Conda包管理常用命令&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;# 查看当前环境下已安装的包 
+conda list
+
+# 查看某个指定环境的已安装包 
+conda list -n python34
+
+# 查找package信息 
+conda search numpy
+
+# 安装package 
+conda install -n python34 numpy
+
+# 如果不用-n指定环境名称，则被安装在当前活跃环境 
+# 也可以通过-c指定通过某个channel安装
+
+# 更新package 
+conda update -n python34 numpy
+
+# 删除package 
+conda remove -n python34 numpy
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;设置国内镜像&#34;&gt;设置国内镜像&lt;/h2&gt;
+
+&lt;p&gt;由于默认的安装源在国外，conda下载速度十分缓慢。可以使用&lt;a href=&#34;https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/&#34;&gt;清华大学TUNA镜像&lt;/a&gt;。
+TUNA 还提供了 Anaconda 仓库的镜像，运行以下命令:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --set show_channel_urls yes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;即可添加 Anaconda Python 免费仓库。&lt;/p&gt;
+
+&lt;p&gt;该配置保存在.condarc文件，也可以直接进行配置，Windows为C://Users/username/.condarc，Linux/Mac为~/.condarc。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+  - defaults
+ssl_verify: true
+show_channel_urls: true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://flask123.sinaapp.com/article/39/&#34;&gt;Virtualenv入门基础教程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/pyenv/pyenv&#34;&gt;pyenv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.anaconda.com&#34;&gt;Anaconda&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/&#34;&gt;清华大学TUNA镜像&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>[Go]Deferred函数案例</title>
+      <link>http://localhost:1313/post/2018-03/go-defer/</link>
+      <pubDate>Sun, 11 Mar 2018 19:30:16 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/2018-03/go-defer/</guid>
+      
+        <description>&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package main
+
+func main() {
+	println(DeferFunc1(1))
+	println(DeferFunc2(1))
+	println(DeferFunc3(1))
+}
+
+func DeferFunc1(i int) (t int) {
+	t = i
+	defer func() {
+		t += 3
+	}()
+	return t
+}
+
+func DeferFunc2(i int) int {
+	t := i
+	defer func() {
+		t += 3
+	}()
+	return t
+}
+
+func DeferFunc3(i int) (t int) {
+	defer func() {
+		t += i
+	}()
+	return 2
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;运行结果：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;4
+1
+3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;解析：&lt;/p&gt;
+
+&lt;p&gt;首先，只有在函数执行完毕后，这些被延迟的函数才会执行；其次，defer语句中的函数会在return语句更新返回值变量后再执行，而且函数中定义的匿名函数可以访问该函数包括返回值变量在内的所有变量。所以，DeferFunc1， DeferFunc3，分别返回4，3。DeferFunc2中因为defer中的匿名函数更新的是函数中变量t，不会影响返回值所以返回1。&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Linux统计文件数量</title>
+      <link>http://localhost:1313/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/</link>
+      <pubDate>Tue, 06 Mar 2018 19:12:18 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/</guid>
+      
+        <description>
+
+&lt;h4 id=&#34;统计当前文件夹下文件的个数-包括子文件夹里的&#34;&gt;统计当前文件夹下文件的个数，包括子文件夹里的&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;ls -lR | grep &#39;^-&#39; | wc -l
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;统计当前文件夹下文件夹的个数-包括子文件夹下的&#34;&gt;统计当前文件夹下文件夹的个数，包括子文件夹下的&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;ls -lR | grep &#39;^d&#39; | wc -l
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;统计当前文件夹下的文件夹个数&#34;&gt;统计当前文件夹下的文件夹个数&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;ls -l | grep &#39;^d&#39; | wc -l
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;统计当前文件夹下的文件个数&#34;&gt;统计当前文件夹下的文件个数&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;方式一&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;ls -l | grep &#39;^-&#39; | wc -l
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;方式二&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;find DIR_NAME -type f | wc -l
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;注：DIR_NAME指定的目录&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Mac配置Selenium &#43; Python3</title>
+      <link>http://localhost:1313/post/2018-01-30/webdriver/</link>
+      <pubDate>Fri, 02 Feb 2018 18:22:19 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/2018-01-30/webdriver/</guid>
+      
+        <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.seleniumhq.com&#34;&gt;Selenium&lt;/a&gt;也是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。支持的浏览器包括IE、Mozilla Firefox、Mozilla Suite等。这个工具的主要功能包括：测试与浏览器的兼容性——测试你的应用程序看是否能够很好得工作在不同浏览器和操作系统之上。测试系统功能——创建衰退测试检验软件功能和用户需求。支持自动录制动作和自动生成。Net、Java、Perl等不同语言的测试脚本。Selenium 是ThoughtWorks专门为Web应用程序编写的一个验收测试工具。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Mac OS 10.13.2中自带的Python版本是2.7，可以使用&lt;a href=&#34;https://www.anaconda.com/download/#macos&#34;&gt;Anaconda&lt;/a&gt;使用管理环境，并可以方便的切换到Python3。&lt;/p&gt;
+
+&lt;h2 id=&#34;安装selenium&#34;&gt;安装Selenium&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;pip install selenium
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;安装浏览器驱动&#34;&gt;安装浏览器驱动&lt;/h2&gt;
+
+&lt;p&gt;Selenium3.0后，Firefox浏览器同其他浏览器一样都已经独立出来，必须要使用下载和配置浏览器驱动，而且浏览器和驱动的版本必须匹配，否则会出现各种诡异的错误。&lt;/p&gt;
+
+&lt;p&gt;归功于某些不可抗拒因素，下载谷歌相关联的包不是那么方便，需要的驱动可以在&lt;a href=&#34;https://npm.taobao.org/mirrors/&#34;&gt;淘宝镜像&lt;/a&gt;上下载。&lt;/p&gt;
+
+&lt;p&gt;下载到ChromeDriver后，并将驱动的所在路径加入环境变量中。&lt;/p&gt;
+
+&lt;h2 id=&#34;简单测试&#34;&gt;简单测试&lt;/h2&gt;
+
+&lt;p&gt;编写一个简单的测试脚本，进入www.taobao.com&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from selenium import webdriver
+
+driver = webdriver.Chrome()
+driver.get(&amp;quot;https://cart.taobao.com&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;执行脚本后会打开一个新增chrome浏览器，并进入淘宝首页。&lt;/p&gt;
+
+&lt;h3 id=&#34;问题备注&#34;&gt;问题备注&lt;/h3&gt;
+
+&lt;h5 id=&#34;1-chromedriver和chrome的版本对应关系&#34;&gt;1. ChromeDriver和Chrome的版本对应关系：&lt;/h5&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ChromeDriver版本&lt;/th&gt;
+&lt;th&gt;Chrome版本&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;v2.35&lt;/td&gt;
+&lt;td&gt;v62-64&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;v2.34&lt;/td&gt;
+&lt;td&gt;v61-63&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;v2.33&lt;/td&gt;
+&lt;td&gt;v60-62&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;v2.32&lt;/td&gt;
+&lt;td&gt;v59-61&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;v2.31&lt;/td&gt;
+&lt;td&gt;v58-60&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;v2.30&lt;/td&gt;
+&lt;td&gt;v58-60&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;v2.29&lt;/td&gt;
+&lt;td&gt;v56-58&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;v2.28&lt;/td&gt;
+&lt;td&gt;v55-57&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;v2.27&lt;/td&gt;
+&lt;td&gt;v54-56&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;v2.26&lt;/td&gt;
+&lt;td&gt;v53-55&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;v2.25&lt;/td&gt;
+&lt;td&gt;v53-55&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;v2.24&lt;/td&gt;
+&lt;td&gt;v52-54&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;v2.23&lt;/td&gt;
+&lt;td&gt;v51-53&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;v2.22&lt;/td&gt;
+&lt;td&gt;v49-52&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;v2.21&lt;/td&gt;
+&lt;td&gt;v46-50&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;v2.20&lt;/td&gt;
+&lt;td&gt;v43-48&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;附：ChromeDriver可以在下面的链接下载到：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;http://chromedriver.storage.googleapis.com/index.html
+// OR
+https://npm.taobao.org/mirrors/chromedriver/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;2-在mac上使用webdriver调用chrome浏览器发生错误&#34;&gt;2. 在mac上使用webdriver调用chrome浏览器发生错误：&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;raise WebDriverException(&amp;quot;Can not connect to the Service %s&amp;quot; % self.path)
+selenium.common.exceptions.WebDriverException: Message: Can not connect to the Service chromedriver
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;修改办法，将 127.0.0.1 localhost添加到/etc/hosts配置文件中, 在终端中输入&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;	sudo killall -HUP mDNSResponder
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;使hosts文件的更改生效。&lt;/p&gt;
+
+&lt;p&gt;注：解决办法来自&lt;a href=&#34;https://github.com/SeleniumHQ/selenium/issues/2903#issuecomment-272112510&#34;&gt;github.com/SeleniumHQ&lt;/a&gt;&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>使用Homebrew安装Golang</title>
+      <link>http://localhost:1313/post/2018-01-09/homebrew_install_golang_environment/</link>
+      <pubDate>Wed, 10 Jan 2018 11:26:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/2018-01-09/homebrew_install_golang_environment/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;1-安装homebrew&#34;&gt;1、安装Homebrew&lt;/h2&gt;
+
+&lt;p&gt;安装步骤，参考&lt;a href=&#34;https://brew.sh/&#34;&gt;Homebew&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;2-安装golang&#34;&gt;2、安装Golang&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ brew install go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;2-1-查看golang安装信息&#34;&gt;2.1、查看Golang安装信息&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-Shell&#34;&gt;$ brew info go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;go: stable 1.9.2 (bottled), devel 1.10beta1, HEAD
+Open source programming language to build simple/reliable/efficient software
+https://golang.org
+/usr/local/Cellar/go/1.8.3 (7,035 files, 282.0MB)
+  Poured from bottle on 2017-09-05 at 09:29:02
+/usr/local/Cellar/go/1.9 (7,639 files, 293.7MB)
+  Poured from bottle on 2017-09-05 at 09:45:50
+/usr/local/Cellar/go/1.9.2 (7,646 files, 293.9MB) *
+  Poured from bottle on 2018-01-09 at 16:50:46
+From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/go.rb
+==&amp;gt; Requirements
+Build: git ✔
+Required: macOS &amp;gt;= 10.8 ✔
+==&amp;gt; Options
+--without-cgo
+	Build without cgo (also disables race detector)
+--without-race
+	Build without race detector
+--devel
+	Install development version 1.10beta1
+--HEAD
+	Install HEAD version
+==&amp;gt; Caveats
+A valid GOPATH is required to use the `go get` command.
+If $GOPATH is not specified, $HOME/go will be used by default:
+  https://golang.org/doc/code.html#GOPATH
+
+You may wish to add the GOROOT-based install location to your PATH:
+  export PATH=$PATH:/usr/local/opt/go/libexec/bin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;2-3-设置goroot-gopath&#34;&gt;2.3、设置GOROOT、GOPATH&lt;/h3&gt;
+
+&lt;p&gt;编辑配置文件~/.zshrc, 更新内容:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export GOPATH=/Users/xiaoxiwang/go:/Users/xiaoxiwang/Documents/demo/golangDemo
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:/Users/xiaoxiwang/anaconda3/bin:/usr/local/opt/go/libexec/bin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;保存修改，更新配置&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-Shell&#34;&gt;source ~/.zshrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;2.4、安装完成&lt;/p&gt;
+
+&lt;p&gt;查看安装的golang信息：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-Shell&#34;&gt;$ go env	
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;GOARCH=&amp;quot;amd64&amp;quot;
+GOBIN=&amp;quot;&amp;quot;
+GOEXE=&amp;quot;&amp;quot;
+GOHOSTARCH=&amp;quot;amd64&amp;quot;
+GOHOSTOS=&amp;quot;darwin&amp;quot;
+GOOS=&amp;quot;darwin&amp;quot;
+GOPATH=&amp;quot;/Users/xiaoxiwang/go:/Users/xiaoxiwang/Documents/demo/golangDemo&amp;quot;
+GORACE=&amp;quot;&amp;quot;
+GOROOT=&amp;quot;/usr/local/opt/go/libexec&amp;quot;
+GOTOOLDIR=&amp;quot;/usr/local/opt/go/libexec/pkg/tool/darwin_amd64&amp;quot;
+GCCGO=&amp;quot;gccgo&amp;quot;
+CC=&amp;quot;clang&amp;quot;
+GOGCCFLAGS=&amp;quot;-fPIC -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmessage-length=0 -fdebug-prefix-map=/var/folders/2s/5xlkp2f149j5bydw1rhxhyfw0000gn/T/go-build390073932=/tmp/go-build -gno-record-gcc-switches -fno-common&amp;quot;
+CXX=&amp;quot;clang++&amp;quot;
+CGO_ENABLED=&amp;quot;1&amp;quot;
+CGO_CFLAGS=&amp;quot;-g -O2&amp;quot;
+CGO_CPPFLAGS=&amp;quot;&amp;quot;
+CGO_CXXFLAGS=&amp;quot;-g -O2&amp;quot;
+CGO_FFLAGS=&amp;quot;-g -O2&amp;quot;
+CGO_LDFLAGS=&amp;quot;-g -O2&amp;quot;
+PKG_CONFIG=&amp;quot;pkg-config&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>(Mac)PIP使用国内镜像</title>
+      <link>http://localhost:1313/post/2017-10-22/python-env-pip-source/</link>
+      <pubDate>Sun, 22 Oct 2017 16:22:16 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/2017-10-22/python-env-pip-source/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;mac-pip使用国内镜像&#34;&gt;(Mac)PIP使用国内镜像&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;PIP使用国外源安装软件包，下载速度非常慢，将PIP安装源头替换为国内镜像，可以大幅提高下载速度，提高安装成功率。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;1-国内源&#34;&gt;1、国内源&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;清华：&lt;a href=&#34;https://pypi.tuna.tsinghua.edu.cn/simple&#34;&gt;https://pypi.tuna.tsinghua.edu.cn/simple&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;阿里云：&lt;a href=&#34;http://mirrors.aliyun.com/pypi/simple/&#34;&gt;http://mirrors.aliyun.com/pypi/simple/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;中国科技大学 &lt;a href=&#34;https://pypi.mirrors.ustc.edu.cn/simple/&#34;&gt;https://pypi.mirrors.ustc.edu.cn/simple/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;华中科技大学：&lt;a href=&#34;http://pypi.hustunique.com/&#34;&gt;http://pypi.hustunique.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;山东理工大学：&lt;a href=&#34;http://pypi.sdutlinux.org/&#34;&gt;http://pypi.sdutlinux.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;豆瓣：&lt;a href=&#34;http://pypi.douban.com/simple/&#34;&gt;http://pypi.douban.com/simple/&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;2-pip设置&#34;&gt;2、PIP设置&lt;/h2&gt;
+
+&lt;p&gt;使用指定的镜像源， 可以临时指定，也可以通过修改配置文件，始终生效。&lt;/p&gt;
+
+&lt;h3 id=&#34;2-1-临时使用&#34;&gt;2.1、 临时使用&lt;/h3&gt;
+
+&lt;p&gt;可以在使用pip命令时，指定参数：-i&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ pip install myqr -i https://pypi.tuna.tsinghua.edu.cn/simple
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;pip将会从清华的镜像中下载安装软件包myqr。&lt;/p&gt;
+
+&lt;h2 id=&#34;2-2-修改配置文件&#34;&gt;2.2、修改配置文件&lt;/h2&gt;
+
+&lt;p&gt;在不同系统中，配置文件的路径不同。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Linux/Unix/Mac OS系统，默认配置文件路径为：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;$HOME/.pip/pip.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Windows，默认配置文件路径为：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;%HOME%/pip/pip.ini
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;注：如果默认路径下不存在配置文件，需要新建&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;如，使用阿里云镜像可以下面的配置：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[global]
+
+index-url = http://mirrors.aliyun.com/pypi/simple/
+
+[install]
+
+trusted-host=mirrors.aliyun.com
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>秋来了</title>
+      <link>http://localhost:1313/post/autumn_on_its_way/</link>
+      <pubDate>Sat, 19 Aug 2017 22:16:01 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/autumn_on_its_way/</guid>
+      
+        <description>&lt;p&gt;前几天的几场雨下来，似乎把武汉的火炉浇灭了，晚上明显感觉到阵阵的凉意，秋天真的来了。&lt;/p&gt;
+
+&lt;p&gt;手上的项目，进入比较关键的时刻，开始仓储部分的设计工作。阿门，需求不要再变啦！！！&lt;/p&gt;
+
+&lt;p&gt;明天周日，早起干嘛去呢？跑步？&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>【Antd使用小结】--Table设置行背景色</title>
+      <link>http://localhost:1313/post/antd-1-table-background/</link>
+      <pubDate>Sat, 19 Aug 2017 21:36:46 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/antd-1-table-background/</guid>
+      
+        <description>
+
+&lt;p&gt;&lt;a href=&#34;https://ant.design/components/table-cn/&#34;&gt;Table&lt;/a&gt; 用于展示行列数据。&lt;/p&gt;
+
+&lt;h2 id=&#34;基本使用&#34;&gt;基本使用&lt;/h2&gt;
+
+&lt;p&gt;指定表格的数据源 dataSource 为一个数据组， 并指定表格列的配置描述columns即可。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-react&#34;&gt;const dataSource = [{id:1, name: &#39;one&#39;, color: &#39;#fff&#39;},
+        {id:2, name: &#39;two&#39;, color: &#39;#eee&#39;},
+        {id:3, name: &#39;three&#39;, color: &#39;#ddd&#39;}];
+
+const columns = [{
+   	title: &#39;ID&#39;,
+   	dataIndex: &#39;id&#39;,
+   }, {
+   	title: &#39;Name&#39;,
+   	dataIndex: &#39;name&#39;,
+}];
+
+&amp;lt;Table dataSource={dataSource} columns={columns} /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;运行结果：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://or5up5p3j.bkt.clouddn.com/blog/image/2017/08/19/antd-background-table-row.png&#34; alt=&#34;result&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;行背景&#34;&gt;行背景&lt;/h2&gt;
+
+&lt;p&gt;默些时候， 需要根据行数据，来指定每行拥有不同的背景色。此时，可以使用Table.rowClassName来指定。rowClassName指定表格行的类名，类型是：Function(record, index):string， 其中record参数就是每行的具体绑定的数据。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-react&#34;&gt;&amp;lt;Table
+    columns={columns}
+    dataSource={this.state.data}
+    rowClassName={(record) =&amp;gt; record.color.replace(&#39;#&#39;, &#39;&#39;)}
+    rowKey={record =&amp;gt; record.id}/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;rowClassName函数替换每行数据中color的值，将#替换为‘’， 剩下部分作为该行的class名返回。此时，需要制定相应的CSS样式：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.fff {
+  background: #fff;
+}
+
+.eee {
+  background: #eee;
+}
+
+.ddd {
+  background: #ddd;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;运行效果：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://or5up5p3j.bkt.clouddn.com/blog/image/2017/06/09/antd-row-bl.png&#34; alt=&#34;black&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+
+&lt;p&gt;1、&lt;a href=&#34;https://jsfiddle.net/2b2376a4/&#34;&gt;https://jsfiddle.net/2b2376a4/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2、&lt;a href=&#34;https://ant.design/components/table-cn/&#34;&gt;https://ant.design/components/table-cn/&lt;/a&gt;&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>【Antd使用小结系列】</title>
+      <link>http://localhost:1313/post/antd-start/</link>
+      <pubDate>Sat, 19 Aug 2017 16:22:16 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/antd-start/</guid>
+      
+        <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://ant.design/docs/spec/introduce-cn&#34;&gt;Ant Design&lt;/a&gt;是蚂蚁金服开源出来的前端UI设计，是一个致力于提升『用户』和『设计者』使用体验的中台设计语言。它模糊了产品经理、交互设计师、视觉设计师、前端工程师、开发工程师等角色边界，将进行 UE 设计和 UI 设计人员统称为『设计者』，利用统一的规范进行设计赋能，全面提高中台产品体验和研发效率。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://ant.design/docs/react/introduce-cn&#34;&gt;Ant Design of React&lt;/a&gt;是Ant Design 的React实现，开发和服务于企业级后台产品。&lt;/p&gt;
+
+&lt;h2 id=&#34;特性&#34;&gt;特性&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;提炼自企业级中后台产品的交互语言和视觉风格。&lt;/li&gt;
+&lt;li&gt;开箱即用的高质量 React 组件。&lt;/li&gt;
+&lt;li&gt;使用 TypeScript 构建，提供完整的类型定义文件。&lt;/li&gt;
+&lt;li&gt;基于 npm + webpack + babel 的工作流，支持 ES2015 和 TypeScript。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;我的使用小结系列-开端&#34;&gt;我的使用小结系列【开端】&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;近来的半年来，带领4个人的小团队（一个安卓、一个Java 实习生、一个Java后台还有我），服务于一个物流项目。一直处于一种全栈开发状态。从需要分析到数据库设计， 从后台服务到一个人扛起前端， 面对多变而不够清晰的需求，紧张的工期等等，虽然很辛苦但充实。问题不断中，不断成长，也发现不一样的自己。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这里作为Antd使用小结系列的开篇， 记录我使用Antd的点滴总结， 强迫自己按时写文章，养成一个好习惯！过去的几个月忙着项目以及生活的事情，都没有心思来总结和沉淀，这算是一个美好的开端吧！&lt;/p&gt;
+
+&lt;p&gt;我愿化成一座石桥，经受五百年的风吹，五百年的日晒，五百年的雨打，只求她从桥上走过!&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>使用Golang基于MongoDB构建Restful服务</title>
+      <link>http://localhost:1313/post/build-restful-service-with-mongodb-in-golang/</link>
+      <pubDate>Sat, 17 Jun 2017 15:30:56 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/build-restful-service-with-mongodb-in-golang/</guid>
+      
+        <description>
+
+&lt;p&gt;近来使用Golang来构建Restful服务变得越发流行。我发现有些时候使用MongoDB作为持久存储，这篇文档中， 我会使用Golang和MongoDB来构建一个简单的用户管理为服务。&lt;/p&gt;
+
+&lt;h1 id=&#34;mongodb&#34;&gt;MongoDB&lt;/h1&gt;
+
+&lt;p&gt;MongoDB因为极简、灵活、高可用以及面向文档的特性得到越来越多市场上的青睐。根据MongoDB之父的解释，它被用来设计组合键值对存储和关系数据库存储的最佳特性。MongoDB在两者之间做妥协，具备了二者的某些有用的功能。&lt;/p&gt;
+
+&lt;p&gt;MongoDB的应用场景：Web应用、分析应用的首要数据库，以及弱数据类型的数据，也就是无schema数据。&lt;/p&gt;
+
+&lt;h2 id=&#34;什么是文档-document&#34;&gt;什么是文档(document)&lt;/h2&gt;
+
+&lt;p&gt;文档就是键值对集合。文档中的键用字符串表示，文档中的值可以是基础的数据类型（字符串、数字、日期等）、数组，也可以是另一个文档。在MongDB内部以二进制JSON格式存储文档数据，也就做BSON。BSON有相似的结构，但专为文档存储而设计。&lt;/p&gt;
+
+&lt;p&gt;下面是一个文档数据示例：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    name: &#39;张三&#39;,
+    age: &#39;11&#39;,
+    address: &#39;湖北省武汉市光谷一路&#39;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;集合-collection&#34;&gt;集合(Collection)&lt;/h2&gt;
+
+&lt;p&gt;集合是结构或者概念上相似文档的容器。例如，我们会把用户（user）文档存储到（users）集合（collection）中。这里集合的概念就非常类似于关系数据库（RDMS）中表（table）的概念。两者的不同是，集合中的数据是无schema的，是不强制数据结构的，可以是任意的。&lt;/p&gt;
+
+&lt;h2 id=&#34;查询-query&#34;&gt;查询(Query)&lt;/h2&gt;
+
+&lt;p&gt;MongoDB不是用SQL，而是使用自己的JSON查询语言。&lt;/p&gt;
+
+&lt;p&gt;例如：使用SQL语句查询名叫“张三”的用户&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;SELECT * from users
+WHERE name = &#39;张三&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;而在MongoDB中，查询的是：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;db.users.find({name: &#39;hello&#39;})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;mongodb-golang驱动&#34;&gt;MongoDB Golang驱动&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://labix.org/mgo&#34;&gt;mgo&lt;/a&gt;(发音：mango)是一个Go语言实现的MongoDB驱动程序，这个驱动提供了一个非常简洁易于使用、并经过充分测试API。接下来，在介绍如何通过mgo来实现CRUD（create、react、update、delete）操作之前，将简单介绍下会话管理（session  manager）。&lt;/p&gt;
+
+&lt;h3 id=&#34;session-management&#34;&gt;session management&lt;/h3&gt;
+
+&lt;p&gt;获取会话&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;session, err := mgo.Dial(&amp;quot;localhsot&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;单个的会话不允许进行并发处理，所以通常需要使用多个会话。新建一个会话的最快方式是从现有的session中复制一个新的会话：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;newSession := session.Copy()
+defer newSession.Close()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;新生成的这个会话会使用相同的集群信息和连接池(connection pool)。每一个新建的session必须在生命周期结束时调用Close方法，该会话的资源会视情况而定，是被放回连接池，还是被回收。&lt;/p&gt;
+
+&lt;h3 id=&#34;查询文档&#34;&gt;查询文档&lt;/h3&gt;
+
+&lt;p&gt;mgo需要和&lt;a href=&#34;https://godoc.org/gopkg.in/mgo.v2/bson&#34;&gt;bson&lt;/a&gt;一同使用，bson使编写查询更加简单。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;获取集合中所有的文档&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;c := session.DB(&amp;quot;store&amp;quot;).C(&amp;quot;users&amp;quot;)
+
+var users []User
+err := c.Find(bson.M{}).All(&amp;amp;books)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;查询单个文档&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;c := session.DB(&amp;quot;store&amp;quot;).C(&amp;quot;users&amp;quot;)
+var user User
+err := c.Find(bson.M{&amp;quot;name&amp;quot;: &amp;quot;张三&amp;quot;}).One(&amp;amp;user)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;新建文档&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;c := session.DB(&amp;quot;store&amp;quot;).C(&amp;quot;users&amp;quot;)
+err = c.Insert(&amp;amp;User{&amp;quot;Ale&amp;quot;})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;更新文档&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;c := session.DB(&amp;quot;store&amp;quot;).C(&amp;quot;users&amp;quot;)
+err = c.Update(bson.M{&amp;quot;name&amp;quot;: &amp;quot;张三&amp;quot;}, &amp;amp;book)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;删除文档&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;c := session.DB(&amp;quot;store&amp;quot;).C(&amp;quot;users&amp;quot;)
+err = c.Remove(bson.M{&amp;quot;name&amp;quot;: &amp;quot;张三&amp;quot;})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;restful服务-golang&#34;&gt;RESTful服务(Golang)&lt;/h1&gt;
+
+&lt;h1 id=&#34;echo&#34;&gt;Echo&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/labstack/echo&#34;&gt;Echo&lt;/a&gt;是一个高性能、极简的Go语言Web框架。&lt;/p&gt;
+
+&lt;h3 id=&#34;功能概览&#34;&gt;功能概览：&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;优化的 HTTP 路由。&lt;/li&gt;
+&lt;li&gt;创建可靠并可伸缩的RESTful API。&lt;/li&gt;
+&lt;li&gt;基于标准的HTTP服务器。&lt;/li&gt;
+&lt;li&gt;组 APIs.&lt;/li&gt;
+&lt;li&gt;可扩展的middleware框架。&lt;/li&gt;
+&lt;li&gt;Define middleware at root, group or route level.&lt;/li&gt;
+&lt;li&gt;为JSON, XML进行数据绑定，产生负荷。&lt;/li&gt;
+&lt;li&gt;提供便捷的方法来发送各种HTTP相应。&lt;/li&gt;
+&lt;li&gt;对HTTP错误进行集中处理。&lt;/li&gt;
+&lt;li&gt;Template rendering with any template engine.&lt;/li&gt;
+&lt;li&gt;定义属于你的日志格式。&lt;/li&gt;
+&lt;li&gt;高度个性化。&lt;/li&gt;
+&lt;li&gt;Automatic TLS via Let’s Encrypt&lt;/li&gt;
+&lt;li&gt;支持HTTP/2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;性能对比&#34;&gt;性能对比&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://camo.githubusercontent.com/41662d8d2bccaeefa7f990459adda2545ad4b10b/68747470733a2f2f692e696d6775722e636f6d2f4632563754664f2e706e67&#34; alt=&#34;performance.png&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;服务实现&#34;&gt;服务实现&lt;/h1&gt;
+
+&lt;p&gt;具体实现中基于Echo框架来开发，代码在&lt;a href=&#34;https://github.com/bytedaring/build-RESTful-service-with-mongodb-in-golang/tree/master&#34;&gt;github.com&lt;/a&gt;。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package main
+
+import (
+	&amp;quot;log&amp;quot;
+	&amp;quot;net/http&amp;quot;
+
+	&amp;quot;fmt&amp;quot;
+
+	&amp;quot;github.com/labstack/echo&amp;quot;
+	&amp;quot;github.com/labstack/echo/middleware&amp;quot;
+	mgo &amp;quot;gopkg.in/mgo.v2&amp;quot;
+	&amp;quot;gopkg.in/mgo.v2/bson&amp;quot;
+)
+
+type User struct {
+	ID    string `json:&amp;quot;id&amp;quot; bson:&amp;quot;_id,omitempty&amp;quot;`
+	Name  string `json:&amp;quot;name,omitempty&amp;quot;`
+	Phone string `json:&amp;quot;phone,omitempty&amp;quot;`
+	Age   int    `json:&amp;quot;age,omitempty&amp;quot;`
+}
+
+var session *mgo.Session
+
+func init() {
+	s, err := mgo.Dial(&amp;quot;localhost&amp;quot;)
+	if err != nil {
+		log.Fatal(err)
+	}
+	session = s
+}
+
+func main() {
+	defer session.Close()
+	ensureIndex(session)
+
+	session.SetMode(mgo.Monotonic, true)
+
+	e := echo.New()
+	e.Use(middleware.Logger())
+
+	e.GET(&amp;quot;/users&amp;quot;, allUsers)
+	e.GET(&amp;quot;/user/:id&amp;quot;, getUser)
+	e.PUT(&amp;quot;/user&amp;quot;, updateUser)
+	e.DELETE(&amp;quot;/user/:id&amp;quot;, deleteUser)
+	e.POST(&amp;quot;/user&amp;quot;, saveUser)
+
+	e.Logger.Fatal(e.Start(&amp;quot;:1424&amp;quot;))
+}
+
+func ensureIndex(s *mgo.Session) {
+	session := s.Copy()
+	defer session.Close()
+
+	c := session.DB(&amp;quot;store&amp;quot;).C(&amp;quot;users&amp;quot;)
+
+	index := mgo.Index{
+		Key:        []string{&amp;quot;id&amp;quot;},
+		Unique:     true,
+		DropDups:   true,
+		Background: true,
+		Sparse:     true,
+	}
+	err := c.EnsureIndex(index)
+	if err != nil {
+		panic(err)
+	}
+}
+
+func saveUser(e echo.Context) error {
+	u := new(User)
+	if err := e.Bind(u); err != nil {
+		return e.JSON(http.StatusBadRequest, err)
+	}
+
+	s := session.Copy()
+	defer s.Close()
+
+	c := s.DB(&amp;quot;store&amp;quot;).C(&amp;quot;users&amp;quot;)
+	err := c.Insert(u)
+	if err != nil {
+		log.Println(&amp;quot;Failed insert user&amp;quot;, u)
+		if mgo.IsDup(err) {
+			return e.JSON(http.StatusBadRequest, &amp;quot;User with this id alread exists.&amp;quot;)
+		}
+
+		return e.JSON(http.StatusInternalServerError, &amp;quot;Database error&amp;quot;)
+	}
+
+	return e.JSON(http.StatusCreated, &amp;quot;SUCCESS&amp;quot;)
+}
+
+func getUser(e echo.Context) error {
+	s := session.Copy()
+	defer s.Clone()
+
+	c := s.DB(&amp;quot;store&amp;quot;).C(&amp;quot;users&amp;quot;)
+	var u User
+	id := e.Param(&amp;quot;id&amp;quot;)
+	fmt.Println(&amp;quot;userid&amp;quot;, id)
+	err := c.Find(bson.M{&amp;quot;_id&amp;quot;: id}).One(&amp;amp;u)
+	if err != nil {
+		log.Println(&amp;quot;Failed get user&amp;quot;, err)
+		return e.JSON(http.StatusNotFound, &amp;quot;Database error&amp;quot;)
+	}
+
+	return e.JSON(http.StatusOK, u)
+}
+
+func updateUser(e echo.Context) error {
+	u := new(User)
+	if err := e.Bind(u); err != nil {
+		return e.JSON(http.StatusBadRequest, err)
+	}
+
+	s := session.Copy()
+	defer s.Close()
+
+	c := s.DB(&amp;quot;store&amp;quot;).C(&amp;quot;users&amp;quot;)
+	err := c.Update(bson.M{&amp;quot;_id&amp;quot;: u.ID}, &amp;amp;u)
+	if err != nil {
+		switch err {
+		default:
+			log.Fatalln(&amp;quot;Failed update user: &amp;quot;, err)
+			return e.JSON(http.StatusInternalServerError, &amp;quot;Database error&amp;quot;)
+		case mgo.ErrNotFound:
+			return e.JSON(http.StatusNotFound, &amp;quot;Not found&amp;quot;)
+		}
+	}
+	return e.JSON(http.StatusOK, u)
+}
+
+func deleteUser(e echo.Context) error {
+	s := session.Copy()
+	defer s.Close()
+
+	id := e.Param(&amp;quot;id&amp;quot;)
+
+	c := s.DB(&amp;quot;store&amp;quot;).C(&amp;quot;users&amp;quot;)
+	err := c.Remove(bson.M{&amp;quot;_id&amp;quot;: id})
+	if err != nil {
+		switch err {
+		default:
+			e.JSON(http.StatusInternalServerError, &amp;quot;Database error&amp;quot;)
+			log.Fatalln(&amp;quot;Failed delete user: &amp;quot;, err)
+			return err
+		case mgo.ErrNotFound:
+			e.JSON(http.StatusInternalServerError, &amp;quot;User not found&amp;quot;)
+			return err
+		}
+	}
+
+	return e.JSON(http.StatusOK, &amp;quot;Sucess&amp;quot;)
+}
+
+func allUsers(e echo.Context) error {
+	s := session.Copy()
+	defer s.Close()
+
+	c := s.DB(&amp;quot;store&amp;quot;).C(&amp;quot;users&amp;quot;)
+
+	var users []User
+	err := c.Find(bson.M{}).All(&amp;amp;users)
+	if err != nil {
+		e.JSON(http.StatusInternalServerError, &amp;quot;Database Error&amp;quot;)
+		return err
+	}
+
+	return e.JSON(http.StatusOK, users)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;使用curl测试服务&#34;&gt;使用Curl测试服务&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://curl.haxx.se/&#34;&gt;curl&lt;/a&gt;对于构建和测试RESTful服务来说是一个非常好用的工具，在其他RESTful 服务API的文档中，常常可以看到curl的身影，这里也不例外。&lt;/p&gt;
+
+&lt;h3 id=&#34;新增用户&#34;&gt;新增用户&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;请求&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;curl -X POST -H &#39;Content-Type: application/json&#39; -d @body.json http://localhsot:1424/user
+
+body.json
+{
+  &amp;quot;id&amp;quot;: &amp;quot;5&amp;quot;,
+  &amp;quot;name&amp;quot;: &amp;quot;李四&amp;quot;,
+  &amp;quot;age&amp;quot;: 11
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;响应&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;SUCCESS
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;编辑用户&#34;&gt;编辑用户&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;请求&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;curl -X PUT -H &#39;Content-Type: application/json&#39; -d @body.json http://localhost:1424/user
+
+body.json
+{
+  &amp;quot;id&amp;quot;: &amp;quot;1&amp;quot;,
+  &amp;quot;title&amp;quot;: &amp;quot;天一&amp;quot;,
+  &amp;quot;age&amp;quot;: &amp;quot;-1&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;响应&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;{&amp;quot;id&amp;quot;:&amp;quot;1&amp;quot;,&amp;quot;name&amp;quot;:&amp;quot;天一&amp;quot;,&amp;quot;age&amp;quot;:-1}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;查询所有用户&#34;&gt;查询所有用户&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;请求&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;使用python -m json.tool将服务返回的json，进行格式化处理。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;curl http://localhost:1424/users | python -m json.tool
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;响应&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;[
+    {
+        &amp;quot;id&amp;quot;: &amp;quot;YE/\ufffd\ufffdDj\ufffd\ufffd\u0004\ufffd-&amp;quot;,
+        &amp;quot;name&amp;quot;: &amp;quot;xiwang&amp;quot;
+    },
+    {
+        &amp;quot;id&amp;quot;: &amp;quot;2&amp;quot;,
+        &amp;quot;name&amp;quot;: &amp;quot;1&amp;quot;
+    },
+    {
+        &amp;quot;age&amp;quot;: -1,
+        &amp;quot;id&amp;quot;: &amp;quot;1&amp;quot;,
+        &amp;quot;name&amp;quot;: &amp;quot;\u5929\u4e00&amp;quot;
+    },
+    {
+        &amp;quot;id&amp;quot;: &amp;quot;YE7\u001d\ufffdDj\ufffd\ufffd\u0004\ufffd.&amp;quot;,
+        &amp;quot;name&amp;quot;: &amp;quot;bug&amp;quot;
+    }
+]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;查询指定用户&#34;&gt;查询指定用户&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;请求&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;curl http://localhost:1424/user/1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;响应&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{&amp;quot;id&amp;quot;:&amp;quot;1&amp;quot;,&amp;quot;name&amp;quot;:&amp;quot;天一&amp;quot;,&amp;quot;age&amp;quot;:-1}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;删除用户&#34;&gt;删除用户&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;请求&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;curl -X DELETE http://localhost:1424/user/1 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;响应&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;SUCCESS
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Git基本使用</title>
+      <link>http://localhost:1313/post/git-commit-flow/</link>
+      <pubDate>Mon, 12 Jun 2017 22:02:46 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/git-commit-flow/</guid>
+      
+        <description>
+
+&lt;p&gt;团队开发中，遵循一个合理、清晰的Git使用流程，是非常重要的。&lt;br /&gt;
+否则，每个人都提交一堆杂乱无章的commit，项目很快就会变得难以协调和维护。&lt;br /&gt;
+&lt;img src=&#34;http://or5up5p3j.bkt.clouddn.com/blog/image/2017/06/09/git-commit.png&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;第一步-新建分支&#34;&gt;第一步：新建分支&lt;/h2&gt;
+
+&lt;p&gt;首先，每次开发新功能，都应该新建一个单独的分支（这方面可以参考《Git分支管理策略》）。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# 获取主干最新代码
+$ git checkout master
+$ git pull
+
+# 新建一个开发分支myfeature
+$ git checkout -b myfeature
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;第二步-提交分支commit&#34;&gt;第二步：提交分支commit&lt;/h2&gt;
+
+&lt;p&gt;分支修改后，就可以提交commit了。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git add --all
+$ git status
+$ git commit --verbose
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;git add 命令的all参数，表示保存所有变化（包括新建、修改和删除）。从Git 2.0开始，all是 git add 的默认参数，所以也可以用 git add . 代替。&lt;br /&gt;
+git status 命令，用来查看发生变动的文件。&lt;br /&gt;
+git commit 命令的verbose参数，会列出 diff 的结果。&lt;/p&gt;
+
+&lt;h2 id=&#34;第三步-撰写提交信息&#34;&gt;第三步：撰写提交信息&lt;/h2&gt;
+
+&lt;p&gt;提交commit时，必须给出完整扼要的提交信息，下面是一个范本。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Present-tense summary under 50 characters
+
+* More information about commit (under 72 characters).
+* More information about commit (under 72 characters).
+
+http://project.management-system.com/ticket/123
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第一行是不超过50个字的提要，然后空一行，罗列出改动原因、主要变动、以及需要注意的问题。最后，提供对应的网址（比如Bug ticket）。&lt;/p&gt;
+
+&lt;h2 id=&#34;第四步-与主干同步&#34;&gt;第四步：与主干同步&lt;/h2&gt;
+
+&lt;p&gt;分支的开发过程中，要经常与主干保持同步。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git fetch origin
+$ git rebase origin/master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;第五步-合并commit&#34;&gt;第五步：合并commit&lt;/h2&gt;
+
+&lt;p&gt;分支开发完成后，很可能有一堆commit，但是合并到主干的时候，往往希望只有一个（或最多两三个）commit，这样不仅清晰，也容易管理。&lt;br /&gt;
+那么，怎样才能将多个commit合并呢？这就要用到 git rebase 命令。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git rebase -i origin/master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;git rebase命令的i参数表示互动（interactive），这时git会打开一个互动界面，进行下一步操作。&lt;br /&gt;
+下面采用&lt;a href=&#34;https://robots.thoughtbot.com/git-interactive-rebase-squash-amend-rewriting-history&#34;&gt;Tute Costa&lt;/a&gt;的例子，来解释怎么合并commit。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pick 07c5abd Introduce OpenPGP and teach basic usage
+pick de9b1eb Fix PostChecker::Post#urls
+pick 3e7ee36 Hey kids, stop all the highlighting
+pick fa20af3 git interactive rebase, squash, amend
+
+# Rebase 8db7e8b..fa20af3 onto 8db7e8b
+#
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like &amp;quot;squash&amp;quot;, but discard this commit&#39;s log message
+#  x, exec = run command (the rest of the line) using shell
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+# Note that empty commits are commented out
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面的互动界面，先列出当前分支最新的4个commit（越下面越新）。每个commit前面有一个操作命令，默认是pick，表示该行commit被选中，要进行rebase操作。&lt;br /&gt;
+4个commit的下面是一大堆注释，列出可以使用的命令。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pick：正常选中
+reword：选中，并且修改提交信息；
+edit：选中，rebase时会暂停，允许你修改这个commit（参考这里）
+squash：选中，会将当前commit与上一个commit合并
+fixup：与squash相同，但不会保存当前commit的提交信息
+exec：执行其他shell命令
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面这6个命令当中，squash和fixup可以用来合并commit。先把需要合并的commit前面的动词，改成squash（或者s）。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pick 07c5abd Introduce OpenPGP and teach basic usage
+s de9b1eb Fix PostChecker::Post#urls
+s 3e7ee36 Hey kids, stop all the highlighting
+pick fa20af3 git interactive rebase, squash, amend
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这样一改，执行后，当前分支只会剩下两个commit。第二行和第三行的commit，都会合并到第一行的commit。提交信息会同时包含，这三个commit的提交信息。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# This is a combination of 3 commits.
+# The first commit&#39;s message is:
+Introduce OpenPGP and teach basic usage
+
+# This is the 2nd commit message:
+Fix PostChecker::Post#urls
+
+# This is the 3rd commit message:
+Hey kids, stop all the highlighting
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果将第三行的squash命令改成fixup命令。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pick 07c5abd Introduce OpenPGP and teach basic usage
+s de9b1eb Fix PostChecker::Post#urls
+f 3e7ee36 Hey kids, stop all the highlighting
+pick fa20af3 git interactive rebase, squash, amend
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;运行结果相同，还是会生成两个commit，第二行和第三行的commit，都合并到第一行的commit。但是，新的提交信息里面，第三行commit的提交信息，会被注释掉。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# This is a combination of 3 commits.
+# The first commit&#39;s message is:
+Introduce OpenPGP and teach basic usage
+
+# This is the 2nd commit message:
+Fix PostChecker::Post#urls
+
+# This is the 3rd commit message:
+# Hey kids, stop all the highlighting
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ponyfoo.com/articles/git-github-hacks&#34;&gt;Pony Foo&lt;/a&gt;提出另外一种合并commit的简便方法，就是先撤销过去5个commit，然后再建一个新的。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git reset HEAD~5
+$ git add .
+$ git commit -am &amp;quot;Here&#39;s the bug fix that closes #28&amp;quot;
+$ git push --force
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;squash和fixup命令，还可以当作命令行参数使用，自动合并commit。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git commit --fixup  
+$ git rebase -i --autosquash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这个用法请参考&lt;a href=&#34;http://fle.github.io/git-tip-keep-your-branch-clean-with-fixup-and-autosquash.html&#34;&gt;这篇文章&lt;/a&gt;，这里就不解释了。&lt;/p&gt;
+
+&lt;h2 id=&#34;第六步-推送到远程仓库&#34;&gt;第六步：推送到远程仓库&lt;/h2&gt;
+
+&lt;p&gt;合并commit后，就可以推送当前分支到远程仓库了。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git push --force origin myfeature
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;git push命令要加上force参数，因为rebase以后，分支历史改变了，跟远程分支不一定兼容，有可能要强行推送。&lt;/p&gt;
+
+&lt;h2 id=&#34;第七步-发出pull-request&#34;&gt;第七步：发出Pull Request&lt;/h2&gt;
+
+&lt;p&gt;提交到远程仓库以后，就可以发出 Pull Request 到master分支，然后请求别人进行代码review，确认可以合并到master。&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>React方法绑定的几种实现方式</title>
+      <link>http://localhost:1313/post/react-bind-method/</link>
+      <pubDate>Wed, 07 Jun 2017 12:43:09 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/react-bind-method/</guid>
+      
+        <description>
+
+&lt;p&gt;翻译参考自：&lt;a href=&#34;http://egorsmirnov.me/2015/08/16/react-and-es6-part3.html&#34;&gt;React and ES6 - Part 3, Binding to methods of React class (ES7 included)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;在React进行事件方法绑定的时，如下面的代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import React , {Component} from &#39;react&#39;
+
+class user extends Component{
+    render(){
+       return &amp;lt;button onClick={this.sayhello} &amp;gt;open hello&amp;lt;/button&amp;gt;
+    }
+
+    sayhello(){
+        console.log(&#39;hello world&#39;)
+        console.log(this.props)
+    }
+}
+
+export default user
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;我们将会得到“TypeError: Cannot read property &amp;lsquo;props&amp;rsquo; of null“的错误，如下图所示：
+&lt;img src=&#34;http://or5up5p3j.bkt.clouddn.com/blog/image/2017/react-bind/props-of-null.png&#34; alt=&#34;error&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这是因为当我们调用以这种方式绑定到&lt;strong&gt;this&lt;/strong&gt;的方法时，没有将函数上下文绑定到组件的实例上。这是Javascript的默认行为而且是可以明确预期到的。&lt;/p&gt;
+
+&lt;p&gt;React团队在实现支持ES6时不支持自动绑定，你在&lt;a href=&#34;https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#autobinding&#34;&gt;这篇博客&lt;/a&gt;中找到更多关于这样做的原因。&lt;/p&gt;
+
+&lt;p&gt;下面将介绍几种不同的方式实现，在JSX中使用ES6语法调用class method。&lt;/p&gt;
+
+&lt;h2 id=&#34;方法一-使用function-prototype-bind&#34;&gt;方法一、 使用Function.prototype.bind()&lt;/h2&gt;
+
+&lt;p&gt;如下面的代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// 使用bind()
+class user extends Component{
+    render(){
+       return &amp;lt;button onClick={this.sayHello.bind(this)} &amp;gt;open hello&amp;lt;/button&amp;gt;
+    }
+
+    sayHello(){
+        console.log(this.props)
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;任何ES6类的方法都是纯JavaScript函数，并从Function prototype继承了bind()方法，所以当我们调用sayHello方法时，this将会指向我们的组件实例。在&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind&#34;&gt;MDN article&lt;/a&gt;可以找到更多的相关信息。&lt;/p&gt;
+
+&lt;h2 id=&#34;方法二-使用在constructor中定义的方法&#34;&gt;方法二、 使用在constructor中定义的方法&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;// 使用构造函数定义的方法
+class user1 extends Component{
+    constructor(props){
+        super(props)
+        this._sayHello = ()=&amp;gt; this.sayHello();
+    }
+
+    sayHello(){
+        console.log(this.props)
+    }
+
+    render(){
+        return (&amp;lt;button onClick={this.sayHello}&amp;gt;open hello 1&amp;lt;/button&amp;gt;)
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这种方式中，不再需要在JSX中使用bind(),但会使构造函数更加膨胀。&lt;/p&gt;
+
+&lt;h2 id=&#34;方法三-使用箭头操函数和构造函数&#34;&gt;方法三、使用箭头操函数和构造函数&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://babeljs.io/docs/learn-es2015/#arrows&#34;&gt;ES6箭头函数&lt;/a&gt;会保留定义时的this上下文，即当调用箭头函数时，函数体内的this对象，就是定义时所在的对象，而不是调用时所在的对象。所以可以利用这个特性，并在构造函数中重新定义sayHello方法。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// 箭头函数 + 构造函数
+class user extends Component{
+    constructor(props){
+        super(props)
+        this._sayHello = ()=&amp;gt; this._sayHello()
+    }
+
+    sayHello(){
+        console.log(this.props)
+    }
+
+    render(){
+       return &amp;lt;button onClick={this._sayHello.bind(this)} &amp;gt;open hello3&amp;lt;/button&amp;gt;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;方法四-使用箭头函数和es6类属性&#34;&gt;方法四、使用箭头函数和ES6类属性&lt;/h2&gt;
+
+&lt;p&gt;可以通过使用箭头函数和ES6类属性语法：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// 箭头函数 + ES属性语法
+class user extends Component{
+    sayHello = ()=&amp;gt;{
+        console.log(this.props)
+    }
+
+    render(){
+       return &amp;lt;button onClick={this.sayHello} &amp;gt;open hello4&amp;lt;/button&amp;gt;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;源码下载&#34;&gt;源码下载&lt;/h2&gt;
+
+&lt;p&gt;上面出现的代码下在地址： &lt;a href=&#34;https://github.com/bytedaring/react-bind-method&#34;&gt;github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://egorsmirnov.me/2015/08/16/react-and-es6-part3.html&#34;&gt;React and ES6 - Part 3, Binding to methods of React class (ES7 included)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#autobinding&#34;&gt;React&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>MySql JOIN</title>
+      <link>http://localhost:1313/post/sql-join/</link>
+      <pubDate>Mon, 05 Jun 2017 22:21:52 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/sql-join/</guid>
+      
+        <description>
+
+&lt;p&gt;SQL中的连接（JOIN）语句用于将数据库中的两个表或者多个表组合起来。有“连接”生成的集合，可以被保存为表，或者当成表来使用，JOIN语句的含义是把两张表的属性通过它们的值组合在一起。基于ANSI标准的SQL列出五种JOIN方式：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;内连接（INNER）&lt;/li&gt;
+&lt;li&gt;全外连接（FULL OUTER）&lt;/li&gt;
+&lt;li&gt;左外连接（LEFT OUTER）&lt;/li&gt;
+&lt;li&gt;右外连接（RIGHT OUTER）&lt;/li&gt;
+&lt;li&gt;交叉连接（CROSS）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在特定的情况下，一张表（基本表，视图或连接表）可以和自身进行连接，成为自连接（self-join）。
+其中， MYSQL&lt;strong&gt;不支持全外连接（FULL OUTER）&lt;/strong&gt;。这里只关注Mysql的剩下的四种连接（JOIN）。&lt;/p&gt;
+
+&lt;h2 id=&#34;一-示例表&#34;&gt;一、示例表&lt;/h2&gt;
+
+&lt;p&gt;下面有两张表雇员表（Employee）和部门表（Department），ID是主键。&lt;/p&gt;
+
+&lt;p&gt;雇员表（Employee）&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ID&lt;/th&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;DeptID&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;张三&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;李四&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;王五&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;老李&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;部门表（Department）&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ID&lt;/th&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;研发部&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;测试部&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;运维部&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;二-内连接-inner-join&#34;&gt;二、内连接（INNER JOIN）&lt;/h2&gt;
+
+&lt;p&gt;MySQL中，内连接，即等值连接。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-SQL&#34;&gt;select * from employee, department 
+where employee.deptID = department.id;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;等效于&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-SQL&#34;&gt;select * from 
+employee inner join department
+on employee.deptID = department.id;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;查询结果是：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+----+--------+--------+----+-----------+
+| id | name   | deptID | id | name      |
++----+--------+--------+----+-----------+
+|  1 | 张三   |      2 |  2 | 测试部    |
+|  2 | 李四   |      3 |  3 | 运维部    |
+|  3 | 王五   |      3 |  3 | 运维部    |
++----+--------+--------+----+-----------+
+3 rows in set (0.00 sec)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;三-左外连接-left-join&#34;&gt;三、左外连接（LEFT JOIN）&lt;/h2&gt;
+
+&lt;p&gt;Mysql中， left outer join 等效于 left join。左外连接结果中将会保留“左表”中的所有记录，即使右表中没有匹配连接条件，右表中没有匹配条件的列值为NULL。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-SQL&#34;&gt;select * from employee left join department on employee.deptId = department.id;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或者&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-SQL&#34;&gt;select * from employee left outer join department on employee.deptId = department.id;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;查询结果：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+----+--------+--------+------+-----------+
+| id | name   | deptID | id   | name      |
++----+--------+--------+------+-----------+
+|  1 | 张三   |      2 |    2 | 测试部    |
+|  2 | 李四   |      3 |    3 | 运维部    |
+|  3 | 王五   |      3 |    3 | 运维部    |
+|  4 | 老李   |      5 | NULL | NULL      |
++----+--------+--------+------+-----------+
+4 rows in set (0.00 sec)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;四-右外连接-right-join&#34;&gt;四、右外连接（RIGHT JOIN）&lt;/h2&gt;
+
+&lt;p&gt;右外连接，它和左外连接完全类似，如果 A 表右连接 B 表, 那么&amp;rdquo;右表&amp;rdquo; B 中的每一行在连接表中至少会出现一次. 如果 B 表的记录在&amp;rdquo;左表&amp;rdquo; A 中未找到匹配行, 连接表中来源于 A 的列的值设为 NULL。right outer join 等效 right join 。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;select * from employee right join department on employee.deptId = department.id;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或者&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;select * from employee right outer join department on employee.deptId = department.id;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;查询结果：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+------+--------+--------+----+-----------+
+| id   | name   | deptID | id | name      |
++------+--------+--------+----+-----------+
+|    1 | 张三   |      2 |  2 | 测试部    |
+|    2 | 李四   |      3 |  3 | 运维部    |
+|    3 | 王五   |      3 |  3 | 运维部    |
+| NULL | NULL   |   NULL |  1 | 研发部    |
++------+--------+--------+----+-----------+
+4 rows in set (0.00 sec)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;五-交叉连接-cross-join&#34;&gt;五、交叉连接（CROSS JOIN）&lt;/h2&gt;
+
+&lt;p&gt;交叉连接(cross join)，又称笛卡尔连接(cartesian join)或叉乘(Product)，它是所有类型的内连接的基础。把表视为行记录的集合，交叉连接即返回这两个集合的笛卡尔积。这其实等价于内连接的链接条件为&amp;rdquo;永真&amp;rdquo;，或连接条件不存在.
+如果 A 和 B 是两个集合，它们的交叉连接就记为: A × B。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-SQL&#34;&gt;select * from employee cross join department;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;查询结果：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+----+--------+--------+----+-----------+
+| id | name   | deptID | id | name      |
++----+--------+--------+----+-----------+
+|  1 | 张三   |      2 |  1 | 研发部    |
+|  1 | 张三   |      2 |  2 | 测试部    |
+|  1 | 张三   |      2 |  3 | 运维部    |
+|  2 | 李四   |      3 |  1 | 研发部    |
+|  2 | 李四   |      3 |  2 | 测试部    |
+|  2 | 李四   |      3 |  3 | 运维部    |
+|  3 | 王五   |      3 |  1 | 研发部    |
+|  3 | 王五   |      3 |  2 | 测试部    |
+|  3 | 王五   |      3 |  3 | 运维部    |
+|  4 | 老李   |      5 |  1 | 研发部    |
+|  4 | 老李   |      5 |  2 | 测试部    |
+|  4 | 老李   |      5 |  3 | 运维部    |
++----+--------+--------+----+-----------+
+12 rows in set (0.00 sec)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;六-全连接&#34;&gt;六、全连接&lt;/h2&gt;
+
+&lt;p&gt;MYSQL&lt;strong&gt;不支持全连接&lt;/strong&gt;，但可以模拟。全连接是左右外连接的并集，连接表包含左右连接表的所有记录，如果缺少匹配的记录，就以NULL填充。&lt;/p&gt;
+
+&lt;p&gt;下面使用left join 和 right join 实现 full join：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-SQL&#34;&gt;select * from employee e left join department d on e.deptId = d.id
+union 
+select * from  employee e right join department d on e.deptid= d.id
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;查询结果：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+------+--------+--------+------+-----------+
+| id   | name   | deptID | id   | name      |
++------+--------+--------+------+-----------+
+|    1 | 张三   |      2 |    2 | 测试部    |
+|    2 | 李四   |      3 |    3 | 运维部    |
+|    3 | 王五   |      3 |    3 | 运维部    |
+|    4 | 老李   |      5 | NULL | NULL      |
+| NULL | NULL   |   NULL |    1 | 研发部    |
++------+--------+--------+------+-----------+
+5 rows in set (0.00 sec)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E8%BF%9E%E6%8E%A5_(SQL)&#34;&gt;连接(SQL)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev.mysql.com/doc/refman/5.7/en/join.html&#34;&gt;MySQL JOIN Synatx&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>使用React写一个简单的Chrome插件</title>
+      <link>http://localhost:1313/post/create-qrcode-by-react/</link>
+      <pubDate>Sun, 04 Jun 2017 15:55:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/create-qrcode-by-react/</guid>
+      
+        <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;当你手中只有一把锤子的时候，你就会把所有的问题都看成钉子。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Google Chrome,Google公司开发的一款设计简单、高效的Web浏览器。Chrome不仅页面渲染速度快，Javascript执行速度快，而且更重要的是支持开发者为其编写各种各样的扩展来扩充其功能。&lt;/p&gt;
+
+&lt;p&gt;这里将要描述的就是为Chrome编写一个插件：使用当前网页地址生成二维码。&lt;/p&gt;
+
+&lt;p&gt;给chrome编写插件还是非常容易的事情，这里会使用到react.js（使用react，仅仅是因为，我最近对它很感兴趣）。&lt;/p&gt;
+
+&lt;h2 id=&#34;一-新建一个基本react-app&#34;&gt;一、新建一个基本React APP&lt;/h2&gt;
+
+&lt;p&gt;使用&lt;a href=&#34;https://github.com/facebookincubator/create-react-app&#34;&gt;create-react-app&lt;/a&gt;来新建React应用是一个非常不错的选择。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ create-ract-app react-qr
+
+Creating a new React app in /Users/xiaoxiwang/Documents/demo/react-qr.
+
+Installing packages. This might take a couple minutes.
+Installing react, react-dom, and react-scripts...
+
+yarn add v0.24.5
+info No lockfile found.
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 📃  Building fresh packages...
+success Saved lockfile.
+success Saved 878 new dependencies.
+...
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;新建完成后生成的文件目录如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;➜  react-qr tree -L 1
+.
+├── README.md
+├── node_modules
+├── package.json
+├── public
+├── src
+└── yarn.lock
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;此时，运行命令：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd react-qr 
+$ yarn start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果顺利将可以在浏览器中，看到一个最简单的Create APP。&lt;/p&gt;
+
+&lt;p&gt;清除react-react-app生成的默认样式和内容，为下一步做准备。&lt;/p&gt;
+
+&lt;h2 id=&#34;二-新建插件&#34;&gt;二、新建插件&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Chrome扩展是用于扩充Chrome浏览器功能的程序，是一系列文件的集合，这些文件包括HTML文件、CSS样式文件、JavaScript脚本文件、图片等静态文件以及manifest.json。扩展被安装后，Chrome就会读取扩展中的manifest.json文件。这个文件的文件名固定为manifest.json，内容是按照一定格式描述的扩展相关信息，如扩展名称、版本、更新地址、请求的权限、扩展的UI界面入口等等&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;添加插件配置&#34;&gt;添加插件配置&lt;/h3&gt;
+
+&lt;p&gt;在public文件夹下新建一个名为manifest.json的文件， 如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;manifest_version&amp;quot;: 2,
+    &amp;quot;name&amp;quot;: &amp;quot;QR Code&amp;quot;,
+    &amp;quot;description&amp;quot;: &amp;quot;Generate QR Code&amp;quot;,
+    &amp;quot;version&amp;quot;: &amp;quot;0.1&amp;quot;,
+    &amp;quot;icons&amp;quot;: {
+        &amp;quot;16&amp;quot;: &amp;quot;./favicon.png&amp;quot;,
+        &amp;quot;48&amp;quot;: &amp;quot;./favicon.png&amp;quot;,
+        &amp;quot;128&amp;quot;: &amp;quot;./favicon.png&amp;quot;
+    },
+    &amp;quot;browser_action&amp;quot;: {
+        &amp;quot;default_icon&amp;quot;: {
+            &amp;quot;19&amp;quot;: &amp;quot;./favicon.png&amp;quot;,
+            &amp;quot;38&amp;quot;: &amp;quot;./favicon.png&amp;quot;
+        },
+        &amp;quot;default_popup&amp;quot;: &amp;quot;index.html&amp;quot;,
+        &amp;quot;default_title&amp;quot;: &amp;quot;Generate QRCode&amp;quot;
+    },
+    &amp;quot;permissions&amp;quot;: [
+        &amp;quot;activeTab&amp;quot;
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面的配置中，name定义的扩展名称，version定义扩展版本，description定义扩展的描述，icons则定义的扩展使用的图标及其位置。borowser_action指定了扩展在工具栏中的行为，工具栏中的图标(default_icon)、鼠标悬停插件时的标题(default_title)以及用户点击扩展时显示的页面所在位置(deafult_popup)。&lt;/p&gt;
+
+&lt;h3 id=&#34;添加二维码&#34;&gt;添加二维码&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/zpao/qrcode.react&#34;&gt;qrcode.react&lt;/a&gt;是一个生成二维码的React组件。
+添加依赖&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ yarn add qrcode.react
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;现在编辑App.js, 添加二维码。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import React, { Component } from &#39;react&#39;;
+import &#39;./App.css&#39;;
+import QRCode from &#39;qrcode.react&#39;
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { url: &#39;&#39; }
+  }
+
+  renderStatus(url) {
+    this.setState({ url })
+  }
+
+  render() {
+    const { url } = this.state
+    return (
+      &amp;lt;div&amp;gt;
+        &amp;lt;div&amp;gt;QRCode&amp;lt;/div&amp;gt;
+        &amp;lt;div className=&amp;quot;url&amp;quot;&amp;gt;
+          {url}
+        &amp;lt;/div&amp;gt;
+        &amp;lt;QRCode value={url} size={270} /&amp;gt;
+      &amp;lt;/div&amp;gt;
+    );
+  }
+}
+export default App;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;二维码的初始值是为空, 大小为270px。文本显示的URL地址，这里使用了一个样式‘url’，定义在APP.css文件中：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.url{
+  width: 270px;
+  text-overflow: ellipsis;
+  white-space: pre;
+  overflow: hidden;
+  font-size: 14px;
+  color: #888
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;url宽度设置为270px，超出部分自动使用‘&amp;hellip;’替代。&lt;/p&gt;
+
+&lt;p&gt;现在生成的二维码是一个空字符串，可以在插件页面渲染成功后，获取当前页面的URL地址。这里会是使用到React的componentDidMount方法，该方法会在页面渲染完成时调用一次，此时的DOM结构都已经渲染完成。为了获取到当前页面的URL，可以使用chrome.tabs.query(object queryIfon, function callback)接口。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;chrome.tabs.query(object queryInfo, function callback)
+Gets all tabs that have the specified properties, or all tabs if no properties are specified.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;通过查询当前窗口中激活状态的tab，并选取第一个tab，即获取到了当前页面所在chrome tab。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var queryInfo = {
+      active: true,
+      currentWindow: true
+    }
+    
+    chrome.tabs.query(queryInfo, (tabs) =&amp;gt; {
+      const tab = tabs[0]
+      const url = tab.url
+      this.setState({ url })
+    })
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;获取到当前页面的url后，使用setState更新状态。&lt;/p&gt;
+
+&lt;h3 id=&#34;打包&#34;&gt;打包&lt;/h3&gt;
+
+&lt;p&gt;运行yarn buid命令，将打包react app，在build文件夹下生成相应输出文件。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ yarn build
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;此时build，会出现chrome is not defined的错误。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;➜  react-qr yarn build
+yarn build v0.24.5
+$ react-scripts build
+Creating an optimized production build...
+Failed to compile.
+
+./src/App.js
+  Line 34:  &#39;chrome&#39; is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+
+error Command failed with exit code 1.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;因为ESLint无法识别chrome， 可以在App.js文件的第一行添加&amp;rdquo;/&lt;em&gt;global chrome&lt;/em&gt;/&amp;ldquo;,来告知ESLint将chrome识别为一个全局变量。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/*global chrome*/
+import React, { Component } from &#39;react&#39;;
+import &#39;./App.css&#39;;
+import QRCode from &#39;qrcode.react&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;三-部署&#34;&gt;三、部署&lt;/h2&gt;
+
+&lt;p&gt;在地址栏中输入&amp;rdquo;//chrome:extensions&amp;rdquo;进入chrome插件管理UI， 勾选开发者模式， 并点击“Load upacked extension&amp;hellip;&amp;ldquo;按钮，选择插件的编译输出build目录， 此时就可以在工具栏中，看到一个新增的插件图标，点击这个图标即可生成当前页面地址的二维码。&lt;/p&gt;
+
+&lt;h2 id=&#34;四-demo下载地址&#34;&gt;四、Demo下载地址&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/bytedaring/qrcode-react&#34;&gt;Demo&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.ituring.com.cn/book/1421&#34;&gt;Chrome扩展及应用开发&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://eslint.org/docs/rules/no-undef&#34;&gt;Disallow Undeclared Variables (no-undef)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>[转] Go Slice 秘籍</title>
+      <link>http://localhost:1313/post/go-slice/</link>
+      <pubDate>Fri, 31 Mar 2017 13:42:17 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/go-slice/</guid>
+      
+        <description>
+
+&lt;p&gt;Golang官方总结： &lt;a href=&#34;https://github.com/golang/go/wiki/SliceTricks&#34;&gt;Slice Tricks&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;由于引入了内建的&lt;code&gt;append&lt;/code&gt;的方法， 包&lt;code&gt;container/vector&lt;/code&gt;的很多方法都被移除，可以被内建的&lt;code&gt;append&lt;/code&gt;和&lt;code&gt;copy&lt;/code&gt;方法代替。&lt;/p&gt;
+
+&lt;p&gt;下面是栈vector的操作方法的实现，使用slice实现相关的操作。&lt;/p&gt;
+
+&lt;h2 id=&#34;1-append-vector&#34;&gt;1.  Append Vector&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a = append(a, b...)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;2-copy&#34;&gt;2.  Copy&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;b = make([]T, len(a))
+copy(b, a)
+//如果a不为空， 等效实现
+b = append([]T(nil), a...)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;3-cut&#34;&gt;3.  Cut&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a = append(a[:i], a[j:]...)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;4-delete&#34;&gt;4. Delete&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a = append(a[:i], a[i + 1]...)
+// 或者
+a = a[:i + copy(a[i:], a[i + 1])]	
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;5-delete-而不保持原有顺序&#34;&gt;5. Delete,而不保持原有顺序&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a[i] = a[len(a) - 1]
+a = a[:len(a) - 1]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：如果需要被GC回收的元素是一个指针，或者struct含有指针字段，上面的cut，delete实现可能就导致内存泄漏：一些元素的值会被a一直引用而不会被回收。下面的实现可以解决这个问题:&lt;/p&gt;
+
+&lt;h4 id=&#34;cut&#34;&gt;Cut&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;copy(a[i:], a[j:])
+for k,n := len(a)-j+i, len(a); k&amp;lt;n; k++ {
+  a[k] = nil
+}
+a = a[:len(a)-j+i]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;delete&#34;&gt;Delete&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;copy(a[i:], a[i+1:])
+a[len(a)-1] = nil
+a = a[:len(a)-1]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;delete-而不保持原来的顺序&#34;&gt;Delete 而不保持原来的顺序&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a[i] =a[len(a)-1]
+a[len(a)-1]=nil
+a = a[:len(a)-1]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;6-expand&#34;&gt;6.Expand&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a = append(a[:i], append(make([]T, j), a[i:]...)...)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;7-extend&#34;&gt;7.Extend&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a = append(a, make([]T, j)...)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;8-insert&#34;&gt;8.Insert&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a = append(a[:i], append([]T{x}, a[i:]...)...)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt; ： 第二个append使用自己的底层存储创建一个新的slice，然后复制a[:i]中的元素到这个slice中，然后再把这些元素复制回a。新slice的创建和第二次的复制通过另外一种方式避免：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;s = append(s, 0)
+copy(s[i+1:], s[i:])
+s[i] = x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;9-insert-vector&#34;&gt;9. Insert Vector&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a = append(a[:i], append(b, a[i:]...)...)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;10-pop&#34;&gt;10. Pop&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;x, a  = a[len(a)-1], a[:len(a)-1]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;11-push&#34;&gt;11.  Push&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a = append(a, x)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;12-shift&#34;&gt;12. Shift&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;x, a := a[0], a[1:]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;13-unshift&#34;&gt;13. Unshift&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;a = append([]T{x}, a...)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;14-其他技巧&#34;&gt;14.其他技巧&lt;/h3&gt;
+
+&lt;h4 id=&#34;无新内存分配的过滤&#34;&gt;无新内存分配的过滤&lt;/h4&gt;
+
+&lt;p&gt;这个技巧利用是： slice共享底层的array和存储容量。所以，在过滤slice时，会重用底层的存储。与此同时，底层存储的数据必然会被修改。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;b := a[:0]
+for _, x := range a {
+  if f(x) {
+    b = append(b, x)
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;反转&#34;&gt;反转&lt;/h4&gt;
+
+&lt;p&gt;使用相同的元素（不分配新的对象）替换slice中内容，并将其反序。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;for i:= len(a)/2 - 1; i &amp;gt;= 0; i--{
+    opp := len(a)-1-i
+    a[i], a[opp] = a[opp], a[i]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下面的代码实现同样的效果，只不过使用了两个索引变量&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;for left, right := 0, len(a)-1; left &amp;lt; right; left, right = left + 1, right -1 {
+    a[left] , r[right] = a[right], a[left]
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>希望的博客</title>
+      <link>http://localhost:1313/post/first/</link>
+      <pubDate>Thu, 09 Mar 2017 21:53:22 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/first/</guid>
+      
+        <description>
+
+&lt;h3 id=&#34;我的博客&#34;&gt;我的博客&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;生命不止，折腾不息；&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;还是按捺不住爱折腾的心，搭建自己的博客。总感觉在博客园或者CSDN里写博客，少些什么似乎的，总觉得缺点什么。&lt;/p&gt;
+
+&lt;p&gt;寻寻觅觅，有许多可选的方案（Hexo，WordPress，Jekyll&amp;hellip;)，因为喜欢Golang的缘故，所以对Hugo有种特殊的感觉，也没有太多深入的比较，就选择Hugo了。&lt;/p&gt;
+
+&lt;p&gt;这就当我的第一篇博客了，不知道未来会有什么奇迹变化，但这是一个很好的开端。以后的博客都从这里开始了！要比
+&lt;a href=&#34;https://www.cnblogs.com/xiwang/&#34;&gt;博客园-墨梅&lt;/a&gt;
+更加勤奋才是！&lt;/p&gt;
+</description>
+      
+    </item>
+    
+  </channel>
+</rss>

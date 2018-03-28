@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>React on xiwang</title>
+    <link>http://localhost:1313/tags/react/</link>
+    <description>Recent content in React on xiwang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 19 Aug 2017 21:36:46 +0800</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【Antd使用小结】--Table设置行背景色</title>
+      <link>http://localhost:1313/post/antd-1-table-background/</link>
+      <pubDate>Sat, 19 Aug 2017 21:36:46 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/antd-1-table-background/</guid>
+      <description>Table 用于展示行列数据。 基本使用 指定表格的数据源 dataSource 为一个数据组， 并指定表格列的配置描述columns即可。 const dataSource = [{id:1, name: &#39;one&#39;, color: &#39;#fff&#39;}, {id:2, name: &#39;two&#39;, color: &#39;#eee&#39;}, {id:3, name: &#39;three&#39;, color: &#39;#ddd&#39;}]; const</description>
+    </item>
+    
+    <item>
+      <title>【Antd使用小结系列】</title>
+      <link>http://localhost:1313/post/antd-start/</link>
+      <pubDate>Sat, 19 Aug 2017 16:22:16 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/antd-start/</guid>
+      <description>Ant Design是蚂蚁金服开源出来的前端UI设计，是一个致力于提升『用户』和『设计者』使用体验的中台设计语言。它模糊了产品经理、交互设计师、视</description>
+    </item>
+    
+    <item>
+      <title>React方法绑定的几种实现方式</title>
+      <link>http://localhost:1313/post/react-bind-method/</link>
+      <pubDate>Wed, 07 Jun 2017 12:43:09 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/react-bind-method/</guid>
+      <description>翻译参考自：React and ES6 - Part 3, Binding to methods of React class (ES7 included) 在React进行事件方法绑定的时，如下面的代码： import React , {Component} from &#39;react&#39; class user extends Component{ render(){ return &amp;lt;button onClick={this.sayhello} &amp;gt;open hello&amp;lt;/button&amp;gt; } sayhello(){ console.log(&#39;hello world&#39;) console.log(this.props) }</description>
+    </item>
+    
+    <item>
+      <title>使用React写一个简单的Chrome插件</title>
+      <link>http://localhost:1313/post/create-qrcode-by-react/</link>
+      <pubDate>Sun, 04 Jun 2017 15:55:39 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/create-qrcode-by-react/</guid>
+      <description>当你手中只有一把锤子的时候，你就会把所有的问题都看成钉子。 Google Chrome,Google公司开发的一款设计简单、高效的Web浏览器。Chrom</description>
+    </item>
+    
+  </channel>
+</rss>

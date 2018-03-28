@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wc on xiwang</title>
+    <link>http://localhost:1313/tags/wc/</link>
+    <description>Recent content in Wc on xiwang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 06 Mar 2018 19:12:18 +0800</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/wc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux统计文件数量</title>
+      <link>http://localhost:1313/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/</link>
+      <pubDate>Tue, 06 Mar 2018 19:12:18 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/</guid>
+      <description>统计当前文件夹下文件的个数，包括子文件夹里的 ls -lR | grep &#39;^-&#39; | wc -l 统计当前文件夹下文件夹的个数，包括子文件夹下的 ls -lR | grep &#39;^d&#39; | wc -l 统计当前文件夹下的</description>
+    </item>
+    
+  </channel>
+</rss>

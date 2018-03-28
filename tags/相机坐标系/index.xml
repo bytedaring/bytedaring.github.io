@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>相机坐标系 on xiwang</title>
+    <link>http://localhost:1313/tags/%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB/</link>
+    <description>Recent content in 相机坐标系 on xiwang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 22 Mar 2018 13:01:02 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>相机坐标系</title>
+      <link>http://localhost:1313/post/2018-03-22/%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB/</link>
+      <pubDate>Thu, 22 Mar 2018 13:01:02 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2018-03-22/%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB/</guid>
+      <description>1、相机坐标系 图像处理、立体视觉等等方向常常涉及到四个坐标系：世界坐标系、相机（摄像机）坐标系、图像坐标系、像素坐标系： 通过如下图的转换，可</description>
+    </item>
+    
+  </channel>
+</rss>
