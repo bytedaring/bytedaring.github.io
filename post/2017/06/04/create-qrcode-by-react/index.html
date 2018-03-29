@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>使用React写一个简单的Chrome插件 - xiwang</title>
+  <link rel="alternate" hreflang="zh-cn" href="http://localhost:1313/" />
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="xiaoxiwang" />
+  <meta name="description" content="当你手中只有一把锤子的时候，你就会把所有的问题都看成钉子。 Google Chrome,Google公司开发的一款设计简单、高效的Web浏览器。Chrom" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.37.1" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/2017/06/04/create-qrcode-by-react/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<link href="/dist/jane.min.css?v=2.7.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="使用React写一个简单的Chrome插件" />
+<meta property="og:description" content="当你手中只有一把锤子的时候，你就会把所有的问题都看成钉子。 Google Chrome,Google公司开发的一款设计简单、高效的Web浏览器。Chrom" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/2017/06/04/create-qrcode-by-react/" />
+
+
+
+<meta property="article:published_time" content="2017-06-04T15:55:39&#43;08:00"/>
+
+<meta property="article:modified_time" content="2017-06-04T15:55:39&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="使用React写一个简单的Chrome插件">
+<meta itemprop="description" content="当你手中只有一把锤子的时候，你就会把所有的问题都看成钉子。 Google Chrome,Google公司开发的一款设计简单、高效的Web浏览器。Chrom">
+
+
+<meta itemprop="datePublished" content="2017-06-04T15:55:39&#43;08:00" />
+<meta itemprop="dateModified" content="2017-06-04T15:55:39&#43;08:00" />
+<meta itemprop="wordCount" content="1822">
+
+
+
+<meta itemprop="keywords" content="chrome插件,react," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用React写一个简单的Chrome插件"/>
+<meta name="twitter:description" content="当你手中只有一把锤子的时候，你就会把所有的问题都看成钉子。 Google Chrome,Google公司开发的一款设计简单、高效的Web浏览器。Chrom"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">天苍苍,野茫茫,风吹草低...</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">天苍苍,野茫茫,风吹草低...</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">使用React写一个简单的Chrome插件</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-06-04 </span>
+        <div class="post-category">
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/"> 技术文章 </a>
+            
+          </div>
+        <span class="more-meta"> 约 1822 字 </span>
+        <span class="more-meta"> 预计阅读 4 分钟 </span>
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#一-新建一个基本react-app">一、新建一个基本React APP</a></li>
+<li><a href="#二-新建插件">二、新建插件</a>
+<ul>
+<li><a href="#添加插件配置">添加插件配置</a></li>
+<li><a href="#添加二维码">添加二维码</a></li>
+<li><a href="#打包">打包</a></li>
+</ul></li>
+<li><a href="#三-部署">三、部署</a></li>
+<li><a href="#四-demo下载地址">四、Demo下载地址</a></li>
+<li><a href="#参考">参考</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<blockquote>
+<p>当你手中只有一把锤子的时候，你就会把所有的问题都看成钉子。</p>
+</blockquote>
+
+<p>Google Chrome,Google公司开发的一款设计简单、高效的Web浏览器。Chrome不仅页面渲染速度快，Javascript执行速度快，而且更重要的是支持开发者为其编写各种各样的扩展来扩充其功能。</p>
+
+<p>这里将要描述的就是为Chrome编写一个插件：使用当前网页地址生成二维码。</p>
+
+<p>给chrome编写插件还是非常容易的事情，这里会使用到react.js（使用react，仅仅是因为，我最近对它很感兴趣）。</p>
+
+<h2 id="一-新建一个基本react-app">一、新建一个基本React APP</h2>
+
+<p>使用<a href="https://github.com/facebookincubator/create-react-app">create-react-app</a>来新建React应用是一个非常不错的选择。</p>
+
+<pre><code>$ create-ract-app react-qr
+
+Creating a new React app in /Users/xiaoxiwang/Documents/demo/react-qr.
+
+Installing packages. This might take a couple minutes.
+Installing react, react-dom, and react-scripts...
+
+yarn add v0.24.5
+info No lockfile found.
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 📃  Building fresh packages...
+success Saved lockfile.
+success Saved 878 new dependencies.
+...
+
+</code></pre>
+
+<p>新建完成后生成的文件目录如下：</p>
+
+<pre><code>➜  react-qr tree -L 1
+.
+├── README.md
+├── node_modules
+├── package.json
+├── public
+├── src
+└── yarn.lock
+</code></pre>
+
+<p>此时，运行命令：</p>
+
+<pre><code>$ cd react-qr 
+$ yarn start
+</code></pre>
+
+<p>如果顺利将可以在浏览器中，看到一个最简单的Create APP。</p>
+
+<p>清除react-react-app生成的默认样式和内容，为下一步做准备。</p>
+
+<h2 id="二-新建插件">二、新建插件</h2>
+
+<blockquote>
+<p>Chrome扩展是用于扩充Chrome浏览器功能的程序，是一系列文件的集合，这些文件包括HTML文件、CSS样式文件、JavaScript脚本文件、图片等静态文件以及manifest.json。扩展被安装后，Chrome就会读取扩展中的manifest.json文件。这个文件的文件名固定为manifest.json，内容是按照一定格式描述的扩展相关信息，如扩展名称、版本、更新地址、请求的权限、扩展的UI界面入口等等</p>
+</blockquote>
+
+<h3 id="添加插件配置">添加插件配置</h3>
+
+<p>在public文件夹下新建一个名为manifest.json的文件， 如下：</p>
+
+<pre><code>{
+    &quot;manifest_version&quot;: 2,
+    &quot;name&quot;: &quot;QR Code&quot;,
+    &quot;description&quot;: &quot;Generate QR Code&quot;,
+    &quot;version&quot;: &quot;0.1&quot;,
+    &quot;icons&quot;: {
+        &quot;16&quot;: &quot;./favicon.png&quot;,
+        &quot;48&quot;: &quot;./favicon.png&quot;,
+        &quot;128&quot;: &quot;./favicon.png&quot;
+    },
+    &quot;browser_action&quot;: {
+        &quot;default_icon&quot;: {
+            &quot;19&quot;: &quot;./favicon.png&quot;,
+            &quot;38&quot;: &quot;./favicon.png&quot;
+        },
+        &quot;default_popup&quot;: &quot;index.html&quot;,
+        &quot;default_title&quot;: &quot;Generate QRCode&quot;
+    },
+    &quot;permissions&quot;: [
+        &quot;activeTab&quot;
+    ]
+}
+</code></pre>
+
+<p>上面的配置中，name定义的扩展名称，version定义扩展版本，description定义扩展的描述，icons则定义的扩展使用的图标及其位置。borowser_action指定了扩展在工具栏中的行为，工具栏中的图标(default_icon)、鼠标悬停插件时的标题(default_title)以及用户点击扩展时显示的页面所在位置(deafult_popup)。</p>
+
+<h3 id="添加二维码">添加二维码</h3>
+
+<p><a href="https://github.com/zpao/qrcode.react">qrcode.react</a>是一个生成二维码的React组件。
+添加依赖</p>
+
+<pre><code>$ yarn add qrcode.react
+</code></pre>
+
+<p>现在编辑App.js, 添加二维码。</p>
+
+<pre><code class="language-javascript">import React, { Component } from 'react';
+import './App.css';
+import QRCode from 'qrcode.react'
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { url: '' }
+  }
+
+  renderStatus(url) {
+    this.setState({ url })
+  }
+
+  render() {
+    const { url } = this.state
+    return (
+      &lt;div&gt;
+        &lt;div&gt;QRCode&lt;/div&gt;
+        &lt;div className=&quot;url&quot;&gt;
+          {url}
+        &lt;/div&gt;
+        &lt;QRCode value={url} size={270} /&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+export default App;
+
+</code></pre>
+
+<p>二维码的初始值是为空, 大小为270px。文本显示的URL地址，这里使用了一个样式‘url’，定义在APP.css文件中：</p>
+
+<pre><code class="language-css">.url{
+  width: 270px;
+  text-overflow: ellipsis;
+  white-space: pre;
+  overflow: hidden;
+  font-size: 14px;
+  color: #888
+}
+</code></pre>
+
+<p>url宽度设置为270px，超出部分自动使用‘&hellip;’替代。</p>
+
+<p>现在生成的二维码是一个空字符串，可以在插件页面渲染成功后，获取当前页面的URL地址。这里会是使用到React的componentDidMount方法，该方法会在页面渲染完成时调用一次，此时的DOM结构都已经渲染完成。为了获取到当前页面的URL，可以使用chrome.tabs.query(object queryIfon, function callback)接口。</p>
+
+<pre><code>chrome.tabs.query(object queryInfo, function callback)
+Gets all tabs that have the specified properties, or all tabs if no properties are specified.
+</code></pre>
+
+<p>通过查询当前窗口中激活状态的tab，并选取第一个tab，即获取到了当前页面所在chrome tab。</p>
+
+<pre><code class="language-javascript">var queryInfo = {
+      active: true,
+      currentWindow: true
+    }
+    
+    chrome.tabs.query(queryInfo, (tabs) =&gt; {
+      const tab = tabs[0]
+      const url = tab.url
+      this.setState({ url })
+    })
+</code></pre>
+
+<p>获取到当前页面的url后，使用setState更新状态。</p>
+
+<h3 id="打包">打包</h3>
+
+<p>运行yarn buid命令，将打包react app，在build文件夹下生成相应输出文件。</p>
+
+<pre><code>$ yarn build
+</code></pre>
+
+<p>此时build，会出现chrome is not defined的错误。</p>
+
+<pre><code>➜  react-qr yarn build
+yarn build v0.24.5
+$ react-scripts build
+Creating an optimized production build...
+Failed to compile.
+
+./src/App.js
+  Line 34:  'chrome' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+
+error Command failed with exit code 1.
+</code></pre>
+
+<p>因为ESLint无法识别chrome， 可以在App.js文件的第一行添加&rdquo;/<em>global chrome</em>/&ldquo;,来告知ESLint将chrome识别为一个全局变量。</p>
+
+<pre><code class="language-javascript">/*global chrome*/
+import React, { Component } from 'react';
+import './App.css';
+import QRCode from 'qrcode.react'
+</code></pre>
+
+<h2 id="三-部署">三、部署</h2>
+
+<p>在地址栏中输入&rdquo;//chrome:extensions&rdquo;进入chrome插件管理UI， 勾选开发者模式， 并点击“Load upacked extension&hellip;&ldquo;按钮，选择插件的编译输出build目录， 此时就可以在工具栏中，看到一个新增的插件图标，点击这个图标即可生成当前页面地址的二维码。</p>
+
+<h2 id="四-demo下载地址">四、Demo下载地址</h2>
+
+<p><a href="https://github.com/bytedaring/qrcode-react">Demo</a></p>
+
+<h2 id="参考">参考</h2>
+
+<ul>
+<li><a href="http://www.ituring.com.cn/book/1421">Chrome扩展及应用开发</a></li>
+<li><a href="http://eslint.org/docs/rules/no-undef">Disallow Undeclared Variables (no-undef)</a></li>
+</ul>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">xiaoxiwang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2017-06-04</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/chrome%E6%8F%92%E4%BB%B6/">chrome插件</a>
+          
+          <a href="/tags/react/">react</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/2017/06/05/sql-join/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">MySql JOIN</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/2017/03/31/go-slice/">
+            <span class="next-text nav-default">[转] Go Slice 秘籍</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+    
+
+  
+
+  
+
+  
+  </article>
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:daring@outlook.com" rel="me" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/bytedarin" rel="me" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">xiaoxiwang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/jane.min.js?v=2.7.0"></script>
+
+
+
+
+
+</body>
+</html>

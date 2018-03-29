@@ -13,65 +13,74 @@
     
     <item>
       <title>【Antd使用小结】--Table设置行背景色</title>
-      <link>http://localhost:1313/post/antd-1-table-background/</link>
+      <link>http://localhost:1313/post/2017/08/19/antd-1-table-background/</link>
       <pubDate>Sat, 19 Aug 2017 21:36:46 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/antd-1-table-background/</guid>
+      <guid>http://localhost:1313/post/2017/08/19/antd-1-table-background/</guid>
       <description>Table 用于展示行列数据。 基本使用 指定表格的数据源 dataSource 为一个数据组， 并指定表格列的配置描述columns即可。 const dataSource = [{id:1, name: &#39;one&#39;, color: &#39;#fff&#39;}, {id:2, name: &#39;two&#39;, color: &#39;#eee&#39;}, {id:3, name: &#39;three&#39;, color: &#39;#ddd&#39;}]; const</description>
     </item>
     
     <item>
       <title>【Antd使用小结系列】</title>
-      <link>http://localhost:1313/post/antd-start/</link>
+      <link>http://localhost:1313/post/2017/08/19/antd-start/</link>
       <pubDate>Sat, 19 Aug 2017 16:22:16 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/antd-start/</guid>
+      <guid>http://localhost:1313/post/2017/08/19/antd-start/</guid>
       <description>Ant Design是蚂蚁金服开源出来的前端UI设计，是一个致力于提升『用户』和『设计者』使用体验的中台设计语言。它模糊了产品经理、交互设计师、视</description>
     </item>
     
     <item>
       <title>使用Golang基于MongoDB构建Restful服务</title>
-      <link>http://localhost:1313/post/build-restful-service-with-mongodb-in-golang/</link>
+      <link>http://localhost:1313/post/2017/06/17/build-restful-service-with-mongodb-in-golang/</link>
       <pubDate>Sat, 17 Jun 2017 15:30:56 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/build-restful-service-with-mongodb-in-golang/</guid>
+      <guid>http://localhost:1313/post/2017/06/17/build-restful-service-with-mongodb-in-golang/</guid>
       <description>近来使用Golang来构建Restful服务变得越发流行。我发现有些时候使用MongoDB作为持久存储，这篇文档中， 我会使用Golang和M</description>
     </item>
     
     <item>
       <title>React方法绑定的几种实现方式</title>
-      <link>http://localhost:1313/post/react-bind-method/</link>
+      <link>http://localhost:1313/post/2017/06/07/react-bind-method/</link>
       <pubDate>Wed, 07 Jun 2017 12:43:09 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/react-bind-method/</guid>
+      <guid>http://localhost:1313/post/2017/06/07/react-bind-method/</guid>
       <description>翻译参考自：React and ES6 - Part 3, Binding to methods of React class (ES7 included) 在React进行事件方法绑定的时，如下面的代码： import React , {Component} from &#39;react&#39; class user extends Component{ render(){ return &amp;lt;button onClick={this.sayhello} &amp;gt;open hello&amp;lt;/button&amp;gt; } sayhello(){ console.log(&#39;hello world&#39;) console.log(this.props) }</description>
     </item>
     
     <item>
       <title>MySql JOIN</title>
-      <link>http://localhost:1313/post/sql-join/</link>
+      <link>http://localhost:1313/post/2017/06/05/sql-join/</link>
       <pubDate>Mon, 05 Jun 2017 22:21:52 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/sql-join/</guid>
+      <guid>http://localhost:1313/post/2017/06/05/sql-join/</guid>
       <description>SQL中的连接（JOIN）语句用于将数据库中的两个表或者多个表组合起来。有“连接”生成的集合，可以被保存为表，或者当成表来使用，JOIN语句</description>
     </item>
     
     <item>
       <title>使用React写一个简单的Chrome插件</title>
-      <link>http://localhost:1313/post/create-qrcode-by-react/</link>
+      <link>http://localhost:1313/post/2017/06/04/create-qrcode-by-react/</link>
       <pubDate>Sun, 04 Jun 2017 15:55:39 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/create-qrcode-by-react/</guid>
+      <guid>http://localhost:1313/post/2017/06/04/create-qrcode-by-react/</guid>
       <description>当你手中只有一把锤子的时候，你就会把所有的问题都看成钉子。 Google Chrome,Google公司开发的一款设计简单、高效的Web浏览器。Chrom</description>
     </item>
     
     <item>
       <title>[转] Go Slice 秘籍</title>
-      <link>http://localhost:1313/post/go-slice/</link>
+      <link>http://localhost:1313/post/2017/03/31/go-slice/</link>
       <pubDate>Fri, 31 Mar 2017 13:42:17 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/go-slice/</guid>
+      <guid>http://localhost:1313/post/2017/03/31/go-slice/</guid>
       <description>Golang官方总结： Slice Tricks 由于引入了内建的append的方法， 包container/vector的很多方法都被移除，可以被内建的append</description>
+    </item>
+    
+    <item>
+      <title>Golang包管理工具glide简介</title>
+      <link>http://localhost:1313/post/2016/09/06/golang-glide/</link>
+      <pubDate>Tue, 06 Sep 2016 18:57:36 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/2016/09/06/golang-glide/</guid>
+      <description>从博客园搬家而来 前言 Golang是一个十分有趣，简洁而有力的开发语言，用来开发并发/并行程序是一件很愉快的事情。在这里我感受到了其中一些好处</description>
     </item>
     
   </channel>

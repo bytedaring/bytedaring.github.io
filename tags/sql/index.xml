@@ -13,10 +13,10 @@
     
     <item>
       <title>MySql JOIN</title>
-      <link>http://localhost:1313/post/sql-join/</link>
+      <link>http://localhost:1313/post/2017/06/05/sql-join/</link>
       <pubDate>Mon, 05 Jun 2017 22:21:52 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/sql-join/</guid>
+      <guid>http://localhost:1313/post/2017/06/05/sql-join/</guid>
       <description>SQL中的连接（JOIN）语句用于将数据库中的两个表或者多个表组合起来。有“连接”生成的集合，可以被保存为表，或者当成表来使用，JOIN语句</description>
     </item>
     

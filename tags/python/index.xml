@@ -6,35 +6,44 @@
     <description>Recent content in Python on xiwang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 15 Mar 2018 13:12:11 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 26 Mar 2018 17:44:14 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Python生成标定板</title>
+      <link>http://localhost:1313/post/2018/03/26/chessboard/</link>
+      <pubDate>Mon, 26 Mar 2018 17:44:14 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/2018/03/26/chessboard/</guid>
+      <description>做一个和Opencv相关的项目调研，这里留下些记录…. 使用Opencv进行图摄像头标定时，要用到标定板。下面用Python开始生成一个标定板</description>
+    </item>
+    
+    <item>
       <title>conda管理Python环境</title>
-      <link>http://localhost:1313/post/2018-03-15/conda/</link>
+      <link>http://localhost:1313/post/2018/03/15/conda/</link>
       <pubDate>Thu, 15 Mar 2018 13:12:11 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/2018-03-15/conda/</guid>
+      <guid>http://localhost:1313/post/2018/03/15/conda/</guid>
       <description>序 近期做一个项目的调研，需要使用到OpenCV、Python，这里记录anaconda进行Python环境配置管理过程。 Python常用环</description>
     </item>
     
     <item>
       <title>Mac配置Selenium &#43; Python3</title>
-      <link>http://localhost:1313/post/2018-01-30/webdriver/</link>
+      <link>http://localhost:1313/post/2018/01/30/webdriver/</link>
       <pubDate>Fri, 02 Feb 2018 18:22:19 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/2018-01-30/webdriver/</guid>
+      <guid>http://localhost:1313/post/2018/01/30/webdriver/</guid>
       <description>Selenium也是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。支持的浏览器包括IE</description>
     </item>
     
     <item>
       <title>(Mac)PIP使用国内镜像</title>
-      <link>http://localhost:1313/post/2017-10-22/python-env-pip-source/</link>
+      <link>http://localhost:1313/post/2017/10/22/python-env-pip-source/</link>
       <pubDate>Sun, 22 Oct 2017 16:22:16 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/2017-10-22/python-env-pip-source/</guid>
+      <guid>http://localhost:1313/post/2017/10/22/python-env-pip-source/</guid>
       <description>(Mac)PIP使用国内镜像 PIP使用国外源安装软件包，下载速度非常慢，将PIP安装源头替换为国内镜像，可以大幅提高下载速度，提高安装成功率</description>
     </item>
     

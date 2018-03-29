@@ -13,10 +13,10 @@
     
     <item>
       <title>conda管理Python环境</title>
-      <link>http://localhost:1313/post/2018-03-15/conda/</link>
+      <link>http://localhost:1313/post/2018/03/15/conda/</link>
       <pubDate>Thu, 15 Mar 2018 13:12:11 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/2018-03-15/conda/</guid>
+      <guid>http://localhost:1313/post/2018/03/15/conda/</guid>
       <description>序 近期做一个项目的调研，需要使用到OpenCV、Python，这里记录anaconda进行Python环境配置管理过程。 Python常用环</description>
     </item>
     

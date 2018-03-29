@@ -13,10 +13,10 @@
     
     <item>
       <title>使用Golang基于MongoDB构建Restful服务</title>
-      <link>http://localhost:1313/post/build-restful-service-with-mongodb-in-golang/</link>
+      <link>http://localhost:1313/post/2017/06/17/build-restful-service-with-mongodb-in-golang/</link>
       <pubDate>Sat, 17 Jun 2017 15:30:56 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/build-restful-service-with-mongodb-in-golang/</guid>
+      <guid>http://localhost:1313/post/2017/06/17/build-restful-service-with-mongodb-in-golang/</guid>
       <description>近来使用Golang来构建Restful服务变得越发流行。我发现有些时候使用MongoDB作为持久存储，这篇文档中， 我会使用Golang和M</description>
     </item>
     

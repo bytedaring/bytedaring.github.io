@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Git基本使用 - xiwang</title>
+  <link rel="alternate" hreflang="zh-cn" href="http://localhost:1313/" />
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="xiaoxiwang" />
+  <meta name="description" content="团队开发中，遵循一个合理、清晰的Git使用流程，是非常重要的。 否则，每个人都提交一堆杂乱无章的commit，项目很快就会变得难以协调和维护。" />
+<meta name="keywords" content="git" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.37.1" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/2017/06/12/git-commit-flow/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<link href="/dist/jane.min.css?v=2.7.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="Git基本使用" />
+<meta property="og:description" content="团队开发中，遵循一个合理、清晰的Git使用流程，是非常重要的。 否则，每个人都提交一堆杂乱无章的commit，项目很快就会变得难以协调和维护。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/2017/06/12/git-commit-flow/" />
+
+
+
+<meta property="article:published_time" content="2017-06-12T22:02:46&#43;08:00"/>
+
+<meta property="article:modified_time" content="2017-06-12T22:02:46&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Git基本使用">
+<meta itemprop="description" content="团队开发中，遵循一个合理、清晰的Git使用流程，是非常重要的。 否则，每个人都提交一堆杂乱无章的commit，项目很快就会变得难以协调和维护。">
+
+
+<meta itemprop="datePublished" content="2017-06-12T22:02:46&#43;08:00" />
+<meta itemprop="dateModified" content="2017-06-12T22:02:46&#43;08:00" />
+<meta itemprop="wordCount" content="1795">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Git基本使用"/>
+<meta name="twitter:description" content="团队开发中，遵循一个合理、清晰的Git使用流程，是非常重要的。 否则，每个人都提交一堆杂乱无章的commit，项目很快就会变得难以协调和维护。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">天苍苍,野茫茫,风吹草低...</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">天苍苍,野茫茫,风吹草低...</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Git基本使用</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-06-12 </span>
+        <div class="post-category">
+            
+              <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> 读书笔记 </a>
+            
+          </div>
+        <span class="more-meta"> 约 1795 字 </span>
+        <span class="more-meta"> 预计阅读 4 分钟 </span>
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#第一步-新建分支">第一步：新建分支</a></li>
+<li><a href="#第二步-提交分支commit">第二步：提交分支commit</a></li>
+<li><a href="#第三步-撰写提交信息">第三步：撰写提交信息</a></li>
+<li><a href="#第四步-与主干同步">第四步：与主干同步</a></li>
+<li><a href="#第五步-合并commit">第五步：合并commit</a></li>
+<li><a href="#第六步-推送到远程仓库">第六步：推送到远程仓库</a></li>
+<li><a href="#第七步-发出pull-request">第七步：发出Pull Request</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>团队开发中，遵循一个合理、清晰的Git使用流程，是非常重要的。<br />
+否则，每个人都提交一堆杂乱无章的commit，项目很快就会变得难以协调和维护。<br />
+<img src="http://or5up5p3j.bkt.clouddn.com/blog/image/2017/06/09/git-commit.png" alt="image" /></p>
+
+<h2 id="第一步-新建分支">第一步：新建分支</h2>
+
+<p>首先，每次开发新功能，都应该新建一个单独的分支（这方面可以参考《Git分支管理策略》）。</p>
+
+<pre><code># 获取主干最新代码
+$ git checkout master
+$ git pull
+
+# 新建一个开发分支myfeature
+$ git checkout -b myfeature
+</code></pre>
+
+<h2 id="第二步-提交分支commit">第二步：提交分支commit</h2>
+
+<p>分支修改后，就可以提交commit了。</p>
+
+<pre><code>$ git add --all
+$ git status
+$ git commit --verbose
+</code></pre>
+
+<p>git add 命令的all参数，表示保存所有变化（包括新建、修改和删除）。从Git 2.0开始，all是 git add 的默认参数，所以也可以用 git add . 代替。<br />
+git status 命令，用来查看发生变动的文件。<br />
+git commit 命令的verbose参数，会列出 diff 的结果。</p>
+
+<h2 id="第三步-撰写提交信息">第三步：撰写提交信息</h2>
+
+<p>提交commit时，必须给出完整扼要的提交信息，下面是一个范本。</p>
+
+<pre><code>Present-tense summary under 50 characters
+
+* More information about commit (under 72 characters).
+* More information about commit (under 72 characters).
+
+http://project.management-system.com/ticket/123
+</code></pre>
+
+<p>第一行是不超过50个字的提要，然后空一行，罗列出改动原因、主要变动、以及需要注意的问题。最后，提供对应的网址（比如Bug ticket）。</p>
+
+<h2 id="第四步-与主干同步">第四步：与主干同步</h2>
+
+<p>分支的开发过程中，要经常与主干保持同步。</p>
+
+<pre><code>$ git fetch origin
+$ git rebase origin/master
+</code></pre>
+
+<h2 id="第五步-合并commit">第五步：合并commit</h2>
+
+<p>分支开发完成后，很可能有一堆commit，但是合并到主干的时候，往往希望只有一个（或最多两三个）commit，这样不仅清晰，也容易管理。<br />
+那么，怎样才能将多个commit合并呢？这就要用到 git rebase 命令。</p>
+
+<pre><code>$ git rebase -i origin/master
+</code></pre>
+
+<p>git rebase命令的i参数表示互动（interactive），这时git会打开一个互动界面，进行下一步操作。<br />
+下面采用<a href="https://robots.thoughtbot.com/git-interactive-rebase-squash-amend-rewriting-history">Tute Costa</a>的例子，来解释怎么合并commit。</p>
+
+<pre><code>pick 07c5abd Introduce OpenPGP and teach basic usage
+pick de9b1eb Fix PostChecker::Post#urls
+pick 3e7ee36 Hey kids, stop all the highlighting
+pick fa20af3 git interactive rebase, squash, amend
+
+# Rebase 8db7e8b..fa20af3 onto 8db7e8b
+#
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like &quot;squash&quot;, but discard this commit's log message
+#  x, exec = run command (the rest of the line) using shell
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+# Note that empty commits are commented out
+</code></pre>
+
+<p>上面的互动界面，先列出当前分支最新的4个commit（越下面越新）。每个commit前面有一个操作命令，默认是pick，表示该行commit被选中，要进行rebase操作。<br />
+4个commit的下面是一大堆注释，列出可以使用的命令。</p>
+
+<pre><code>pick：正常选中
+reword：选中，并且修改提交信息；
+edit：选中，rebase时会暂停，允许你修改这个commit（参考这里）
+squash：选中，会将当前commit与上一个commit合并
+fixup：与squash相同，但不会保存当前commit的提交信息
+exec：执行其他shell命令
+</code></pre>
+
+<p>上面这6个命令当中，squash和fixup可以用来合并commit。先把需要合并的commit前面的动词，改成squash（或者s）。</p>
+
+<pre><code>pick 07c5abd Introduce OpenPGP and teach basic usage
+s de9b1eb Fix PostChecker::Post#urls
+s 3e7ee36 Hey kids, stop all the highlighting
+pick fa20af3 git interactive rebase, squash, amend
+</code></pre>
+
+<p>这样一改，执行后，当前分支只会剩下两个commit。第二行和第三行的commit，都会合并到第一行的commit。提交信息会同时包含，这三个commit的提交信息。</p>
+
+<pre><code># This is a combination of 3 commits.
+# The first commit's message is:
+Introduce OpenPGP and teach basic usage
+
+# This is the 2nd commit message:
+Fix PostChecker::Post#urls
+
+# This is the 3rd commit message:
+Hey kids, stop all the highlighting
+</code></pre>
+
+<p>如果将第三行的squash命令改成fixup命令。</p>
+
+<pre><code>pick 07c5abd Introduce OpenPGP and teach basic usage
+s de9b1eb Fix PostChecker::Post#urls
+f 3e7ee36 Hey kids, stop all the highlighting
+pick fa20af3 git interactive rebase, squash, amend
+</code></pre>
+
+<p>运行结果相同，还是会生成两个commit，第二行和第三行的commit，都合并到第一行的commit。但是，新的提交信息里面，第三行commit的提交信息，会被注释掉。</p>
+
+<pre><code># This is a combination of 3 commits.
+# The first commit's message is:
+Introduce OpenPGP and teach basic usage
+
+# This is the 2nd commit message:
+Fix PostChecker::Post#urls
+
+# This is the 3rd commit message:
+# Hey kids, stop all the highlighting
+</code></pre>
+
+<p><a href="http://ponyfoo.com/articles/git-github-hacks">Pony Foo</a>提出另外一种合并commit的简便方法，就是先撤销过去5个commit，然后再建一个新的。</p>
+
+<pre><code>$ git reset HEAD~5
+$ git add .
+$ git commit -am &quot;Here's the bug fix that closes #28&quot;
+$ git push --force
+</code></pre>
+
+<p>squash和fixup命令，还可以当作命令行参数使用，自动合并commit。</p>
+
+<pre><code>$ git commit --fixup  
+$ git rebase -i --autosquash
+</code></pre>
+
+<p>这个用法请参考<a href="http://fle.github.io/git-tip-keep-your-branch-clean-with-fixup-and-autosquash.html">这篇文章</a>，这里就不解释了。</p>
+
+<h2 id="第六步-推送到远程仓库">第六步：推送到远程仓库</h2>
+
+<p>合并commit后，就可以推送当前分支到远程仓库了。</p>
+
+<pre><code>$ git push --force origin myfeature
+</code></pre>
+
+<p>git push命令要加上force参数，因为rebase以后，分支历史改变了，跟远程分支不一定兼容，有可能要强行推送。</p>
+
+<h2 id="第七步-发出pull-request">第七步：发出Pull Request</h2>
+
+<p>提交到远程仓库以后，就可以发出 Pull Request 到master分支，然后请求别人进行代码review，确认可以合并到master。</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">xiaoxiwang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2017-06-12</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/2017/06/17/build-restful-service-with-mongodb-in-golang/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">使用Golang基于MongoDB构建Restful服务</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/2017/06/07/react-bind-method/">
+            <span class="next-text nav-default">React方法绑定的几种实现方式</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+    
+
+  
+
+  
+
+  
+  </article>
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:daring@outlook.com" rel="me" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/bytedarin" rel="me" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">xiaoxiwang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/jane.min.js?v=2.7.0"></script>
+
+
+
+
+
+</body>
+</html>

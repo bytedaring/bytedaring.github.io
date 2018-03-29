@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Opencv on xiwang</title>
+    <link>http://localhost:1313/tags/opencv/</link>
+    <description>Recent content in Opencv on xiwang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 26 Mar 2018 17:44:14 +0800</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/opencv/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python生成标定板</title>
+      <link>http://localhost:1313/post/2018/03/26/chessboard/</link>
+      <pubDate>Mon, 26 Mar 2018 17:44:14 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/2018/03/26/chessboard/</guid>
+      <description>做一个和Opencv相关的项目调研，这里留下些记录…. 使用Opencv进行图摄像头标定时，要用到标定板。下面用Python开始生成一个标定板</description>
+    </item>
+    
+  </channel>
+</rss>

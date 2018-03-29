@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>React方法绑定的几种实现方式 - xiwang</title>
+  <link rel="alternate" hreflang="zh-cn" href="http://localhost:1313/" />
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="xiaoxiwang" /><meta name="description" content="Binding to methods of React class(ES7 included" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.37.1" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/2017/06/07/react-bind-method/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<link href="/dist/jane.min.css?v=2.7.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="React方法绑定的几种实现方式" />
+<meta property="og:description" content="Binding to methods of React class(ES7 included" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/2017/06/07/react-bind-method/" />
+
+
+
+<meta property="article:published_time" content="2017-06-07T12:43:09&#43;08:00"/>
+
+<meta property="article:modified_time" content="2017-06-07T12:43:09&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="React方法绑定的几种实现方式">
+<meta itemprop="description" content="Binding to methods of React class(ES7 included">
+
+
+<meta itemprop="datePublished" content="2017-06-07T12:43:09&#43;08:00" />
+<meta itemprop="dateModified" content="2017-06-07T12:43:09&#43;08:00" />
+<meta itemprop="wordCount" content="787">
+
+
+
+<meta itemprop="keywords" content="react,js," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="React方法绑定的几种实现方式"/>
+<meta name="twitter:description" content="Binding to methods of React class(ES7 included"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">天苍苍,野茫茫,风吹草低...</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">天苍苍,野茫茫,风吹草低...</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">React方法绑定的几种实现方式</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-06-07 </span>
+        <div class="post-category">
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/"> 技术文章 </a>
+            
+          </div>
+        <span class="more-meta"> 约 787 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#方法一-使用function-prototype-bind">方法一、 使用Function.prototype.bind()</a></li>
+<li><a href="#方法二-使用在constructor中定义的方法">方法二、 使用在constructor中定义的方法</a></li>
+<li><a href="#方法三-使用箭头操函数和构造函数">方法三、使用箭头操函数和构造函数</a></li>
+<li><a href="#方法四-使用箭头函数和es6类属性">方法四、使用箭头函数和ES6类属性</a></li>
+<li><a href="#源码下载">源码下载</a></li>
+<li><a href="#参考">参考</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>翻译参考自：<a href="http://egorsmirnov.me/2015/08/16/react-and-es6-part3.html">React and ES6 - Part 3, Binding to methods of React class (ES7 included)</a></p>
+
+<p>在React进行事件方法绑定的时，如下面的代码：</p>
+
+<pre><code>import React , {Component} from 'react'
+
+class user extends Component{
+    render(){
+       return &lt;button onClick={this.sayhello} &gt;open hello&lt;/button&gt;
+    }
+
+    sayhello(){
+        console.log('hello world')
+        console.log(this.props)
+    }
+}
+
+export default user
+</code></pre>
+
+<p>我们将会得到“TypeError: Cannot read property &lsquo;props&rsquo; of null“的错误，如下图所示：
+<img src="http://or5up5p3j.bkt.clouddn.com/blog/image/2017/react-bind/props-of-null.png" alt="error" /></p>
+
+<p>这是因为当我们调用以这种方式绑定到<strong>this</strong>的方法时，没有将函数上下文绑定到组件的实例上。这是Javascript的默认行为而且是可以明确预期到的。</p>
+
+<p>React团队在实现支持ES6时不支持自动绑定，你在<a href="https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#autobinding">这篇博客</a>中找到更多关于这样做的原因。</p>
+
+<p>下面将介绍几种不同的方式实现，在JSX中使用ES6语法调用class method。</p>
+
+<h2 id="方法一-使用function-prototype-bind">方法一、 使用Function.prototype.bind()</h2>
+
+<p>如下面的代码：</p>
+
+<pre><code>// 使用bind()
+class user extends Component{
+    render(){
+       return &lt;button onClick={this.sayHello.bind(this)} &gt;open hello&lt;/button&gt;
+    }
+
+    sayHello(){
+        console.log(this.props)
+    }
+}
+</code></pre>
+
+<p>任何ES6类的方法都是纯JavaScript函数，并从Function prototype继承了bind()方法，所以当我们调用sayHello方法时，this将会指向我们的组件实例。在<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">MDN article</a>可以找到更多的相关信息。</p>
+
+<h2 id="方法二-使用在constructor中定义的方法">方法二、 使用在constructor中定义的方法</h2>
+
+<pre><code>// 使用构造函数定义的方法
+class user1 extends Component{
+    constructor(props){
+        super(props)
+        this._sayHello = ()=&gt; this.sayHello();
+    }
+
+    sayHello(){
+        console.log(this.props)
+    }
+
+    render(){
+        return (&lt;button onClick={this.sayHello}&gt;open hello 1&lt;/button&gt;)
+    }
+}
+</code></pre>
+
+<p>这种方式中，不再需要在JSX中使用bind(),但会使构造函数更加膨胀。</p>
+
+<h2 id="方法三-使用箭头操函数和构造函数">方法三、使用箭头操函数和构造函数</h2>
+
+<p><a href="https://babeljs.io/docs/learn-es2015/#arrows">ES6箭头函数</a>会保留定义时的this上下文，即当调用箭头函数时，函数体内的this对象，就是定义时所在的对象，而不是调用时所在的对象。所以可以利用这个特性，并在构造函数中重新定义sayHello方法。</p>
+
+<pre><code>// 箭头函数 + 构造函数
+class user extends Component{
+    constructor(props){
+        super(props)
+        this._sayHello = ()=&gt; this._sayHello()
+    }
+
+    sayHello(){
+        console.log(this.props)
+    }
+
+    render(){
+       return &lt;button onClick={this._sayHello.bind(this)} &gt;open hello3&lt;/button&gt;
+    }
+}
+</code></pre>
+
+<h2 id="方法四-使用箭头函数和es6类属性">方法四、使用箭头函数和ES6类属性</h2>
+
+<p>可以通过使用箭头函数和ES6类属性语法：</p>
+
+<pre><code>// 箭头函数 + ES属性语法
+class user extends Component{
+    sayHello = ()=&gt;{
+        console.log(this.props)
+    }
+
+    render(){
+       return &lt;button onClick={this.sayHello} &gt;open hello4&lt;/button&gt;
+    }
+}
+</code></pre>
+
+<h2 id="源码下载">源码下载</h2>
+
+<p>上面出现的代码下在地址： <a href="https://github.com/bytedaring/react-bind-method">github</a></p>
+
+<h2 id="参考">参考</h2>
+
+<ul>
+<li><p><a href="http://egorsmirnov.me/2015/08/16/react-and-es6-part3.html">React and ES6 - Part 3, Binding to methods of React class (ES7 included)</a></p></li>
+
+<li><p><a href="https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#autobinding">React</a></p></li>
+</ul>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">xiaoxiwang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2017-06-07</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/react/">react</a>
+          
+          <a href="/tags/js/">js</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/2017/06/12/git-commit-flow/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Git基本使用</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/2017/06/05/sql-join/">
+            <span class="next-text nav-default">MySql JOIN</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+    
+
+  
+
+  
+
+  
+  </article>
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:daring@outlook.com" rel="me" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/bytedarin" rel="me" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">xiaoxiwang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/jane.min.js?v=2.7.0"></script>
+
+
+
+
+
+</body>
+</html>

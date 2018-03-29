@@ -13,10 +13,10 @@
     
     <item>
       <title>(Mac)PIP使用国内镜像</title>
-      <link>http://localhost:1313/post/2017-10-22/python-env-pip-source/</link>
+      <link>http://localhost:1313/post/2017/10/22/python-env-pip-source/</link>
       <pubDate>Sun, 22 Oct 2017 16:22:16 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/2017-10-22/python-env-pip-source/</guid>
+      <guid>http://localhost:1313/post/2017/10/22/python-env-pip-source/</guid>
       <description>(Mac)PIP使用国内镜像 PIP使用国外源安装软件包，下载速度非常慢，将PIP安装源头替换为国内镜像，可以大幅提高下载速度，提高安装成功率</description>
     </item>
     

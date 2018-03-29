@@ -148,7 +148,35 @@
     
       <article class="post bg-white">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2018-03-22/%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB/">相机坐标系</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/2018/03/26/chessboard/">Python生成标定板</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-03-26 </span>
+      <div class="post-category">
+          
+            <a href="/categories/python%E6%9C%89%E8%B6%A3%E7%89%87%E6%AE%B5/"> Python有趣片段 </a>
+          
+        </div>
+      <span class="more-meta"> 约 208 字 </span>
+      <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      做一个和Opencv相关的项目调研，这里留下些记录…. 使用Opencv进行图摄像头标定时，要用到标定板。下面用Python开始生成一个标定板
+    </div>
+    <div class="read-more">
+      <a href="/post/2018/03/26/chessboard/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
+    
+      <article class="post bg-white">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2018/03/22/%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB/">相机坐标系</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2018-03-22 </span>
       <div class="post-category">
@@ -167,7 +195,7 @@
       1、相机坐标系 图像处理、立体视觉等等方向常常涉及到四个坐标系：世界坐标系、相机（摄像机）坐标系、图像坐标系、像素坐标系： 通过如下图的转换，可
     </div>
     <div class="read-more">
-      <a href="/post/2018-03-22/%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB/" class="read-more-link">阅读全文</a>
+      <a href="/post/2018/03/22/%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>
@@ -176,7 +204,7 @@
     
       <article class="post bg-white">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2018-03-15/conda/">conda管理Python环境</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/2018/03/15/conda/">conda管理Python环境</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2018-03-15 </span>
       <div class="post-category">
@@ -195,7 +223,7 @@
       序 近期做一个项目的调研，需要使用到OpenCV、Python，这里记录anaconda进行Python环境配置管理过程。 Python常用环
     </div>
     <div class="read-more">
-      <a href="/post/2018-03-15/conda/" class="read-more-link">阅读全文</a>
+      <a href="/post/2018/03/15/conda/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>
@@ -204,7 +232,7 @@
     
       <article class="post bg-white">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2018-03/go-defer/">[Go]Deferred函数案例</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/2018/03/11/go-defer/">[Go]Deferred函数案例</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2018-03-11 </span>
       <div class="post-category">
@@ -223,35 +251,7 @@
       package main func main() { println(DeferFunc1(1)) println(DeferFunc2(1)) println(DeferFunc3(1)) } func DeferFunc1(i int) (t int) { t = i defer func() { t += 3 }() return t } func DeferFunc2(i int) int { t := i defer func() { t += 3 }() return t } func DeferFunc3(i int) (t int) { defer func() { t += i }() return 2 } 运行结果： 4 1 3
     </div>
     <div class="read-more">
-      <a href="/post/2018-03/go-defer/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/">Linux统计文件数量</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-03-06 </span>
-      <div class="post-category">
-          
-            <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> 读书笔记 </a>
-          
-        </div>
-      <span class="more-meta"> 约 127 字 </span>
-      <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      统计当前文件夹下文件的个数，包括子文件夹里的 ls -lR | grep '^-' | wc -l 统计当前文件夹下文件夹的个数，包括子文件夹下的 ls -lR | grep '^d' | wc -l 统计当前文件夹下的
-    </div>
-    <div class="read-more">
-      <a href="/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/" class="read-more-link">阅读全文</a>
+      <a href="/post/2018/03/11/go-defer/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>

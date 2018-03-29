@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>相机坐标系 - xiwang</title>
+  <link rel="alternate" hreflang="zh-cn" href="http://localhost:1313/" />
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="xiaoxiwang" />
+  <meta name="description" content="1、相机坐标系 图像处理、立体视觉等等方向常常涉及到四个坐标系：世界坐标系、相机（摄像机）坐标系、图像坐标系、像素坐标系： 通过如下图的转换，可" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.37.1" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/2018/03/22/%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<link href="/dist/jane.min.css?v=2.7.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="相机坐标系" />
+<meta property="og:description" content="1、相机坐标系 图像处理、立体视觉等等方向常常涉及到四个坐标系：世界坐标系、相机（摄像机）坐标系、图像坐标系、像素坐标系： 通过如下图的转换，可" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/2018/03/22/%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB/" />
+
+
+
+<meta property="article:published_time" content="2018-03-22T13:01:02&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-03-22T13:01:02&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="相机坐标系">
+<meta itemprop="description" content="1、相机坐标系 图像处理、立体视觉等等方向常常涉及到四个坐标系：世界坐标系、相机（摄像机）坐标系、图像坐标系、像素坐标系： 通过如下图的转换，可">
+
+
+<meta itemprop="datePublished" content="2018-03-22T13:01:02&#43;00:00" />
+<meta itemprop="dateModified" content="2018-03-22T13:01:02&#43;00:00" />
+<meta itemprop="wordCount" content="1684">
+
+
+
+<meta itemprop="keywords" content="相机坐标系," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="相机坐标系"/>
+<meta name="twitter:description" content="1、相机坐标系 图像处理、立体视觉等等方向常常涉及到四个坐标系：世界坐标系、相机（摄像机）坐标系、图像坐标系、像素坐标系： 通过如下图的转换，可"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">天苍苍,野茫茫,风吹草低...</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">天苍苍,野茫茫,风吹草低...</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">相机坐标系</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-03-22 </span>
+        <div class="post-category">
+            
+              <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> 读书笔记 </a>
+            
+          </div>
+        <span class="more-meta"> 约 1684 字 </span>
+        <span class="more-meta"> 预计阅读 4 分钟 </span>
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1-相机坐标系">1、相机坐标系</a></li>
+<li><a href="#2-相机内参数">2、相机内参数</a></li>
+<li><a href="#3-相机外参数">3、相机外参数</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<h3 id="1-相机坐标系">1、相机坐标系</h3>
+
+<p>图像处理、立体视觉等等方向常常涉及到四个坐标系：世界坐标系、相机（摄像机）坐标系、图像坐标系、像素坐标系：</p>
+
+<p><img src="http://or5up5p3j.bkt.clouddn.com/blog/image/2018/03/22/camera_coordiante.png" alt="" /></p>
+
+<p>通过如下图的转换，可以将世界坐标中点的坐标（Xw, Yw, Zw）,同二维图像中的像素坐标(u,v)对应起来。</p>
+
+<p><img src="http://or5up5p3j.bkt.clouddn.com/blog/image/2018/03/22/camera_trans.png" alt="转换" /></p>
+
+<ul>
+<li>像素坐标系</li>
+</ul>
+
+<p>摄像机采集的数字图像在计算机内可以存储为数组，数组中的每一个元素(象素，pixel)的值即是图像点的亮度(灰度)。在图像上定义直角坐标系u-v，每一象素的坐标(u,v)分别是该象素在数组中的列数和行数。故(u,v)是以象素为单位的图像坐标系坐标。</p>
+
+<p><img src="http://or5up5p3j.bkt.clouddn.com/blog/image/2018/03/22/pixel_coor.jpg" alt="pixel_coor" /></p>
+
+<ul>
+<li>图像坐标系</li>
+</ul>
+
+<p>由于(u,v)只代表像素的列数与行数，而像素在图像中的位置并没有用物理单位表示出来，所以，我们还要建立以物理单位（如毫米）表示的图像坐标系x-y。用(x,y)表示以物理单位度量的成像平面坐标系的坐标。在x-y坐标系中，原点定义在摄像机光轴和图像平面的交点处，称为图像的主点(principal point)，该点一般位于图像中心处。</p>
+
+<p>假设(u0,v0)代表O1在u-v坐标系下的坐标，dx与dy分别表示每个像素在横轴x和纵轴y上的物理尺寸，则图像中的每个像素在u-v坐标系中的坐标和在x-y坐标系中的坐标之间都存在如下的关系：</p>
+
+<p>$$
+\begin{cases} u = \dfrac{x}{d_x} + u_0 \\ v = \dfrac{y}{d{y}} + v_0 \end{cases}\tag{1}
+$$</p>
+
+<p>用齐次坐标与矩阵形式表示为：
+$$
+\begin{bmatrix} u \\ v \\ 1 \end{bmatrix} = \begin{bmatrix} \dfrac{1}{d_x} &amp; 0 &amp; {u_0} \\ 0 &amp; \dfrac{1}{d_y} &amp; {v_0} \\ 0 &amp; 0 &amp; 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}\tag{2}
+$$</p>
+
+<p>这样，就建立了图像中，像素坐标和物理尺寸坐标之间的对应关系。</p>
+
+<ul>
+<li>相机坐标系</li>
+</ul>
+
+<p>相机坐标系 (Xc,Yc,Zc)中，原点 为相机透镜的中心，坐标轴 Xc 轴与 x 轴平行，Yc 轴与 y 轴平行，Zc 轴与相机光轴重合。从相机坐标系到图像坐标系，属于透视投影关系，从3D转换到2D。</p>
+
+<p><img src="http://or5up5p3j.bkt.clouddn.com/blog/image/2018/03/22/camera_image.jpg" alt="" /></p>
+
+<p>设相机的焦距为 f，则根据小孔成像模型，可知相机坐标系下空间点 (Xc,Yc,Zc)，与物理尺寸坐标 (x,y) 的关系如下：
+$$
+\begin{cases} \dfrac{x}{f} = \dfrac{X_c}{Z_c} \\ \dfrac{y}{f} = \dfrac{Y_c}{Z_c} \end{cases}\tag{3}
+$$</p>
+
+<p>$$
+\begin{cases} Z_c \cdot x = f \cdot {X_c} \\ Z_c \cdot y = f \cdot {Y_c} \end{cases}\tag{4}
+$$</p>
+
+<p>$$
+Z_c \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} = \begin{bmatrix} f &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; f &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{bmatrix} \begin{bmatrix} X_c \\ Y_c \\ Z_c \\ 1 \end{bmatrix}\tag{5}
+$$
+由（2）和（5），可以得到像素坐标 (u,v) 与相机坐标点 (Xc,Yc,Zc) 的关系为：
+$$
+Z_c \begin{bmatrix} u \\ v \\ 1 \end{bmatrix} = \begin{bmatrix} \dfrac{1}{d_x} &amp; 0 &amp; u_0 \\ 0 &amp; \dfrac{1}{d_y} &amp; v_0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} \begin{bmatrix} f &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; f &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{bmatrix} \begin{bmatrix} X_c \\ Y_c \\ Z_c \\ 1 \end{bmatrix} = \begin{bmatrix} \dfrac{f}{d_x} &amp; 0 &amp; u_0 &amp; 0 \\ 0 &amp; \dfrac{f}{d_y} &amp; v_0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{bmatrix}  \begin{bmatrix} X_c \\ Y_c \\ Z_c \\ 1 \end{bmatrix}\tag{6}
+$$</p>
+
+<ul>
+<li>世界坐标系</li>
+</ul>
+
+<p>在环境中还选择一个参考坐标系来描述摄像机和物体的位置，该坐标系称为世界坐标系。摄像机坐标系和世界坐标系之间的关系可用旋转矩阵R与平移向量t来描述。由此，空间中一点P在世界坐标系和摄像机坐标系下的齐次坐标分别为和且存在如下关系：
+$$
+\begin{bmatrix} X_c \\  Y_c \\ Z_c  \\ 1\end{bmatrix} = \begin{bmatrix} R &amp; T \\ 0^{T} &amp; 1 \end{bmatrix}  \begin{bmatrix} X_w \\  Y_w \\ Z_w \\ 1 \end{bmatrix}\tag{7}
+$$
+其中，R是3×3的正交单位矩阵（也成为旋转矩阵），T是三维的平移向量</p>
+
+<p>所以，由（6）和（7）可以得到像素点（u,v）到世界坐标点的转换关系：
+$$
+Z_c \begin{bmatrix} u \\ v \\ 1 \end{bmatrix} = \begin{bmatrix} \dfrac{f}{d_x} &amp; 0 &amp; u_0 &amp; 0 \\ 0 &amp; \dfrac{f}{d_y} &amp; v_0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{bmatrix}  \begin{bmatrix} R &amp; T \\ 0^{T} &amp; 1 \end{bmatrix}  \begin{bmatrix} X_w \\  Y_w \\ Z_w \\ 1 \end{bmatrix}\tag{8}
+$$
+其中：
+$$
+\begin{bmatrix} \dfrac{f}{d_x} &amp; 0 &amp; u_0 &amp; 0 \\ 0 &amp; \dfrac{f}{d_y} &amp; v_0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{bmatrix} 是相机的内参
+$$</p>
+
+<p>$$
+\begin{bmatrix} R &amp; T \\ 0^{T} &amp; 1 \end{bmatrix} 是相机的外参
+$$</p>
+
+<p>相机的内参和外参数可以通过<a href="https://www.microsoft.com/en-us/research/project/a-flexible-new-technique-for-camera-calibration-2/">张正友标定</a>获得，<a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_calib3d/py_calibration/py_calibration.html">OpenCV摄像相投标定教程</a>。如果已知一个点的世界坐标，可以在图像中找到与其对应的像素点，但反之，则不能通过图像中的一个点找到它在世界坐标中对应的点，因为（8）中Zc未知。</p>
+
+<h3 id="2-相机内参数">2、相机内参数</h3>
+
+<p><img src="http://or5up5p3j.bkt.clouddn.com/blog/image/2018/03/22/0322_camera.gif" alt="内参数" /></p>
+
+<p>相机内参数，由相机本身决定，只和相机本身有关。摄像头由于光学透镜的特性使得成像存在着径向畸变，可由三个参数k1,k2,k3确定。由于装配方面的误差，传感器与光学镜头之间并非完全平行，因此成像存在切向畸变，可由两个参数p1,p2确定。</p>
+
+<p>单个摄像头的定标主要是计算出摄像头的内参（焦距f和成像原点cx,cy、五个畸变参数（一般只需要计算出k1,k2,p1,p2，对于鱼眼镜头等径向畸变特别大的才需要计算k3））以及外参（标定物的世界坐标）。</p>
+
+<h3 id="3-相机外参数">3、相机外参数</h3>
+
+<p>相机外参数，相机在世界坐标系中的位姿，由相机与世界坐标系的相对位姿关系决定。其参数有：旋转向量R（大小为1x3的矢量或旋转矩阵3x3）和平移向量T(Tx,Ty,Tz)。</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">xiaoxiwang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-03-22</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB/">相机坐标系</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/2018/03/26/chessboard/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Python生成标定板</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/2018/03/15/conda/">
+            <span class="next-text nav-default">conda管理Python环境</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+    
+
+  
+
+  
+
+  
+  </article>
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:daring@outlook.com" rel="me" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/bytedarin" rel="me" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">xiaoxiwang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/jane.min.js?v=2.7.0"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+
+
+
+
+
+</body>
+</html>

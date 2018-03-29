@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>【Antd使用小结系列】 - xiwang</title>
+  <link rel="alternate" hreflang="zh-cn" href="http://localhost:1313/" />
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="xiaoxiwang" /><meta name="description" content="antd使用小结" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.37.1" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/2017/08/19/antd-start/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<link href="/dist/jane.min.css?v=2.7.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="【Antd使用小结系列】" />
+<meta property="og:description" content="antd使用小结" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/2017/08/19/antd-start/" />
+
+
+
+<meta property="article:published_time" content="2017-08-19T16:22:16&#43;08:00"/>
+
+<meta property="article:modified_time" content="2017-08-19T16:22:16&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="【Antd使用小结系列】">
+<meta itemprop="description" content="antd使用小结">
+
+
+<meta itemprop="datePublished" content="2017-08-19T16:22:16&#43;08:00" />
+<meta itemprop="dateModified" content="2017-08-19T16:22:16&#43;08:00" />
+<meta itemprop="wordCount" content="526">
+
+
+
+<meta itemprop="keywords" content="antd,react," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【Antd使用小结系列】"/>
+<meta name="twitter:description" content="antd使用小结"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">天苍苍,野茫茫,风吹草低...</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">天苍苍,野茫茫,风吹草低...</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">【Antd使用小结系列】</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-08-19 </span>
+        <div class="post-category">
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/"> 技术文章 </a>
+            
+          </div>
+        <span class="more-meta"> 约 526 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#特性">特性</a></li>
+<li><a href="#我的使用小结系列-开端">我的使用小结系列【开端】</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<blockquote>
+<p><a href="https://ant.design/docs/spec/introduce-cn">Ant Design</a>是蚂蚁金服开源出来的前端UI设计，是一个致力于提升『用户』和『设计者』使用体验的中台设计语言。它模糊了产品经理、交互设计师、视觉设计师、前端工程师、开发工程师等角色边界，将进行 UE 设计和 UI 设计人员统称为『设计者』，利用统一的规范进行设计赋能，全面提高中台产品体验和研发效率。</p>
+</blockquote>
+
+<p><img src="https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg" alt="" /></p>
+
+<p><a href="https://ant.design/docs/react/introduce-cn">Ant Design of React</a>是Ant Design 的React实现，开发和服务于企业级后台产品。</p>
+
+<h2 id="特性">特性</h2>
+
+<ul>
+<li>提炼自企业级中后台产品的交互语言和视觉风格。</li>
+<li>开箱即用的高质量 React 组件。</li>
+<li>使用 TypeScript 构建，提供完整的类型定义文件。</li>
+<li>基于 npm + webpack + babel 的工作流，支持 ES2015 和 TypeScript。</li>
+</ul>
+
+<h2 id="我的使用小结系列-开端">我的使用小结系列【开端】</h2>
+
+<blockquote>
+<p>近来的半年来，带领4个人的小团队（一个安卓、一个Java 实习生、一个Java后台还有我），服务于一个物流项目。一直处于一种全栈开发状态。从需要分析到数据库设计， 从后台服务到一个人扛起前端， 面对多变而不够清晰的需求，紧张的工期等等，虽然很辛苦但充实。问题不断中，不断成长，也发现不一样的自己。</p>
+</blockquote>
+
+<p>这里作为Antd使用小结系列的开篇， 记录我使用Antd的点滴总结， 强迫自己按时写文章，养成一个好习惯！过去的几个月忙着项目以及生活的事情，都没有心思来总结和沉淀，这算是一个美好的开端吧！</p>
+
+<p>我愿化成一座石桥，经受五百年的风吹，五百年的日晒，五百年的雨打，只求她从桥上走过!</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">xiaoxiwang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2017-08-19</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/antd/">antd</a>
+          
+          <a href="/tags/react/">react</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/2017/08/19/antd-1-table-background/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">【Antd使用小结】--Table设置行背景色</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/2017/06/17/build-restful-service-with-mongodb-in-golang/">
+            <span class="next-text nav-default">使用Golang基于MongoDB构建Restful服务</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+    
+
+  
+
+  
+
+  
+  </article>
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:daring@outlook.com" rel="me" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/bytedarin" rel="me" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">xiaoxiwang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/jane.min.js?v=2.7.0"></script>
+
+
+
+
+
+</body>
+</html>

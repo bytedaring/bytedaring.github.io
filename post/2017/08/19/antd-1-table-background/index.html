@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>【Antd使用小结】--Table设置行背景色 - xiwang</title>
+  <link rel="alternate" hreflang="zh-cn" href="http://localhost:1313/" />
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="xiaoxiwang" />
+  <meta name="description" content="Table 用于展示行列数据。 基本使用 指定表格的数据源 dataSource 为一个数据组， 并指定表格列的配置描述columns即可。 const dataSource = [{id:1, name: &#39;one&#39;, color: &#39;#fff&#39;}, {id:2, name: &#39;two&#39;, color: &#39;#eee&#39;}, {id:3, name: &#39;three&#39;, color: &#39;#ddd&#39;}]; const" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.37.1" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/2017/08/19/antd-1-table-background/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<link href="/dist/jane.min.css?v=2.7.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="【Antd使用小结】--Table设置行背景色" />
+<meta property="og:description" content="Table 用于展示行列数据。 基本使用 指定表格的数据源 dataSource 为一个数据组， 并指定表格列的配置描述columns即可。 const dataSource = [{id:1, name: &#39;one&#39;, color: &#39;#fff&#39;}, {id:2, name: &#39;two&#39;, color: &#39;#eee&#39;}, {id:3, name: &#39;three&#39;, color: &#39;#ddd&#39;}]; const" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/2017/08/19/antd-1-table-background/" />
+
+
+
+<meta property="article:published_time" content="2017-08-19T21:36:46&#43;08:00"/>
+
+<meta property="article:modified_time" content="2017-08-19T21:36:46&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="【Antd使用小结】--Table设置行背景色">
+<meta itemprop="description" content="Table 用于展示行列数据。 基本使用 指定表格的数据源 dataSource 为一个数据组， 并指定表格列的配置描述columns即可。 const dataSource = [{id:1, name: &#39;one&#39;, color: &#39;#fff&#39;}, {id:2, name: &#39;two&#39;, color: &#39;#eee&#39;}, {id:3, name: &#39;three&#39;, color: &#39;#ddd&#39;}]; const">
+
+
+<meta itemprop="datePublished" content="2017-08-19T21:36:46&#43;08:00" />
+<meta itemprop="dateModified" content="2017-08-19T21:36:46&#43;08:00" />
+<meta itemprop="wordCount" content="406">
+
+
+
+<meta itemprop="keywords" content="antd,react," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【Antd使用小结】--Table设置行背景色"/>
+<meta name="twitter:description" content="Table 用于展示行列数据。 基本使用 指定表格的数据源 dataSource 为一个数据组， 并指定表格列的配置描述columns即可。 const dataSource = [{id:1, name: &#39;one&#39;, color: &#39;#fff&#39;}, {id:2, name: &#39;two&#39;, color: &#39;#eee&#39;}, {id:3, name: &#39;three&#39;, color: &#39;#ddd&#39;}]; const"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">天苍苍,野茫茫,风吹草低...</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">天苍苍,野茫茫,风吹草低...</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">【Antd使用小结】--Table设置行背景色</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-08-19 </span>
+        <div class="post-category">
+            
+              <a href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/"> 技术文章 </a>
+            
+          </div>
+        <span class="more-meta"> 约 406 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#基本使用">基本使用</a></li>
+<li><a href="#行背景">行背景</a></li>
+<li><a href="#参考">参考</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p><a href="https://ant.design/components/table-cn/">Table</a> 用于展示行列数据。</p>
+
+<h2 id="基本使用">基本使用</h2>
+
+<p>指定表格的数据源 dataSource 为一个数据组， 并指定表格列的配置描述columns即可。</p>
+
+<pre><code class="language-react">const dataSource = [{id:1, name: 'one', color: '#fff'},
+        {id:2, name: 'two', color: '#eee'},
+        {id:3, name: 'three', color: '#ddd'}];
+
+const columns = [{
+   	title: 'ID',
+   	dataIndex: 'id',
+   }, {
+   	title: 'Name',
+   	dataIndex: 'name',
+}];
+
+&lt;Table dataSource={dataSource} columns={columns} /&gt;
+</code></pre>
+
+<p>运行结果：</p>
+
+<p><img src="http://or5up5p3j.bkt.clouddn.com/blog/image/2017/08/19/antd-background-table-row.png" alt="result" /></p>
+
+<h2 id="行背景">行背景</h2>
+
+<p>默些时候， 需要根据行数据，来指定每行拥有不同的背景色。此时，可以使用Table.rowClassName来指定。rowClassName指定表格行的类名，类型是：Function(record, index):string， 其中record参数就是每行的具体绑定的数据。</p>
+
+<pre><code class="language-react">&lt;Table
+    columns={columns}
+    dataSource={this.state.data}
+    rowClassName={(record) =&gt; record.color.replace('#', '')}
+    rowKey={record =&gt; record.id}/&gt;
+</code></pre>
+
+<p>rowClassName函数替换每行数据中color的值，将#替换为‘’， 剩下部分作为该行的class名返回。此时，需要制定相应的CSS样式：</p>
+
+<pre><code class="language-css">.fff {
+  background: #fff;
+}
+
+.eee {
+  background: #eee;
+}
+
+.ddd {
+  background: #ddd;
+}
+</code></pre>
+
+<p>运行效果：</p>
+
+<p><img src="http://or5up5p3j.bkt.clouddn.com/blog/image/2017/06/09/antd-row-bl.png" alt="black" /></p>
+
+<h2 id="参考">参考</h2>
+
+<p>1、<a href="https://jsfiddle.net/2b2376a4/">https://jsfiddle.net/2b2376a4/</a></p>
+
+<p>2、<a href="https://ant.design/components/table-cn/">https://ant.design/components/table-cn/</a></p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">xiaoxiwang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2017-08-19</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/antd/">antd</a>
+          
+          <a href="/tags/react/">react</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/2017/08/19/autumn_on_its_way/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">秋来了</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/2017/08/19/antd-start/">
+            <span class="next-text nav-default">【Antd使用小结系列】</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+    
+
+  
+
+  
+
+  
+  </article>
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:daring@outlook.com" rel="me" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/bytedarin" rel="me" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">xiaoxiwang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/jane.min.js?v=2.7.0"></script>
+
+
+
+
+
+</body>
+</html>

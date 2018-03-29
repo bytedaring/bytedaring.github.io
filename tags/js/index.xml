@@ -13,10 +13,10 @@
     
     <item>
       <title>React方法绑定的几种实现方式</title>
-      <link>http://localhost:1313/post/react-bind-method/</link>
+      <link>http://localhost:1313/post/2017/06/07/react-bind-method/</link>
       <pubDate>Wed, 07 Jun 2017 12:43:09 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/react-bind-method/</guid>
+      <guid>http://localhost:1313/post/2017/06/07/react-bind-method/</guid>
       <description>翻译参考自：React and ES6 - Part 3, Binding to methods of React class (ES7 included) 在React进行事件方法绑定的时，如下面的代码： import React , {Component} from &#39;react&#39; class user extends Component{ render(){ return &amp;lt;button onClick={this.sayhello} &amp;gt;open hello&amp;lt;/button&amp;gt; } sayhello(){ console.log(&#39;hello world&#39;) console.log(this.props) }</description>
     </item>
     

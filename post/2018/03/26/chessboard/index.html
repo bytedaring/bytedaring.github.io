@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Python生成标定板 - xiwang</title>
+  <link rel="alternate" hreflang="zh-cn" href="http://localhost:1313/" />
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="xiaoxiwang" />
+  <meta name="description" content="做一个和Opencv相关的项目调研，这里留下些记录…. 使用Opencv进行图摄像头标定时，要用到标定板。下面用Python开始生成一个标定板" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.37.1" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/2018/03/26/chessboard/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<link href="/dist/jane.min.css?v=2.7.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="Python生成标定板" />
+<meta property="og:description" content="做一个和Opencv相关的项目调研，这里留下些记录…. 使用Opencv进行图摄像头标定时，要用到标定板。下面用Python开始生成一个标定板" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/2018/03/26/chessboard/" />
+
+
+
+<meta property="article:published_time" content="2018-03-26T17:44:14&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-03-29T17:44:14&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Python生成标定板">
+<meta itemprop="description" content="做一个和Opencv相关的项目调研，这里留下些记录…. 使用Opencv进行图摄像头标定时，要用到标定板。下面用Python开始生成一个标定板">
+
+
+<meta itemprop="datePublished" content="2018-03-26T17:44:14&#43;08:00" />
+<meta itemprop="dateModified" content="2018-03-26T17:44:14&#43;08:00" />
+<meta itemprop="wordCount" content="208">
+
+
+
+<meta itemprop="keywords" content="Python,OpenCV," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python生成标定板"/>
+<meta name="twitter:description" content="做一个和Opencv相关的项目调研，这里留下些记录…. 使用Opencv进行图摄像头标定时，要用到标定板。下面用Python开始生成一个标定板"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">天苍苍,野茫茫,风吹草低...</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">天苍苍,野茫茫,风吹草低...</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Python生成标定板</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-03-26 </span>
+        <div class="post-category">
+            
+              <a href="/categories/python%E6%9C%89%E8%B6%A3%E7%89%87%E6%AE%B5/"> Python有趣片段 </a>
+            
+          </div>
+        <span class="more-meta"> 约 208 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  
+  <div class="post-toc-content always-active">
+    
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <blockquote>
+<p>做一个和Opencv相关的项目调研，这里留下些记录….</p>
+</blockquote>
+
+<p><img src="http://or5up5p3j.bkt.clouddn.com/IMG_blog/image/2018/03/29/20180329_170833.jpg" alt="chessboard" /></p>
+
+<p>使用Opencv进行图摄像头标定时，要用到标定板。下面用Python开始生成一个标定板：</p>
+
+<pre><code class="language-Python">#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+&quot;&quot;&quot;
+Created on Wed Mar 21 16:21:49 2018
+
+@author: xiaoxiwang
+&quot;&quot;&quot;
+
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 宽450像素
+width = 450
+# 高350像素
+height = 350
+# 50 x 50 一个单元格
+length = 50
+
+img = np.zeros((width, height), dtype=np.uint8)
+
+for j in range(height):
+    for i in range(width):
+        if ((int)(i / length) + (int)(j / length)) % 2:
+            img[i, j] = 255
+# 将标定板保存为图checkboard.jpg
+cv2.imwrite('checkerborad.jpg', img)
+# 使用matplotlib查看生成的标定板
+plt.subplot(111), plt.imshow(img, cmap='gray'), plt.title('Output')
+plt.show()
+
+</code></pre>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">xiaoxiwang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-03-29</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/python/">Python</a>
+          
+          <a href="/tags/opencv/">OpenCV</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/2018/03/22/%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB/">
+            <span class="next-text nav-default">相机坐标系</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+    
+
+  
+
+  
+
+  
+  </article>
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:daring@outlook.com" rel="me" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/bytedarin" rel="me" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">xiaoxiwang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/jane.min.js?v=2.7.0"></script>
+
+
+
+
+
+</body>
+</html>

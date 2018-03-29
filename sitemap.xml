@@ -10,120 +10,134 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/2018-03-22/%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB/</loc>
+    <loc>http://localhost:1313/post/2018/03/26/chessboard/</loc>
+    <lastmod>2018-03-29T17:44:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/2018/03/22/%E7%9B%B8%E6%9C%BA%E5%9D%90%E6%A0%87%E7%B3%BB/</loc>
     <lastmod>2018-03-22T13:01:02+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/2018-03-15/conda/</loc>
+    <loc>http://localhost:1313/post/2018/03/15/conda/</loc>
     <lastmod>2018-03-15T13:12:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/2018-03/go-defer/</loc>
+    <loc>http://localhost:1313/post/2018/03/11/go-defer/</loc>
     <lastmod>2018-03-11T19:30:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/2018-03-06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/</loc>
+    <loc>http://localhost:1313/post/2018/03/06/%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E6%95%B0%E9%87%8F/</loc>
     <lastmod>2018-03-06T19:12:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/2018-01-30/webdriver/</loc>
+    <loc>http://localhost:1313/post/2018/01/30/webdriver/</loc>
     <lastmod>2018-02-02T18:22:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/2018-01-09/homebrew_install_golang_environment/</loc>
+    <loc>http://localhost:1313/post/2018/01/09/homebrew_install_golang_environment/</loc>
     <lastmod>2018-01-10T11:26:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/2017-10-22/python-env-pip-source/</loc>
+    <loc>http://localhost:1313/post/2017/10/22/python-env-pip-source/</loc>
     <lastmod>2017-10-22T16:22:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/autumn_on_its_way/</loc>
+    <loc>http://localhost:1313/post/2017/08/19/autumn_on_its_way/</loc>
     <lastmod>2017-08-19T22:16:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/antd-1-table-background/</loc>
+    <loc>http://localhost:1313/post/2017/08/19/antd-1-table-background/</loc>
     <lastmod>2017-08-19T21:36:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/antd-start/</loc>
+    <loc>http://localhost:1313/post/2017/08/19/antd-start/</loc>
     <lastmod>2017-08-19T16:22:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/build-restful-service-with-mongodb-in-golang/</loc>
+    <loc>http://localhost:1313/post/2017/06/17/build-restful-service-with-mongodb-in-golang/</loc>
     <lastmod>2017-06-17T15:30:56+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/git-commit-flow/</loc>
+    <loc>http://localhost:1313/post/2017/06/12/git-commit-flow/</loc>
     <lastmod>2017-06-12T22:02:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/react-bind-method/</loc>
+    <loc>http://localhost:1313/post/2017/06/07/react-bind-method/</loc>
     <lastmod>2017-06-07T12:43:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/sql-join/</loc>
+    <loc>http://localhost:1313/post/2017/06/05/sql-join/</loc>
     <lastmod>2017-06-05T22:21:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/create-qrcode-by-react/</loc>
+    <loc>http://localhost:1313/post/2017/06/04/create-qrcode-by-react/</loc>
     <lastmod>2017-06-04T15:55:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-slice/</loc>
+    <loc>http://localhost:1313/post/2017/03/31/go-slice/</loc>
     <lastmod>2017-03-31T13:42:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/first/</loc>
+    <loc>http://localhost:1313/post/2017/03/09/first/</loc>
     <lastmod>2017-03-09T21:53:22+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/2016/09/06/golang-glide/</loc>
+    <lastmod>2018-03-29T18:57:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -165,6 +179,13 @@
   <url>
     <loc>http://localhost:1313/tags/deferred/</loc>
     <lastmod>2018-03-11T19:30:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/glide/</loc>
+    <lastmod>2018-03-29T18:57:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -212,6 +233,13 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/tags/opencv/</loc>
+    <lastmod>2018-03-29T17:44:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/tags/pip/</loc>
     <lastmod>2017-10-22T16:22:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -220,14 +248,21 @@
   
   <url>
     <loc>http://localhost:1313/post/</loc>
-    <lastmod>2018-03-22T13:01:02+00:00</lastmod>
+    <lastmod>2018-03-29T17:44:14+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://localhost:1313/tags/python/</loc>
-    <lastmod>2018-03-15T13:12:11+08:00</lastmod>
+    <lastmod>2018-03-29T17:44:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/categories/python%E6%9C%89%E8%B6%A3%E7%89%87%E6%AE%B5/</loc>
+    <lastmod>2018-03-29T17:44:14+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
