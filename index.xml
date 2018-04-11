@@ -21,13 +21,13 @@
         <description>
 
 &lt;blockquote&gt;
-&lt;p&gt;我，程序员，有点宅。&lt;/p&gt;
+&lt;p&gt;我，程序员&amp;hellip;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&#34;我的经历&#34;&gt;我的经历&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;2016.10-至今 java工程师作为React主力工作着，倒腾golang，努力成长（不管是生活还是技术）&lt;/li&gt;
+&lt;li&gt;2016.10-至今 工作上主要使用java、spring boot,react.js、js，空闲倒腾golang，努力成长（不管是生活还是技术）&lt;/li&gt;
 &lt;li&gt;2013-2016 .net/java工程师（武汉辰安）&lt;/li&gt;
 &lt;li&gt;2012-2013 .net工程师（深圳震有科技）&lt;/li&gt;
 &lt;li&gt;2008-2012 长江大学计算机科学与技术系&lt;/li&gt;
@@ -39,7 +39,10 @@
 &lt;li&gt;编程语言：C#、Java。偏爱GO，也涉猎F#、Python&amp;hellip;&lt;/li&gt;
 &lt;li&gt;半个前端：捣腾css+js，喜欢React.js，熟悉dva，ant-d&lt;/li&gt;
 &lt;li&gt;熟悉WPF桌面开发。&lt;/li&gt;
-&lt;li&gt;熟悉后台开发，REST API, SOA, 正则表达式&lt;/li&gt;
+&lt;li&gt;熟悉后台开发，HTTP,REST API, SOA, 正则表达式&lt;/li&gt;
+&lt;li&gt;熟练使用SVN、Git、Git Flow、vim&lt;/li&gt;
+&lt;li&gt;常用操作系统：windows、Ubuntu、Mac OS&lt;/li&gt;
+&lt;li&gt;Docker基础操作&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;生活&#34;&gt;生活&lt;/h2&gt;
