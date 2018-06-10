@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/post/2018/06/10/kubernetes%E6%97%A0%E6%B3%95%E5%88%9B%E5%BB%BApod/</loc>
+    <lastmod>2018-06-10T19:21:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/post/2018/03/26/chessboard/</loc>
     <lastmod>2018-03-29T17:44:14+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -219,6 +226,20 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/tags/kubernetes/</loc>
+    <lastmod>2018-06-10T19:21:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/categories/kubernetes/</loc>
+    <lastmod>2018-06-10T19:21:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/tags/linux/</loc>
     <lastmod>2018-03-06T19:12:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -248,7 +269,7 @@
   
   <url>
     <loc>http://localhost:1313/post/</loc>
-    <lastmod>2018-03-29T17:44:14+08:00</lastmod>
+    <lastmod>2018-06-10T19:21:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

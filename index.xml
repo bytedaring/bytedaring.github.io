@@ -71,6 +71,65 @@
     </item>
     
     <item>
+      <title>Kubernetes无法创建pod</title>
+      <link>http://localhost:1313/post/2018/06/10/kubernetes%E6%97%A0%E6%B3%95%E5%88%9B%E5%BB%BApod/</link>
+      <pubDate>Sun, 10 Jun 2018 19:21:35 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/2018/06/10/kubernetes%E6%97%A0%E6%B3%95%E5%88%9B%E5%BB%BApod/</guid>
+      
+        <description>
+
+&lt;h3 id=&#34;环境&#34;&gt;环境&lt;/h3&gt;
+
+&lt;p&gt;腾讯云CentOS7.3&lt;/p&gt;
+
+&lt;p&gt;使用yum安装etcd和Kubernetes软件&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;yum install -y ectd kubernetes 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;按顺序启动所有的服务&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;systemctl start etcd
+systemctl start docker
+systemctl start kube-apiserver
+systemctl start kube-controller-manager
+systemctl start kube-scheduler
+systemctl start kubelet
+systemctl start kube-proxy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;完成一个单机版的Kubernetes集群环境。&lt;/p&gt;
+
+&lt;h3 id=&#34;问题&#34;&gt;问题&lt;/h3&gt;
+
+&lt;p&gt;创建mysql-rc.yaml&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;kubectl create -f mysql-rc.yaml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;查看创建的服务&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;kubectl get rc # 反馈正常
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;查看pds，显示『no resource found』&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;kubectl get pods
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;解决办法&#34;&gt;解决办法&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;$ vim /etc/kubernetes/apiserver&lt;/li&gt;
+&lt;li&gt;找到这一行 &amp;ldquo;KUBE_ADMISSION_CONTROL=&amp;ldquo;&amp;ndash;admission_control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota&amp;rdquo;，去掉ServiceAccount，保存退出。&lt;/li&gt;
+&lt;li&gt;重启kube-apiserver服务: $systemctl restart kube-apiserver&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
       <title>Python生成标定板</title>
       <link>http://localhost:1313/post/2018/03/26/chessboard/</link>
       <pubDate>Mon, 26 Mar 2018 17:44:14 +0800</pubDate>
@@ -2290,135 +2349,6 @@ for _, x := range a {
 &lt;p&gt;这就当我的第一篇博客了，不知道未来会有什么奇迹变化，但这是一个很好的开端。以后的博客都从这里开始了！要比
 &lt;a href=&#34;https://www.cnblogs.com/xiwang/&#34;&gt;博客园-墨梅&lt;/a&gt;
 更加勤奋才是！&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>Golang包管理工具glide简介</title>
-      <link>http://localhost:1313/post/2016/09/06/golang-glide/</link>
-      <pubDate>Tue, 06 Sep 2016 18:57:36 +0800</pubDate>
-      
-      <guid>http://localhost:1313/post/2016/09/06/golang-glide/</guid>
-      
-        <description>
-
-&lt;blockquote&gt;
-&lt;p&gt;从&lt;a href=&#34;http://www.cnblogs.com/xiwang/p/5870941.html&#34;&gt;博客园&lt;/a&gt;搬家而来&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
-
-&lt;p&gt;Golang是一个十分有趣，简洁而有力的开发语言，用来开发并发/并行程序是一件很愉快的事情。在这里我感受到了其中一些好处：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;没有少了许多代码格式风格的争论，强制统一的风格多好;&lt;/li&gt;
-&lt;li&gt;编译速度超快，再也不用等待许久，才能编译完工程（测试驱动开发自然更爽）;&lt;/li&gt;
-&lt;li&gt;也不会出现同一个项目组中的人，在使用同一个语言的不同子集。但这种情况不论是在C#还是在Java的世界里，都还是普遍存在的;&lt;/li&gt;
-&lt;li&gt;轻松跨平台（当然Java做得不错，C#/.net还是努力中&amp;hellip;)&lt;/li&gt;
-&lt;li&gt;这是一门非常简洁、简单、清晰的编程语言（关键字好少啊）&lt;/li&gt;
-&lt;li&gt;包依赖处理得很有趣;&lt;/li&gt;
-&lt;li&gt;错误处理机制很有趣，个人觉得比C#/Java的异常处理机制更方便，也更合理些;&lt;/li&gt;
-&lt;li&gt;对面向对象编程很有趣，非侵入性的接口实现方式，太赞了。&lt;/li&gt;
-&lt;li&gt;用组合而不是继承
-有些东西没有，比如模板，这个东西有一大片争论，官方也有明确的回应。是啊，为什么一定要模板呢？非要不可吗？这么关键吗？如果非要不可，是不是go并不是这个环境下的最佳选择呢。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;还有一个问题的是包管理，并没有官方最佳管理方案，在go的世界里存在大量的自制解决方案。go语言的包是没有中央库统一管理的，通过使用go get命令从远程代码库(github.com,goolge code 等)拉取，直接跳过中央版本库的约束，让代码的拉取直接基于源代码版本控制库，开发者间的协同直接依赖于源代码的版本控制。直接去除了库版本的概念。没有明显的包版本标识，感觉还是有点不适应，官方的建议是把外部依赖的代码全部复制到自己可控的源代码库中，进行同意管理。从而做到对依赖包的可控管理。&lt;/p&gt;
-
-&lt;p&gt;1.5版本的vendor目录特性后，官方wiki推荐了多种支持这种特性的包管理工具如：Godep、gv、gvt、glide、Govendor等。我比较喜欢glide。此外，作为程序员翻墙似乎是必备技能，翻得一手好墙，才能跟得上步伐，才有收起刀落的手感，怎一个爽字了得。别问我怎么翻墙，找度娘，她知道。&lt;/p&gt;
-
-&lt;h2 id=&#34;glide&#34;&gt;glide&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://images2015.cnblogs.com/blog/175061/201609/175061-20160914102850867-1856781327.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://glide.sh/&#34;&gt;glide&lt;/a&gt;是Go的包管理工具。支持语义化版本,支持Git、Svn等，支持Go工具链，支持vendor目录，支持从Godep、GB、GPM、Gom倒入，支持私有的Repos和Forks。&lt;/p&gt;
-
-&lt;p&gt;使用glide管理的工程目录结构如下：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;- $GOPATH/src/myProject (Your project)
-  |
-  |-- glide.yaml
-  |
-  |-- glide.lock
-  |
-  |-- main.go (Your main go code can live here)
-  |
-  |-- mySubpackage (You can create your own subpackages, too)
-  |    |
-  |    |-- foo.go
-  |
-  |-- vendor
-       |-- github.com
-            |
-            |-- Masterminds
-                  |
-                  |-- ... etc.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ curl https://glide.sh/get | sh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;初始化&#34;&gt;初始化&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ glide init
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;初始化，glide扫描代码目录，创建一个glide.yaml文件，文件中记录了所有的依赖&lt;/p&gt;
-
-&lt;h3 id=&#34;编辑配置&#34;&gt;编辑配置&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ edit glide.yaml
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;通过修改glide.yaml文件，可以添加版本信息等，这一步不是必须的。&lt;/p&gt;
-
-&lt;h3 id=&#34;解析下载包依赖&#34;&gt;解析下载包依赖&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ glide update
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;或者&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ glide up
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;下载和更新glide.yaml中列出的所有依赖包，并将它们放到vendor目录下。glide同时也递归获取依赖包需要的任何依赖项包括配置文件中定义的依赖项目。glide递归获取依赖，可以识别Glide、Godep、gb、gom和GPM管理的项目。&lt;/p&gt;
-
-&lt;p&gt;当依赖被制定到特定的版本时，名为glide.lock的文件会被创建或者更新。例如，如果在glide.yaml中一个版本被指定在一个范围内(如：^1.2.3),那么glide将在glide.yaml中设定一个特定提交ID（commit id）。如此，将允许重复安装(见 glide install命令)。&lt;/p&gt;
-
-&lt;p&gt;从获取的依赖包中移除嵌套的vendor/目录可以使用-v标记。&lt;/p&gt;
-
-&lt;h3 id=&#34;安装特定版本&#34;&gt;安装特定版本&lt;/h3&gt;
-
-&lt;p&gt;当需要从glide.lock文件中安装制定版本的包是，可以使用install命令：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;glide install
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;该命令将会读取glide.lock文件，当glide.lock文件和glide.yaml不同步时，如glide.yaml发生改变，glide将会提供一个警告。运行glide up命令更新依赖树时，将会重建glide.lock文件。&lt;/p&gt;
-
-&lt;h3 id=&#34;查看glide-yaml中依赖名称&#34;&gt;查看glide.yaml中依赖名称&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ glide name
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;查看依赖列表&#34;&gt;查看依赖列表&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ glide list
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;查看帮助&#34;&gt;查看帮助&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ glide help
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;查看glide版本信息&#34;&gt;查看glide版本信息&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;$ glide --version
-&lt;/code&gt;&lt;/pre&gt;
 </description>
       
     </item>
